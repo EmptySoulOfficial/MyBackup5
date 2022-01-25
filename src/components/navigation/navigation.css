@@ -1,7 +1,6 @@
 @import '../../assets/css/defaults/index.css';
-
-.navigation{
-    width: 200px;
+.navigation {
+    width: 100px;
     height: 100%;
     top: 0;
     left: 0;
@@ -11,13 +10,13 @@
     padding-top: 20px;
 }
 
-.navigation-logosection{
-display: flex;
-align-items: center;
-justify-content: center;
+.navigation-logosection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.navigation_container{
+.navigation_container {
     width: 100%;
     height: 100%;
     justify-content: center;
