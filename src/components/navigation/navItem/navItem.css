@@ -1,0 +1,20 @@
+@import '../../../assets/css/defaults/index.css';
+
+.nav-item{
+    width: 100%;
+    min-height: 80px;
+    color: #ffffff;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item_icon{
+    width: 50px;
+    height: 50px;
+    background-color: #ff0000;
+}
+
+.nav-item_label{
+    padding-top: 15px;
+}
