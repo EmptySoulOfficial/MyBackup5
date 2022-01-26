@@ -31,3 +31,11 @@ Paste *code under -----------
       },
 -----------------------
 make shure do delete all other svg importer in the webpack builds!
+
+###Build
+----------------------
+ npm run package
+
+###Change window title
+----------------------
+enter Window name in the builded index.html project. (resources\app\dist\index.html)

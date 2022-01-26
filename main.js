@@ -36,6 +36,7 @@ function createWindow() {
     height: 600 ,
     show: false,
     autoHideMenuBar: true,
+    icon: './data/appIcon.ico',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -43,7 +44,6 @@ function createWindow() {
   })
 
   mainWindow.setResizable(false);
-
   // and load the index.html of the app.
   let indexPath
 
