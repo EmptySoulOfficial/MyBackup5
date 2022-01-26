@@ -29,10 +29,11 @@ if (process.platform === 'win32') {
 }
 
 function createWindow() {
+  
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 600,
+    width: 1000 ,
+    height: 600 ,
     show: false,
     autoHideMenuBar: true,
     webPreferences: {
@@ -40,6 +41,8 @@ function createWindow() {
       contextIsolation: false
     }
   })
+
+  mainWindow.setResizable(false);
 
   // and load the index.html of the app.
   let indexPath

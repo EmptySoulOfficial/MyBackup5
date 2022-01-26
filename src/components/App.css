@@ -1,13 +1,8 @@
 /* Main CSS file */
+/* imports */
 @import '../assets/css/defaults/index.css';
-@import '../assets/css/env/index.css';
 
-.app_container {
-    font-family: font-default;
-}
-
-/* headlines */
-
+/* fonts: headlines */
 
 @font-face {
     font-family: 'headline-default';
@@ -27,8 +22,7 @@
     
 }
 
-
-/* text fonts */
+/* fonts: text */
 
   @font-face {
     font-family: 'font-default';
@@ -60,3 +54,28 @@ body,* {
     font-family: font-default;
 }
 
+h1 {
+    font-family: 'headline-default';
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.app-container {
+    font-family: font-default;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.app-background {
+    background-color: var(--white);
+    width: 100%;
+    height: 100%;
+}
+
+.app-content{
+    width: calc(100% - 120px);
+    height: 100%;
+    right: 0px;
+    position: absolute;
+}

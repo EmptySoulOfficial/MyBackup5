@@ -1,0 +1,6 @@
+@import '../../../assets/css/defaults/index.css';
+
+.backup-window {
+    padding-left: 50px;
+    padding-top: 50px;
+}

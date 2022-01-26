@@ -1,0 +1,15 @@
+{"de":{
+    "menulabel_backup": "Backup",
+    "menulabel_restore": "Restore",
+    "menulabel_manage": "Options",
+    "menulabel_config": "Configuartions"
+    
+ },
+ "en":{
+    "menulabel_backup": "Backup",
+    "menulabel_restore": "Restore",
+    "menulabel_manage": "Optionen",
+    "menulabel_config": "Einstellungen"
+  }
+
+}
