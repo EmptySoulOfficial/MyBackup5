@@ -1,3 +1,6 @@
 :root{
     --default-border-radius: 10px;
+    --titlebar-height: 30px;
+    --app-titlebarcalc-height: calc(100% - 30px);
+    --default-transition: 0.3s;
 }

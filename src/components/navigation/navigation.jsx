@@ -11,14 +11,15 @@ import templateIcon from '../../assets/images/icons/XLR_Audio.svg';
 
 function Navigation() {
   const lang_text = parseLanguages();
-
   const ticon = templateIcon
 
   return (
     <nav className="navigation">
-        {/* <div className="navigation-logosection"> */}
-        {/* <Logo/> */}
-        {/* </div> */}
+        <div className="navigation-logosection">
+          <div className="Logo-container">
+            <Logo/>
+          </div>
+        </div> 
         <div className="navigation_container">
             <div className="item-container">
                 <NavItem label={lang_text.menulabel_backup} iconSrc={ticon} iconAlt="create backup icon"/>

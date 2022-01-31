@@ -10,7 +10,7 @@ function BackupWindow() {
         <div className="backup-window_content">
 
         </div>
-        <div classname="backup-window_bottom_content">
+        <div className="backup-window_bottom_content">
             
         </div>
     </div>
