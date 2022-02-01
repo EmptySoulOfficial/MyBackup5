@@ -59,6 +59,10 @@ h1 {
     padding: 0;
     margin-block-start: 0;
     margin-block-end: 0;
+    text-transform: uppercase;
+    color: var(--font-color);
+    font-size: 30px;
+    user-select: none;
 }
 .app-container {
     font-family: font-default;
@@ -68,10 +72,10 @@ h1 {
 }
 
 .app-background {
-    background-color: var(--gray);
     width: 100%;
     height: var(--app-titlebarcalc-height);
     padding-top: 30px;
+    background-size: cover;
 }
 
 .app-content{
@@ -79,4 +83,36 @@ h1 {
     height: var(--app-titlebarcalc-height);
     right: 0px;
     position: absolute;
+}
+
+.appmainwindow-content {
+    width: 740px;
+    height: 340px;
+    background-color: var(--bg-alpha);
+    margin-top: 30px;
+    border-radius: var(--default-border-radius);
+    margin-left: 30px;
+    margin-right: 80px;
+    overflow: hidden;
+}
+
+.appmainwindow-bottomcontent {
+    width: 740px;
+    height: 80px;
+    margin-top: 20px;
+    margin-left: 30px;
+    border-radius: var(--default-border-radius);
+    background-color: var(--bg-alpha);
+    overflow: hidden;
+}
+
+.button-submit {
+    width: 160px;
+    height: 50px;
+    background-color: var(--secondcolor);
+    transition: var(--default-transition);
+}
+
+.button-submit:hover {
+    background-color: var(--highlight);
 }

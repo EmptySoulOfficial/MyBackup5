@@ -1,7 +1,13 @@
 :root{
     --gray: #111119;
+    --lightgray: #2f2f46;
     --white: #fefefe;
-    --bg-alpha: #00000022;
+    --bg-alpha: #00000044;
     --bg-titlebar: #0b0b10;
     --smooth-red: #ad3156;
+    --highlight: #28b28d;
+ 
+    --maincolor: var(--gray);
+    --secondcolor: var(--lightgray);
+    --font-color: var(--white);
 }

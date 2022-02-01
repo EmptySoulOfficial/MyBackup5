@@ -1,0 +1,7 @@
+{"style":{
+    "wallpaper": "false",
+    "backgroundcolor": "var(--maincolor)",
+    "blur": "var(--default-blur)",
+    "font-color": "var(--font-color)"
+ }
+}

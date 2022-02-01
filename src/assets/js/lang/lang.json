@@ -2,14 +2,20 @@
     "menulabel_backup": "Backup",
     "menulabel_restore": "Restore",
     "menulabel_manage": "Options",
-    "menulabel_config": "Configuartions"
+    "menulabel_config": "Configuartions",
+
+    "windowtitle_home": "Home",
+    "windowtitle_backup": "Backup"
     
  },
  "en":{
     "menulabel_backup": "Backup",
     "menulabel_restore": "Restore",
     "menulabel_manage": "Optionen",
-    "menulabel_config": "Einstellungen"
+    "menulabel_config": "Einstellungen",
+
+    "windowtitle_home": "Home",
+    "windowtitle_backup": "Backup"
   }
 
 }

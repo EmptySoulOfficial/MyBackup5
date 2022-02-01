@@ -9,22 +9,7 @@ const defaultInclude = path.resolve(__dirname, 'src')
 module.exports = {
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              encoding: 'base64'
-            },
-          },
-        ],
-      },
+     
       {
         test: /\.css$/,
         use: [

@@ -9,12 +9,12 @@ import parseLanguages from '../../assets/js/parseLanguages.asset.jsx'
 //Icons
 import templateIcon from '../../assets/images/icons/XLR_Audio.svg';
 
-function Navigation() {
+function Navigation({blur}) {
   const lang_text = parseLanguages();
   const ticon = templateIcon
 
   return (
-    <nav className="navigation">
+    <nav className="navigation" style={{backdropFilter: blur}}>
         <div className="navigation-logosection">
           <div className="Logo-container">
             <Logo/>

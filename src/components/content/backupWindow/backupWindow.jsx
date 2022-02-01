@@ -1,17 +1,19 @@
 import React from 'react'
 import './backupWindow.css'
-
+import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
 
 
 function BackupWindow() {
+    const lang_text = parseLanguages();
     return ( 
-    <div className="backup-window" >
-        <h1>TITLE</h1>
-        <div className="backup-window_content">
+        
+    <div className="appmainwindow backup-window" >
+        <h1>{lang_text.windowtitle_backup}</h1>
+        <div className="appmainwindow-content backup-window_content">
 
         </div>
-        <div className="backup-window_bottom_content">
-            
+        <div className="appmainwindow-bottomcontent backup-window_bottom_content">
+            <button className="button-submit">Launch</button>
         </div>
     </div>
     )
