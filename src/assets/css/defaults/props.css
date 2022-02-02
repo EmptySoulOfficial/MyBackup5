@@ -3,5 +3,6 @@
     --titlebar-height: 30px;
     --app-titlebarcalc-height: calc(100% - 30px);
     --default-transition: 0.3s;
+    --slow-transition: 0.8s;
     --default-blur: blur(10px);
 }

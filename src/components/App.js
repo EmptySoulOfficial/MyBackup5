@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import TitleBar from './titleBar/titleBar.jsx'
 
@@ -6,7 +6,9 @@ import parseStyle from '../assets/js/parseStyle.asset.jsx'
 import wallpaperimage from '../user/wallpaper/wallpaper.jpg'
 
 import Navigation from './navigation/navigation.jsx'
+import HomeWindow from './content/homeWindow/homeWindow.jsx'
 import BackupWindow from './content/backupWindow/backupWindow.jsx'
+import RestoreWindow from './content/restoreWindow/restoreWindow.jsx'
 
 
 function App() {
@@ -28,12 +30,15 @@ function App() {
     <div className="app-container" >
          <TitleBar/>
         <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
-            <Navigation blur={jStyle.blur}/>
+        
+            <Navigation blur={jStyle.blur} />
             <div className="app-content">
-            <BackupWindow/>
+            <BackupWindow />  
+            <HomeWindow /> 
+            <RestoreWindow /> 
+            </div>
             </div>
         </div>
-    </div>
     )
 }
 

@@ -19,7 +19,7 @@
 
 .navigation_container {
     width: 100%;
-    height: calc(100% - 100px);
+    height: calc(100% - 90px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -34,9 +34,10 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 0px;
+    cursor: pointer;
 }
 .config-button_container {
-
+    width: 100%;
 }
 
 .Logo-container{

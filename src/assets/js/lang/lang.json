@@ -5,7 +5,8 @@
     "menulabel_config": "Configuartions",
 
     "windowtitle_home": "Home",
-    "windowtitle_backup": "Backup"
+    "windowtitle_backup": "Backup",
+    "windowtitle_restore": "Wiederherstellen"
     
  },
  "en":{
@@ -15,7 +16,8 @@
     "menulabel_config": "Einstellungen",
 
     "windowtitle_home": "Home",
-    "windowtitle_backup": "Backup"
+    "windowtitle_backup": "Backup",
+    "windowtitle_restore": "Restore"
   }
 
 }

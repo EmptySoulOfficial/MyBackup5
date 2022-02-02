@@ -1,0 +1,12 @@
+@import '../../../assets/css/defaults/index.css';
+
+.launch_button {
+    justify-self: flex-end;
+}
+
+.launchbutton-container {
+    height: 100%;
+    float: right;
+    display: flex;
+    justify-content: center;
+}

@@ -7,7 +7,7 @@ function BackupWindow() {
     const lang_text = parseLanguages();
     return ( 
         
-    <div className="appmainwindow home-window" >
+    <div className="appmainwindow home-window appmainwindow--active" >
         <h1>{lang_text.windowtitle_home}</h1>
         <div className="appmainwindow-content home-window_content">
 

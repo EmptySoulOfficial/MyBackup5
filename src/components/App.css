@@ -56,6 +56,7 @@
 
 body,* {
     font-family: font-default;
+    user-select: none;
 }
 
 h1 {
@@ -68,6 +69,7 @@ h1 {
     font-size: 25px;
     user-select: none;
 }
+
 .app-container {
     font-family: font-default;
     width: 100%;
@@ -87,11 +89,35 @@ h1 {
     height: var(--app-titlebarcalc-height);
     right: 0px;
     position: absolute;
+    overflow: hidden;
 }
 
 .appmainwindow {
     padding-left: 20px;
     padding-top: 40px;
+    display: none;
+    transform: translateX(350px);
+    opacity: 0;
+}
+
+.appmainwindow--active {
+display: block;
+animation-name: appmainwindow-fadeIn;
+animation-duration:var(--slow-transition);
+animation-delay: 0.05s;
+animation-fill-mode: forwards;
+animation-timing-function: cubic-bezier(0.47, 0, 0, 1.01);
+}
+
+@keyframes appmainwindow-fadeIn {
+    0% {
+        transform: translateX(350px);
+        opacity: 0;
+    }
+    100% {
+        transform: unset;
+        opacity: 1;
+    }  
 }
 
 .appmainwindow-content {
