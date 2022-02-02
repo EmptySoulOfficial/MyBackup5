@@ -8,15 +8,43 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.nav-item:hover{
+    background-color: var(--lightgray);
+}
+
+.nav-item_bar{
+    width: 2px;
+    height: 0px;
+    background-color: #00ffa7;
+    position: absolute;
+    margin-left: 98px;
+    transition: var(--default-transition);
+    border-radius: var(--default-border-radius);
+    opacity: 0;
+}
+
+.nav-item:hover .nav-item_bar{
+height: 20px;
+opacity: 1;
+}
+
+.nav-item_bar--active{
+    height: 60px;
 }
 
 .nav-item_icon{
     width: 50px;
     height: 50px;
+    user-select: none;
 }
 
 .nav-item_label{
     padding-top: 15px;
+    user-select:none;
 }
 
 .nav-item_icon{

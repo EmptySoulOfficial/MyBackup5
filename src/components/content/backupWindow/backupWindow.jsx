@@ -13,7 +13,9 @@ function BackupWindow() {
 
         </div>
         <div className="appmainwindow-bottomcontent backup-window_bottom_content">
-            <button className="button-submit">Launch</button>
+            <div className="launchbutton-container">
+            <button className="button-submit launch_button">Launch</button>
+            </div>
         </div>
     </div>
     )

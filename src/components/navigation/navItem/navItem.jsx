@@ -4,13 +4,18 @@ import './navItem.css'
 function NavItem({label, iconSrc, iconAlt}) {
 
   return (
-    <button className="nav-item">
+    <button className="nav-item" onClick={selectNavItem()}>
         <div className="nav-item_icon">
           <img src={iconSrc} alt={iconAlt}/>
         </div>
         <label className="nav-item_label">{label}</label>
+        <div className="nav-item_bar"></div>
     </button>
   )
+}
+
+function selectNavItem() {
+  
 }
 
 export default NavItem

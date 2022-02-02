@@ -7,7 +7,7 @@ import NavItem from './navItem/navItem.jsx'
 import parseLanguages from '../../assets/js/parseLanguages.asset.jsx'
 
 //Icons
-import templateIcon from '../../assets/images/icons/XLR_Audio.svg';
+import templateIcon from '../../assets/images/icons/MyBackupicon-nobg.svg';
 
 function Navigation({blur}) {
   const lang_text = parseLanguages();
