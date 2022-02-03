@@ -9,6 +9,7 @@ function BackupWindow() {
         
     <div className="appmainwindow backup-window" >
         <h1>{lang_text.windowtitle_backup}</h1>
+        <div className="appmainwindow-container backup-container">
         <div className="appmainwindow-content backup-window_content">
 
         </div>
@@ -16,6 +17,7 @@ function BackupWindow() {
             <div className="launchbutton-container">
             <button className="button-submit launch_button">Launch</button>
             </div>
+        </div>
         </div>
     </div>
     )

@@ -9,6 +9,8 @@ import Navigation from './navigation/navigation.jsx'
 import HomeWindow from './content/homeWindow/homeWindow.jsx'
 import BackupWindow from './content/backupWindow/backupWindow.jsx'
 import RestoreWindow from './content/restoreWindow/restoreWindow.jsx'
+import OptionsWindow from './content/optionsWindow/optionsWindow.jsx'
+import ConfigWindow from './content/configWindow/configWindow.jsx'
 
 
 function App() {
@@ -35,7 +37,9 @@ function App() {
             <div className="app-content">
             <BackupWindow />  
             <HomeWindow /> 
-            <RestoreWindow /> 
+            <RestoreWindow />
+            <OptionsWindow /> 
+            <ConfigWindow /> 
             </div>
             </div>
         </div>

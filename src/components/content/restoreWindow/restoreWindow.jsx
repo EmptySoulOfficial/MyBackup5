@@ -9,6 +9,7 @@ function RestoreWindow() {
         
     <div className="appmainwindow restore-window" >
         <h1>{lang_text.windowtitle_restore}</h1>
+        <div className="appmainwindow-container restore-container">
         <div className="appmainwindow-content backup-window_content">
 
         </div>
@@ -16,6 +17,7 @@ function RestoreWindow() {
             <div className="launchbutton-container">
             <button className="button-submit launch_button">Launch</button>
             </div>
+        </div>
         </div>
     </div>
     )

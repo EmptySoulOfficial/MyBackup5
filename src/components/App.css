@@ -68,6 +68,24 @@ h1 {
     color: var(--font-color);
     font-size: 25px;
     user-select: none;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation-name: h1-fadeIn;
+    animation-duration:var(--slow-transition);
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: var(--animation);
+}
+
+@keyframes h1-fadeIn{
+    0%{
+        transform: translateY(-28px);
+        opacity: 0;
+    }
+   100%{
+        transform: unset;
+        opacity: 1;
+    }
 }
 
 .app-container {
@@ -93,20 +111,28 @@ h1 {
 }
 
 .appmainwindow {
-    padding-left: 20px;
+    padding-left: 50px;
     padding-top: 40px;
     display: none;
-    transform: translateX(350px);
-    opacity: 0;
+    overflow: hidden;
 }
 
 .appmainwindow--active {
 display: block;
-animation-name: appmainwindow-fadeIn;
-animation-duration:var(--slow-transition);
-animation-delay: 0.05s;
-animation-fill-mode: forwards;
-animation-timing-function: cubic-bezier(0.47, 0, 0, 1.01);
+
+}
+
+.appmainwindow-container {
+    transform: translateX(350px);
+    opacity: 0; 
+}
+
+.appmainwindow-container--active {
+    animation-name: appmainwindow-fadeIn;
+    animation-duration:var(--slow-transition);
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: var(--animation);
 }
 
 @keyframes appmainwindow-fadeIn {
@@ -126,7 +152,7 @@ animation-timing-function: cubic-bezier(0.47, 0, 0, 1.01);
     background-color: var(--bg-alpha);
     margin-top: 30px;
     border-radius: var(--default-border-radius);
-    margin-left: 30px;
+    margin-left: 0px;
     margin-right: 50px;
     overflow: hidden;
 }
