@@ -35,7 +35,6 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 0px;
-    cursor: pointer;
 }
 .config-button_container {
     width: 100%;

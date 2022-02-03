@@ -25,12 +25,12 @@ function Navigation({blur}) {
         </div> 
         <div className="navigation_container">
             <div className="item-container">
-                <NavItem label={lang_text.menulabel_backup}  navItemId={"ni_backup"} iconAlt="create backup icon" navitemdefaultselected={false}/>
-                <NavItem label={lang_text.menulabel_restore} navItemId={"ni_restore"} iconAlt="restore icon" navitemdefaultselected={false}/>
-                <NavItem label={lang_text.menulabel_manage}  navItemId={"ni_options"} iconAlt="manage backup icon" navitemdefaultselected={false}/>
+                <NavItem label={lang_text.menulabel_backup}  navItemId={"ni_backup"} iconName={"backup"} iconAlt="create backup icon" navitemdefaultselected={false}/>
+                <NavItem label={lang_text.menulabel_restore} navItemId={"ni_restore"} iconName={"restore"} iconAlt="restore icon" navitemdefaultselected={false}/>
+                <NavItem label={lang_text.menulabel_manage}  navItemId={"ni_options"} iconName={"options"} iconAlt="manage backup icon" navitemdefaultselected={false}/>
             </div>
             <div className="config-button_container">
-            <NavItem label={lang_text.menulabel_config}  navItemId={"ni_config"} navitemdefaultselected={false} iconAlt="manage backup icon"/>
+            <NavItem label={lang_text.menulabel_config}  navItemId={"ni_config"} iconName={"config"} navitemdefaultselected={false} iconAlt="manage backup icon"/>
             </div>
         </div>
     </nav>
