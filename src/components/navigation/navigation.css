@@ -1,4 +1,5 @@
 @import '../../assets/css/defaults/index.css';
+
 .navigation {
     width: 100px;
     height: var(--app-titlebarcalc-height);

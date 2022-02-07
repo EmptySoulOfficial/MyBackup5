@@ -148,7 +148,7 @@ display: block;
 
 .appmainwindow-content {
     width: auto;
-    height: 350px;
+    height: 370px;
     background-color: var(--bg-alpha);
     margin-top: 30px;
     border-radius: var(--default-border-radius);
@@ -160,7 +160,7 @@ display: block;
 
 .appmainwindow-bottomcontent {
     width: auto;
-    height: 60px;
+    height: 40px;
     margin-top: 20px;
     margin-left: 30px;
     margin-right: 50px;
@@ -169,8 +169,8 @@ display: block;
 }
 
 .button-submit {
-    width: 160px;
-    height: 50px;
+    width: 120px;
+    height: 40px;
     background-color: var(--secondcolor);
 }
 

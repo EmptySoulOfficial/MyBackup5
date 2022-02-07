@@ -1,4 +1,5 @@
 :root{
+    --color-none: transparent;
     --gray: #111119;
     --lightgray2: #2f2f46;
     --lightgray: #a2a2ec22;
@@ -12,4 +13,6 @@
     --maincolor: var(--gray);
     --secondcolor: var(--lightgray);
     --font-color: var(--white);
+
+    --node-dragable_background: var(--color-none);
 }
