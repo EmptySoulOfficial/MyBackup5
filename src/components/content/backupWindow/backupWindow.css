@@ -10,3 +10,44 @@
     display: flex;
     justify-content: center;
 }
+
+.backup-node {
+    width: 100%;
+    margin: 10px 0px;
+    border-radius:var(--default-border-radius);
+    height: 35px;
+    background-color: var(--lightgray);
+    overflow: hidden;
+    display: flex;
+}
+
+.backup-node_dragable {
+    min-width: 20px;
+    width: 4%;
+    height: 100%;
+    background-color: #ff0000;
+}
+
+.backup-node_mainsection {
+    width: 81%;
+    overflow: hidden;
+    background-color: #ffff0033;
+}
+
+.backup-node_switchsection {
+    width: 10%;
+    background-color: #00ffff;  
+}
+
+.backup-node_editsection {
+    width: 5%;
+    background-color: #0000ff;  
+}
+
+.backup-node_label{
+    color: var(--font-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
