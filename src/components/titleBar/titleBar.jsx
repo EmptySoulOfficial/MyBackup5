@@ -3,12 +3,12 @@ import './titleBar.css'
 
 import appTitle from '../../assets/js/appTitle.jsx'
 
-function TitleBar() {
+function TitleBar({titel_bar_backgroundcolor}) {
 
     const defaultAppTitle = appTitle();
     
     return (
-    <div className="TitleBar">
+    <div className="TitleBar" style={{backgroundColor: titel_bar_backgroundcolor}}>
         <div className="titleBar-DragAble">
         <label className="titleLabel">{defaultAppTitle}</label>
         </div>

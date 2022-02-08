@@ -14,5 +14,9 @@
     --secondcolor: var(--lightgray);
     --font-color: var(--white);
 
+    /* Backup nodes */
     --node-dragable_background: var(--color-none);
+    --node-mainsection_background: var(--color-none);
+    --node-switchsection_background: var(--color-none);
+    --node-nodesection_background: var(--color-none);
 }

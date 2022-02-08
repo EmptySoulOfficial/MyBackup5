@@ -1,6 +1,7 @@
 {"style":{
     "wallpaper": "false",
     "backgroundcolor": "var(--maincolor)",
+    "titel_bar_backgroundcolor": "var(--transparent)",
     "blur": "var(--default-blur)",
     "font-color": "var(--font-color)"
  }

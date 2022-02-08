@@ -20,6 +20,7 @@ function App() {
 
     const [ quickinfovis, setquickinfovis ] = useState(false);
     const [ quickinfoTitle, setquickinfoTitle ] = useState('');
+    const [ quickinfoText, setquickinfoText ] = useState('');
 
     //set jStyle from user style json
     const jStyle = parseStyle();
@@ -36,15 +37,15 @@ function App() {
 
     return ( 
         <ReactCursorPosition>
-            <QuickInfo quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} quickinfoTitle={quickinfoTitle} />
+            <QuickInfo quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} quickinfoTitle={quickinfoTitle} quickinfoText={quickinfoText}/>
 
     <div className="app-container" >
 
-  <TitleBar/>
+  <TitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} />
     <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
         <Navigation blur={jStyle.blur} />
             <div className="app-content">
-                    <BackupWindow quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} quickinfoTitle={quickinfoTitle} setquickinfoTitle={setquickinfoTitle} />  
+                    <BackupWindow quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />  
                     <HomeWindow /> 
                     <RestoreWindow />
                     <OptionsWindow /> 

@@ -12,6 +12,7 @@
     user-select: none;
     margin: 20px;
     display: none;
+    white-space: pre-wrap;
 }
 
 .quickinfo-title {

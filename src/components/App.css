@@ -156,6 +156,7 @@ display: block;
     margin-right: 50px;
     overflow: hidden;
     color: var(--font-color);
+    padding: 0px 10px;
 }
 
 .appmainwindow-bottomcontent {

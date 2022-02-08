@@ -19,34 +19,53 @@
     background-color: var(--lightgray);
     overflow: hidden;
     display: flex;
+    transition: var(--default-transition);
+}
+
+.backup-node--inactive {
+    filter: brightness(0.5);
 }
 
 .backup-node_dragable {
     min-width: 20px;
     width: 4%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--node-dragable_background);
-}
-
-.backup-node_dragable .icon {
-    width: 100%;
-    height: 100%;
 }
 
 .backup-node_mainsection {
     width: 81%;
     overflow: hidden;
-    background-color: #ffff0033;
+    background-color: var(--node-mainsection_background);
 }
 
 .backup-node_switchsection {
     width: 10%;
-    background-color: #00ffff;  
+    min-width: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: var(--node-switchsection_background);
 }
 
 .backup-node_editsection {
     width: 5%;
-    background-color: #0000ff;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--node-editsection_background);
+    cursor: pointer;
+}
+
+.backup-node_editsection .icon {
+    transition: var(--default-transition);
+}
+
+.backup-node_editsection:hover .icon {
+    fill: var(--highlight);
 }
 
 .backup-node_label{
@@ -55,4 +74,51 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
+}
+
+.switch {
+    width: 40px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    margin-left: 0px;
+}
+
+.switch-input {
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+}
+
+.switch-inner {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: var(--smooth-red);
+    transition: var(--default-transition);
+}
+
+.switch-inner::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    left: 4px;
+    bottom: 4px;
+    top: 3px;
+    background-color: var(--maincolor);
+    position: absolute;
+    border-radius: 100%;
+    transition: var(--default-transition);
+   transition-timing-function: var(--default-animation);
+}
+
+input:checked + .switch-inner {
+    background-color: var(--highlight);
+}
+input:checked + .switch-inner::before {
+    transform: translateX(18px);
 }
