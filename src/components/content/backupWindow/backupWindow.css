@@ -113,7 +113,7 @@
     position: absolute;
     border-radius: 100%;
     transition: var(--default-transition);
-   transition-timing-function: var(--default-animation);
+    transition-timing-function: var(--animation);
 }
 
 input:checked + .switch-inner {

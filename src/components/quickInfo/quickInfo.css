@@ -30,5 +30,19 @@
 }
 
 .quickinfo--visible {
+    animation-name: quickinfo-vis;
+    animation-delay: 1s;
+    animation-duration: var(--default-transition);
+    animation-fill-mode: forwards;
     display: block;
+    opacity: 0;
+}
+
+@keyframes quickinfo-vis {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -8,7 +8,7 @@ import Icon from '../../../assets/js/icon.asset.jsx'
 function BackupWindow({quickinfovis, setquickinfovis, setquickinfoTitle, setquickinfoText}) {
 
     const nodename = "My backup name";
-    const backupfrom = "From: C:\\MyFolder\\Mydata";
+    const backupfrom = "From: C:\\Program Files (x86)\\My Folder";
     const backupto = "To: E:\\";
 
     const lang_text = parseLanguages();
@@ -30,7 +30,9 @@ function BackupWindow({quickinfovis, setquickinfovis, setquickinfoTitle, setquic
                         onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backupfrom + `\n` + backupto)}} 
                         onMouseLeave={() => setquickinfovis(false)}>Node Label</div>
                 </div>
-                <div className="backup-node_switchsection">
+                <div className="backup-node_switchsection"
+                onMouseOver={() => {setquickinfovis(true); setquickinfoTitle("Backup  Switch"); setquickinfoText("Turn backup on/off for this Item (NO LANG)")}} 
+                onMouseLeave={() => setquickinfovis(false)}>
                     {/* Backup Switch */}
                     <label className="switch">
                         <input type="checkbox" defaultChecked={true} className="switch-input" onChange={() => setbackupCheck(prev => !prev)}></input>
