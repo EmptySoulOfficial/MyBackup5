@@ -39,7 +39,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText}){
             </div>
             {/* Item switch */}
             <div className="backup-node_switchsection"
-              onMouseOver={() => {setquickinfovis(true); setquickinfoTitle("Backup  Switch"); setquickinfoText("Turn backup on/off for this Item (NO LANG)")}} 
+              onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(lang_text.quickinfo_backupswitch_title); setquickinfoText(lang_text.quickinfo_backupswitch_text)}} 
               onMouseLeave={() => setquickinfovis(false)}>
                 <label className="switch">
                     <input type="checkbox" defaultChecked={true} disabled = {(nodeItemCheck)? "disabled" : ""} className="switch-input" onChange={() => setbackupCheck(prev => !prev)}></input>

@@ -1,0 +1,5 @@
+{"$MyBackup5":{"path-arr"},
+"backup-nodes": {
+    "New Item": {"backup_from": "C:\\Program Files\\example", "backup_to": "E:\\MyBackup"}
+}
+}

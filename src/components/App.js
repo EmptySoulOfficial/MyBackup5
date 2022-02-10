@@ -34,6 +34,18 @@ function App() {
         var appbgwallpaper = ""
     }
 
+    //check if file exists (DONT WORK)
+    const fs = require("fs");
+
+    const path = "../user/data/backup.mybackup5";
+    
+    if (fs.existsSync(path)) {
+      // path exists
+      console.log("exists:", path);
+    } else {
+      console.log("DOES NOT exist:", path);
+    }
+
 
     return ( 
         <ReactCursorPosition>

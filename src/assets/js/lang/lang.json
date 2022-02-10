@@ -8,7 +8,10 @@
     "windowtitle_backup": "Backup",
     "windowtitle_restore": "Wiederherstellen",
     "windowtitle_options": "Optionen",
-    "windowtitle_config": "Einstellungen"
+    "windowtitle_config": "Einstellungen",
+
+    "quickinfo_backupswitch_title": "Backup Schalter",
+    "quickinfo_backupswitch_text": "Schalte backup für dieses Element an/aus."
     
  },
  "en":{
@@ -21,7 +24,10 @@
     "windowtitle_backup": "Backup",
     "windowtitle_restore": "Restore",
     "windowtitle_options": "Options",
-    "windowtitle_config": "Configurations"
+    "windowtitle_config": "Configurations",
+
+    "quickinfo_backupswitch_title": "Backup switch",
+    "quickinfo_backupswitch_text": "Turn backup for this item on/off."
   }
 
 }
