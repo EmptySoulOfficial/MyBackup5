@@ -13,6 +13,7 @@
     --maincolor: var(--gray);
     --secondcolor: var(--lightgray);
     --font-color: var(--white);
+    --color-disabled: #3d3d53;
 
     /* Backup nodes */
     --node-dragable_background: var(--color-none);

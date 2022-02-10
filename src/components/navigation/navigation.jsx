@@ -6,7 +6,7 @@ import NavItem from './navItem/navItem.jsx'
 
 import parseLanguages from '../../assets/js/parseLanguages.asset.jsx'
 
-import './navItem/setItemActive.jsx'
+import './navItem/lib/setItemActive.jsx'
 
 
 function Navigation({blur}) {

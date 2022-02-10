@@ -1,6 +1,4 @@
 import $ from 'jquery'
-import React from 'react'
-
 
 $(document).ready(function () {
     
