@@ -37,7 +37,7 @@ function App() {
     //check if file exists (DONT WORK)
     const fs = require("fs");
 
-    const path = "../user/data/backup.mybackup5";
+    const path = "./data/user/backup.mybackup5";
     
     if (fs.existsSync(path)) {
       // path exists
