@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import './backupWindow.css'
 import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
 import BackupNode from '../../Items/backupNode/backupNode.jsx'
-
+import Icon from '../../../assets/js/icon.asset.jsx'
 
 
 function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText}) {
@@ -13,7 +13,12 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText}) {
     return ( 
         
     <div className="appmainwindow backup-window" >
-        <h1>{lang_text.windowtitle_backup}</h1>
+        <div className="appmainwindow-titlesection">
+            <h1>{lang_text.windowtitle_backup}</h1>
+            <div className="appmainwindow-toolbar">
+                <button className="addNodeItem"><Icon name="add" color="var(--color-low)" size={20} /></button>
+            </div>
+        </div>
         <div className="appmainwindow-container backup-container">
         <div className="appmainwindow-content backup-window_content">
             <BackupNode setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />

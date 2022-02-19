@@ -17,8 +17,10 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText}){
 
     const [backupCheck, setbackupCheck] = useState(true);
     const [nodeItemCheck, setnodeItemCheck] = useState(false);
+    const [nodeItemEdit, setnodeItemEdit] = useState(false);
 
     return (
+        <>
         <div className={classNames('backup-node', {'': backupCheck,'backup-node--inactive': !backupCheck }, {'backup-node--selected': nodeItemCheck,'': !nodeItemCheck })}>
             {/* Node Dragable */}
             <div className={classNames('backup-node_dragable', {'backup-node_dragable--disabled': nodeItemCheck,'': !nodeItemCheck })}>
@@ -47,10 +49,19 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText}){
                 </label>
             </div>
             {/* Edit Item */}
-            <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck })}>
-                <Icon name="test" color="#fff" size={20} />
+            <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck })} onClick={() => {setnodeItemEdit(false);setTimeout(function(){setnodeItemEdit(true)},100)}} >
+                <Icon name="design_edit" color="var(--color-low)" size={20} />
             </div>
         </div>
+        <div className={classNames('clickMenu-box', {'clickMenu-box--visible': nodeItemEdit,'': !nodeItemEdit })} onMouseLeave={() => {setnodeItemEdit(false);}}>
+        <div className="clickMenu-item">
+            <label className="clickMenu-item-label">{lang_text.nodeItem_edit_edit}</label>
+        </div>
+        <div className="clickMenu-item clickMenu-item-red">
+            <label className="clickMenu-item-label">{lang_text.nodeItem_edit_delete}</label>
+        </div>
+        </div>
+    </>
     )
 }
 

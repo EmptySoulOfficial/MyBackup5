@@ -8,4 +8,7 @@
     --animation: cubic-bezier(0.47, 0, 0, 1.01);
 
     --disabled: brightness(0.6);
+
+    --fontsize-title: 25px;
+    --fontsize-navitem: 12px;
 }

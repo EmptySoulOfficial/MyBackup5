@@ -11,7 +11,10 @@
     "windowtitle_config": "Einstellungen",
 
     "quickinfo_backupswitch_title": "Backup Schalter",
-    "quickinfo_backupswitch_text": "Schalte backup für dieses Element an/aus."
+    "quickinfo_backupswitch_text": "Schalte backup für dieses Element an/aus.",
+
+    "nodeItem_edit_edit": "Bearbeiten",
+    "nodeItem_edit_delete": "Löschen"
     
  },
  "en":{
@@ -27,7 +30,10 @@
     "windowtitle_config": "Configurations",
 
     "quickinfo_backupswitch_title": "Backup switch",
-    "quickinfo_backupswitch_text": "Turn backup for this item on/off."
+    "quickinfo_backupswitch_text": "Turn backup for this item on/off.",
+
+    "nodeItem_edit_edit": "Edit",
+    "nodeItem_edit_delete": "Delete"
   }
 
 }

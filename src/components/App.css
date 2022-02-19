@@ -66,7 +66,7 @@ h1 {
     margin-block-start: 0;
     margin-block-end: 0;
     color: var(--font-color);
-    font-size: 25px;
+    font-size: var(--fontsize-title) ;
     user-select: none;
     transform: translateY(-20px);
     opacity: 0;
@@ -120,6 +120,21 @@ h1 {
 .appmainwindow--active {
 display: block;
 
+}
+
+.appmainwindow-titlesection {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+.appmainwindow-toolbar {
+    min-width:120px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .appmainwindow-container {
@@ -181,4 +196,52 @@ display: block;
 
 .mybackuplogo_cl1 {
     fill: #ffffff;
+}
+
+.clickMenu-box {
+    min-width: 20px;
+    min-height: 10px;
+    position: absolute;
+    background-color: var(--maincolor);
+    border-radius: var(--default-border-radius);
+    right: 0;
+    margin-top: -30px;
+    margin-right: 70px;
+    float: right;
+    transition: var(--default-transition);
+    display: none;
+    z-index: 1200;
+    overflow: hidden;
+}
+
+.clickMenu-box--visible {
+    display: block;
+}
+
+.clickMenu-item {
+    width: 120px;
+    height: 20px;
+    padding: 5px;
+    transition: var(--default-transition);
+    cursor: pointer;
+}
+
+.clickMenu-item label {
+    user-select: none;
+    pointer-events: none;
+    font-size: var(--fontsize-navitem);
+}
+
+.clickMenu-item:hover {
+    background-color: var(--highlight);
+}
+
+.clickMenu-item-red:hover {
+    background-color: var(--smooth-red);
+}
+
+.addNodeItem {
+    width: 25px;
+    height: 25px;
+    
 }
