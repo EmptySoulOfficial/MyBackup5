@@ -4,7 +4,7 @@
     width: 100%;
     margin: 10px 0px;
     border-radius:var(--default-border-radius);
-    height: 35px;
+    height: 55px;
     background-color: var(--lightgray);
     overflow: hidden;
     display: flex;
@@ -77,10 +77,6 @@ align-items: center;
     fill: var(--color-disabled);
 }
 
-
-.backup-node_editsection .icon {
-    transition: var(--default-transition);
-}
 
 .backup-node_editsection:hover .icon {
     fill: var(--highlight);

@@ -1,7 +1,7 @@
 @import '../../assets/css/defaults/index.css';
 
 .navigation {
-    width: 100px;
+    width: 160px;
     height: var(--app-titlebarcalc-height);
     padding-top: 30px;
     top: 0;

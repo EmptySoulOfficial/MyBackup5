@@ -77,6 +77,15 @@ h1 {
     animation-timing-function: var(--animation);
 }
 
+h3 {
+    font-family: 'headline-medium';
+    font-weight: 100;
+    padding: 0;
+    color: var(--font-color);
+    font-size: var(--fontsize-h3) ;
+    user-select: none;
+}
+
 @keyframes h1-fadeIn{
     0%{
         transform: translateY(-28px);
@@ -103,7 +112,7 @@ h1 {
 }
 
 .app-content{
-    width: calc(100% - 100px);
+    width: calc(100% - 160px);
     height: var(--app-titlebarcalc-height);
     right: 0px;
     position: absolute;
@@ -238,6 +247,10 @@ display: block;
 
 .clickMenu-item-red:hover {
     background-color: var(--smooth-red);
+}
+
+.icon {
+    transition: var(--default-transition);
 }
 
 .addNodeItem {

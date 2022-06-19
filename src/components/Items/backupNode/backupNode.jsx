@@ -6,12 +6,12 @@ import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
 import './lib/setbackupNodeEditMode.jsx'
 
 
-function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText}){
+function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, nodeItemLabel}){
 
     // Quickinfo and backup mock infos
     const nodename = "My backup name";
-    const backupfrom = "From: C:\\Program Files (x86)\\My Folder";
-    const backupto = "To: E:\\";
+    const backuplast = "Last: 01.01.2022";
+    const backupto = "Drive: E:\\";
 
     const lang_text = parseLanguages();
 
@@ -29,15 +29,15 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText}){
             {/* Item select */}
             <div className="backup-node_select">
                 <label className={classNames('checkbox', {'checkbox-checked_js': nodeItemCheck,'': !nodeItemCheck })}>
-                    <input type="checkbox" className="select-switch-input" className="checkbox-input" onChange={() => setnodeItemCheck(prev => !prev)}  checked={(nodeItemCheck)? "checked" : ""}/>
+                    <input type="checkbox" className="select-switch-input checkbox-input"  onChange={() => setnodeItemCheck(prev => !prev)}  checked={(nodeItemCheck)? "checked" : ""}/>
                     <span className="checkbox-hook"></span>
                 </label>
             </div>
             {/* Item main */}
             <div className="backup-node_mainsection">
                 <div className="backup-node_label" 
-                    onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backupfrom + `\n` + backupto)}} 
-                    onMouseLeave={() => setquickinfovis(false)}>Node Label</div>
+                    onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}} 
+                    onMouseLeave={() => setquickinfovis(false)}>{nodeItemLabel}</div>
             </div>
             {/* Item switch */}
             <div className="backup-node_switchsection"

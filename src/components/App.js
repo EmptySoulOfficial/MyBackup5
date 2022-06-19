@@ -8,6 +8,7 @@ import parseStyle from '../assets/js/parseStyle.asset.jsx'
 import wallpaperimage from '../user/wallpaper/wallpaper.jpg'
 
 import Navigation from './navigation/navigation.jsx'
+import AddPopUp from './popups/AddPopUp/AddPopUp.jsx'
 import HomeWindow from './content/homeWindow/homeWindow.jsx'
 import BackupWindow from './content/backupWindow/backupWindow.jsx'
 import RestoreWindow from './content/restoreWindow/restoreWindow.jsx'
@@ -21,6 +22,8 @@ function App() {
     const [ quickinfovis, setquickinfovis ] = useState(false);
     const [ quickinfoTitle, setquickinfoTitle ] = useState('');
     const [ quickinfoText, setquickinfoText ] = useState('');
+
+    const [addBackupItem, setaddBackupItem] = useState(false);
 
     //set jStyle from user style json
     const jStyle = parseStyle();
@@ -55,9 +58,11 @@ function App() {
 
   <TitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} />
     <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
+    
         <Navigation blur={jStyle.blur} />
             <div className="app-content">
-                    <BackupWindow quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />  
+            <AddPopUp addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem}/>
+                    <BackupWindow addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />  
                     <HomeWindow /> 
                     <RestoreWindow />
                     <OptionsWindow /> 

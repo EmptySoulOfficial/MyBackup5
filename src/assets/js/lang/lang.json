@@ -1,14 +1,16 @@
 {"de":{
-    "menulabel_backup": "Backup",
-    "menulabel_restore": "Restore",
+    "menulabel_backup": "Sichern",
+    "menulabel_restore": "Wiederherstellen",
     "menulabel_manage": "Optionen",
     "menulabel_config": "Einstellungen",
 
     "windowtitle_home": "Home",
-    "windowtitle_backup": "Backup",
+    "windowtitle_backup": "Sichern",
     "windowtitle_restore": "Wiederherstellen",
     "windowtitle_options": "Optionen",
     "windowtitle_config": "Einstellungen",
+    
+    "button_launch": "Start",
 
     "quickinfo_backupswitch_title": "Backup Schalter",
     "quickinfo_backupswitch_text": "Schalte backup für dieses Element an/aus.",
@@ -28,6 +30,8 @@
     "windowtitle_restore": "Restore",
     "windowtitle_options": "Options",
     "windowtitle_config": "Configurations",
+
+    "button_launch": "Launch",
 
     "quickinfo_backupswitch_title": "Backup switch",
     "quickinfo_backupswitch_text": "Turn backup for this item on/off.",
