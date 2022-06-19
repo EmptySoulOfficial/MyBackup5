@@ -1,0 +1,3 @@
+Jedes Backup Item kann benannt werden und beinhaltet alle Ordner, die gespeichert werden sollen.
+Die Ordner werden beim Hinzufügen eines BackupItems als Tree-Ansicht dargestellt und können per Kontroll Kästchen angewehlt werden.
+So spaart man rum geklicke, und das einzelne Hinzufügen von Ordner
