@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import * as styledata from '../../../data/user/style.json'
+import * as styledata from '../../../data/user/style/style.json'
 
 const getStyles = "style"
 
