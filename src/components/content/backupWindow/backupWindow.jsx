@@ -10,30 +10,27 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
 
     const lang_text = parseLanguages();
 
-    return ( 
-        
-    <div className="appmainwindow backup-window" >
-        
-    {/* BackupWindow Main Body */}
+    return (    
+        <div className="appmainwindow backup-window" >
 
-    <div className="appmainwindow-titlesection">
-            <h1>{lang_text.windowtitle_backup}</h1>
-            <div className="appmainwindow-toolbar">
-                <button className="addNodeItem" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="add" color="var(--color-low)" size={20} /></button>
+            {/* BackupWindow Main Body */}
+            <div className="appmainwindow-titlesection">
+                <h1>{lang_text.windowtitle_backup}</h1>
+                <div className="appmainwindow-toolbar">
+                    <button className="addNodeItem" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="add" color="var(--color-low)" size={20} /></button>
+                </div>
+            </div>
+            <div className="appmainwindow-container backup-container">
+                <div className="appmainwindow-content backup-window_content">
+                    {/* <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} /> */}
+                </div>
+                <div className="appmainwindow-bottomcontent backup-window_bottom_content">
+                    <div className="launchbutton-container">
+                        <button className="button-submit launch_button">{lang_text.button_launch}</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div className="appmainwindow-container backup-container">
-        <div className="appmainwindow-content backup-window_content">
-            {/* <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} /> */}
-
-        </div>
-        <div className="appmainwindow-bottomcontent backup-window_bottom_content">
-            <div className="launchbutton-container">
-            <button className="button-submit launch_button">{lang_text.button_launch}</button>
-            </div>
-        </div>
-        </div>
-    </div>
     )
 }
 

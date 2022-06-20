@@ -1,5 +1,5 @@
 {"de":{
-    "menulabel_home": "My Backup",
+    "menulabel_home": "Home",
     "menulabel_backup": "Sichern",
     "menulabel_restore": "Wiederherstellen",
     "menulabel_manage": "Optionen",
@@ -21,7 +21,7 @@
     
  },
  "en":{
-  "menulabel_home": "My Backup",
+  "menulabel_home": "Home",
   "menulabel_backup": "Backup",
   "menulabel_restore": "Restore",
   "menulabel_manage": "Options",
