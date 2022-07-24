@@ -15,7 +15,7 @@ function RestoreWindow() {
         </div>
         <div className="appmainwindow-bottomcontent backup-window_bottom_content">
             <div className="launchbutton-container">
-            <button className="button-submit launch_button">Launch</button>
+            <button className="button-submit launch_button">{lang_text.button_launch}</button>
             </div>
         </div>
         </div>

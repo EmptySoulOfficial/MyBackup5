@@ -11,7 +11,7 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
     const lang_text = parseLanguages();
 
     return (    
-        <div className="appmainwindow backup-window" >
+        <div className="appmainwindow backup-window" id="window-backup">
 
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
