@@ -27,6 +27,17 @@ module.exports = {
         ],
       },
       {
+      test: /\.(jpe?g|gif|png)$/i,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }
+      ]
+    },
+      {
         test: /\.css$/,
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'postcss-loader' }],
         include: defaultInclude

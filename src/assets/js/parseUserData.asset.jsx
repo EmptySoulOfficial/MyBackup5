@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import * as userdata from '../../user/data/user-data.json'
+import * as userdata from '../../../data/user/saves/config/user-events.json'
 
 const getUserDataClicks = "user_clicks"
 
