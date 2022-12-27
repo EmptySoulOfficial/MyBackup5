@@ -22,7 +22,8 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
             </div>
             <div className="appmainwindow-container backup-container">
                 <div className="appmainwindow-content backup-window_content">
-                    {/* <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} /> */}
+                    <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
+                    <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
                 </div>
                 <div className="appmainwindow-bottomcontent backup-window_bottom_content">
                     <div className="launchbutton-container">
