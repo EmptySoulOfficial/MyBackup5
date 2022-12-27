@@ -242,7 +242,7 @@ input:checked + .checkbox-hook {
     width: 98%;
     height: 0;
     background-color: var(--gray);
-    margin-top: -10px;
+    margin-top: -11px;
     transition: var(--default-transition);
     z-index: 9;
     overflow: hidden;

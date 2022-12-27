@@ -283,6 +283,17 @@ display: block;
     transition: var(--default-transition);
 }
 
+.editmode {
+    outline: 1px dashed var(--highlight);
+    filter: contrast(0.8);
+}
+
+.divtextedit {
+    -webkit-user-modify: read-write;
+    outline: none;
+    color: var(--edit-color) !Important;
+}
+
 .addNodeItem {
     width: 25px;
     height: 25px;

@@ -18,12 +18,13 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
     const [backupCheck, setbackupCheck] = useState(true);
     const [nodeItemCheck, setnodeItemCheck] = useState(false);
     const [nodeItemEdit, setnodeItemEdit] = useState(false);
+    const [nodeItemDropdown, setnodeItemDropdown] = useState(false);
 
     return (
         <>
         {/* backup item */}
         <div className="backup-node--container">
-            <div className={classNames('backup-node', {'': backupCheck,'backup-node--inactive': !backupCheck }, {'backup-node--selected': nodeItemCheck,'': !nodeItemCheck })}>
+            <div className={classNames('backup-node', {'': backupCheck,'backup-node--inactive': !backupCheck }, {'backup-node--selected': nodeItemCheck,'': !nodeItemCheck }, {'editmode': nodeItemEdit,'': !nodeItemEdit })}>
                 {/* Node Dragable */}
                 <div className={classNames('backup-node_dragable', {'backup-node_dragable--disabled': nodeItemCheck,'': !nodeItemCheck })}>
                     <Icon name="anfasser" color="var(--color-low)" size={20} />
@@ -36,8 +37,8 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                     </label>
                 </div>
                 {/* Item main */}
-                <div className="backup-node_mainsection">
-                    <div className="backup-node_label" 
+                <div spellcheck="false" className="backup-node_mainsection" onDoubleClick={() => setnodeItemEdit(prev => !prev)}>
+                    <div className={classNames('backup-node_label', {'divtextedit': nodeItemEdit, '' : !nodeItemEdit})} 
                         onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}} 
                         onMouseLeave={() => setquickinfovis(false)}>{nodeItemLabel}</div>
                 </div>
@@ -51,7 +52,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                     </label>
                 </div>
                 {/* Edit Item */}
-                <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck }, {'backup-node_editsection--active': nodeItemEdit,'': !nodeItemEdit })} onClick={() => {setnodeItemEdit(nodeItemCheck => !nodeItemCheck)}} >
+                <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck }, {'backup-node_editsection--active': nodeItemDropdown,'': !nodeItemDropdown })} onClick={() => {setnodeItemDropdown(nodeItemDropdown => !nodeItemDropdown)}} >
                     <Icon name="morearrow" color="var(--color-low)" size={20} />
                 </div>
             </div>
@@ -65,7 +66,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
             {/* <label className="clickMenu-item-label">{lang_text.nodeItem_edit_delete}</label> */}
         {/* </div> */}
         {/* </div> */}
-            <div className={classNames('backup-node-detail-box', {'backup-node-detail-box--active': nodeItemEdit,'': !nodeItemEdit })}>
+            <div className={classNames('backup-node-detail-box', {'backup-node-detail-box--active': nodeItemDropdown,'': !nodeItemDropdown })}>
                 <div className="backup-node-detail-box-container">
                     <div className="backup-node-detail-box-container-selections">
                         <div className="detail-box-selections-left">
