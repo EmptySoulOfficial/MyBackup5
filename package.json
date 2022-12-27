@@ -37,9 +37,15 @@
     "postpackage": "electron-packager ./ --out=./builds"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
+    "jquery": "^3.6.0",
     "postcss": "^8.4.5",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-cursor-position": "^3.0.3",
+    "react-dom": "^17.0.2",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -60,6 +66,8 @@
     "postcss-preset-env": "^7.1.0",
     "postcss-pxtorem": "^6.0.0",
     "style-loader": "^3.3.1",
+    "svg-url-loader": "^7.1.1",
+    "url-loader": "^4.1.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^3.11.3"

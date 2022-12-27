@@ -1,0 +1,32 @@
+@import '../../../assets/css/index.css';
+
+.addWindow-container {
+    width: inherit;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--popup-overlay_background);
+    backdrop-filter: var(--default-blur);    
+}
+
+.addWindow-box {
+    width: 70%;
+    height: 400px;
+    border-radius: var(--default-border-radius);
+    background-color: var(--maincolor);
+    /* outline: var(--default-outline); */
+}
+
+.addWindow-titleSection {
+    position: absolute;
+    width: inherit;
+    text-align: center;
+    color: var(--font-color);
+}
+
+.addWindow-container--disabled {
+    display: none;
+}

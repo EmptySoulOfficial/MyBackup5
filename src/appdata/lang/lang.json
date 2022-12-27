@@ -1,0 +1,45 @@
+{"de":{
+    "menulabel_home": "Home",
+    "menulabel_backup": "Sichern",
+    "menulabel_restore": "Wiederherstellen",
+    "menulabel_manage": "Optionen",
+    "menulabel_config": "Einstellungen",
+
+    "windowtitle_home": "Home",
+    "windowtitle_backup": "Sichern",
+    "windowtitle_restore": "Wiederherstellen",
+    "windowtitle_options": "Optionen",
+    "windowtitle_config": "Einstellungen",
+    
+    "button_launch": "Start",
+
+    "quickinfo_backupswitch_title": "Backup Schalter",
+    "quickinfo_backupswitch_text": "Schalte backup für dieses Element an/aus.",
+
+    "nodeItem_edit_edit": "Bearbeiten",
+    "nodeItem_edit_delete": "Löschen"
+    
+ },
+ "en":{
+  "menulabel_home": "Home",
+  "menulabel_backup": "Backup",
+  "menulabel_restore": "Restore",
+  "menulabel_manage": "Options",
+  "menulabel_config": "Configuartions",
+
+    "windowtitle_home": "Home",
+    "windowtitle_backup": "Backup",
+    "windowtitle_restore": "Restore",
+    "windowtitle_options": "Options",
+    "windowtitle_config": "Configurations",
+
+    "button_launch": "Launch",
+
+    "quickinfo_backupswitch_title": "Backup switch",
+    "quickinfo_backupswitch_text": "Turn backup for this item on/off.",
+
+    "nodeItem_edit_edit": "Edit",
+    "nodeItem_edit_delete": "Delete"
+  }
+
+}

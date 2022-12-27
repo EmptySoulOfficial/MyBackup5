@@ -1,24 +1,42 @@
-@import '../../assets/css/defaults/index.css';
+@import '../../assets/css/index.css';
+
 .navigation {
-    width: 100px;
-    height: 100%;
+    width: 160px;
+    height: var(--app-titlebarcalc-height);
+    padding-top: 30px;
     top: 0;
     left: 0;
     margin-left: 0px;
     position: absolute;
-    background-color: var(--gray);
-    padding-top: 20px;
+    /* padding: 0px 10px; */
+    /* background-color: var(--bg-alpha); */
 }
 
 .navigation-logosection {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom:10px;
 }
 
 .navigation_container {
     width: 100%;
+    height: calc(100% - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    /* padding-top: 20px; */
+}
+
+.item-container{
+    width: 100%;
     height: 100%;
+    display: flex;
     justify-content: center;
-    padding-top: 20px;
+    flex-direction: column;
+    margin-top: 0px;
+}
+.config-button_container {
+    width: 100%;
 }

@@ -28,19 +28,34 @@ if (process.platform === 'win32') {
   app.commandLine.appendSwitch('force-device-scale-factor', '1')
 }
 
+//window operations (min/close)
+const {ipcMain} = require('electron')
+ipcMain.on('close-me', (evt, arg) => {
+  app.quit()
+})
+
+const { remote } = require("electron")
+ipcMain.on('minimize', () => {
+  mainWindow.minimize();
+})
+
 function createWindow() {
+  
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 600,
+    width: 1000 ,
+    height: 600 ,
     show: false,
     autoHideMenuBar: true,
+    icon: './data/appIcon.ico',
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
     }
   })
 
+  mainWindow.setResizable(false);
   // and load the index.html of the app.
   let indexPath
 

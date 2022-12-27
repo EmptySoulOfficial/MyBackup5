@@ -1,6 +1,5 @@
-@import '../../assets/css/defaults/index.css';
+@import '../../assets/css/index.css';
 .logo {
-    background-color: #334;
     border-radius: var(--default-border-radius);
     width: 80px;
     height: 80px;
