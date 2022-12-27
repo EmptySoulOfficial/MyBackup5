@@ -1,4 +1,4 @@
-@import '../../assets/css/defaults/index.css';
+@import '../../assets/css/index.css';
 
 .navigation {
     width: 160px;
@@ -21,7 +21,7 @@
 
 .navigation_container {
     width: 100%;
-    height: calc(100% - 90px);
+    height: calc(100% - 80px);
     display: flex;
     align-items: center;
     justify-content: space-between;

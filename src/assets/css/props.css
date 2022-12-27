@@ -1,0 +1,17 @@
+@import './colors.css';
+:root{
+    --default-border-radius: 0px;
+    --titlebar-height: 30px;
+    --app-titlebarcalc-height: calc(100% - 30px);
+    --default-transition: 0.3s;
+    --slow-transition: 0.8s;
+    --default-blur: blur(10px);
+    --animation: cubic-bezier(0.47, 0, 0, 1.01);
+    --default-outline: 2px solid var( --white);
+
+    --disabled: brightness(0.6);
+
+    --fontsize-title: 25px;
+    --fontsize-navitem: 14px;
+    --fontsize-h3: 18px;
+}

@@ -5,6 +5,7 @@ const { spawn } = require('child_process')
 
 // Any directories you will be adding code/files into, need to be added to this array so webpack will pick them up
 const defaultInclude = path.resolve(__dirname, 'src')
+const staticInclude = path.resolve(__dirname, 'data')
 
 module.exports = {
   module: {
@@ -25,6 +26,23 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        loader: 'babel-loader',
+        test: /\.js$/,
+        exclude: /node_modules/
+      },
+      {
+        loader: 'babel-loader',
+        test: /\.js$/,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(jpg|jpeg|png)$/,
+        use: [{
+          loader: 'url-loader'
+        }],
+        include: staticInclude
       },
       {
         test: /\.css$/,

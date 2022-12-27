@@ -5,7 +5,7 @@ import TitleBar from './titleBar/titleBar.jsx'
 
 import parseStyle from '../assets/js/parseStyle.asset.jsx'
 
-import wallpaperimage from '../user/wallpaper/wallpaper.jpg'
+// import wallpaperimage from '/data/user/walllpaper/wallpaper.jpg' //doesnt work -> fix or create a new electron project
 
 import Navigation from './navigation/navigation.jsx'
 import AddPopUp from './popups/AddPopUp/AddPopUp.jsx'
@@ -57,8 +57,7 @@ function App() {
     <div className="app-container" >
 
   <TitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} />
-    <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
-    
+    <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>    
         <Navigation blur={jStyle.blur} />
             <div className="app-content">
             <AddPopUp addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem}/>
