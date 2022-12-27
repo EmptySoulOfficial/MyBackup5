@@ -9,6 +9,7 @@
     overflow: hidden;
     display: flex;
     transition: var(--default-transition);
+    z-index: 10;
 }
 
 .backup-node--inactive {
@@ -67,6 +68,8 @@ align-items: center;
     align-items: center;
     background-color: var(--node-editsection_background);
     cursor: pointer;
+    transition: var(--default-transition);
+    margin: auto 10px;
 }
 
 .editsection--disabled {
@@ -80,6 +83,10 @@ align-items: center;
 
 .backup-node_editsection:hover .icon {
     fill: var(--highlight);
+}
+
+.backup-node_editsection--active{
+    transform: rotate(180deg);
 }
 
 .backup-node_label{
@@ -222,4 +229,68 @@ input:checked + .checkbox-hook {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.backup-node--container{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-flow: column;
+}
+
+.backup-node-detail-box {
+    width: 98%;
+    height: 0;
+    background-color: var(--gray);
+    margin-top: -10px;
+    transition: var(--default-transition);
+    z-index: 9;
+    overflow: hidden;
+}
+
+.backup-node-detail-box--active{
+    height: 180px;
+}
+
+.backup-node-detail-box-container{
+   width: calc(100% - 40px);
+   height: calc(100% - 40px);
+   padding: 20px; 
+}
+
+.backup-node-detail-box-container-selections {
+    width: 100%;
+    display: flex;
+}
+
+.backup-node-detail-box-container-details {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.backup-node-detail-box-container-row {
+    display: flex;
+    align-items: center;
+}
+
+.detail-box-filetobackup{
+    padding: 10px 0;
+}
+
+.detail-box-filedestination{
+    padding: 10px 0;
+}
+
+.detail-box-selections-left {
+    width: 50%;
+    overflow: hidden;
+}
+
+.detail-box-selections-right {
+    width: 50%;
+    overflow: hidden;
+}
+
+.detail-box-filetobackup-subtext {
+    padding: 0 10px;
 }

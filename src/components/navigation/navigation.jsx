@@ -8,19 +8,13 @@ import NavItem from './navItem/navItem.jsx'
 import parseLanguages from '../../assets/js/parseLanguages.asset.jsx'
 
 import './navItem/lib/setItemActive.jsx'
-import parseUserDataClicks from '../../assets/js/parseUserData.asset.jsx'
 
 function Navigation({blur}) {
   
 
 
   const lang_text = parseLanguages();
-  const jUserDataClicks = parseUserDataClicks();
-
-  console.log("readed: " + jUserDataClicks.last_menu_click)
-
-     
-
+  
   return (
     <nav className="navigation" style={{backdropFilter: blur}}>
         
@@ -28,7 +22,7 @@ function Navigation({blur}) {
           {/* <div className="Logo-container"> */}
             {/* <Logo/> */}
           {/* </div> */}
-          <NavItem label={lang_text.menulabel_home}  navItemId={"ni_home"} iconName={"logo"} iconAlt="home icon" navitemdefaultselected={false} />
+          <NavItem label={lang_text.menulabel_home}  navItemId={"ni_home"} iconName={"home"} iconAlt="home icon" navitemdefaultselected={false} />
        
         <div className="navigation_container">
             <div className="item-container">

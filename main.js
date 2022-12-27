@@ -8,6 +8,8 @@ const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+let myappwidth = 1000;
+let myappheight = 600;
 
 // Keep a reference for dev mode
 let dev = false
@@ -43,17 +45,35 @@ function createWindow() {
   
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1000 ,
-    height: 600 ,
+    width: myappwidth ,
+    height: myappheight ,
     show: false,
     autoHideMenuBar: true,
     icon: './data/appIcon.ico',
     frame: false,
     webPreferences: {
+      zoomFactor: 1.0,
       nodeIntegration: true,
       contextIsolation: false
     }
   })
+
+//script to scale app window on different screens
+  // mainWindow.on("move", () => {
+  // 
+  // const electron = require('electron');
+  // var screenElectron = electron.screen;
+  // var mainScreen = screenElectron.getPrimaryDisplay();
+  // var allScreens = screenElectron.getAllDisplays();
+  // var dimensions = mainScreen.size;
+  // 
+  // let scalefactorx = dimensions.width / 1920;
+  // let scalefactory = dimensions.height / 1080;
+  // 
+  // 
+  // mainWindow.setSize(1000*scalefactorx, 600*scalefactory);
+  // 
+  // })
 
   mainWindow.setResizable(false);
   // and load the index.html of the app.
