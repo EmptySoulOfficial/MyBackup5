@@ -13,6 +13,7 @@
 
 ## Template (12.02.2023)
 
+```json
 "en":{
     "menulabel_home": "Home",
     "menulabel_backup": "Backup",
@@ -38,3 +39,4 @@
     "label_last_backup": "Last backup",
     "label_details": "Details"
 }
+```

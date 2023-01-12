@@ -4,6 +4,8 @@ So spaart man rum geklicke, und das einzelne Hinzufügen von Ordner
 warn symbol bei nodes, wenn speicher voll ist oder das ztiel nicht gefunden werden kann
 möglichkeit ganzen pc als backup zu wählen
 
+-Version immer in der package ändern
+
 
 ToDo:
 

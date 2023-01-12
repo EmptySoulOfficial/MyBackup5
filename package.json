@@ -1,6 +1,6 @@
 {
   "name": "mybackup5",
-  "version": "5.0.0",
+  "version": "5.0.0.120223:1256",
   "description": "My Backup Tool",
   "license": "",
   "private": false,
@@ -14,11 +14,11 @@
   },
   "author": {
     "name": "EmptySoul",
-    "email": "",
+    "email": "emptysoulofficial@gmail.com",
     "url": ""
   },
   "keywords": [
-    "app"
+    "backupsoftware"
   ],
   "engines": {
     "node": ">=9.0.0",

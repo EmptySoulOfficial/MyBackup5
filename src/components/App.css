@@ -101,6 +101,13 @@ h3 {
     color: var(--subtext-color);
 }
 
+.version-label{
+    width: calc(100% - 50px);
+    height: 100%;
+    text-align: right;
+    padding-top: 20px;
+}
+
 @keyframes h1-fadeIn{
     0%{
         transform: translateY(-28px);

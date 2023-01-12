@@ -37,11 +37,11 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                     </label>
                 </div>
                 {/* Item main */}
-                <div spellcheck="false" className="backup-node_mainsection" onDoubleClick={() => setnodeItemEdit(prev => !prev)}>
+                <div className="backup-node_mainsection" onDoubleClick={() => setnodeItemEdit(prev => !prev)}>
                     <div className={classNames('backup-node_label', {'divtextedit': nodeItemEdit, '' : !nodeItemEdit})} 
                         onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}} 
                         onMouseLeave={() => setquickinfovis(false)}>
-                        <input type="text" placeholder="Give it a name" />
+                        <input type="text" placeholder="Give it a name" spellCheck="false"/>
                         </div>
                 </div>
                 {/* Item switch */}
