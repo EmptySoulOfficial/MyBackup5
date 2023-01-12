@@ -40,7 +40,9 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                 <div spellcheck="false" className="backup-node_mainsection" onDoubleClick={() => setnodeItemEdit(prev => !prev)}>
                     <div className={classNames('backup-node_label', {'divtextedit': nodeItemEdit, '' : !nodeItemEdit})} 
                         onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}} 
-                        onMouseLeave={() => setquickinfovis(false)}>{nodeItemLabel}</div>
+                        onMouseLeave={() => setquickinfovis(false)}>
+                        <input type="text" placeholder="Give it a name" />
+                        </div>
                 </div>
                 {/* Item switch */}
                 <div className="backup-node_switchsection"
@@ -70,25 +72,25 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                 <div className="backup-node-detail-box-container">
                     <div className="backup-node-detail-box-container-selections">
                         <div className="detail-box-selections-left">
-                            <p className="main-label">File/Folder to backup</p>
+                            <p className="main-label">{lang_text.nodeItem_from_folder}</p>
                             <div className="backup-node-detail-box-container-row detail-box-filetobackup">
-                                <button className="button-submit--small">Select</button>
-                                <p className="subtext detail-box-filetobackup-subtext">no file selected</p>
+                                <button className="button-submit--small">{lang_text.button_select}</button>
+                                <p className="subtext detail-box-filetobackup-subtext">{lang_text.nodeItem_noFrom_folder_selected}</p>
                             </div>
                         </div>
                         <div className="detail-box-selections-right">
-                            <p className="main-label">Destination Folder/Drive</p>
+                            <p className="main-label">{lang_text.nodeItem_to_folder}</p>
                             <div className="backup-node-detail-box-container-row detail-box-filedestination">
-                                <button className="button-submit--small">Select</button>
-                                <p className="subtext detail-box-filetobackup-subtext">no destination selected</p>
+                                <button className="button-submit--small">{lang_text.button_select}</button>
+                                <p className="subtext detail-box-filetobackup-subtext">{lang_text.nodeItem_noTo_folder_selected}</p>
                             </div>
                         </div>
                     </div>
                     <div className="backup-node-detail-box-container-details">
-                        <p className="main-label">Details</p>
+                        <p className="main-label">{lang_text.label_details}</p>
                         <div className="p-container-10">
                             <div className="infobox">
-                            Last backup: 01.01.2022
+                            {lang_text.label_last_backup}: 01.01.2022
                             </div>
                         </div>
                     </div>

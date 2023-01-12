@@ -6,7 +6,7 @@ import BackupNode from '../../Items/backupNode/backupNode.jsx'
 import Icon from '../../../assets/js/icon.asset.jsx'
 
 
-function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , addBackupItem, setaddBackupItem}) {
+function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText}) {
 
     const lang_text = parseLanguages();
 
@@ -17,7 +17,7 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
             <div className="appmainwindow-titlesection">
                 <h1>{lang_text.windowtitle_backup}</h1>
                 <div className="appmainwindow-toolbar">
-                    <button className="addNodeItem" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="add" color="var(--color-low)" size={20} /></button>
+                    <button className="addNodeItem"><Icon name="add" color="var(--color-low)" size={20} /></button>
                 </div>
             </div>
             <div className="appmainwindow-container backup-container">

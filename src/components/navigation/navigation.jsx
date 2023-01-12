@@ -11,7 +11,11 @@ import './navItem/lib/setItemActive.jsx'
 
 function Navigation({blur}) {
   
+  //get active navigation item
+  localStorage.getItem('activemainnavigation') ? localStorage.getItem('activemainnavigation') : localStorage.setItem('activemainnavigation', 'home')
+  let activenavigationitem = localStorage.getItem('activemainnavigation')
 
+  console.log('active navitem:' + activenavigationitem)
 
   const lang_text = parseLanguages();
   
@@ -22,11 +26,11 @@ function Navigation({blur}) {
           {/* <div className="Logo-container"> */}
             {/* <Logo/> */}
           {/* </div> */}
-          <NavItem label={lang_text.menulabel_home}  navItemId={"ni_home"} iconName={"home"} iconAlt="home icon" navitemdefaultselected={false} />
+          <NavItem label={lang_text.menulabel_home}  navItemId={"ni_home"} iconName={"home"} iconAlt="home icon" navitemdefaultselected={true} />
        
         <div className="navigation_container">
             <div className="item-container">
-                <NavItem  label={lang_text.menulabel_backup}  navItemId={"ni_backup"} iconName={"backup"} iconAlt="create backup icon" navitemdefaultselected={true} />
+                <NavItem  label={lang_text.menulabel_backup}  navItemId={"ni_backup"} iconName={"backup"} iconAlt="create backup icon" navitemdefaultselected={false} />
                 <NavItem  label={lang_text.menulabel_restore} navItemId={"ni_restore"} iconName={"restore"} iconAlt="restore icon" navitemdefaultselected={false} />
                 <NavItem  label={lang_text.menulabel_manage}  navItemId={"ni_options"} iconName={"options"} iconAlt="manage backup icon" navitemdefaultselected={false} />
             </div>
