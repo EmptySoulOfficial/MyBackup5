@@ -41,7 +41,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                     <div className={classNames('backup-node_label', {'divtextedit': nodeItemEdit, '' : !nodeItemEdit})} 
                         onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}} 
                         onMouseLeave={() => setquickinfovis(false)}>
-                        <input type="text" placeholder="Give it a name" spellCheck="false"/>
+                        <input type="text" className="backup-node_label_textinput" placeholder="Give it a name" spellCheck="false" readOnly={!nodeItemEdit}/>
                         </div>
                 </div>
                 {/* Item switch */}

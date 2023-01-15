@@ -13,6 +13,7 @@ ToDo:
 -text so anpassen, dass noch icons dahinter passen
 -dragable
 -scss
+-css variablen einheitlich bennenen (name-zustand z.B: color-default)
 -on hover -> pointer bei schaltflächen
 -select from / to schöner designen, dass user es mehr erkennen und pfad text nur klein drunter
 - mehrere ziele in einer node wählbar / ziele mit plus in backup node unter ziel wählen hinzufügen
