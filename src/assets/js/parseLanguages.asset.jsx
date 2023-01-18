@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import * as textdata from '../../appdata/lang/lang.json'
+import * as textdata from '../../language/language.json'
 import useAutoLang from './useAutoLang.asset.jsx'
 
 // NEEDS useAutoLang asset !!

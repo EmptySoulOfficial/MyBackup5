@@ -28,7 +28,7 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText}) {
                 <div className="appmainwindow-bottomcontent backup-window_bottom_content">
                     <div className="backuplayer-container">
                         <select name="backuplayer" id="backuplayer_select">
-                            <option value="alllayers">All Layers</option>
+                            <option value="alllayers">{lang_text.defaults_layer}</option>
                         </select>
                     </div>
                     <div className="launchbutton-container">

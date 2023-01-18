@@ -25,7 +25,9 @@
     "nodeItem_noTo_folder_selected": "Kein Ziel ausgewählt",
 
     "label_last_backup": "Letztes Backup",
-    "label_details": "Details"
+    "label_details": "Details",
+
+    "defaults_layer": "Benutzer definiert"
 
     
  },
@@ -56,7 +58,9 @@
     "nodeItem_noTo_folder_selected": "No destination selected",
 
     "label_last_backup": "Last backup",
-    "label_details": "Details"
+    "label_details": "Details",
+
+    "defaults_layer": "User selected"
   }
 
 }
