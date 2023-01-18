@@ -16,10 +16,6 @@
     filter: var(--disabled);
 }
 
-.backup-node--selected .backup-node_label{
-   color: var(--highlight);
-}
-
 .backup-node_dragable {
     min-width: 20px;
     width: 4%;
@@ -90,12 +86,25 @@ align-items: center;
 }
 
 .backup-node_label{
-    color: var(--font-color);
     height: 100%;
     display: flex;
     align-items: center;
     margin-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
+
+.backup-node_label_textinput {
+    width: 100%;
+    background-color:  var(--color-none);
+    color: var(--font-color);
+    font-size: var(--fontsize-default);
+}
+
+.backup-node_label_textinput::selection{
+    background: var(--color-none);
+  }
 
 .switch {
     width: 40px;
@@ -242,7 +251,7 @@ input:checked + .checkbox-hook {
     width: 98%;
     height: 0;
     background-color: var(--gray);
-    margin-top: -10px;
+    margin-top: -11px;
     transition: var(--default-transition);
     z-index: 9;
     overflow: hidden;

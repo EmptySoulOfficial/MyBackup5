@@ -1,6 +1,18 @@
-##dev infos
-install = npm i
-run = npm run start (electron-run alias)
+#Infos
+
+###Install
+npm i
+
+###Run
+npm run start 
+
+###Build
+npm run package
+
+###Where to find Language Information:
+./LANGUAGE.md
+
+
 -----------------
 SVG url loader (only needed for new projects)
 install: npm i svg-url-loader --save-dev
@@ -32,10 +44,5 @@ Paste *code under -----------
 -----------------------
 make shure do delete all other svg importer in the webpack builds!
 
-###Build
-----------------------
- npm run package
-
 ###Change window title
-----------------------
-enter Window name in the builded index.html project. (resources\app\dist\index.html)
+Enter Window name in the builded index.html project. (resources\app\dist\index.html)

@@ -18,12 +18,13 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
     const [backupCheck, setbackupCheck] = useState(true);
     const [nodeItemCheck, setnodeItemCheck] = useState(false);
     const [nodeItemEdit, setnodeItemEdit] = useState(false);
+    const [nodeItemDropdown, setnodeItemDropdown] = useState(false);
 
     return (
         <>
         {/* backup item */}
         <div className="backup-node--container">
-            <div className={classNames('backup-node', {'': backupCheck,'backup-node--inactive': !backupCheck }, {'backup-node--selected': nodeItemCheck,'': !nodeItemCheck })}>
+            <div className={classNames('backup-node', {'': backupCheck,'backup-node--inactive': !backupCheck }, {'backup-node--selected': nodeItemCheck,'': !nodeItemCheck }, {'editmode': nodeItemEdit,'': !nodeItemEdit })}>
                 {/* Node Dragable */}
                 <div className={classNames('backup-node_dragable', {'backup-node_dragable--disabled': nodeItemCheck,'': !nodeItemCheck })}>
                     <Icon name="anfasser" color="var(--color-low)" size={20} />
@@ -36,10 +37,12 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                     </label>
                 </div>
                 {/* Item main */}
-                <div className="backup-node_mainsection">
-                    <div className="backup-node_label" 
+                <div className="backup-node_mainsection" onDoubleClick={() => setnodeItemEdit(prev => !prev)}>
+                    <div className={classNames('backup-node_label', {'divtextedit': nodeItemEdit, '' : !nodeItemEdit})} 
                         onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}} 
-                        onMouseLeave={() => setquickinfovis(false)}>{nodeItemLabel}</div>
+                        onMouseLeave={() => setquickinfovis(false)}>
+                        <input type="text" className="backup-node_label_textinput" placeholder="Give it a name" spellCheck="false" readOnly={!nodeItemEdit}/>
+                        </div>
                 </div>
                 {/* Item switch */}
                 <div className="backup-node_switchsection"
@@ -51,7 +54,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                     </label>
                 </div>
                 {/* Edit Item */}
-                <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck }, {'backup-node_editsection--active': nodeItemEdit,'': !nodeItemEdit })} onClick={() => {setnodeItemEdit(nodeItemCheck => !nodeItemCheck)}} >
+                <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck }, {'backup-node_editsection--active': nodeItemDropdown,'': !nodeItemDropdown })} onClick={() => {setnodeItemDropdown(nodeItemDropdown => !nodeItemDropdown)}} >
                     <Icon name="morearrow" color="var(--color-low)" size={20} />
                 </div>
             </div>
@@ -65,29 +68,29 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
             {/* <label className="clickMenu-item-label">{lang_text.nodeItem_edit_delete}</label> */}
         {/* </div> */}
         {/* </div> */}
-            <div className={classNames('backup-node-detail-box', {'backup-node-detail-box--active': nodeItemEdit,'': !nodeItemEdit })}>
+            <div className={classNames('backup-node-detail-box', {'backup-node-detail-box--active': nodeItemDropdown,'': !nodeItemDropdown })}>
                 <div className="backup-node-detail-box-container">
                     <div className="backup-node-detail-box-container-selections">
                         <div className="detail-box-selections-left">
-                            <p className="main-label">File/Folder to backup</p>
+                            <p className="main-label">{lang_text.nodeItem_from_folder}</p>
                             <div className="backup-node-detail-box-container-row detail-box-filetobackup">
-                                <button className="button-submit--small">Select</button>
-                                <p className="subtext detail-box-filetobackup-subtext">no file selected</p>
+                                <button className="button-submit--small">{lang_text.button_select}</button>
+                                <p className="subtext detail-box-filetobackup-subtext">{lang_text.nodeItem_noFrom_folder_selected}</p>
                             </div>
                         </div>
                         <div className="detail-box-selections-right">
-                            <p className="main-label">Destination Folder/Drive</p>
+                            <p className="main-label">{lang_text.nodeItem_to_folder}</p>
                             <div className="backup-node-detail-box-container-row detail-box-filedestination">
-                                <button className="button-submit--small">Select</button>
-                                <p className="subtext detail-box-filetobackup-subtext">no destination selected</p>
+                                <button className="button-submit--small">{lang_text.button_select}</button>
+                                <p className="subtext detail-box-filetobackup-subtext">{lang_text.nodeItem_noTo_folder_selected}</p>
                             </div>
                         </div>
                     </div>
                     <div className="backup-node-detail-box-container-details">
-                        <p className="main-label">Details</p>
+                        <p className="main-label">{lang_text.label_details}</p>
                         <div className="p-container-10">
                             <div className="infobox">
-                            Last backup: 01.01.2022
+                            {lang_text.label_last_backup}: 01.01.2022
                             </div>
                         </div>
                     </div>

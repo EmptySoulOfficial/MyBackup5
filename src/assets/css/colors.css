@@ -17,6 +17,7 @@
     --headlabel-color: #5f5f6c;
     --subtext-color: var(--headlabel-color);
     --infobox-background-color: var(--lightgray2);
+    --edit-color: #e6d1ab;
 
     /* Backup nodes */
     --node-dragable_background: var(--color-none);

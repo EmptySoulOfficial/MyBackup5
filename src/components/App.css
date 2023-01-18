@@ -101,6 +101,13 @@ h3 {
     color: var(--subtext-color);
 }
 
+.version-label{
+    width: calc(100% - 50px);
+    height: 100%;
+    text-align: right;
+    padding-top: 20px;
+}
+
 @keyframes h1-fadeIn{
     0%{
         transform: translateY(-28px);
@@ -217,6 +224,7 @@ display: block;
     width: 120px;
     height: 40px;
     background-color: var(--secondcolor);
+    font-size: var(--fontsize-default);
 }
 
 .button-submit:hover {
@@ -227,6 +235,7 @@ display: block;
     width: 80px;
     height: 30px;
     background-color: var(--secondcolor);
+    font-size: var(--fontsize-default);
 }
 
 .button-submit--small:hover {
@@ -281,6 +290,17 @@ display: block;
 
 .icon {
     transition: var(--default-transition);
+}
+
+.editmode {
+    outline: 1px dashed var(--highlight);
+    filter: contrast(0.8);
+}
+
+.divtextedit {
+    -webkit-user-modify: read-write;
+    outline: none;
+    color: var(--edit-color) !Important;
 }
 
 .addNodeItem {

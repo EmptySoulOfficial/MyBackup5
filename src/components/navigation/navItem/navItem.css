@@ -53,7 +53,7 @@
 .nav-item_label{
     padding-top: 10px;
     user-select:none;
-    font-size: var(--fontsize-navitem);
+    font-size: var(--fontsize-default);
     cursor: pointer;
     color: var(--color-low);
     transition: var(--default-transition);
