@@ -26,6 +26,11 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
                     <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
                 </div>
                 <div className="appmainwindow-bottomcontent backup-window_bottom_content">
+                    <div className="backuplayer-container">
+                        <select name="backuplayer" id="backuplayer_select">
+                            <option value="alllayers">All Layers</option>
+                        </select>
+                    </div>
                     <div className="launchbutton-container">
                         <button className="button-submit launch_button">{lang_text.button_launch}</button>
                     </div>
