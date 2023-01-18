@@ -27,7 +27,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
             <div className={classNames('backup-node', {'': backupCheck,'backup-node--inactive': !backupCheck }, {'backup-node--selected': nodeItemCheck,'': !nodeItemCheck }, {'editmode': nodeItemEdit,'': !nodeItemEdit })}>
                 {/* Node Dragable */}
                 <div className={classNames('backup-node_dragable', {'backup-node_dragable--disabled': nodeItemCheck,'': !nodeItemCheck })}>
-                    <Icon name="anfasser" color="var(--color-low)" size={20} />
+                    <Icon name="anfasser" color="var(--color-icon-light)" size={20} />
                 </div>
                 {/* Item select */}
                 <div className="backup-node_select">
@@ -55,7 +55,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                 </div>
                 {/* Edit Item */}
                 <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck }, {'backup-node_editsection--active': nodeItemDropdown,'': !nodeItemDropdown })} onClick={() => {setnodeItemDropdown(nodeItemDropdown => !nodeItemDropdown)}} >
-                    <Icon name="morearrow" color="var(--color-low)" size={20} />
+                    <Icon name="morearrow" color="var(--color-icon-light)" size={20} />
                 </div>
             </div>
             

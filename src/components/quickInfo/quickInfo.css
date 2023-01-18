@@ -5,9 +5,9 @@
     max-width: 250px;
     position: absolute;
     z-index: 1002;
-    background-color: var(--lightgray);
-    backdrop-filter: var(--default-blur);
-    border-radius: var(--default-border-radius);
+    background-color: var(--color-infobox-background);
+    backdrop-filter: var(--blur-default);
+    border-radius: var(--border-radius-default);
     padding: 10px 10px;
     user-select: none;
     margin: 10px;
@@ -16,7 +16,7 @@
 }
 
 .quickinfo-title {
-    color: var(--color-low);
+    color: var(--font-color-second);
     font-size: 16px;
     margin-block-start: 0px;
     margin-block-end: 0px;
@@ -32,7 +32,7 @@
 .quickinfo--visible {
     animation-name: quickinfo-vis;
     animation-delay: 1s;
-    animation-duration: var(--default-transition);
+    animation-duration: var(--transition-default);
     animation-fill-mode: forwards;
     display: block;
     opacity: 0;

@@ -17,7 +17,7 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText}) {
             <div className="appmainwindow-titlesection">
                 <h1>{lang_text.windowtitle_backup}</h1>
                 <div className="appmainwindow-toolbar">
-                    <button className="addNodeItem"><Icon name="add" color="var(--color-low)" size={20} /></button>
+                    <button className="addNodeItem"><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
                 </div>
             </div>
             <div className="appmainwindow-container backup-container">

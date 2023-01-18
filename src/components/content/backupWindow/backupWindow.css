@@ -12,5 +12,5 @@
 }
 
 .addNodeItem:hover .icon {
-    fill: var(--highlight);
+    fill: var(--color-highlight);
 }

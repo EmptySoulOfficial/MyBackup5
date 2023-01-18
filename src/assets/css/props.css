@@ -1,15 +1,15 @@
 @import './colors.css';
 :root{
-    --default-border-radius: 6px;
+    --border-radius-default: 6px;
+    --animation-default: cubic-bezier(0.47, 0, 0, 1.01);
+    --transition-default: 0.3s;
+    --filter-disabled: brightness(0.6);
+    --blur-default: blur(10px);
+    --transition-slow: 0.8s;
+    
     --titlebar-height: 30px;
     --app-titlebarcalc-height: calc(100% - 30px);
-    --default-transition: 0.3s;
-    --slow-transition: 0.8s;
-    --default-blur: blur(10px);
-    --animation: cubic-bezier(0.47, 0, 0, 1.01);
-    --default-outline: 2px solid var( --white);
-
-    --disabled: brightness(0.6);
+    --outline-default: 2px solid var( --white);
 
     --fontsize-default: 14px;
     --fontsize-title: 25px;

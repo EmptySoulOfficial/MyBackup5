@@ -12,17 +12,17 @@
 }
 
 .nav-item:hover{
-    background-color: var(--lightgray);
+    background-color: var(--color-second);
 }
 
 .nav-item_bar{
     width: 2px;
     height: 0px;
-    background-color: #00ffa7;
+    background-color: var(--color-highlight);
     position: absolute;
     margin-left: 158px;
-    transition: var(--default-transition);
-    border-radius: var(--default-border-radius);
+    transition: var(--transition-default);
+    border-radius: var(--border-radius-default);
     opacity: 0;
 }
 
@@ -32,11 +32,11 @@
 /* } */
 
 .nav-item .icon {
-    transition: var(--default-transition);
+    transition: var(--transition-default);
 }
 
 .nav-item:hover .icon {
-    fill: var(--highlight);
+    fill: var(--color-highlight);
 }
 
 .nav-item_bar--active{
@@ -55,8 +55,8 @@
     user-select:none;
     font-size: var(--fontsize-default);
     cursor: pointer;
-    color: var(--color-low);
-    transition: var(--default-transition);
+    color: var(--font-color-second);
+    transition: var(--transition-default);
 }
 
 .nav-item:hover .nav-item_label {
@@ -69,7 +69,7 @@
 }
 
 .nav-item--active .icon {
-fill: var(--highlight);
+fill: var(--color-highlight);
 }
 
 .nav-item--active .nav-item_label {
