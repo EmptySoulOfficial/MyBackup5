@@ -27,7 +27,8 @@
     "label_last_backup": "Letztes Backup",
     "label_details": "Details",
 
-    "defaults_layer": "Benutzer definiert"
+    "defaults_layer": "Benutzer Ebene",
+    "defaults_nodeItem_name": "Backup benennen"
 
     
  },
@@ -60,7 +61,8 @@
     "label_last_backup": "Last backup",
     "label_details": "Details",
 
-    "defaults_layer": "User selected"
+    "defaults_layer": "User Layer",
+    "defaults_nodeItem_name": "Give it a name"
   }
 
 }

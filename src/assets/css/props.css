@@ -1,6 +1,6 @@
 @import './colors.css';
 :root{
-    --default-border-radius: 0px;
+    --default-border-radius: 6px;
     --titlebar-height: 30px;
     --app-titlebarcalc-height: calc(100% - 30px);
     --default-transition: 0.3s;

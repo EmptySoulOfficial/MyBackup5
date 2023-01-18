@@ -2,8 +2,6 @@
 /* imports */
 @import '../assets/css/index.css';
 
-/* fonts: headlines */
-
 @font-face {
     font-family: 'headline-default';
     src: url('../../data/fonts/headlines/JosefinSans-Thin.woff2') format('woff2');  
@@ -52,7 +50,6 @@
     src: url('../../data/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'); /* IE9 Compat Modes */
     
 }
-
 
 body,* {
     font-family: font-default;
@@ -312,4 +309,5 @@ display: block;
     background-color: var(--infobox-background-color);
     padding: 10px;
     font-size: 12px;
+    border-radius: var(--default-border-radius)
 }

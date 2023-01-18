@@ -255,6 +255,8 @@ input:checked + .checkbox-hook {
     transition: var(--default-transition);
     z-index: 9;
     overflow: hidden;
+    border-bottom-left-radius: var(--default-border-radius);
+    border-bottom-right-radius: var(--default-border-radius);
 }
 
 .backup-node-detail-box--active{

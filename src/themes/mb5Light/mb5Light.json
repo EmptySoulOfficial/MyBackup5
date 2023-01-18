@@ -1,0 +1,11 @@
+{"style":{
+    "wallpaper": "false",
+    "wallpaper_image": "../Pfad/File.file",
+    "blur": "var(--default-blur)",
+    "border-radius": "var(--default-border-radius)",
+
+    "backgroundcolor": "#fefefe",
+    "titel_bar_backgroundcolor": "var(--color-none)",
+    "font-color": "var(--font-color)"
+ }
+}

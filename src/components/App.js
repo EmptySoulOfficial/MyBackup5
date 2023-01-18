@@ -4,6 +4,7 @@ import './App.css'
 import TitleBar from './titleBar/titleBar.jsx'
 
 import parseStyle from '../assets/js/parseStyle.asset.jsx'
+import useAutoLang from '../assets/js/useAutoLang.asset.jsx'
 
 // import wallpaperimage from '/data/user/walllpaper/wallpaper.jpg' //doesnt work -> fix or create a new electron project
 
@@ -18,21 +19,63 @@ import QuickInfo from './quickInfo/quickInfo.jsx'
 
 function App() {
 
-    const [ quickinfovis, setquickinfovis ] = useState(false);
-    const [ quickinfoTitle, setquickinfoTitle ] = useState('');
-    const [ quickinfoText, setquickinfoText ] = useState('');
+  const [ quickinfovis, setquickinfovis ] = useState(false);
+  const [ quickinfoTitle, setquickinfoTitle ] = useState('');
+  const [ quickinfoText, setquickinfoText ] = useState('');
 
-    //set jStyle from user style json
-    const jStyle = parseStyle();
+  // set Theme state/select
+  //select default theme
+  const InitialThemeValue = () => {
+    const themeValue = "mb5darktheme";
+    return themeValue;
+  };
+  const [themeValue, setthemeValue] = useState(InitialThemeValue)
 
-    if (jStyle.wallpaper == "true") {
 
-        var appbgcolor = ""
-        var appbgwallpaper = wallpaperimage
-    } else {
-        var appbgcolor = jStyle.backgroundcolor
-        var appbgwallpaper = ""
+  
+  //get Parsed Style
+  const jStylesParsed = parseStyle();
+
+  
+  let SelectedStyle = () => {
+
+    if (themeValue == "mb5darktheme") {
+      let selectedStyle = jStylesParsed.jStyleDark
+      return selectedStyle
     }
+
+    if (themeValue == "mb5lighttheme") {
+      let selectedStyle = jStylesParsed.jStyleLight
+      return selectedStyle
+    }
+
+    if (themeValue == null) {
+      let selectedStyle = jStylesParsed.jStyleDark
+      return selectedStyle
+    } 
+  }
+
+  let jStyle = SelectedStyle();
+
+  if (jStyle.wallpaper == "true") {
+      var appbgcolor = ""
+      var appbgwallpaper = wallpaperimage
+  } else {
+      var appbgcolor = jStyle.backgroundcolor
+      var appbgwallpaper = ""
+  }
+
+  //set language
+
+  const autoLang = useAutoLang()
+
+  //select default language
+  const InitialLangValue = () => {
+    const langValue = autoLang;
+    return langValue;
+  };
+
+  const [langValue, setlangValue] = useState(InitialLangValue)
 
     //check if file exists (DONT WORK)
     const fs = require("fs");
@@ -45,7 +88,6 @@ function App() {
     } else {
       console.log("DOES NOT exist:", path);
     }
-
 
     return ( 
         <ReactCursorPosition>
@@ -61,7 +103,7 @@ function App() {
                     <HomeWindow /> 
                     <RestoreWindow />
                     <OptionsWindow /> 
-                    <ConfigWindow /> 
+                    <ConfigWindow themeValue={themeValue} setthemeValue={setthemeValue} langValue={langValue} setlangValue={setlangValue}/> 
                     </div>
                     </div>
                 </div>
