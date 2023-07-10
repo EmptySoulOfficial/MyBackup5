@@ -1,6 +1,8 @@
 ##dev infos
 install = npm i
-run = npm run start (electron-run alias)
+run = npm run electron-react
+
+Node Version: v14.17.3
 -----------------
 SVG url loader (only needed for new projects)
 install: npm i svg-url-loader --save-dev
