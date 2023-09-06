@@ -1,6 +1,8 @@
 ##dev infos
 install = npm i
 run = npm run start (electron-run alias)
+
+Usable Node Version: 16.13.0
 -----------------
 SVG url loader (only needed for new projects)
 install: npm i svg-url-loader --save-dev
