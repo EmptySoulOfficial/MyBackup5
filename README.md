@@ -1,10 +1,13 @@
-##dev infos
-install = npm i
-run = npm run start (electron-run alias)
+# My Backup 5
+#### backup Software By Empty Soul
+#### Windows / Mac
 
-Usable Node Version: 16.13.0
------------------
-SVG url loader (only needed for new projects)
+## HERE SOME INFORMATIONS ABOUT THE SOFTWARE
+
+
+_____ 
+### Installed packages
+#### SVG url loader (only needed for new projects)
 install: npm i svg-url-loader --save-dev
 config webpack js:
 
@@ -34,10 +37,14 @@ Paste *code under -----------
 -----------------------
 make shure do delete all other svg importer in the webpack builds!
 
-###Build
+## Development Informations
+install = npm i
+run = npm run start (electron-run alias)
+Used Node Version: 16.13.0
+### Change window title
+----------------------
+Enter Window name in the builded index.html project. (resources\app\dist\index.html)
+
+### Build
 ----------------------
  npm run package
-
-###Change window title
-----------------------
-enter Window name in the builded index.html project. (resources\app\dist\index.html)
