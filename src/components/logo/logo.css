@@ -1,0 +1,6 @@
+@import '../../assets/css/index.css';
+.logo {
+    border-radius: var(--border-radius-default);
+    width: 80px;
+    height: 80px;
+}
