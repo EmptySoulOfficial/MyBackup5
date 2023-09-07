@@ -14,3 +14,8 @@
 .addNodeItem:hover .icon {
     fill: var(--color-highlight);
 }
+
+.backupWindow-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

@@ -4,24 +4,24 @@
 
 @font-face {
     font-family: 'headline-default';
-    src: url('../../data/fonts/headlines/JosefinSans-Thin.woff2') format('woff2');  
+    src: url('../../data/fonts/headlines/JosefinSans-Thin.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'headline-light';
-    src: url('../../data/fonts/headlines/JosefinSans-Light.woff2') format('woff2');  
+    src: url('../../data/fonts/headlines/JosefinSans-Light.woff2') format('woff2');
 }
-  
+
 @font-face {
     font-family: 'headline-medium';
-    src: url('../../data/fonts/headlines/JosefinSans-Medium.woff2') format('woff2'); 
-    
+    src: url('../../data/fonts/headlines/JosefinSans-Medium.woff2') format('woff2');
+
 }
 
 @font-face {
     font-family: 'headline-italic';
-    src: url('../../data/fonts/headlines/JosefinSans-Italic-VariableFont_wght.woff2') format('woff2'); 
-    
+    src: url('../../data/fonts/headlines/JosefinSans-Italic-VariableFont_wght.woff2') format('woff2');
+
 }
 
 /* fonts: text */
@@ -29,26 +29,26 @@
   @font-face {
     font-family: 'font-default';
     src: url('../../data/fonts/Nunito-Light.woff2') format('woff2');
-   
-    
+
+
 }
 
 @font-face {
     font-family: 'font-medium';
     src: url('../../data/fonts/Nunito-Medium.woff2') format('woff2'); /* IE9 Compat Modes */
-    
+
 }
 
 @font-face {
     font-family: 'font-light';
     src: url('../../data/fonts/Nunito-VariableFont_wght.woff2') format('woff2'); /* IE9 Compat Modes */
-    
+
 }
 
 @font-face {
     font-family: 'font-italic';
     src: url('../../data/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'); /* IE9 Compat Modes */
-    
+
 }
 
 body,* {
@@ -75,11 +75,22 @@ h1 {
 }
 
 h3 {
+  font-family: 'headline-light';
+  font-weight: 100;
+  padding: 0;
+  color: var(--font-color);
+  font-size: var(--fontsize-h3) ;
+  user-select: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+h2 {
     font-family: 'headline-medium';
     font-weight: 100;
     padding: 0;
     color: var(--font-color);
-    font-size: var(--fontsize-h3) ;
+    font-size: var(--fontsize-h2) ;
     user-select: none;
 }
 
@@ -167,7 +178,7 @@ display: block;
 
 .appmainwindow-container {
     transform: translateX(350px);
-    opacity: 0; 
+    opacity: 0;
 }
 
 .appmainwindow-container--active {
@@ -186,7 +197,7 @@ display: block;
     100% {
         transform: unset;
         opacity: 1;
-    }  
+    }
 }
 
 .p-container-10 {
@@ -195,8 +206,8 @@ display: block;
 
 .appmainwindow-content {
     width: auto;
-    height: 370px;
-    background-color: var(--color-darker);
+    height: 390px;
+    background-color: var(--color-none);
     margin-top: 30px;
     border-radius: var(--border-radius-default);
     margin-left: 0px;
@@ -286,7 +297,8 @@ display: block;
 }
 
 .icon {
-    transition: var(--transition-default);
+  fill: var(--color-icon-default);
+  transition: var(--transition-default);
 }
 
 .editmode {

@@ -1,38 +1,42 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
 import './backupWindow.css'
-import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
-import BackupNode from '../../Items/backupNode/backupNode.jsx'
+import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import Card from '../../items/card/card.jsx'
 import Icon from '../../../assets/js/icon.asset.jsx'
 
+function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , addBackupItem, setaddBackupItem}) {
 
-function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText}) {
+    const eLang = getLang();
 
-    const lang_text = parseLanguages();
-
-    return (    
+    return (
         <div className="appmainwindow backup-window" id="window-backup">
 
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
-                <h1>{lang_text.windowtitle_backup}</h1>
+                <h1>{eLang.windowtitle_backup}</h1>
                 <div className="appmainwindow-toolbar">
-                    <button className="addNodeItem"><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
+                    <button className="addNodeItem" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="add" color="var(--color-low)" size={20} /></button>
                 </div>
             </div>
             <div className="appmainwindow-container backup-container">
-                <div className="appmainwindow-content backup-window_content">
+                <div className="appmainwindow-content backupWindow-content">
+                    {/* <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
                     <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
-                    <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
+                      */}
+                      <Card cardIcon="folder" cardLabel="My Big Balls Backup"/>
+                      <Card cardIcon="folder" cardLabel="My Data"/>
+                      <Card cardIcon="drive" cardLabel="PC Main Drive" />
+                      <Card cardIcon="folder" cardLabel="A folder with a very long name"/>
+                      <Card cardIcon="folder" cardLabel="Folder Two"/>
+                      <Card cardIcon="diskette" cardLabel="Diskette"/>
+                      <Card cardIcon="folder" cardLabel="Folder 3"/>
+                      <Card cardIcon="drive" cardLabel="Skyllein PC"/>
+                      <Card cardIcon="folder" cardLabel="New"/>
                 </div>
                 <div className="appmainwindow-bottomcontent backup-window_bottom_content">
-                    <div className="backuplayer-container">
-                        <select name="backuplayer" id="backuplayer_select">
-                            <option value="alllayers">{lang_text.defaults_layer}</option>
-                        </select>
-                    </div>
                     <div className="launchbutton-container">
-                        <button className="button-submit launch_button">{lang_text.button_launch}</button>
+                        <button className="button-submit launch_button">{eLang.button_launch}</button>
                     </div>
                 </div>
             </div>

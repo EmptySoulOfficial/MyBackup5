@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import * as styledatadark from '../../themes/mb5Dark/mb5Dark.json'
-import * as styledatalight from '../../themes/mb5Light/mb5Light.json'
+import * as styledata_oceansground from '../../themes/OceansGround/OceansGround.json'
+import * as styledata_gamergirl from '../../themes/GamerGirl/GamerGirl.json'
 
 const getStyles = "style"
 
 const parseStyle = () => {
-  const [ jStyleDark, setjStyleDark] = useState('')
-  const [ jStyleLight, setjStyleLight ] = useState('')
+  const [ jStyleOceansGround, setjStyleOceansGround] = useState('')
+  const [ jStyleGamerGirl, setjStyleGamerGirl ] = useState('')
 
   useEffect(
     () => {
-      const jsonObjDark = JSON.parse(JSON.stringify(styledatadark)).default
-      const jsonObjLight = JSON.parse(JSON.stringify(styledatalight)).default
+      const jsonObjOceansGround = JSON.parse(JSON.stringify(styledata_oceansground)).default
+      const jsonObjGamerGirl = JSON.parse(JSON.stringify(styledata_gamergirl)).default
       // replace(/\\n/g, '<br>')
 
-      setjStyleDark(jsonObjDark[getStyles])
-      setjStyleLight(jsonObjLight[getStyles])
+      setjStyleOceansGround(jsonObjOceansGround[getStyles])
+      setjStyleGamerGirl(jsonObjGamerGirl[getStyles])
     },
     []
   )
 
-  return {jStyleDark, jStyleLight};
+  return {jStyleOceansGround, jStyleGamerGirl};
 }
 
 export default parseStyle

@@ -1,17 +1,18 @@
 @import './colors.css';
 :root{
-    --border-radius-default: 6px;
+    --border-radius-default: 8px;
     --animation-default: cubic-bezier(0.47, 0, 0, 1.01);
     --transition-default: 0.3s;
     --filter-disabled: brightness(0.6);
     --blur-default: blur(10px);
     --transition-slow: 0.8s;
-    
+
     --titlebar-height: 30px;
     --app-titlebarcalc-height: calc(100% - 30px);
     --outline-default: 2px solid var( --white);
 
-    --fontsize-default: 14px;
+    --fontsize-default: 12px;
     --fontsize-title: 25px;
     --fontsize-h3: 18px;
+    --fontsize-h2: 20px;
 }

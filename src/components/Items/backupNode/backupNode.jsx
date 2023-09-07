@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from 'react'
 import classNames from 'classnames'
 import './backupNode.css'
@@ -103,3 +104,107 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
 }
 
 export default BackupNode
+=======
+import React, {useState} from 'react'
+import classNames from 'classnames'
+import './backupNode.css'
+import Icon from '../../../assets/js/icon.asset.jsx'
+import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import './lib/setbackupNodeEditMode.jsx'
+
+
+function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, nodeItemLabel}){
+
+    // Quickinfo and backup mock infos
+    const nodename = "My backup name";
+    const backuplast = "Last: 01.01.2022";
+    const backupto = "Drive: E:\\";
+
+    const eLang = getLang();
+
+    const [backupCheck, setbackupCheck] = useState(true);
+    const [nodeItemCheck, setnodeItemCheck] = useState(false);
+    const [nodeItemEdit, setnodeItemEdit] = useState(false);
+
+    return (
+        <>
+        {/* backup item */}
+        <div className="backup-node--container">
+            <div className={classNames('backup-node', {'': backupCheck,'backup-node--inactive': !backupCheck }, {'backup-node--selected': nodeItemCheck,'': !nodeItemCheck })}>
+                {/* Node Dragable */}
+                <div className={classNames('backup-node_dragable', {'backup-node_dragable--disabled': nodeItemCheck,'': !nodeItemCheck })}>
+                    <Icon name="anfasser" color="var(--color-low)" size={20} />
+                </div>
+                {/* Item select */}
+                <div className="backup-node_select">
+                    <label className={classNames('checkbox', {'checkbox-checked_js': nodeItemCheck,'': !nodeItemCheck })}>
+                        <input type="checkbox" className="select-switch-input checkbox-input"  onChange={() => setnodeItemCheck(prev => !prev)}  checked={(nodeItemCheck)? "checked" : ""}/>
+                        <span className="checkbox-hook"></span>
+                    </label>
+                </div>
+                {/* Item main */}
+                <div className="backup-node_mainsection">
+                    <div className="backup-node_label"
+                        onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}}
+                        onMouseLeave={() => setquickinfovis(false)}>{nodeItemLabel}</div>
+                </div>
+                {/* Item switch */}
+                <div className="backup-node_switchsection"
+                  onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(eLang.quickinfo_backupswitch_title); setquickinfoText(eLang.quickinfo_backupswitch_text)}}
+                  onMouseLeave={() => setquickinfovis(false)}>
+                    <label className="switch">
+                        <input type="checkbox" defaultChecked={true} disabled = {(nodeItemCheck)? "disabled" : ""} className="switch-input" onChange={() => setbackupCheck(prev => !prev)}></input>
+                            <span className="switch-inner"></span>
+                    </label>
+                </div>
+                {/* Edit Item */}
+                <div className={classNames('backup-node_editsection', {'editsection--disabled': nodeItemCheck,'': !nodeItemCheck }, {'backup-node_editsection--active': nodeItemEdit,'': !nodeItemEdit })} onClick={() => {setnodeItemEdit(nodeItemCheck => !nodeItemCheck)}} >
+                    <Icon name="morearrow" color="var(--color-low)" size={20} />
+                </div>
+            </div>
+
+        {/* edit box */}
+        {/* <div className={classNames('clickMenu-box', {'clickMenu-box--visible': nodeItemEdit,'': !nodeItemEdit })} onMouseLeave={() => {setnodeItemEdit(false);}}> */}
+        {/* <div className="clickMenu-item"> */}
+            {/* <label className="clickMenu-item-label">{eLang.nodeItem_edit_edit}</label> */}
+        {/* </div> */}
+        {/* <div className="clickMenu-item clickMenu-item-red"> */}
+            {/* <label className="clickMenu-item-label">{eLang.nodeItem_edit_delete}</label> */}
+        {/* </div> */}
+        {/* </div> */}
+            <div className={classNames('backup-node-detail-box', {'backup-node-detail-box--active': nodeItemEdit,'': !nodeItemEdit })}>
+                <div className="backup-node-detail-box-container">
+                    <div className="backup-node-detail-box-container-selections">
+                        <div className="detail-box-selections-left">
+                            <p className="main-label">File/Folder to backup</p>
+                            <div className="backup-node-detail-box-container-row detail-box-filetobackup">
+                                <button className="button-submit--small">Select</button>
+                                <p className="subtext detail-box-filetobackup-subtext">no file selected</p>
+                            </div>
+                        </div>
+                        <div className="detail-box-selections-right">
+                            <p className="main-label">Destination Folder/Drive</p>
+                            <div className="backup-node-detail-box-container-row detail-box-filedestination">
+                                <button className="button-submit--small">Select</button>
+                                <p className="subtext detail-box-filetobackup-subtext">no destination selected</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="backup-node-detail-box-container-details">
+                        <p className="main-label">Details</p>
+                        <div className="p-container-10">
+                            <div className="infobox">
+                            Last backup: 01.01.2022
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </>
+    )
+}
+
+export default BackupNode
+>>>>>>> ui_relayout
