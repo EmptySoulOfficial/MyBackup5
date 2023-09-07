@@ -1,0 +1,26 @@
+.test {
+  background-color: #ee226655;
+  outline: 1px dashed #ee2266;
+  animation-name: test-anim;
+  animation-duration: 10s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+}
+
+@keyframes test-anim {
+  0% {
+    background-color: #ee226655;
+    outline: 1px dashed #ee2266;
+  }
+
+  50% {
+    background-color: #eb22ee55;
+    outline: 1px dashed #9df2ff;
+  }
+
+  100% {
+    background-color: #ee226655;
+    outline: 1px dashed #ee2266;
+  }
+
+}

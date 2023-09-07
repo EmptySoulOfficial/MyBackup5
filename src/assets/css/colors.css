@@ -1,29 +1,45 @@
 :root{
     --color-none: transparent;
-    --gray: #111119;
-    --lightgray2: #2f2f46;
-    --lightgray: #21212f;
+    --gray: #131821;
+    --lightgray: #2d3840;
+    --lightgray-31: #313142;
+    --lightgray-a: #aaaaaa;
+    --lightgray-5f: #5f5f6c;
+    --gray-disabled: #3d3d53;
+    --dark-gray: #0f1117;
     --white: #fefefe;
-    --bg-alpha: #00000044;
-    --bg-titlebar: #0b0b10;
     --smooth-red: #ad3156;
-    --highlight: #28b28d;
- 
-    --color-low: #aaaaaa;
-    --maincolor: var(--gray);
-    --secondcolor: var(--lightgray);
+    --green: #28b28d;
+    --light-green: #00ffa7;
+    --lightyellow: #e6d1ab;
+
+
+    /* Theme */
+    --color-main: var(--gray);
+    --color-second: var(--lightgray);
+    --color-darker: var(--dark-gray);
+    --color-highlight: var(--green);
+    --color-close: var(--smooth-red);
+    --color-edit: var(--lightyellow);
+    --color-disabled: var(--gray-disabled);
+
+
     --font-color: var(--white);
-    --color-disabled: #3d3d53;
-    --headlabel-color: #5f5f6c;
-    --subtext-color: var(--headlabel-color);
-    --infobox-background-color: var(--lightgray2);
+    --font-color-second: var(--lightgray-a);
+    --font-color-headlabel:var(--lightgray-5f);
+    --font-color-subtext: var(--lightgray-5f);
+
+    --color-icon-default: var(--color-second);
+
+    --color-infobox-background: var(--lightgray-31);
+    --color-titlebar-background: var(--color-main);
 
     /* Backup nodes */
+    --color-icon-light: var(--font-color-second);
+
     --node-dragable_background: var(--color-none);
     --node-mainsection_background: var(--color-none);
     --node-switchsection_background: var(--color-none);
     --node-nodesection_background: var(--color-none);
 
-    /* popups */
-    --popup-overlay_background: var( --bg-alpha);
 }

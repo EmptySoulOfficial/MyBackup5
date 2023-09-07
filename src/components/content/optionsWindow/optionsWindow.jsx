@@ -1,14 +1,14 @@
 import React from 'react'
 import './optionsWindow.css'
-import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
+import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
 
 function OptionsWindow() {
-    const lang_text = parseLanguages();
-    return ( 
-        
+    const eLang = getLang();
+    return (
+
     <div className="appmainwindow options-window" >
-        <h1>{lang_text.windowtitle_options}</h1>
+        <h1>{eLang.windowtitle_options}</h1>
         <div className="appmainwindow-container options-container">
         <div className="appmainwindow-content options-window_content">
 

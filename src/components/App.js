@@ -15,6 +15,7 @@ import RestoreWindow from './content/restoreWindow/restoreWindow.jsx'
 import OptionsWindow from './content/optionsWindow/optionsWindow.jsx'
 import ConfigWindow from './content/configWindow/configWindow.jsx'
 import QuickInfo from './quickInfo/quickInfo.jsx'
+import AutoLang from '../assets/js/ELanguage/AutoLanguage.jsx'
 
 
 function App() {
@@ -25,23 +26,69 @@ function App() {
 
     const [addBackupItem, setaddBackupItem] = useState(false);
 
-    //set jStyle from user style json
-    const jStyle = parseStyle();
+  // set Theme state/select
+  //select default theme
 
-    if (jStyle.wallpaper == "true") {
+  const initialThemeValue = "oceansground"
 
-        var appbgcolor = ""
-        var appbgwallpaper = wallpaperimage
-    } else {
-        var appbgcolor = jStyle.backgroundcolor
-        var appbgwallpaper = ""
+  const InitialThemeValue = () => {
+    const themeValue = initialThemeValue;
+    return themeValue;
+  };
+  const [themeValue, setthemeValue] = useState(InitialThemeValue)
+
+
+
+  //get Parsed Style
+  const jStylesParsed = parseStyle();
+
+
+  let SelectedStyle = () => {
+
+    if (themeValue == initialThemeValue) {
+      let selectedStyle = jStylesParsed.jStyleOceansGround
+      return selectedStyle
     }
+
+    if (themeValue == "gamergirl") {
+      let selectedStyle = jStylesParsed.jStyleGamerGirl
+      return selectedStyle
+    }
+
+    if (themeValue == null) {
+      let selectedStyle = jStylesParsed.jStyleOceansGround
+      return selectedStyle
+    }
+  }
+
+  let jStyle = SelectedStyle();
+
+  if (jStyle.wallpaper == "true") {
+      var appbgcolor = ""
+      var appbgwallpaper = wallpaperimage
+  } else {
+      var appbgcolor = jStyle.backgroundcolor
+      var appbgwallpaper = ""
+  }
+
+    //set language
+
+    const autoLang = AutoLang()
+
+    //select default language
+    const InitialLangValue = () => {
+      const langValue = autoLang;
+      return langValue;
+    };
+
+    const [langValue, setlangValue] = useState(InitialLangValue)
+
 
     //check if file exists (DONT WORK)
     const fs = require("fs");
 
     const path = "./data/user/backup.mybackup5";
-    
+
     if (fs.existsSync(path)) {
       // path exists
       console.log("exists:", path);
@@ -50,27 +97,27 @@ function App() {
     }
 
 
-    return ( 
+    return (
         <ReactCursorPosition>
             <QuickInfo quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} quickinfoTitle={quickinfoTitle} quickinfoText={quickinfoText}/>
 
     <div className="app-container" >
 
   <TitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} />
-    <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>    
+    <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
         <Navigation blur={jStyle.blur} />
             <div className="app-content">
             <AddPopUp addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem}/>
-                    <BackupWindow addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />  
-                    <HomeWindow /> 
+                    <BackupWindow addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
+                    <HomeWindow />
                     <RestoreWindow />
-                    <OptionsWindow /> 
-                    <ConfigWindow /> 
+                    <OptionsWindow />
+                    <ConfigWindow themeValue={themeValue} setthemeValue={setthemeValue} langValue={langValue} setlangValue={setlangValue}/>
                     </div>
                     </div>
                 </div>
 
-        </ReactCursorPosition> 
+        </ReactCursorPosition>
     )
 }
 

@@ -8,15 +8,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--popup-overlay_background);
-    backdrop-filter: var(--default-blur);    
+    background-color: #00000055;
+    backdrop-filter: var(--blur-default);
 }
 
 .addWindow-box {
     width: 70%;
     height: 400px;
-    border-radius: var(--default-border-radius);
-    background-color: var(--maincolor);
+    border-radius: var(--border-radius-default);
+    background-color: var(--color-main);
     /* outline: var(--default-outline); */
 }
 
