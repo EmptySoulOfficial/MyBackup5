@@ -3,10 +3,10 @@ import './titleBar.css'
 
 import appTitle from '../../assets/js/appTitle.jsx'
 
-function TitleBar({titel_bar_backgroundcolor}) {
+function TitleBar({titel_bar_backgroundcolor, navItemSelectedId}) {
 
     const defaultAppTitle = appTitle();
-    
+
     return (
     <div className="TitleBar" style={{backgroundColor: titel_bar_backgroundcolor}}>
         <div className="titleBar-DragAble">
@@ -17,7 +17,7 @@ function TitleBar({titel_bar_backgroundcolor}) {
             <div className="title-button minimize-button" id="min-button" onClick={minAction}>
                 <span className="minimize-button-span"></span>
             </div>
-            <div className="title-button close-button" id="close-button" onClick={closeAction}>
+            <div className="title-button close-button" id="close-button" onClick={(e) => {closeAction(e,navItemSelectedId)}}>
                 <span className="close-button-span"></span>
                 <span className="close-button-span cl2"></span>
             </div>
@@ -27,8 +27,16 @@ function TitleBar({titel_bar_backgroundcolor}) {
 )
 }
 
+function saveLocalStorage(navItemSelectedId) {
+
+  if(localStorage.getItem("selectedNavItem")){
+  localStorage.setItem("selectedNavItem", navItemSelectedId)
+  }
+}
+
 //this functions ar send to main.js
-function closeAction(e) {
+function closeAction(e, navItemSelectedId) {
+  saveLocalStorage(navItemSelectedId);
     e.preventDefault();
     const {ipcRenderer} = require('electron');
         ipcRenderer.send('close-me')

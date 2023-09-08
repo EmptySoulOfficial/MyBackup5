@@ -1,15 +1,22 @@
 import React from 'react'
+import classNames from 'classnames';
 import './restoreWindow.css'
 import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
 
-function RestoreWindow() {
+
+function RestoreWindow({navItemSelectedId, showAppWindow}) {
     const eLang = getLang();
+
+    if(navItemSelectedId === "ni_restore"){
+      showAppWindow = true;
+    }
+
     return (
 
-    <div className="appmainwindow restore-window" >
+    <div className={classNames('appmainwindow restore-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })}>
         <h1>{eLang.windowtitle_restore}</h1>
-        <div className="appmainwindow-container restore-container">
+        <div className={classNames('appmainwindow-container restore-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content backup-window_content">
 
         </div>
