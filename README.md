@@ -2,7 +2,12 @@
 #### backup Software By Empty Soul
 #### Windows / Mac
 
+<<<<<<< HEAD
 ## HERE SOME INFORMATIONS ABOUT THE SOFTWARE
+=======
+## SOME INFOS
+some informations
+>>>>>>> dev
 
 
 _____ 
@@ -11,14 +16,14 @@ _____
 install: npm i svg-url-loader --save-dev
 config webpack js:
 
-Paste *code under -----------
+Copy / paste *code below this rules:
  module.exports = {
   module: {
     rules: [
------------
-*code:
 
-{
+*code:
+```js
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
@@ -34,6 +39,7 @@ Paste *code under -----------
           },
         ],
       },
+```
 -----------------------
 make shure do delete all other svg importer in the webpack builds!
 
@@ -41,6 +47,10 @@ make shure do delete all other svg importer in the webpack builds!
 install = npm i
 run = npm run start (electron-run alias)
 Used Node Version: 16.13.0
+<<<<<<< HEAD
+=======
+Installed Java: 11.0.16
+>>>>>>> dev
 ### Change window title
 ----------------------
 Enter Window name in the builded index.html project. (resources\app\dist\index.html)

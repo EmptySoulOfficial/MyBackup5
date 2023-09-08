@@ -1,0 +1,68 @@
+{"de":{
+    "menulabel_home": "Home",
+    "menulabel_backup": "Sichern",
+    "menulabel_restore": "Wiederherstellen",
+    "menulabel_manage": "Optionen",
+    "menulabel_config": "Einstellungen",
+
+    "windowtitle_home": "Home",
+    "windowtitle_backup": "Sichern",
+    "windowtitle_restore": "Wiederherstellen",
+    "windowtitle_options": "Optionen",
+    "windowtitle_config": "Einstellungen",
+    
+    "button_launch": "Start",
+    "button_select": "Wählen",
+
+    "quickinfo_backupswitch_title": "Backup Schalter",
+    "quickinfo_backupswitch_text": "Schalte backup für dieses Element an/aus.",
+
+    "nodeItem_edit_edit": "Bearbeiten",
+    "nodeItem_edit_delete": "Löschen",
+    "nodeItem_from_folder": "Backup Datei/Ordner",
+    "nodeItem_to_folder": "Ziel Ordner/Laufwerk",
+    "nodeItem_noFrom_folder_selected": "Keine Datei ausgewählt",
+    "nodeItem_noTo_folder_selected": "Kein Ziel ausgewählt",
+
+    "label_last_backup": "Letztes Backup",
+    "label_details": "Details",
+
+    "defaults_layer": "Benutzer Ebene",
+    "defaults_nodeItem_name": "Backup benennen"
+
+    
+ },
+ "en":{
+    "menulabel_home": "Home",
+    "menulabel_backup": "Backup",
+    "menulabel_restore": "Restore",
+    "menulabel_manage": "Options",
+    "menulabel_config": "Configuartions",
+
+    "windowtitle_home": "Home",
+    "windowtitle_backup": "Backup",
+    "windowtitle_restore": "Restore",
+    "windowtitle_options": "Options",
+    "windowtitle_config": "Configurations",
+
+    "button_launch": "Launch",
+    "button_select": "Select",
+
+    "quickinfo_backupswitch_title": "Backup switch",
+    "quickinfo_backupswitch_text": "Turn backup for this item on/off.",
+
+    "nodeItem_edit_edit": "Edit",
+    "nodeItem_edit_delete": "Delete",
+    "nodeItem_from_folder": "Backup file/folder",
+    "nodeItem_to_folder": "Destination drive/folder",
+    "nodeItem_noFrom_folder_selected": "No file selected",
+    "nodeItem_noTo_folder_selected": "No destination selected",
+
+    "label_last_backup": "Last backup",
+    "label_details": "Details",
+
+    "defaults_layer": "User Layer",
+    "defaults_nodeItem_name": "Give it a name"
+  }
+
+}

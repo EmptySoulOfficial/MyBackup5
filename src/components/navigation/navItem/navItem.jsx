@@ -11,7 +11,7 @@ function NavItem({label, iconSrc, iconAlt, navitemdefaultselected, navItemId, ic
   
     <div  id={navItemId} className={classNames('nav-item', {'nav-item--active': navitemdefaultselected, "" : !navitemdefaultselected })} onClick={() => tsetnavItemActive(!tnavItemActive)}>
         <div className="nav-item_icon">
-        <Icon name={iconName} color="var(--lightgray)" size={25} />
+        <Icon name={iconName} color="var(--color-icon-default)" size={25} />
         </div>
         <label className="nav-item_label">{label}</label>
         <div className="nav-item_bar"></div>

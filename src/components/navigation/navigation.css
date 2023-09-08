@@ -9,7 +9,7 @@
     margin-left: 0px;
     position: absolute;
     /* padding: 0px 10px; */
-    /* background-color: var(--bg-alpha); */
+    background-color: var(--color-darker);
 }
 
 .navigation-logosection {

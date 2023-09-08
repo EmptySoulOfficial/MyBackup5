@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import * as styledata from '../../../data/user/style/style.json'
+import * as styledata_oceansground from '../../themes/OceansGround/OceansGround.json'
+import * as styledata_gamergirl from '../../themes/GamerGirl/GamerGirl.json'
 
 const getStyles = "style"
 
 const parseStyle = () => {
-  const [ jStyle, setjStyle ] = useState('')
+  const [ jStyleOceansGround, setjStyleOceansGround] = useState('')
+  const [ jStyleGamerGirl, setjStyleGamerGirl ] = useState('')
 
   useEffect(
     () => {
-      const jsonObj = JSON.parse(JSON.stringify(styledata)).default
+      const jsonObjOceansGround = JSON.parse(JSON.stringify(styledata_oceansground)).default
+      const jsonObjGamerGirl = JSON.parse(JSON.stringify(styledata_gamergirl)).default
       // replace(/\\n/g, '<br>')
-      const styleString = getStyles
-      setjStyle(jsonObj[styleString])
+
+      setjStyleOceansGround(jsonObjOceansGround[getStyles])
+      setjStyleGamerGirl(jsonObjGamerGirl[getStyles])
     },
     []
   )
 
-  return jStyle
+  return {jStyleOceansGround, jStyleGamerGirl};
 }
 
 export default parseStyle
