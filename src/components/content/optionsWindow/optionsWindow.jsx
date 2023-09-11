@@ -1,15 +1,20 @@
 import React from 'react'
+import classNames from 'classnames';
 import './optionsWindow.css'
 import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
-
-function OptionsWindow() {
+function OptionsWindow({navItemSelectedId, showAppWindow}) {
     const eLang = getLang();
+
+    if(navItemSelectedId === "ni_options"){
+      showAppWindow = true;
+    }
+
     return (
 
-    <div className="appmainwindow options-window" >
+    <div className={classNames('appmainwindow options-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })}>
         <h1>{eLang.windowtitle_options}</h1>
-        <div className="appmainwindow-container options-container">
+        <div className={classNames('appmainwindow-container options-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content options-window_content">
 
         </div>

@@ -5,12 +5,16 @@ import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.
 import Card from '../../items/card/card.jsx'
 import Icon from '../../../assets/js/icon.asset.jsx'
 
-function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , addBackupItem, setaddBackupItem}) {
+function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , addBackupItem, setaddBackupItem, navItemSelectedId, showAppWindow}) {
 
     const eLang = getLang();
 
+    if(navItemSelectedId === "ni_backup"){
+      showAppWindow = true;
+    }
+
     return (
-        <div className="appmainwindow backup-window" id="window-backup">
+        <div className={classNames('appmainwindow backup-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
 
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
@@ -19,7 +23,7 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
                     <button className="addNodeItem" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="add" color="var(--color-low)" size={20} /></button>
                 </div>
             </div>
-            <div className="appmainwindow-container backup-container">
+            <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
                 <div className="appmainwindow-content backupWindow-content">
                     {/* <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
                     <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />

@@ -1,17 +1,16 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import $ from 'jquery'
 import './navigation.css'
-
 import Logo from '../logo/logo.jsx'
 import NavItem from './navItem/navItem.jsx'
-
 import { getLang, getLangVarable } from '../../assets/js/ELanguage/ELanguage.js'
 
-import './navItem/lib/setItemActive.jsx'
 
-function Navigation({blur}) {
+function Navigation({blur, s_selectedNavItem, setnavItemSelectedId, navItemSelectedId}) {
 
+  const [ navItemDefaultSelected, setnavItemDefaultSelected ] = useState();
 
+  console.log("🧭 Current Storage s:Item: "+s_selectedNavItem)
 
   const eLang = getLang();
 
@@ -22,16 +21,16 @@ function Navigation({blur}) {
           {/* <div className="Logo-container"> */}
             {/* <Logo/> */}
           {/* </div> */}
-          <NavItem label={eLang.menulabel_home}  navItemId={"ni_home"} iconName={"home"} iconAlt="home icon" navitemdefaultselected={false} />
+          <NavItem label={eLang.menulabel_home}  navItemId={"ni_home"} iconName={"home"} iconAlt="home icon" navitemdefaultselected={navItemDefaultSelected} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId}/>
 
         <div className="navigation_container">
             <div className="item-container">
-                <NavItem  label={eLang.menulabel_backup}  navItemId={"ni_backup"} iconName={"backup"} iconAlt="create backup icon" navitemdefaultselected={true} />
-                <NavItem  label={eLang.menulabel_restore} navItemId={"ni_restore"} iconName={"restore"} iconAlt="restore icon" navitemdefaultselected={false} />
-                <NavItem  label={eLang.menulabel_manage}  navItemId={"ni_options"} iconName={"options"} iconAlt="manage backup icon" navitemdefaultselected={false} />
+                <NavItem  label={eLang.menulabel_backup}  navItemId={"ni_backup"} iconName={"backup"} iconAlt="create backup icon" navitemdefaultselected={navItemDefaultSelected} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
+                <NavItem  label={eLang.menulabel_restore} navItemId={"ni_restore"} iconName={"restore"} iconAlt="restore icon" navitemdefaultselected={navItemDefaultSelected} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
+                <NavItem  label={eLang.menulabel_manage}  navItemId={"ni_options"} iconName={"options"} iconAlt="manage backup icon" navitemdefaultselected={navItemDefaultSelected} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
             </div>
             <div className="config-button_container">
-            <NavItem label={eLang.menulabel_config}  navItemId={"ni_config"} iconName={"config"} navitemdefaultselected={false} iconAlt="manage backup icon" />
+            <NavItem label={eLang.menulabel_config}  navItemId={"ni_config"} iconName={"config"} navitemdefaultselected={navItemDefaultSelected} iconAlt="manage backup icon" navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId}/>
             </div>
         </div>
     </nav>

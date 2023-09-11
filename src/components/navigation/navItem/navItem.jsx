@@ -1,15 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import './navItem.css'
 import Icon from '../../../assets/js/icon.asset.jsx'
 import classNames from 'classnames'
 
-function NavItem({label, iconSrc, iconAlt, navitemdefaultselected, navItemId, iconName, ref}) {
+function NavItem({label, iconSrc, iconAlt, navitemdefaultselected, navItemId, iconName, ref, navItemSelectedId, setnavItemSelectedId}) {
 
-  const [tnavItemActive, tsetnavItemActive] = useState(false);
+  if(navItemSelectedId == navItemId)
+  {
+    console.log('🧭 selected-Item: ' + navItemSelectedId)
+    navitemdefaultselected = true;
+  }
 
   return (
-  
-    <div  id={navItemId} className={classNames('nav-item', {'nav-item--active': navitemdefaultselected, "" : !navitemdefaultselected })} onClick={() => tsetnavItemActive(!tnavItemActive)}>
+
+    <div id={navItemId} className={classNames('nav-item', {'nav-item--active': navitemdefaultselected, "" : !navitemdefaultselected })} onClick={() => {setnavItemSelectedId(navItemId)}}>
         <div className="nav-item_icon">
         <Icon name={iconName} color="var(--color-icon-default)" size={25} />
         </div>
@@ -18,6 +22,5 @@ function NavItem({label, iconSrc, iconAlt, navitemdefaultselected, navItemId, ic
     </div>
   )
 }
-
 
 export default NavItem
