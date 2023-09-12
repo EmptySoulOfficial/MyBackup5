@@ -10,15 +10,19 @@
     "windowtitle_restore": "Wiederherstellen",
     "windowtitle_options": "Optionen",
     "windowtitle_config": "Einstellungen",
-    
+
     "button_launch": "Start",
 
     "quickinfo_backupswitch_title": "Backup Schalter",
     "quickinfo_backupswitch_text": "Schalte backup für dieses Element an/aus.",
 
     "nodeItem_edit_edit": "Bearbeiten",
-    "nodeItem_edit_delete": "Löschen"
-    
+    "nodeItem_edit_delete": "Löschen",
+
+    "block_label_appdata": "App Daten",
+    "block_label_applanguage": "Sprache",
+    "block_label_apptheme": "Farbthema"
+
  },
  "en":{
   "menulabel_home": "Home",
@@ -39,7 +43,11 @@
     "quickinfo_backupswitch_text": "Turn backup for this item on/off.",
 
     "nodeItem_edit_edit": "Edit",
-    "nodeItem_edit_delete": "Delete"
+    "nodeItem_edit_delete": "Delete",
+
+    "block_label_appdata": "App Data",
+    "block_label_applanguage": "Language",
+    "block_label_apptheme": "Theme"
   }
 
 }

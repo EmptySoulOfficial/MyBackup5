@@ -55,12 +55,12 @@
     user-select:none;
     font-size: var(--fontsize-default);
     cursor: pointer;
-    color: var(--font-color-second);
+    color: var(--color-font-second);
     transition: var(--transition-default);
 }
 
 .nav-item:hover .nav-item_label {
-    color: var(--font-color);
+    color: var(--color-font);
 }
 
 .nav-item--active .nav-item_bar {
@@ -73,5 +73,5 @@ fill: var(--color-highlight);
 }
 
 .nav-item--active .nav-item_label {
-    color: var(--font-color);
+    color: var(--color-font);
 }

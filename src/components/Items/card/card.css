@@ -20,7 +20,7 @@
 }
 
 .Item-Card:hover .Item-Card-Icon-container .icon{
-  fill: var(--font-color);
+  fill: var(--color-font);
 }
 
 .Item-Card-TopBar {
