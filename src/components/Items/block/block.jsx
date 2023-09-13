@@ -1,7 +1,6 @@
 import './block.css'
 import React, {useState} from 'react'
 import classNames from 'classnames'
-import Icon from '../../../assets/js/icon.asset.jsx'
 import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
 function BlockDefault({blocktitle, children}) {

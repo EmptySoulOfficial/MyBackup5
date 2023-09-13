@@ -1,0 +1,11 @@
+.select {
+  position: relative;
+}
+
+.select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: var(--color-highlight);
+}
