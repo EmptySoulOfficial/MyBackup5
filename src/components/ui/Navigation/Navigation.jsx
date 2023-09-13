@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import $ from 'jquery'
 import './Navigation.css'
 import Logo from '../Logo/Logo.jsx'
-import NavItem from './lib/navItem/navItem.jsx'
+import NavItem from './lib/NavItem/NavItem.jsx'
 import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
 

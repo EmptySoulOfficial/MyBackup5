@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import './backupNode.css'
 import Icon from '../../../assets/js/icon.asset.jsx'
 import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
-import './lib/setbackupNodeEditMode.jsx'
+import './lib/setbackupNodeEditMode.js'
 
 
 function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, nodeItemLabel}){
@@ -39,15 +39,15 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                 </div>
                 {/* Item main */}
                 <div className="backup-node_mainsection" onDoubleClick={() => setnodeItemEdit(prev => !prev)}>
-                    <div className={classNames('backup-node_label', {'divtextedit': nodeItemEdit, '' : !nodeItemEdit})} 
-                        onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}} 
+                    <div className={classNames('backup-node_label', {'divtextedit': nodeItemEdit, '' : !nodeItemEdit})}
+                        onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(nodename); setquickinfoText(backuplast + `\n` + backupto)}}
                         onMouseLeave={() => setquickinfovis(false)}>
                         <input type="text" className="backup-node_label_textinput" placeholder={lang_text.defaults_nodeItem_name} spellCheck="false" readOnly={!nodeItemEdit}/>
                         </div>
                 </div>
                 {/* Item switch */}
                 <div className="backup-node_switchsection"
-                  onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(lang_text.quickinfo_backupswitch_title); setquickinfoText(lang_text.quickinfo_backupswitch_text)}} 
+                  onMouseOver={() => {setquickinfovis(true); setquickinfoTitle(lang_text.quickinfo_backupswitch_title); setquickinfoText(lang_text.quickinfo_backupswitch_text)}}
                   onMouseLeave={() => setquickinfovis(false)}>
                     <label className="switch">
                         <input type="checkbox" defaultChecked={true} disabled = {(nodeItemCheck)? "disabled" : ""} className="switch-input" onChange={() => setbackupCheck(prev => !prev)}></input>
@@ -59,7 +59,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                     <Icon name="morearrow" color="var(--color-icon-light)" size={20} />
                 </div>
             </div>
-            
+
         {/* edit box */}
         {/* <div className={classNames('clickMenu-box', {'clickMenu-box--visible': nodeItemEdit,'': !nodeItemEdit })} onMouseLeave={() => {setnodeItemEdit(false);}}> */}
         {/* <div className="clickMenu-item"> */}
@@ -96,7 +96,7 @@ function BackupNode({ setquickinfovis, setquickinfoTitle, setquickinfoText, node
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </>

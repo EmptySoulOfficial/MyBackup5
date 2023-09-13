@@ -1,7 +1,7 @@
 import React from 'react'
 import './AppTitleBar.css'
 
-import AppTitle from '../../../assets/js/AppTitle.jsx'
+import AppTitle from '../../../core/AppTitle.jsx'
 
 function AppTitleBar({titel_bar_backgroundcolor, navItemSelectedId}) {
 
