@@ -1,4 +1,4 @@
-import './select.css'
+import './Select.css'
 import classNames from 'classnames'
 
 

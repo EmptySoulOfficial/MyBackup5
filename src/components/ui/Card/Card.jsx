@@ -1,7 +1,7 @@
-import './card.css'
+import './Card.css'
 import React, {useState} from 'react'
 import classNames from 'classnames'
-import Icon from '../../../assets/js/Icon/Icon.jsx'
+import Icon from '../Icon/Icon.jsx'
 import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
 function Card({cardIcon, cardLabel}){

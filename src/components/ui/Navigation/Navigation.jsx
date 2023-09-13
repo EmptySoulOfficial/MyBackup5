@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react'
 import $ from 'jquery'
-import './navigation.css'
-import Logo from '../logo/logo.jsx'
-import NavItem from './navItem/navItem.jsx'
-import { getLang, getLangVarable } from '../../assets/js/ELanguage/ELanguage.js'
+import './Navigation.css'
+import Logo from '../Logo/Logo.jsx'
+import NavItem from './lib/navItem/navItem.jsx'
+import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
 
 function Navigation({blur, s_selectedNavItem, setnavItemSelectedId, navItemSelectedId}) {

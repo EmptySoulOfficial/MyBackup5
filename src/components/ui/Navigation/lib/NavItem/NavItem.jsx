@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react'
-import './navItem.css'
-import Icon from '../../../assets/js/Icon/Icon.jsx'
+import './NavItem.css'
+import Icon from '../../../Icon/Icon.jsx'
 import classNames from 'classnames'
 
 function NavItem({label, iconSrc, iconAlt, navitemdefaultselected, navItemId, iconName, ref, navItemSelectedId, setnavItemSelectedId}) {

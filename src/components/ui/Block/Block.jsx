@@ -1,4 +1,4 @@
-import './block.css'
+import './Block.css'
 import React, {useState} from 'react'
 import classNames from 'classnames'
 import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'

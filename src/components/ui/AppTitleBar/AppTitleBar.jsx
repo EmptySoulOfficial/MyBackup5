@@ -1,11 +1,11 @@
 import React from 'react'
-import './titleBar.css'
+import './AppTitleBar.css'
 
-import appTitle from '../../assets/js/appTitle.jsx'
+import AppTitle from '../../../assets/js/AppTitle.jsx'
 
-function TitleBar({titel_bar_backgroundcolor, navItemSelectedId}) {
+function AppTitleBar({titel_bar_backgroundcolor, navItemSelectedId}) {
 
-    const defaultAppTitle = appTitle();
+    const defaultAppTitle = AppTitle();
 
     return (
     <div className="TitleBar" style={{backgroundColor: titel_bar_backgroundcolor}}>
@@ -48,4 +48,4 @@ function minAction(e) {
     ipcRenderer.send('minimize')
 }
 
-export default TitleBar
+export default AppTitleBar

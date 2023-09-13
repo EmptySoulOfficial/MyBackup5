@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import * as styledata_oceansground from '../../themes/OceansGround/OceansGround.json'
-import * as styledata_gamergirl from '../../themes/GamerGirl/GamerGirl.json'
+import * as styledata_oceansground from '../themes/OceansGround/OceansGround.json'
+import * as styledata_gamergirl from '../themes/GamerGirl/GamerGirl.json'
 
 const getStyles = "style"
 
-const parseStyle = () => {
+const AppStyle = () => {
   const [ jStyleOceansGround, setjStyleOceansGround] = useState('')
   const [ jStyleGamerGirl, setjStyleGamerGirl ] = useState('')
 
@@ -23,4 +23,4 @@ const parseStyle = () => {
   return {jStyleOceansGround, jStyleGamerGirl};
 }
 
-export default parseStyle
+export default AppStyle

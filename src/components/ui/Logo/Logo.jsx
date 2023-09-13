@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './logo.css'
+import './Logo.css'
 import LogoSVG from '../../assets/images/logo/MyBackupicon-nobg.svg'
 
 function Logo() {

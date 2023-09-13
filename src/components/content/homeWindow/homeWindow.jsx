@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames';
-import './homeWindow.css'
+import './HomeWindow.css'
 import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
 
 
