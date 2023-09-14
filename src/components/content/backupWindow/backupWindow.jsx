@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
-import './backupWindow.css'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
-import Card from '../../Items/card/card.jsx'
-import Icon from '../../../assets/js/Icon/Icon.jsx'
+import './BackupWindow.css'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
+import Card from '../../ui/Card/Card.jsx'
+import Icon from '../../ui/Icon/Icon.jsx'
 
 function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , addBackupItem, setaddBackupItem, navItemSelectedId, showAppWindow}) {
 

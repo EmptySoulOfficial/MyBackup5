@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import './configWindow.css'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
-import BlockDefault from "../../Items/block/block.jsx";
+import './ConfigWindow.css'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
+import BlockDefault from "../../ui/Block/Block.jsx";
 
 
 function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {

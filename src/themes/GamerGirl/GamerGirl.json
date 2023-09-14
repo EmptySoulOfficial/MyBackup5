@@ -1,11 +1,12 @@
 {"style":{
-    "wallpaper": "false",
-    "wallpaper_image": "../Pfad/File.file",
-    "blur": "var(--blur-default)",
-    "border-radius": "var(--border-radius-default)",
-
-    "backgroundcolor": "#fefefe",
-    "titel_bar_backgroundcolor": "var(--color-none)",
-    "font-color": "var(--font-color)"
+  "style_name": "Blue Art",
+  "style_auhtor": "By Empty Soul",
+  "wallpaper": "false",
+  "wallpaper_image": "../Pfad/File.file",
+  "blur": "var(--blur-default)",
+  "border-radius": "var(--border-radius-default)",
+  "backgroundcolor": "#fefefe",
+  "titel_bar_backgroundcolor": "var(--color-none)",
+  "font-color": "var(--font-color)"
  }
 }

@@ -1,21 +1,21 @@
 import React, {useState} from 'react'
 import ReactCursorPosition from 'react-cursor-position';
 import './App.css'
-import TitleBar from './titleBar/titleBar.jsx'
+import AppTitleBar from './ui/AppTitleBar/AppTitleBar.jsx'
 
-import parseStyle from '../assets/js/parseStyle.asset.jsx'
+import parseStyle from '../core/AppStyle.jsx'
 
 // import wallpaperimage from '/data/user/walllpaper/wallpaper.jpg' //doesnt work -> fix or create a new electron project
 
-import Navigation from './navigation/navigation.jsx'
-import AddPopUp from './popups/AddPopUp/AddPopUp.jsx'
-import HomeWindow from './content/homeWindow/homeWindow.jsx'
-import BackupWindow from './content/backupWindow/backupWindow.jsx'
-import RestoreWindow from './content/restoreWindow/restoreWindow.jsx'
-import OptionsWindow from './content/optionsWindow/optionsWindow.jsx'
-import ConfigWindow from './content/configWindow/configWindow.jsx'
-import QuickInfo from './quickInfo/quickInfo.jsx'
-import AutoLang from '../assets/js/ELanguage/AutoLanguage.jsx'
+import Navigation from './ui/Navigation/Navigation.jsx'
+import AddPopUp from './ui/AddPopUp--demo/AddPopUp.jsx'
+import HomeWindow from './content/HomeWindow/HomeWindow.jsx'
+import BackupWindow from './content/BackupWindow/BackupWindow.jsx'
+import RestoreWindow from './content/RestoreWindow/RestoreWindow.jsx'
+import OptionsWindow from './content/OptionsWindow/OptionsWindow.jsx'
+import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
+import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
+import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 
 
 function App() {
@@ -114,7 +114,7 @@ function App() {
 
     <div className="app-container" >
 
-  <TitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} navItemSelectedId={navItemSelectedId} />
+  <AppTitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} navItemSelectedId={navItemSelectedId} />
     <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
         <Navigation blur={jStyle.blur} s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
             <div className="app-content">

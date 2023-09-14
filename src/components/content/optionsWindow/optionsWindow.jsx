@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
-import './optionsWindow.css'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import './OptionsWindow.css'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
 function OptionsWindow({navItemSelectedId, showAppWindow}) {
     const eLang = getLang();
