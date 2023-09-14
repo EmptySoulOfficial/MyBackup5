@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
 import './BackupWindow.css'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 import Card from '../../ui/Card/Card.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 

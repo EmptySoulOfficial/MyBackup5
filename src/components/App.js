@@ -7,15 +7,15 @@ import parseStyle from '../core/AppStyle.jsx'
 
 // import wallpaperimage from '/data/user/walllpaper/wallpaper.jpg' //doesnt work -> fix or create a new electron project
 
-import Navigation from './ui/Navigation/Navigation.js'
+import Navigation from './ui/Navigation/Navigation.jsx'
 import AddPopUp from './ui/AddPopUp--demo/AddPopUp.jsx'
 import HomeWindow from './content/HomeWindow/HomeWindow.jsx'
-import BackupWindow from './content/BackupWindow/BackupWindow.js'
+import BackupWindow from './content/BackupWindow/BackupWindow.jsx'
 import RestoreWindow from './content/RestoreWindow/RestoreWindow.jsx'
 import OptionsWindow from './content/OptionsWindow/OptionsWindow.jsx'
-import ConfigWindow from './content/ConfigWindow/ConfigWindow.js'
-import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.js'
-import AutoLang from '../assets/js/ELanguage/AutoLanguage.jsx'
+import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
+import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
+import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 
 
 function App() {

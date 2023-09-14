@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
 import './HomeWindow.css'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 
 
 function BackupWindow({navItemSelectedId, showAppWindow}) {

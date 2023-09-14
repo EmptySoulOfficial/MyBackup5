@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import classNames from 'classnames'
 import './backupNode.css'
 import Icon from '../../../assets/js/icon.asset.jsx'
-import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
+// import parseLanguages from '../../../assets/js/parseLanguages.asset.jsx'
 import './lib/setbackupNodeEditMode.js'
 
 

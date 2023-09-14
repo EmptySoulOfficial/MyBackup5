@@ -3,7 +3,7 @@ import $ from 'jquery'
 import './Navigation.css'
 import Logo from '../Logo/Logo.jsx'
 import NavItem from './lib/NavItem/NavItem.jsx'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 
 
 function Navigation({blur, s_selectedNavItem, setnavItemSelectedId, navItemSelectedId}) {

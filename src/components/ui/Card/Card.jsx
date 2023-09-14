@@ -2,7 +2,7 @@ import './Card.css'
 import React, {useState} from 'react'
 import classNames from 'classnames'
 import Icon from '../Icon/Icon.jsx'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
 function Card({cardIcon, cardLabel}){
 

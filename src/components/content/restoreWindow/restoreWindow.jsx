@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
 import './RestoreWindow.css'
-import { getLang, getLangVarable } from '../../../assets/js/ELanguage/ELanguage.js'
+import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
 
 
