@@ -3,6 +3,7 @@ import classNames from "classnames";
 import './ConfigWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 import BlockDefault from "../../ui/Block/Block.jsx";
+import Select from '../../ui/Select/Select.jsx'
 
 
 function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
@@ -19,6 +20,8 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     if(navItemSelectedId === "ni_config"){
       showAppWindow = true;
     }
+
+    const selectItems = [['select1','Select 1 Name'],['select2', 'Select 2 Name']];
 
     return (
 
@@ -42,6 +45,8 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
           </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_appdata}>
             <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
+            <p>Test Select:</p>
+            <Select selectItems={selectItems}/>
           </BlockDefault>
 
         </div>
