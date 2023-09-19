@@ -3,7 +3,7 @@ import classNames from "classnames";
 import './ConfigWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 import BlockDefault from "../../ui/Block/Block.jsx";
-import Select from '../../ui/Select/Select.jsx'
+import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 
 
 function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
@@ -21,7 +21,11 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       showAppWindow = true;
     }
 
-    const selectItems = [['select1','Select 1 Name'],['select2', 'Select 2 Name']];
+    const dropdownItems = [
+      {dIKey:'select1', dIName: 'Select 1 Name'},
+      {dIKey:'select2', dIName: 'Select 2 Name'},
+      {dIKey:'select3', dIName: 'Select 3 Name'},
+    ];
 
     return (
 
@@ -46,7 +50,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
           <BlockDefault blocktitle={eLang.block_label_appdata}>
             <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
             <p>Test Select:</p>
-            <Select selectItems={selectItems}/>
+            <Dropdown dropdownItems={dropdownItems} dropdownId={'test-id'} dropdownClass={'dropdownClass'}/>
           </BlockDefault>
 
         </div>
