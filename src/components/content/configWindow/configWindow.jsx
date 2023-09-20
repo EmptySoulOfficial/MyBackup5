@@ -56,12 +56,12 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       <div className={classNames('appmainwindow-container config-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content config-window_content">
           <BlockDefault blocktitle={eLang.block_label_apptheme}>
-          <Dropdown dropdownItems={dThemeItems}  initialValue={themeValue} refFunction={dThemeRef} changeFunction={dThemeFunction} dropdownId={'dropdown-theme'} dropdownClass={'dropdown-small'}/>
-            <p>{`Selected Theme ${themeValue}`}</p>
+          <Dropdown dropdownItems={dThemeItems}  initialValue={themeValue} refFunction={dThemeRef} changeFunction={dThemeFunction} dropdownId={'dropdown-theme'} dropdownClass={'dropdown-medium'}/>
+            <p className="subtext">{`Selected Theme (value): ${themeValue}`}</p>
           </BlockDefault>
-          <BlockDefault blocktitle={eLang.block_label_applanguage}>
+          <BlockDefault blocktitle={'🌐'+eLang.block_label_applanguage}>
             <Dropdown dropdownItems={dLangItems}  initialValue={langValue} refFunction={dLangRef} changeFunction={dLangFunction} dropdownId={'dropdown-language'} dropdownClass={'dropdown-small'}/>
-            <p>{`Selected Language ${langValue}`}</p>
+            <p  className="subtext">{`Language (short): ${langValue}`}</p>
           </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_appdata}>
             <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
