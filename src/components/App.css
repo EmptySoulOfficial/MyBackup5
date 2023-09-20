@@ -249,6 +249,10 @@ display: block;
     background-color: var(--color-highlight);
 }
 
+.dropdown-small {
+  width: 120px;
+}
+
 .mybackuplogo_cl1 {
     fill: var(--color-font);
 }

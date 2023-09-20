@@ -21,7 +21,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       showAppWindow = true;
     }
 
-    const dropdownItems = [
+    let dropdownItems = [
       {dIKey:'select1', dIName: 'Select 1 Name'},
       {dIKey:'select2', dIName: 'Select 2 Name'},
       {dIKey:'select3', dIName: 'Select 3 Name'},
@@ -50,7 +50,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
           <BlockDefault blocktitle={eLang.block_label_appdata}>
             <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
             <p>Test Select:</p>
-            <Dropdown dropdownItems={dropdownItems} dropdownId={'test-id'} dropdownClass={'dropdownClass'}/>
+            <Dropdown dropdownItems={dropdownItems} initialValue={dropdownItems[1].dIKey} dropdownId={'test-id'} dropdownClass={'dropdown-small'}/>
           </BlockDefault>
 
         </div>

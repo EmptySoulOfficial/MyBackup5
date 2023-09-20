@@ -52,21 +52,31 @@
   z-index: 99;
   overflow: hidden;
   transition: var(--transition-default);
-  height: 0;
+  max-height: 0;
 }
 
 .dropdown-item-list-active {
-  height: auto;
+  max-height: 300px;
+}
+
+.dropdown-item-list-active .dropdown-item{
+  opacity: 1;
 }
 
 .dropdown-item {
   padding: 10px;
   cursor: pointer;
   transition: var(--transition-default);
+  opacity: 0;
+  transition: var(--transition-default);
 }
 
 .dropdown-item:hover {
   background-color: var(--color-highlight);
+  color: var(--color-font);
 }
 
+.dropdown-item-same-as-active {
+  color: var(--color-highlight);
+}
 
