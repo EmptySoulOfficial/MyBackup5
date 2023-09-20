@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import classNames from "classnames";
 import './ConfigWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
@@ -22,10 +22,15 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     }
 
     let dropdownItems = [
-      {dIKey:'select1', dIName: 'Select 1 Name'},
-      {dIKey:'select2', dIName: 'Select 2 Name'},
-      {dIKey:'select3', dIName: 'Select 3 Name'},
+      {dIKey:'select1', dIName: 'Select Item 1'},
+      {dIKey:'select2', dIName: 'Select Item 2'},
+      {dIKey:'select3', dIName: 'Select Item 3'},
     ];
+
+    const dropdownRef = useRef(null);
+    const customFunction = (prop) => {
+       alert(prop);
+    };
 
     return (
 
@@ -33,6 +38,11 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       <h1>{eLang.windowtitle_config}</h1>
       <div className={classNames('appmainwindow-container config-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content config-window_content">
+        <BlockDefault blocktitle={'Object Playground'}>
+          <p>Test Select:</p>
+          <Dropdown dropdownItems={dropdownItems}  initialValue={dropdownItems[0].dIKey} refFunction={dropdownRef} changeFunction={customFunction} dropdownId={'test-id'} dropdownClass={'dropdown-small'}/>
+          <button className="button-submit" onClick={customFunction}>Hello World</button>
+        </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_apptheme}>
             <select value={themeValue} onChange={changeTheme} name="apptheme" id="apptheme_select">
                 <option value="oceansground">Oceans Ground</option>
@@ -49,8 +59,6 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
           </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_appdata}>
             <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
-            <p>Test Select:</p>
-            <Dropdown dropdownItems={dropdownItems} initialValue={dropdownItems[1].dIKey} dropdownId={'test-id'} dropdownClass={'dropdown-small'}/>
           </BlockDefault>
 
         </div>

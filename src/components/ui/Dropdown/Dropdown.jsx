@@ -1,26 +1,33 @@
-import React, {useState} from 'react'
+import React, {useState, forwardRef, useImperativeHandle} from 'react'
 import './Dropdown.css'
 import classNames from 'classnames'
 
+const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialValue, changeFunction}, refFunction) => {
 
-function Dropdown({dropdownItems, dropdownId, dropdownClass, initialValue}) {
-
-  let selectlength
   let [dropdownItemActive, setDropDownItemActive] = useState()
-  selectlength = dropdownItems.length
+  let selectlength = dropdownItems.length
+
   // ------ Init default value --------
   const [value, setValue] = useState(initialValue);
-  const handleDropdownChange = (e) => {
-    setValue(e.target.value);
-  }
-
-  const handleSelectItem = (e) => {
-    setValue(e.target.getAttribute("data-value"));
-    setDropDownItemActive(false)
-  }
 
   // find dropdown object .name by key value
   const fDdObject = dropdownItems.find(({ dIKey }) => dIKey === value);
+  // Change Select value and trigger custom function
+  const handleSelectItem = (e) => {
+    setValue(e.target.getAttribute("data-value"));
+    setDropDownItemActive(false)
+    //Call costum Function
+    callChangeFunction(e.target.getAttribute("data-value"));
+
+  }
+  // ------- Custom function -----------
+  const callChangeFunction = (refValue) => {
+    changeFunction(refValue);
+  };
+  // Expose parent function (custom function) to parent component
+  useImperativeHandle(refFunction, () => ({
+    changeFunction: callChangeFunction,
+  }));
   // ------ LOGS --------
   // console.log('----- DropDown V1 ------')
   // console.log('▶️ DropDown LENGTH: '+ selectlength)
@@ -30,7 +37,7 @@ function Dropdown({dropdownItems, dropdownId, dropdownClass, initialValue}) {
 
   return (
       <div className={classNames('dropdown', dropdownClass)} id={dropdownId}>
-        <select value={value} onChange={handleDropdownChange}>
+        <select value={value} >
           {dropdownItems.map(function(optionObject, io){
             return <option value={optionObject.dIKey} key={optionObject.dIKey}>{optionObject.dIName}</option>
           })}
@@ -53,6 +60,6 @@ function Dropdown({dropdownItems, dropdownId, dropdownClass, initialValue}) {
       </div>
 
   )
-}
+});
 
 export default Dropdown
