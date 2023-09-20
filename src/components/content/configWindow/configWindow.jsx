@@ -13,23 +13,40 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     const changeTheme = (e) => {
         setthemeValue(e.target.value);
     };
-    const changeLang = (e) => {
-        setlangValue(e.target.value);
-    };
 
     if(navItemSelectedId === "ni_config"){
       showAppWindow = true;
     }
 
+    // test Dropdown
     let dropdownItems = [
       {dIKey:'select1', dIName: 'Select Item 1'},
       {dIKey:'select2', dIName: 'Select Item 2'},
       {dIKey:'select3', dIName: 'Select Item 3'},
     ];
-
     const dropdownRef = useRef(null);
     const customFunction = (prop) => {
        alert(prop);
+    };
+
+    //Language Dropdown
+    let dLangItems = [
+      {dIKey:'de', dIName: 'Deutsch'},
+      {dIKey:'en', dIName: 'English'},
+    ];
+    const dLangRef = useRef(null);
+    const dLangFunction = (prop) => {
+      setlangValue(prop);
+    };
+
+    //App Theme Dropdown
+    let dThemeItems = [
+      {dIKey:'gamergirl', dIName: 'Gamer Girl'},
+      {dIKey:'oceansground', dIName: 'Oceans Ground'},
+    ];
+    const dThemeRef = useRef(null);
+    const dThemeFunction = (prop) => {
+      setthemeValue(prop);
     };
 
     return (
@@ -38,23 +55,12 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       <h1>{eLang.windowtitle_config}</h1>
       <div className={classNames('appmainwindow-container config-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content config-window_content">
-        <BlockDefault blocktitle={'Object Playground'}>
-          <p>Test Select:</p>
-          <Dropdown dropdownItems={dropdownItems}  initialValue={dropdownItems[0].dIKey} refFunction={dropdownRef} changeFunction={customFunction} dropdownId={'test-id'} dropdownClass={'dropdown-small'}/>
-          <button className="button-submit" onClick={customFunction}>Hello World</button>
-        </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_apptheme}>
-            <select value={themeValue} onChange={changeTheme} name="apptheme" id="apptheme_select">
-                <option value="oceansground">Oceans Ground</option>
-                <option value="gamergirl">Gamer Girl</option>
-              </select>
+          <Dropdown dropdownItems={dThemeItems}  initialValue={themeValue} refFunction={dThemeRef} changeFunction={dThemeFunction} dropdownId={'dropdown-theme'} dropdownClass={'dropdown-small'}/>
             <p>{`Selected Theme ${themeValue}`}</p>
           </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_applanguage}>
-            <select value={langValue} onChange={changeLang} name="applang" id="apptlang_select">
-                <option value="en">English</option>
-                <option value="de">Deutsch</option>
-            </select>
+            <Dropdown dropdownItems={dLangItems}  initialValue={langValue} refFunction={dLangRef} changeFunction={dLangFunction} dropdownId={'dropdown-language'} dropdownClass={'dropdown-small'}/>
             <p>{`Selected Language ${langValue}`}</p>
           </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_appdata}>

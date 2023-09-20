@@ -56,7 +56,8 @@
 }
 
 .dropdown-item-list-active {
-  max-height: 300px;
+  max-height: 280px;
+  overflow-y: scroll;
 }
 
 .dropdown-item-list-active .dropdown-item{
