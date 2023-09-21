@@ -18,7 +18,6 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
     setDropDownItemActive(false)
     //Call costum Function
     callChangeFunction(e.target.getAttribute("data-value"));
-
   }
   const handleDropdownActive = () => {
     setDropDownItemActive(!dropdownItemActive);
@@ -70,7 +69,6 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
           })}
         </div>
       </div>
-
   )
 });
 

@@ -22,7 +22,6 @@ function ClickOutsideEvents(ref, props) {
 }
 
 export default function ClickOutside(props) {
-
   const wrapperRef = useRef(null);
   ClickOutsideEvents(wrapperRef, props);
   return <div className="co-wrapper" style={{width: "fit-content"}} ref={wrapperRef}>{props.children}</div>;

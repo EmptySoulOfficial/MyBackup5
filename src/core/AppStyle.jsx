@@ -13,13 +13,11 @@ const AppStyle = () => {
       const jsonObjOceansGround = JSON.parse(JSON.stringify(styledata_oceansground)).default
       const jsonObjGamerGirl = JSON.parse(JSON.stringify(styledata_gamergirl)).default
       // replace(/\\n/g, '<br>')
-
       setjStyleOceansGround(jsonObjOceansGround[getStyles])
       setjStyleGamerGirl(jsonObjGamerGirl[getStyles])
     },
     []
   )
-
   return {jStyleOceansGround, jStyleGamerGirl};
 }
 
