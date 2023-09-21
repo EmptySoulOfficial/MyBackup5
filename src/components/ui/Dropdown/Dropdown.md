@@ -1,4 +1,4 @@
-# Dropdown (React-Version) V 1
+# Dropdown (React-Version) V 1.2
 ###### By Empty Soul
 
 ## Imports
@@ -9,8 +9,11 @@
 - Create Array in parent component and pass it to your Dropdown.
 - To get a value or call a function out of the Dropdown component,
   you also have to define a useRef and pass a prop (here as "exampleProp") into the const.
-- The Dropdown also uses an unique component ID and an optional class.
 - Pass an initial value via "initialValue"-prop as 'text' or via object-selector.
+- The Dropdown also uses an unique component ID and an optional class.
+- It's also possible to get the open / close state from the Dropdown component as boolean
+  from the senCurrentState
+
 
 Example Array (in parent component):
 
@@ -34,11 +37,27 @@ Custom Ref-Function (also in parent component)
     };
 ```
 
+<br>
+
+Get current open / close state (true/false):
+
+```js
+    let getDropdownState = (state) => {
+      // console.log('! Dropdown State: '+state)
+    }
+```
+
 Example Dropdown Component with props:
 ("dropdownItems[1].dIKey" selects the key value of the second object)
 
 ```js
-  <Dropdown dropdownItems={dropdownItems}  initialValue={dropdownItems[0].dIKey} refFunction={dropdownRef} changeFunction={customFunction} dropdownId={'test-id'} dropdownClass={'dropdown-customClass'}/>
+  <Dropdown dropdownItems={dropdownItems}
+            initialValue={dropdownItems[0].dIKey} 
+            refFunction={dropdownRef} 
+            changeFunction={customFunction} 
+            sendCurrentState={getDropdownState}
+            dropdownId={'test-id'} 
+            dropdownClass={'dropdown-customClass'}/>
 ```
 
 > :warning: Pass only dIKey values through the initial value !
@@ -59,5 +78,6 @@ You can adjsut the width / size via ".dropdown" class or the custom class you de
                     so we can get a value out of it.
 - **changeFunction** = here goes the custom function, which sits in the parent component.
                        (here as customFunction)
+- **sendCurrentState** = give the sendCurrentState your conditional function with a prop in it, to get the boolean value.
 - **dropdownId** = a simple element id, you can set to your dropdown component
 - **dropdownClass** = a custom class, which is also given to your dropdown component for better styling options

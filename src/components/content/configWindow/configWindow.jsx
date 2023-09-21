@@ -4,6 +4,7 @@ import './ConfigWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 import BlockDefault from "../../ui/Block/Block.jsx";
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
+import ClickOutside from "../../../core/ClickOutside.jsx";
 
 
 function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
@@ -38,6 +39,12 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     const dLangFunction = (prop) => {
       setlangValue(prop);
     };
+    let [dLangState, setdLangState] = useState(false)
+    let getDropdownState = (state) => {
+        setdLangState(state)
+    }
+
+    console.log('DLangState: '+dLangState)
 
     //App Theme Dropdown
     let dThemeItems = [
@@ -48,6 +55,9 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     const dThemeFunction = (prop) => {
       setthemeValue(prop);
     };
+
+
+    console.log('! Dropdown dLanState: '+dLangState)
 
     return (
 
@@ -60,13 +70,20 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
             <p className="subtext">{`Selected Theme (value): ${themeValue}`}</p>
           </BlockDefault>
           <BlockDefault blocktitle={'🌐'+eLang.block_label_applanguage}>
-            <Dropdown dropdownItems={dLangItems}  initialValue={langValue} refFunction={dLangRef} changeFunction={dLangFunction} dropdownId={'dropdown-language'} dropdownClass={'dropdown-small'}/>
+            <ClickOutside activateCO={dLangState} >
+              <Dropdown dropdownItems={dLangItems}
+                        initialValue={langValue}
+                        refFunction={dLangRef}
+                        changeFunction={dLangFunction}
+                        sendCurrentState={getDropdownState}
+                        dropdownId={'dropdown-language'}
+                        dropdownClass={'dropdown-small'}/>
+              </ClickOutside>
             <p  className="subtext">{`Language (short): ${langValue}`}</p>
           </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_appdata}>
             <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
           </BlockDefault>
-
         </div>
       </div>
     </div>
