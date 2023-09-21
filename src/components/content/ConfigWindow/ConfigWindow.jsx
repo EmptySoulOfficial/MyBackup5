@@ -19,16 +19,20 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       showAppWindow = true;
     }
 
-    // test Dropdown
-    let dropdownItems = [
-      {dIKey:'select1', dIName: 'Select Item 1'},
-      {dIKey:'select2', dIName: 'Select Item 2'},
-      {dIKey:'select3', dIName: 'Select Item 3'},
+    //App Theme Dropdown
+    let dThemeItems = [
+      {dIKey:'gamergirl', dIName: 'Gamer Girl'},
+      {dIKey:'oceansground', dIName: 'Oceans Ground'},
     ];
-    const dropdownRef = useRef(null);
-    const customFunction = (prop) => {
-       alert(prop);
+    const dThemeRef = useRef(null);
+    const dThemeFunction = (prop) => {
+      setthemeValue(prop);
     };
+
+    let [dThemeState, setdThemeState] = useState(false)
+    let getDropdownThemeState = (state) => {
+        setdThemeState(state)
+    }
 
     //Language Dropdown
     let dLangItems = [
@@ -40,24 +44,11 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       setlangValue(prop);
     };
     let [dLangState, setdLangState] = useState(false)
-    let getDropdownState = (state) => {
+    let getDropdownLangState = (state) => {
         setdLangState(state)
     }
 
     console.log('DLangState: '+dLangState)
-
-    //App Theme Dropdown
-    let dThemeItems = [
-      {dIKey:'gamergirl', dIName: 'Gamer Girl'},
-      {dIKey:'oceansground', dIName: 'Oceans Ground'},
-    ];
-    const dThemeRef = useRef(null);
-    const dThemeFunction = (prop) => {
-      setthemeValue(prop);
-    };
-
-
-    console.log('! Dropdown dLanState: '+dLangState)
 
     return (
 
@@ -66,8 +57,17 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       <div className={classNames('appmainwindow-container config-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content config-window_content">
           <BlockDefault blocktitle={eLang.block_label_apptheme}>
-          <Dropdown dropdownItems={dThemeItems}  initialValue={themeValue} refFunction={dThemeRef} changeFunction={dThemeFunction} dropdownId={'dropdown-theme'} dropdownClass={'dropdown-medium'}/>
-            <p className="subtext">{`Selected Theme (value): ${themeValue}`}</p>
+            <ClickOutside activateCO={dThemeState} setCOState={setdThemeState}>
+              <Dropdown dropdownItems={dThemeItems}
+                        initialValue={themeValue}
+                        refFunction={dThemeRef}
+                        changeFunction={dThemeFunction}
+                        sendCurrentState={getDropdownThemeState}
+                        clickOutsideFunction={dThemeState}
+                        dropdownId={'dropdown-theme'}
+                        dropdownClass={'dropdown-medium'}/>
+              <p className="subtext">{`Selected Theme (value): ${themeValue}`}</p>
+            </ClickOutside>
           </BlockDefault>
           <BlockDefault blocktitle={'🌐'+eLang.block_label_applanguage}>
             <ClickOutside activateCO={dLangState} setCOState={setdLangState}>
@@ -75,7 +75,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
                         initialValue={langValue}
                         refFunction={dLangRef}
                         changeFunction={dLangFunction}
-                        sendCurrentState={getDropdownState}
+                        sendCurrentState={getDropdownLangState}
                         clickOutsideFunction={dLangState}
                         dropdownId={'dropdown-language'}
                         dropdownClass={'dropdown-small'}/>
