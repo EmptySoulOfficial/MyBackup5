@@ -66,7 +66,8 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
                           onClick={handleSelectItem}>
                         {dIObject.dIName}
                       </div>
-          })}
+            }
+          )}
         </div>
       </div>
   )

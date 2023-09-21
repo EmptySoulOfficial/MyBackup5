@@ -1,6 +1,7 @@
 {"style":{
   "style_name": "Blue Art",
   "style_auhtor": "By Empty Soul",
+  "style_version": "1.0.0",
   "wallpaper": "false",
   "blur": "var(--blur-default)",
   "border-radius": "var(--border-radius-default)",

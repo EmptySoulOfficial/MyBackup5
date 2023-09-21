@@ -6,7 +6,6 @@ import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 function BlockDefault({blocktitle, children}) {
 
   return (
-
     <div className="block-default">
       <label className="box-default-title ">{blocktitle}</label>
       <div className="box-default">

@@ -12,7 +12,6 @@ function NavItem({label, iconSrc, iconAlt, navitemdefaultselected, navItemId, ic
   }
 
   return (
-
     <div id={navItemId} className={classNames('nav-item', {'nav-item--active': navitemdefaultselected, "" : !navitemdefaultselected })} onClick={() => {setnavItemSelectedId(navItemId)}}>
         <div className="nav-item_icon">
         <Icon name={iconName} color="var(--color-icon-default)" size={25} />

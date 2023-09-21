@@ -24,11 +24,10 @@ function AppTitleBar({titel_bar_backgroundcolor, navItemSelectedId}) {
 
         </div>
     </div>
-)
+  )
 }
 
 function saveLocalStorage(navItemSelectedId) {
-
   if(localStorage.getItem("selectedNavItem")){
   localStorage.setItem("selectedNavItem", navItemSelectedId)
   }

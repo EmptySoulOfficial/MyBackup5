@@ -9,10 +9,9 @@ import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 function Navigation({blur, s_selectedNavItem, setnavItemSelectedId, navItemSelectedId}) {
 
   const [ navItemDefaultSelected, setnavItemDefaultSelected ] = useState();
+  const eLang = getLang();
 
   console.log("🧭 Current Storage s:Item: "+s_selectedNavItem)
-
-  const eLang = getLang();
 
   return (
     <nav className="navigation" style={{backdropFilter: blur}}>
