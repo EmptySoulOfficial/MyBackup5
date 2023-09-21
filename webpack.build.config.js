@@ -10,7 +10,7 @@ const staticInclude = path.resolve(__dirname, 'data')
 module.exports = {
   module: {
     rules: [
-     
+
       {
         test: /\.css$/,
         use: [
@@ -35,6 +35,17 @@ module.exports = {
         use: {
           loader: 'url-loader'
         }
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              encoding: 'base64'
+            },
+          },
+        ],
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
