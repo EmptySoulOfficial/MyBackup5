@@ -1,8 +1,8 @@
-import React, {useState, forwardRef, useImperativeHandle} from 'react'
+import React, {useState, useEffect, forwardRef, useImperativeHandle} from 'react'
 import './Dropdown.css'
 import classNames from 'classnames'
 
-const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialValue, changeFunction, sendCurrentState}, refFunction) => {
+const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialValue, changeFunction, sendCurrentState, clickOutsideFunction}, refFunction) => {
 
   let [dropdownItemActive, setDropDownItemActive] = useState(false)
   let selectlength = dropdownItems.length
@@ -24,7 +24,13 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
     setDropDownItemActive(!dropdownItemActive);
     //export curent dropdown open/close state as boolean
     sendCurrentState(!dropdownItemActive);
-};
+  };
+  // Use effect if click outside prop changed an set List to inactive
+  useEffect(() => {
+    if (clickOutsideFunction === false){
+      setDropDownItemActive(false);
+    }
+  }, [clickOutsideFunction]); // 👈️ add props as dependencies
 
   // ------- Custom function -----------
   const callChangeFunction = (refValue) => {

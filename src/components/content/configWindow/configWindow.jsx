@@ -70,12 +70,13 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
             <p className="subtext">{`Selected Theme (value): ${themeValue}`}</p>
           </BlockDefault>
           <BlockDefault blocktitle={'🌐'+eLang.block_label_applanguage}>
-            <ClickOutside activateCO={dLangState} >
+            <ClickOutside activateCO={dLangState} setCOState={setdLangState}>
               <Dropdown dropdownItems={dLangItems}
                         initialValue={langValue}
                         refFunction={dLangRef}
                         changeFunction={dLangFunction}
                         sendCurrentState={getDropdownState}
+                        clickOutsideFunction={dLangState}
                         dropdownId={'dropdown-language'}
                         dropdownClass={'dropdown-small'}/>
               </ClickOutside>

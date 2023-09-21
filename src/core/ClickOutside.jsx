@@ -8,9 +8,9 @@ function ClickOutsideEvents(ref, props) {
       if (ref.current && !ref.current.contains(event.target)) {
         //alert(props.activateCO);
         // Here output function
+        props.setCOState(!props.activateCO)
       }
     }
-
     // Bind event listener
     if(props.activateCO === true) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -25,5 +25,5 @@ export default function ClickOutside(props) {
 
   const wrapperRef = useRef(null);
   ClickOutsideEvents(wrapperRef, props);
-  return <div ref={wrapperRef}>{props.children}</div>;
+  return <div className="co-wrapper" style={{width: "fit-content"}} ref={wrapperRef}>{props.children}</div>;
 }
