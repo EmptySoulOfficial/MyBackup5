@@ -1,10 +1,10 @@
-import React, {useState, forwardRef, useImperativeHandle} from 'react'
+import React, {useState, useEffect, forwardRef, useImperativeHandle} from 'react'
 import './Dropdown.css'
 import classNames from 'classnames'
 
-const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialValue, changeFunction}, refFunction) => {
+const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialValue, changeFunction, sendCurrentState, clickOutsideFunction}, refFunction) => {
 
-  let [dropdownItemActive, setDropDownItemActive] = useState()
+  let [dropdownItemActive, setDropDownItemActive] = useState(false)
   let selectlength = dropdownItems.length
 
   // ------ Init default value --------
@@ -20,6 +20,18 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
     callChangeFunction(e.target.getAttribute("data-value"));
 
   }
+  const handleDropdownActive = () => {
+    setDropDownItemActive(!dropdownItemActive);
+    //export curent dropdown open/close state as boolean
+    sendCurrentState(!dropdownItemActive);
+  };
+  // Use effect if click outside prop changed an set List to inactive
+  useEffect(() => {
+    if (clickOutsideFunction === false){
+      setDropDownItemActive(false);
+    }
+  }, [clickOutsideFunction]); // 👈️ add props as dependencies
+
   // ------- Custom function -----------
   const callChangeFunction = (refValue) => {
     changeFunction(refValue);
@@ -42,7 +54,7 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
             return <option value={optionObject.dIKey} key={optionObject.dIKey}>{optionObject.dIName}</option>
           })}
         </select>
-        <div onClick={() => {setDropDownItemActive(!dropdownItemActive)}} className={classNames('dropdown-selected-Item', {'dropdown-selected-item-active': dropdownItemActive, "" : !dropdownItemActive})}>
+        <div onClick={handleDropdownActive} className={classNames('dropdown-selected-Item', {'dropdown-selected-item-active': dropdownItemActive, "" : !dropdownItemActive})}>
             {fDdObject.dIName}
         </div>
         <div className={classNames('dropdown-item-list', {'dropdown-item-list-active': dropdownItemActive , "" : !dropdownItemActive })}>
