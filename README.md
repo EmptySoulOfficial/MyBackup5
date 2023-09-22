@@ -50,4 +50,5 @@ Enter Window name in the builded index.html project. (resources\app\dist\index.h
 
 ### Build
 ----------------------
- npm run package
+ npm run package (wihtout security)
+ ./build-app-asar.sh (via git bash - with asar packaging)
