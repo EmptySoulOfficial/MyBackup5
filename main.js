@@ -42,14 +42,14 @@ ipcMain.on('minimize', () => {
 })
 
 function createWindow() {
-  
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: myappwidth ,
     height: myappheight ,
     show: false,
     autoHideMenuBar: true,
-    icon: './data/appIcon.ico',
+    icon: path.join(__dirname, 'data/App/AppIcon.png'),
     frame: false,
     webPreferences: {
       zoomFactor: 1.0,
@@ -60,19 +60,19 @@ function createWindow() {
 
 //script to scale app window on different screens
   // mainWindow.on("move", () => {
-  // 
+  //
   // const electron = require('electron');
   // var screenElectron = electron.screen;
   // var mainScreen = screenElectron.getPrimaryDisplay();
   // var allScreens = screenElectron.getAllDisplays();
   // var dimensions = mainScreen.size;
-  // 
+  //
   // let scalefactorx = dimensions.width / 1920;
   // let scalefactory = dimensions.height / 1080;
-  // 
-  // 
+  //
+  //
   // mainWindow.setSize(1000*scalefactorx, 600*scalefactory);
-  // 
+  //
   // })
 
   mainWindow.setResizable(false);

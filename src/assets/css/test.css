@@ -24,3 +24,29 @@
   }
 
 }
+
+.rgb {
+  background-color: #ff0000;
+  animation-name: rgb-anim;
+  animation-duration: 10s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rgb-anim {
+  0% {
+    background-color: #ff0000;
+  }
+
+  30% {
+    background-color: #00ff00;
+  }
+
+  60% {
+    background-color: #0000ff;
+  }
+
+  100% {
+    background-color: #ff0000;
+  }
+}

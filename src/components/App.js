@@ -1,34 +1,48 @@
 import React, {useState} from 'react'
 import ReactCursorPosition from 'react-cursor-position';
 import './App.css'
-import TitleBar from './titleBar/titleBar.jsx'
+import AppTitleBar from './ui/AppTitleBar/AppTitleBar.jsx'
 
-import parseStyle from '../assets/js/parseStyle.asset.jsx'
+import parseStyle from '../core/AppStyle.jsx'
 
 // import wallpaperimage from '/data/user/walllpaper/wallpaper.jpg' //doesnt work -> fix or create a new electron project
 
-import Navigation from './navigation/navigation.jsx'
-import AddPopUp from './popups/AddPopUp/AddPopUp.jsx'
-import HomeWindow from './content/homeWindow/homeWindow.jsx'
-import BackupWindow from './content/backupWindow/backupWindow.jsx'
-import RestoreWindow from './content/restoreWindow/restoreWindow.jsx'
-import OptionsWindow from './content/optionsWindow/optionsWindow.jsx'
-import ConfigWindow from './content/configWindow/configWindow.jsx'
-import QuickInfo from './quickInfo/quickInfo.jsx'
-import AutoLang from '../assets/js/ELanguage/AutoLanguage.jsx'
+import Navigation from './ui/Navigation/Navigation.jsx'
+import AddPopUp from './ui/AddPopUp--demo/AddPopUp.jsx'
+import HomeWindow from './content/HomeWindow/HomeWindow.jsx'
+import BackupWindow from './content/BackupWindow/BackupWindow.jsx'
+import RestoreWindow from './content/RestoreWindow/RestoreWindow.jsx'
+import OptionsWindow from './content/OptionsWindow/OptionsWindow.jsx'
+import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
+import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
+import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 
 
 function App() {
 
-    const [ quickinfovis, setquickinfovis ] = useState(false);
-    const [ quickinfoTitle, setquickinfoTitle ] = useState('');
-    const [ quickinfoText, setquickinfoText ] = useState('');
+  const [ quickinfovis, setquickinfovis ] = useState(false);
+  const [ quickinfoTitle, setquickinfoTitle ] = useState('');
+  const [ quickinfoText, setquickinfoText ] = useState('');
+  const [addBackupItem, setaddBackupItem] = useState(false);
+  let [showAppWindow, setShowAppWindow] = useState()
 
-    const [addBackupItem, setaddBackupItem] = useState(false);
+  // local storages
+  let s_selectedNavItem = localStorage.getItem("selectedNavItem")
+
+  // set / load selected NavItem (default Load)
+  let [ navItemSelectedId, setnavItemSelectedId ] = useState(s_selectedNavItem);
+  if (!s_selectedNavItem) {
+   localStorage.setItem("selectedNavItem", "ni_home");
+
+  }
+  // if no Items are setted, set Home as default
+  if(!navItemSelectedId){
+    navItemSelectedId = "ni_home";
+  }
+  console.log('💽 storage default: '+ s_selectedNavItem)
 
   // set Theme state/select
   //select default theme
-
   const initialThemeValue = "oceansground"
 
   const InitialThemeValue = () => {
@@ -37,11 +51,8 @@ function App() {
   };
   const [themeValue, setthemeValue] = useState(InitialThemeValue)
 
-
-
   //get Parsed Style
   const jStylesParsed = parseStyle();
-
 
   let SelectedStyle = () => {
 
@@ -103,16 +114,16 @@ function App() {
 
     <div className="app-container" >
 
-  <TitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} />
+  <AppTitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} navItemSelectedId={navItemSelectedId} />
     <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
-        <Navigation blur={jStyle.blur} />
+        <Navigation blur={jStyle.blur} s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
             <div className="app-content">
             <AddPopUp addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem}/>
-                    <BackupWindow addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
-                    <HomeWindow />
-                    <RestoreWindow />
-                    <OptionsWindow />
-                    <ConfigWindow themeValue={themeValue} setthemeValue={setthemeValue} langValue={langValue} setlangValue={setlangValue}/>
+                    <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow} navItemSelectedId={navItemSelectedId} addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
+                    <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
+                    <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
+                    <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
+                    <ConfigWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} themeValue={themeValue} setthemeValue={setthemeValue} langValue={langValue} setlangValue={setlangValue}/>
                     </div>
                     </div>
                 </div>
