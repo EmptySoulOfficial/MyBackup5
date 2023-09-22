@@ -32,9 +32,10 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png)$/,
-        use: {
+        use: [{
           loader: 'url-loader'
-        }
+        }],
+        include: staticInclude
       },
       {
         test: /\.svg$/,

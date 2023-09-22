@@ -49,7 +49,7 @@ function createWindow() {
     height: myappheight ,
     show: false,
     autoHideMenuBar: true,
-    icon: './data/App/AppIcon.ico',
+    icon: path.join(__dirname, 'data/App/AppIcon.png'),
     frame: false,
     webPreferences: {
       zoomFactor: 1.0,
