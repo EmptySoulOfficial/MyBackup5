@@ -4,23 +4,23 @@
 
 @font-face {
     font-family: 'headline-default';
-    src: url('../../data/App/fonts/headlines/JosefinSans-Thin.woff2') format('woff2');
+    src: url('../../public/fonts/headlines/JosefinSans-Thin.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'headline-light';
-    src: url('../../data/App/fonts/headlines/JosefinSans-Light.woff2') format('woff2');
+    src: url('../../public/fonts/headlines/JosefinSans-Light.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'headline-medium';
-    src: url('../../data/App/fonts/headlines/JosefinSans-Medium.woff2') format('woff2');
+    src: url('../../public/fonts/headlines/JosefinSans-Medium.woff2') format('woff2');
 
 }
 
 @font-face {
     font-family: 'headline-italic';
-    src: url('../../data/App/fonts/headlines/JosefinSans-Italic-VariableFont_wght.woff2') format('woff2');
+    src: url('../../public/fonts/headlines/JosefinSans-Italic-VariableFont_wght.woff2') format('woff2');
 
 }
 
@@ -28,26 +28,26 @@
 
   @font-face {
     font-family: 'font-default';
-    src: url('../../data/App/fonts/Nunito-Light.woff2') format('woff2');
+    src: url('../../public/fonts/Nunito-Light.woff2') format('woff2');
 
 
 }
 
 @font-face {
     font-family: 'font-medium';
-    src: url('../../data/App/fonts/Nunito-Medium.woff2') format('woff2'); /* IE9 Compat Modes */
+    src: url('../../public/fonts/Nunito-Medium.woff2') format('woff2'); /* IE9 Compat Modes */
 
 }
 
 @font-face {
     font-family: 'font-light';
-    src: url('../../data/App/fonts/Nunito-VariableFont_wght.woff2') format('woff2'); /* IE9 Compat Modes */
+    src: url('../../public/fonts/Nunito-VariableFont_wght.woff2') format('woff2'); /* IE9 Compat Modes */
 
 }
 
 @font-face {
     font-family: 'font-italic';
-    src: url('../../data/App/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'); /* IE9 Compat Modes */
+    src: url('../../public/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'); /* IE9 Compat Modes */
 
 }
 

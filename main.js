@@ -10,6 +10,7 @@ const url = require('url')
 let mainWindow
 let myappwidth = 1000;
 let myappheight = 600;
+let appTitle = "My Backup 5";
 
 // Keep a reference for dev mode
 let dev = false
@@ -49,8 +50,9 @@ function createWindow() {
     height: myappheight ,
     show: false,
     autoHideMenuBar: true,
-    icon: path.join(__dirname, 'data/App/AppIcon.png'),
+    icon: path.join(__dirname, 'public/appIcons/win/icon_mybackup5.ico'),
     frame: false,
+    title: appTitle,
     webPreferences: {
       zoomFactor: 1.0,
       nodeIntegration: true,

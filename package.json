@@ -1,5 +1,6 @@
 {
-  "name": "mybackup5",
+  "name": "my-backup-5",
+  "productname": "My Backup 5",
   "version": "5.0.0",
   "build": "06092023:1342",
   "description": "My Backup Tool",
