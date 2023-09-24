@@ -2,8 +2,12 @@
 #### backup Software By Empty Soul
 #### Windows / Mac
 
+<<<<<<< HEAD
+## HERE SOME INFORMATIONS ABOUT THE SOFTWARE
+=======
 ## SOME INFOS
 some informations
+>>>>>>> dev
 
 
 _____ 
@@ -43,12 +47,18 @@ make shure do delete all other svg importer in the webpack builds!
 install = npm i
 run = npm run start (electron-run alias)
 Used Node Version: 16.13.0
+<<<<<<< HEAD
+=======
 Installed Java: 11.0.16
+>>>>>>> dev
 ### Change window title
 ----------------------
 Enter Window name in the builded index.html project. (resources\app\dist\index.html)
+_________
+### RELEASE
+- Change App-Titile in dist/index.html.
+- run build via commands
 
-### Build
-----------------------
+### Build Commands
  npm run package (wihtout security)
  ./build-app-asar.sh (via git bash - with asar packaging)
