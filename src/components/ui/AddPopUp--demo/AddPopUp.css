@@ -8,15 +8,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #00000055;
-    backdrop-filter: var(--blur-default);
+    background-color: var(--color-main);
+    top: 0;
+    transition: 0.3s;
+    opacity: 1;
 }
 
 .addWindow-box {
     width: 70%;
     height: 400px;
     border-radius: var(--border-radius-default);
-    background-color: var(--color-main);
+    background-color: var(--color-third);
     /* outline: var(--default-outline); */
 }
 
@@ -28,5 +30,8 @@
 }
 
 .addWindow-container--disabled {
-    display: none;
+    opacity: 0;
+    top: -100%;
+    transition: 0.3s;
+    transition-delay: 0.1s;
 }

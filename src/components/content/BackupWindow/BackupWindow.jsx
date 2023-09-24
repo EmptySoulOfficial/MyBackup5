@@ -25,18 +25,14 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
                 <div className="appmainwindow-content backupWindow-content">
-                    {/* <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
-                    <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
-                      */}
-                      <Card cardIcon="folder" cardLabel="My Big Balls Backup"/>
-                      <Card cardIcon="folder" cardLabel="My Data"/>
-                      <Card cardIcon="drive" cardLabel="PC Main Drive" />
-                      <Card cardIcon="folder" cardLabel="A folder with a very long name"/>
-                      <Card cardIcon="folder" cardLabel="Folder Two"/>
-                      <Card cardIcon="diskette" cardLabel="Diskette"/>
-                      <Card cardIcon="folder" cardLabel="Folder 3"/>
-                      <Card cardIcon="drive" cardLabel="Skyllein PC"/>
-                      <Card cardIcon="folder" cardLabel="New"/>
+                      <Card cardIcon="folder" cardLabel="1"/>
+                      <Card cardIcon="folder" cardLabel="2"/>
+                      <Card cardIcon="folder" cardLabel="3"/>
+                      <Card cardIcon="diskette" cardLabel="4"/>
+                      <Card cardIcon="folder" cardLabel="5"/>
+                      <Card cardIcon="drive" cardLabel="6"/>
+                      <Card cardIcon="folder" cardLabel="7"/>
+                      <Card cardIcon="folder" cardLabel="8"/>
                 </div>
                 <div className="appmainwindow-bottomcontent backup-window_bottom_content">
                     <div className="launchbutton-container">
