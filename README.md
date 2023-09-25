@@ -56,7 +56,7 @@ Installed Java: 11.0.16
 Enter Window name in the builded index.html project. (resources\app\dist\index.html)
 _________
 ### RELEASE
-- Change App-Titile in dist/index.html.
+- Change App-Titile in dist/index.html. (Eaven if Title is automatically changed by HTMLTitle.jsx)
 - run build via commands
 
 ### Build Commands

@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ReactCursorPosition from 'react-cursor-position';
 import './App.css'
+import HtmlTitle from '../core/HtmlTitle.jsx';
 import AppTitleBar from './ui/AppTitleBar/AppTitleBar.jsx'
 
 import parseStyle from '../core/AppStyle.jsx'
@@ -25,6 +26,10 @@ function App() {
   const [ quickinfoText, setquickinfoText ] = useState('');
   const [addBackupItem, setaddBackupItem] = useState(false);
   let [showAppWindow, setShowAppWindow] = useState()
+
+  useEffect(() => {
+    HtmlTitle()
+  }, []);
 
   // local storages
   let s_selectedNavItem = localStorage.getItem("selectedNavItem")
