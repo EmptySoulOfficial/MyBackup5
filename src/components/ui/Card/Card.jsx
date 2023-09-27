@@ -11,7 +11,8 @@ function Card({cardIcon, cardLabel}){
 
   return(
     <>
-      <div className={classNames('Item-Card', {'Item-Card-active': cardItemClicked,'': !cardItemClicked })}>
+      <div className={classNames({'Item-Card-active': cardItemClicked,'': !cardItemClicked },'Item-Card',)}>
+        <div className="Item-Card-MainContainer">
         <div className="Item-Card-TopBar dFlex">
           <div className="Item-Card-dragable-container flex">
             <Icon name="anfasser" color="var(--color-low)" size={14} />
@@ -23,7 +24,7 @@ function Card({cardIcon, cardLabel}){
                     </label>
           </div>
         </div>
-          <div className="Item-Card-Icon-container flex" onClick={() => {setcardItemClicked(!cardItemClicked)}}>
+          <div className={classNames('Item-Card-Icon-container', {'': cardItemClicked,'flex': !cardItemClicked })} onClick={() => {setcardItemClicked(!cardItemClicked)}}>
             <Icon name={cardIcon} color="var(--color-low)" size={80} />
           </div>
           <div className="Item-Card-Title-container flex">
@@ -32,6 +33,8 @@ function Card({cardIcon, cardLabel}){
           <div className="Item-Card-Information-container flex">
             <p className="subtext">adsadasda</p>
           </div>
+        </div>
+
         </div>
     </>
   )
