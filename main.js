@@ -50,7 +50,7 @@ function createWindow() {
     height: myappheight ,
     show: false,
     autoHideMenuBar: true,
-    icon: path.join(__dirname, 'public/appIcons/win/icon_mybackup5.ico'),
+    icon: path.join(__dirname, 'public/appIcons/win/Icon_MyBackup5-Win.ico'),
     frame: false,
     title: appTitle,
     webPreferences: {
