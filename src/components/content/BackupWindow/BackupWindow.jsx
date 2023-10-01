@@ -25,12 +25,12 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
                 <div className="appmainwindow-content backupWindow-content">
-                      <Card cardIcon="folder" cardLabel="1"/>
-                      <Card cardIcon="folder" cardLabel="2"/>
-                      <Card cardIcon="folder" cardLabel="3"/>
-                      <Card cardIcon="diskette" cardLabel="4"/>
-                      <Card cardIcon="folder" cardLabel="5"/>
-                      <Card cardIcon="drive" cardLabel="6"/>
+                      <Card cardIcon="folder" cardLabel="1" cardSubText="Ein Langer Subtext"/>
+                      <Card cardIcon="folder" cardLabel="2" cardSubText="Ein Langer Subtext Zwei"/>
+                      <Card cardIcon="folder" cardLabel="3" cardSubText="Ein Langer Subtext Drei"/>
+                      <Card cardIcon="diskette" cardLabel="4" cardSubText="Ein Langer Subtext Vier"/>
+                      <Card cardIcon="folder" cardLabel="5" cardSubText="Ein Langer Subtext Fünf"/>
+                      <Card cardIcon="drive" cardLabel="6" cardSubText="Ein Langer Subtext Sechs"/>
                       <Card cardIcon="folder" cardLabel="7"/>
                       <Card cardIcon="folder" cardLabel="8"/>
                 </div>

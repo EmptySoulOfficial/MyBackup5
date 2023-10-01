@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import Icon from '../Icon/Icon.jsx'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
-function Card({cardIcon, cardLabel}){
+function Card({cardIcon, cardLabel, cardSubText}){
 
   const [cardItemCheck, setcardItemCheck] = useState(false);
   const [cardItemClicked, setcardItemClicked] = useState(false);
@@ -31,7 +31,7 @@ function Card({cardIcon, cardLabel}){
             <h3>{cardLabel}</h3>
           </div>
           <div className="Item-Card-Information-container flex">
-            <p className="subtext">adsadasda</p>
+            <p className="subtext">{cardSubText}</p>
           </div>
         </div>
 
