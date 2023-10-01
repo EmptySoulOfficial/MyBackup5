@@ -81,7 +81,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
                         sendCurrentState={getDropdownLangState}
                         clickOutsideFunction={dLangState}
                         dropdownId={'dropdown-language'}
-                        dropdownClass={'dropdown-small'}/>
+                        dropdownClass={'dropdown-small dropdown-negative'}/>
               </ClickOutside>
             <p  className="subtext">{`Language (short): ${langValue}`}</p>
           </BlockDefault>

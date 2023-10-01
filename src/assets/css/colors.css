@@ -18,6 +18,7 @@
 
     /* Theme */
     --color-main: var(--gray);
+    --color-main-as-rgb-value: 19, 28, 33;
     --color-second: var(--lightgray);
     --color-third: var(--blue-gray-1d);
     --color-darker: var(--dark-gray);

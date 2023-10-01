@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import classNames from 'classnames'
 import './BackupWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 import Card from '../../ui/Card/Card.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
+import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 
 function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , addBackupItem, setaddBackupItem, navItemSelectedId, showAppWindow}) {
 
@@ -33,8 +34,16 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
                       <Card cardIcon="drive" cardLabel="6" cardSubText="Ein Langer Subtext Sechs"/>
                       <Card cardIcon="folder" cardLabel="7"/>
                       <Card cardIcon="folder" cardLabel="8"/>
+                      <Card cardIcon="folder" cardLabel="5" cardSubText="Ein Langer Subtext Fünf"/>
+                      <Card cardIcon="drive" cardLabel="6" cardSubText="Ein Langer Subtext Sechs"/>
+                      <Card cardIcon="folder" cardLabel="7"/>
+                      <Card cardIcon="folder" cardLabel="8"/>
                 </div>
                 <div className="appmainwindow-bottomcontent backup-window_bottom_content">
+                  <div className="layerselect-container">
+                    {/* Put Layer Tabs here */}
+                  </div>
+
                     <div className="launchbutton-container">
                         <button className="button-submit launch_button">{eLang.button_launch}</button>
                     </div>

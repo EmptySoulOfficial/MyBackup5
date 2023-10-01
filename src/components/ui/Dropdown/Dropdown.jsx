@@ -20,9 +20,10 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
     callChangeFunction(e.target.getAttribute("data-value"));
   }
   const handleDropdownActive = () => {
+
     setDropDownItemActive(!dropdownItemActive);
     //export curent dropdown open/close state as boolean
-    sendCurrentState(!dropdownItemActive);
+      sendCurrentState(!dropdownItemActive);
   };
   // Use effect if click outside prop changed an set List to inactive
   useEffect(() => {
@@ -40,7 +41,7 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
     changeFunction: callChangeFunction,
   }));
   // ------ LOGS --------
-  // console.log('----- DropDown V1 ------')
+  // console.log('----- DropDown V1.3 ------')
   // console.log('▶️ DropDown LENGTH: '+ selectlength)
   // console.log('▶️ DropDown INITIAL VALUE: ' + value)
   // console.log('▶️ DropDown FOUND OBJECT.Name: '+ fDdObject.dIName)
