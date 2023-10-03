@@ -9,8 +9,6 @@ möglichkeit ganzen pc als backup zu wählen
 
 ToDo:
 
--text in backup items
--text so anpassen, dass noch icons dahinter passen
 -dragable
 -scss
 -css variablen einheitlich bennenen (name-zustand z.B: color-default)

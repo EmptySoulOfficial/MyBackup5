@@ -1,15 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import './ConfigWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 import BlockDefault from "../../ui/Block/Block.jsx";
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import ClickOutside from "../../../core/ClickOutside.jsx";
-
+import { appversiondata } from "../../../core/appversion";
 
 function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
 
     const eLang = getLang();
+    const appVData = appversiondata();
+
+    console.log('APPVData: '+appVData.product_name)
 
     const changeTheme = (e) => {
         setthemeValue(e.target.value);
@@ -78,12 +81,20 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
                         sendCurrentState={getDropdownLangState}
                         clickOutsideFunction={dLangState}
                         dropdownId={'dropdown-language'}
-                        dropdownClass={'dropdown-small'}/>
+                        dropdownClass={'dropdown-small dropdown-negative'}/>
               </ClickOutside>
             <p  className="subtext">{`Language (short): ${langValue}`}</p>
           </BlockDefault>
           <BlockDefault blocktitle={eLang.block_label_appdata}>
             <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
+          </BlockDefault>
+          <BlockDefault blocktitle={"App Version"}>
+          <p>{appVData.product_name}</p>
+            <p className="subtext user-selectable">App Version: {appVData.product_version}</p>
+            <p className="subtext user-selectable">Build number: {appVData.build_version}</p>
+            <br/>
+            <p className="subtext user-selectable">Created by:</p>
+            <p className="subtext user-selectable">{appVData.app_author}</p>
           </BlockDefault>
         </div>
       </div>

@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import classNames from 'classnames'
 import './BackupWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 import Card from '../../ui/Card/Card.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
+import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 
 function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , addBackupItem, setaddBackupItem, navItemSelectedId, showAppWindow}) {
 
@@ -25,20 +26,24 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
                 <div className="appmainwindow-content backupWindow-content">
-                    {/* <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
-                    <BackupNode nodeItemLabel="Backupname-Mock" setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
-                      */}
-                      <Card cardIcon="folder" cardLabel="My Big Balls Backup"/>
-                      <Card cardIcon="folder" cardLabel="My Data"/>
-                      <Card cardIcon="drive" cardLabel="PC Main Drive" />
-                      <Card cardIcon="folder" cardLabel="A folder with a very long name"/>
-                      <Card cardIcon="folder" cardLabel="Folder Two"/>
-                      <Card cardIcon="diskette" cardLabel="Diskette"/>
-                      <Card cardIcon="folder" cardLabel="Folder 3"/>
-                      <Card cardIcon="drive" cardLabel="Skyllein PC"/>
-                      <Card cardIcon="folder" cardLabel="New"/>
+                      <Card cardIcon="folder" cardLabel="1" cardSubText="Ein Langer Subtext"/>
+                      <Card cardIcon="folder" cardLabel="2" cardSubText="Ein Langer Subtext Zwei"/>
+                      <Card cardIcon="folder" cardLabel="3" cardSubText="Ein Langer Subtext Drei"/>
+                      <Card cardIcon="diskette" cardLabel="4" cardSubText="Ein Langer Subtext Vier"/>
+                      <Card cardIcon="folder" cardLabel="5" cardSubText="Ein Langer Subtext Fünf"/>
+                      <Card cardIcon="drive" cardLabel="6" cardSubText="Ein Langer Subtext Sechs"/>
+                      <Card cardIcon="folder" cardLabel="7"/>
+                      <Card cardIcon="folder" cardLabel="8"/>
+                      <Card cardIcon="folder" cardLabel="5" cardSubText="Ein Langer Subtext Fünf"/>
+                      <Card cardIcon="drive" cardLabel="6" cardSubText="Ein Langer Subtext Sechs"/>
+                      <Card cardIcon="folder" cardLabel="7"/>
+                      <Card cardIcon="folder" cardLabel="8"/>
                 </div>
                 <div className="appmainwindow-bottomcontent backup-window_bottom_content">
+                  <div className="layerselect-container">
+                    {/* Put Layer Tabs here */}
+                  </div>
+
                     <div className="launchbutton-container">
                         <button className="button-submit launch_button">{eLang.button_launch}</button>
                     </div>

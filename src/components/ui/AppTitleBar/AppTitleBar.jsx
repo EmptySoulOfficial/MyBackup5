@@ -1,19 +1,17 @@
 import React from 'react'
 import './AppTitleBar.css'
-
-import AppTitle from '../../../core/AppTitle.jsx'
+import { appversiondata } from '../../../core/appversion';
 
 function AppTitleBar({titel_bar_backgroundcolor, navItemSelectedId}) {
 
-    const defaultAppTitle = AppTitle();
+    const appVData = appversiondata();
 
     return (
     <div className="TitleBar" style={{backgroundColor: titel_bar_backgroundcolor}}>
         <div className="titleBar-DragAble">
-        <label className="titleLabel">{defaultAppTitle}</label>
+        <label className="titleLabel">{appVData.product_name}</label>
         </div>
         <div className="title-buttons_container">
-
             <div className="title-button minimize-button" id="min-button" onClick={minAction}>
                 <span className="minimize-button-span"></span>
             </div>

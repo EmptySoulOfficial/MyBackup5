@@ -1,7 +1,13 @@
 @import '../../../assets/css/index.css';
 
+.backup-window_bottom_content {
+  display: flex;
+  justify-content: space-between;
+}
+
 .launch_button {
     justify-self: flex-end;
+    margin-right: 25px;
 }
 
 .launchbutton-container {
@@ -19,3 +25,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+
+.layerselect-container {
+  justify-self: flex-start;
+}
+

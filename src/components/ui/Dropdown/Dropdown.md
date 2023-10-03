@@ -1,4 +1,4 @@
-# Dropdown (React-Version) V 1.2
+# Dropdown (React-Version) V 1.3
 ###### By Empty Soul
 
 ## Imports
@@ -14,6 +14,9 @@
 - It's also possible to get the open / close state from the Dropdown component as boolean
   from the senCurrentState
 
+<br/>
+
+> Disclaimer: The dropdown is using variables in the color css props. Change if needed! 
 
 Example Array (in parent component):
 
@@ -81,3 +84,12 @@ You can adjsut the width / size via ".dropdown" class or the custom class you de
 - **sendCurrentState** = give the sendCurrentState your conditional function with a prop in it, to get the boolean value.
 - **dropdownId** = a simple element id, you can set to your dropdown component
 - **dropdownClass** = a custom class, which is also given to your dropdown component for better styling options
+
+### Update 1.3:
+#### Styles
+You can now add "**dropdown-negative**" to your custom class prop to make
+the dropdown grow from bottom to top.
+
+> You may have to change the bottom css prop, to display it correctly.
+To invert the dropdowns arrow, simply uncomment the style blocks at the bottom
+of the dropdown css.
