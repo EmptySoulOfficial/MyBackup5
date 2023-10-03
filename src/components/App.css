@@ -226,7 +226,8 @@ display: block;
     top: 370px;
     border-radius: var(--border-radius-default);
     align-items: center;
-    background: linear-gradient(0deg, var(--color-main) 0%,  rgba(var(--color-main-as-rgb-value), 0.8) 50%, transparent 100%);
+    /* background: linear-gradient(0deg, var(--color-main) 0%,  rgba(var(--color-main-as-rgb-value), 0.8) 50%, transparent 100%); */
+    background-color: var(--color-main);
 }
 
 .button-submit {
