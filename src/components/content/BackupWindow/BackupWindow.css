@@ -17,9 +17,23 @@
     justify-content: center;
 }
 
-.addNodeItem:hover .icon {
+.button-addBackup:hover .icon {
     fill: var(--color-highlight);
 }
+
+.button-selectAllBackups:hover .icon {
+  fill: var(--color-button-selectAllBackups);
+}
+
+.button-addToLayer:hover .icon {
+  fill: var(--color-button-addToLayer);
+}
+
+.button-deleteBackup:hover .icon {
+  fill: var(--color-button-deleteBackup);
+}
+
+
 
 .backupWindow-content {
     display: grid;

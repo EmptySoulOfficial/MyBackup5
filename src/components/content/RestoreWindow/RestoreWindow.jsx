@@ -1,7 +1,9 @@
 import React from 'react'
-import classNames from 'classnames';
+import classNames from 'classnames'
 import './RestoreWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
+import Card from '../../ui/Card/Card.jsx'
+import Icon from '../../ui/Icon/Icon.jsx'
 
 
 
@@ -14,19 +16,26 @@ function RestoreWindow({navItemSelectedId, showAppWindow}) {
 
     return (
 
-    <div className={classNames('appmainwindow restore-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })}>
-        <h1>{eLang.windowtitle_restore}</h1>
-        <div className={classNames('appmainwindow-container restore-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
-        <div className="appmainwindow-content backup-window_content">
+      <div className={classNames('appmainwindow restore-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
 
-        </div>
-        <div className="appmainwindow-bottomcontent backup-window_bottom_content">
+      {/* BackupWindow Main Body */}
+      <div className="appmainwindow-titlesection">
+          <h1>{eLang.windowtitle_restore}</h1>
+          <div className={classNames('appmainwindow-toolbar ', {'appmainwindow-toolbar-active': showAppWindow , '' : !showAppWindow })}>
             <div className="launchbutton-container">
-            <button className="button-submit launch_button">{eLang.button_launch}</button>
+              <button className="button-submit launch_button">{eLang.button_launch}</button>
             </div>
-        </div>
-        </div>
-    </div>
+            <button className="functionButton button-selectAllBackups" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="selectAllDashed" color="var(--color-low)" size={20} /></button>
+            <button className="functionButton button-addToLayer" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="addLayer" color="var(--color-low)" size={20} /></button>
+            <button className="functionButton button-deleteBackup" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="trash" color="var(--color-low)" size={20} /></button>
+          </div>
+      </div>
+      <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
+          <div className="appmainwindow-content backupWindow-content">
+                <Card cardIcon="folder" cardLabel="1" cardSubText="Ein Langer Subtext"/>
+          </div>
+      </div>
+  </div>
     )
 }
 

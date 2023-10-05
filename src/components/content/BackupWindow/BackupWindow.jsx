@@ -20,8 +20,14 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
                 <h1>{eLang.windowtitle_backup}</h1>
-                <div className="appmainwindow-toolbar">
-                    <button className="addNodeItem" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="add" color="var(--color-low)" size={20} /></button>
+                <div className={classNames('appmainwindow-toolbar ', {'appmainwindow-toolbar-active': showAppWindow , '' : !showAppWindow })}>
+                <div className="launchbutton-container">
+                        <button className="button-submit launch_button">{eLang.button_launch}</button>
+                    </div>
+                    <button className="functionButton button-addBackup" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="addDashed" color="var(--color-low)" size={20} /></button>
+                    <button className="functionButton button-selectAllBackups" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="selectAllDashed" color="var(--color-low)" size={20} /></button>
+                    <button className="functionButton button-addToLayer" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="addLayer" color="var(--color-low)" size={20} /></button>
+                    <button className="functionButton button-deleteBackup" onClick={() => {setaddBackupItem(false);setTimeout(function(){setaddBackupItem(true)},100)}}><Icon name="trash" color="var(--color-low)" size={20} /></button>
                 </div>
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
@@ -39,15 +45,11 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
                       <Card cardIcon="folder" cardLabel="7"/>
                       <Card cardIcon="folder" cardLabel="8"/>
                 </div>
-                <div className="appmainwindow-bottomcontent backup-window_bottom_content">
-                  <div className="layerselect-container">
+                {/* <div className="appmainwindow-bottomcontent backup-window_bottom_content"> */}
+                  {/* <div className="layerselect-container"> */}
                     {/* Put Layer Tabs here */}
-                  </div>
-
-                    <div className="launchbutton-container">
-                        <button className="button-submit launch_button">{eLang.button_launch}</button>
-                    </div>
-                </div>
+                  {/* </div> */}
+                {/* </div> */}
             </div>
         </div>
     )
