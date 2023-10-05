@@ -1,8 +1,8 @@
 {
-  "name": "my-backup-5",
-  "version": "5.0.0",
-  "build": "06092023:1342",
-  "description": "My Backup Tool",
+  "name": "my-backup",
+  "version": "1.0.0",
+  "build": "051023:1555",
+  "description": "Small powerfull tool to backup your computer data.",
   "license": "",
   "private": false,
   "repository": {

@@ -39,7 +39,7 @@
     "windowtitle_options": "Options",
     "windowtitle_config": "Configurations",
 
-    "button_launch": "Launch",
+    "button_launch": "Run",
 
     "quickinfo_backupswitch_title": "Backup switch",
     "quickinfo_backupswitch_text": "Turn backup for this item on/off.",
