@@ -177,9 +177,9 @@ display: block;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    overflow:hidden;
     transition-delay: 1s;
     opacity: 0;
+    z-index: 100;
 }
 
 .appmainwindow-toolbar-active {

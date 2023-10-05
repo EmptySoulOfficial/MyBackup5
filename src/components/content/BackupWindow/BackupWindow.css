@@ -44,3 +44,7 @@
   justify-self: flex-start;
 }
 
+.dropdown-layer {
+  z-index: 1000;
+}
+
