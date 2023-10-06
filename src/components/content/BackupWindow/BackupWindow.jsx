@@ -32,7 +32,7 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , a
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
                 <div className="appmainwindow-content backupWindow-content">
-                      <Card cardIcon="folder" cardLabel="1" cardSubText="Ein Langer Subtext"/>
+                      <Card cardIcon="folder" cardLabel="My Data" cardSubText="23.11.2023 10:53"/>
                       <Card cardIcon="folder" cardLabel="2" cardSubText="Ein Langer Subtext Zwei"/>
                       <Card cardIcon="folder" cardLabel="3" cardSubText="Ein Langer Subtext Drei"/>
                       <Card cardIcon="diskette" cardLabel="4" cardSubText="Ein Langer Subtext Vier"/>
