@@ -244,19 +244,7 @@ display: block;
     padding-bottom: 80px;
 }
 
-.appmainwindow-bottomcontent {
-    width: calc(100% - 40px);
-    height: 40px;
-    padding-top: 40px;
-    position: absolute;
-    top: 370px;
-    border-radius: var(--border-radius-default);
-    align-items: center;
-    /* background: linear-gradient(0deg, var(--color-main) 0%,  rgba(var(--color-main-as-rgb-value), 0.8) 50%, transparent 100%); */
-    background-color: var(--color-main);
-}
-
-.button-submit {
+.button-submit, .button-reset {
     width: 120px;
     height: 40px;
     background-color: var(--color-second);
@@ -276,6 +264,10 @@ display: block;
 
 .button-submit--small:hover {
     background-color: var(--color-highlight);
+}
+
+.button-reset:hover {
+  background-color: var(--color-close);
 }
 
 .dropdown-small {
@@ -336,6 +328,10 @@ display: block;
 .icon {
   fill: var(--color-icon-default);
   transition: var(--transition-default);
+}
+
+.icon-light, .icon-light .icon {
+  fill: var(--color-icon-light);
 }
 
 .editmode {

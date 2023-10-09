@@ -3,10 +3,10 @@ import React, {useState} from 'react'
 import classNames from 'classnames'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
-function BlockDefault({blocktitle, children}) {
+function BlockDefault({blocktitle, children, blockClass, blockId}) {
 
   return (
-    <div className="block-default">
+    <div className={classNames('block-default', blockClass)} id={blockId}>
       <label className="box-default-title ">{blocktitle}</label>
       <div className="box-default">
         {children}

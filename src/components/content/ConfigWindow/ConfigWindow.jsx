@@ -5,7 +5,7 @@ import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
 import BlockDefault from "../../ui/Block/Block.jsx";
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import ClickOutside from "../../../core/ClickOutside.jsx";
-import { appversiondata } from "../../../core/appversion";
+import { appversiondata } from "../../../core/AppVersion";
 
 function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
 

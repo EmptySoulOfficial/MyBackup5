@@ -13,7 +13,6 @@ function AddPupUp({addBackupItem, setaddBackupItem}) {
             </div>
         </div>
     )
-
 }
 
 export default AddPupUp

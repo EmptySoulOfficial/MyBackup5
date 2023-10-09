@@ -23,7 +23,7 @@ function Card({cardIcon, cardLabel, cardSubText}){
             </label>
           </div>
         </div>
-          <div className="Item-Card-Icon-container flex">
+          <div className="Item-Card-Icon-container icon-light flex">
             <Icon name={cardIcon} color="var(--color-low)" size={80} />
           </div>
           <div className="Item-Card-Title-container flex">

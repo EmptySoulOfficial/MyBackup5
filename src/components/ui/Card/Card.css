@@ -23,10 +23,6 @@
   height: inherit;
 }
 
-.Item-Card .Item-Card-Icon-container .icon{
-  fill: var(--color-icon-light);
-}
-
 .Item-Card:hover .Item-Card-Icon-container .icon{
   fill: var(--color-font);
 }
@@ -35,6 +31,10 @@
   width: calc(100% - 12px);
   justify-content: space-between;
   padding: 6px;
+}
+
+.Item-Card-dragable-container {
+  cursor: move;
 }
 
 .Item-Card-dragable-container .icon {

@@ -49,7 +49,7 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
 
   return (
       <div className={classNames('dropdown', dropdownClass)} id={dropdownId}>
-        <select value={value} >
+        <select defaultValue={value} >
           {dropdownItems.map(function(optionObject, io){
             return <option value={optionObject.dIKey} key={optionObject.dIKey}>{optionObject.dIName}</option>
           })}

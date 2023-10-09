@@ -24,7 +24,7 @@ function App() {
   const [ quickinfovis, setquickinfovis ] = useState(false);
   const [ quickinfoTitle, setquickinfoTitle ] = useState('');
   const [ quickinfoText, setquickinfoText ] = useState('');
-  const [addBackupItem, setaddBackupItem] = useState(false);
+  const [showCardDetails, setShowCardDetails] = useState(false);
   let [showAppWindow, setShowAppWindow] = useState()
 
   useEffect(() => {
@@ -123,8 +123,8 @@ function App() {
     <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
         <Navigation blur={jStyle.blur} s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
             <div className="app-content">
-            <AddPopUp addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem}/>
-                    <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow} navItemSelectedId={navItemSelectedId} addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
+            {/* <AddPopUp addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem}/> */}
+                    <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow} navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails} setShowCardDetails={setShowCardDetails} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
                     <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
                     <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
                     <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
