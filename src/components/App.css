@@ -179,10 +179,12 @@ display: block;
     justify-content: flex-end;
     transition-delay: 1s;
     opacity: 0;
+    visibility: hidden;
     z-index: 100;
 }
 
 .appmainwindow-toolbar-active {
+  visibility: visible;
   animation-name: appmainwindowtoolbaranim;
   animation-duration: 0.3s;
   animation-delay: 0.4s;
@@ -192,11 +194,13 @@ display: block;
 @keyframes appmainwindowtoolbaranim {
 
   0% {
+      visibility: visible;
       transform: translateY(20px);
       opacity: 0;
     }
 
   100% {
+    visibility: visible;
     opacity: 1;
   }
 }
