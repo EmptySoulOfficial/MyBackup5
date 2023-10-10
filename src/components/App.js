@@ -9,7 +9,6 @@ import parseStyle from '../core/AppStyle.jsx'
 // import wallpaperimage from '/data/user/walllpaper/wallpaper.jpg' //doesnt work -> fix or create a new electron project
 
 import Navigation from './ui/Navigation/Navigation.jsx'
-import AddPopUp from './ui/AddPopUp--demo/AddPopUp.jsx'
 import HomeWindow from './content/HomeWindow/HomeWindow.jsx'
 import BackupWindow from './content/BackupWindow/BackupWindow.jsx'
 import RestoreWindow from './content/RestoreWindow/RestoreWindow.jsx'
@@ -123,7 +122,6 @@ function App() {
     <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
         <Navigation blur={jStyle.blur} s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
             <div className="app-content">
-            {/* <AddPopUp addBackupItem={addBackupItem} setaddBackupItem={setaddBackupItem}/> */}
                     <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow} navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails} setShowCardDetails={setShowCardDetails} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
                     <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
                     <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

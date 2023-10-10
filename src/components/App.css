@@ -93,8 +93,9 @@ h2 {
     font-size: var(--fontsize-h2) ;
     user-select: none;
 }
+
 .main-label {
-    font-size: 12px;
+    font-size: var(--fontsize-default);
     margin-block-start: 0;
     margin-block-end: 0;
     color: var(--color-font-headlabel);
@@ -102,7 +103,7 @@ h2 {
 }
 
 .subtext {
-    font-size: 12px;
+    font-size: var(--fontsize-default);
     margin-block-start: 0;
     margin-block-end: 0;
     color: var(--color-font-subtext);
@@ -198,7 +199,6 @@ display: block;
       transform: translateY(20px);
       opacity: 0;
     }
-
   100% {
     visibility: visible;
     opacity: 1;
