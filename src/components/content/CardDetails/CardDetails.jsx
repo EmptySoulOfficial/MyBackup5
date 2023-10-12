@@ -8,6 +8,7 @@ import FileItem from './lib/FileItem/FileItem.jsx'
 function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow}) {
 
   let currentCardIcon = "folder"
+  let currentCardPlaceHolder = "Type name"
   let contexMObject_CardDetailsAddItem = [
     {contexMKey:'addfileselect', contexMName: 'Add File'},
     {contexMKey:'addfolderselect', contexMName: 'Add Folder'}
@@ -24,8 +25,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
             <div className="cardDetails-icon-container icon-light flex">
               <Icon name={currentCardIcon} color="var(--color-low)" size={80} />
             </div>
-            <textarea contentEditable="true" placeholder="Text" className="cardDetails-name">
-              My Backup of a backup from a backup
+            <textarea placeholder={currentCardPlaceHolder} className="cardDetails-name">
             </textarea>
           </div>
           <div className="cardDetails-info-column-devider"></div>
