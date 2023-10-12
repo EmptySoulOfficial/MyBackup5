@@ -16,6 +16,7 @@ import OptionsWindow from './content/OptionsWindow/OptionsWindow.jsx'
 import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
 import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
+import ContexMenu from './ui/ContexMenu/ContexMenu.jsx';
 
 
 function App() {
@@ -111,10 +112,23 @@ function App() {
       console.log("DOES NOT exist:", path);
     }
 
+    //Contex Menu
+    let contexMObject = [
+      {contexMKey:'_contex_empty', contexMName: 'Nothing special here'}
+    ];
+
+    const [contexMenuShow, setContexMenuShow] = useState(false);
+    const [enableCursorPos, setEnableCursorPos] = useState(true);
+
+    if (contexMenuShow) {
+      () => {setEnableCursorPos(false)}
+    }
+
 
     return (
-        <ReactCursorPosition>
+        <ReactCursorPosition isEnabled={enableCursorPos}>
             <QuickInfo quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} quickinfoTitle={quickinfoTitle} quickinfoText={quickinfoText}/>
+            <ContexMenu contexMObject={contexMObject} contexMenuDisabled={true} contexMenuShow={contexMenuShow} setContexMenuShow={setContexMenuShow}/>
 
     <div className="app-container" >
 
@@ -122,11 +136,15 @@ function App() {
     <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
         <Navigation blur={jStyle.blur} s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
             <div className="app-content">
-                    <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow} navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails} setShowCardDetails={setShowCardDetails} quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} setquickinfoTitle={setquickinfoTitle} setquickinfoText={setquickinfoText} />
+                    <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow}
+                                  navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
+                                  setShowCardDetails={setShowCardDetails} contexMenuShows={contexMenuShow}
+                                  setContexMenuShow={setContexMenuShow} />
                     <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
                     <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
                     <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
-                    <ConfigWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} themeValue={themeValue} setthemeValue={setthemeValue} langValue={langValue} setlangValue={setlangValue}/>
+                    <ConfigWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} themeValue={themeValue}
+                                  setthemeValue={setthemeValue} langValue={langValue} setlangValue={setlangValue}/>
                     </div>
                     </div>
                 </div>
