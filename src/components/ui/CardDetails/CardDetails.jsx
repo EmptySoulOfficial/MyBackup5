@@ -27,9 +27,15 @@ function CardDetails ({showCardDetails, setShowCardDetails}) {
           <div className="cardDetails-info-column-devider"></div>
         </div>
       <div className="cardDetails-files-column">
-        <p className="box-default-title">Files</p>
-        <FileItem />
-        <button>Add File +</button>
+        <p className="box-default-title padding-10">Files</p>
+        <div className="cardDetails-files-container">
+          <FileItem />
+          <FileItem />
+          <FileItem />
+          <FileItem />
+        </div>
+
+        <button className="cardDetails-addBackupItem"><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
       </div>
 

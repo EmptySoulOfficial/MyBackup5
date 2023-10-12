@@ -103,3 +103,29 @@
 .cardDetails-BackupInfoText {
   overflow: hidden;
 }
+
+.cardDetails-files-container {
+  padding-top: 10px;
+  max-height: 140px;
+  overflow-y: scroll;
+}
+
+.cardDetails-addBackupItem {
+  width: 100%;
+  padding: 10px;
+  border: 2px dashed var(--color-font);
+  transition: var(--transition-default);
+  margin-top: 20px;
+}
+
+.cardDetails-addBackupItem .icon {
+  fill: var(--color-font);
+}
+
+.cardDetails-addBackupItem:hover {
+  border: 2px dashed var(--color-highlight);
+}
+
+.cardDetails-addBackupItem:hover .icon {
+  fill: var(--color-highlight);
+}
