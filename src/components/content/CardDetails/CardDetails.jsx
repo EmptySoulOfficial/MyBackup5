@@ -5,14 +5,22 @@ import BlockDefault from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 
-function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow}) {
+function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos}) {
 
   let currentCardIcon = "folder"
   let currentCardPlaceHolder = "Type name"
+
+  // set contex menu Items for add backup item
   let contexMObject_CardDetailsAddItem = [
     {contexMKey:'addfileselect', contexMName: 'Add File'},
     {contexMKey:'addfolderselect', contexMName: 'Add Folder'}
   ];
+
+  const handleContexClick = (p) => {
+    setContexMPos(p);
+    setContexMenuShow(true);
+    setContexMObject(contexMObject_CardDetailsAddItem);
+  }
 
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
@@ -39,7 +47,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
           <FileItem />
         </div>
 
-        <button className="cardDetails-addBackupItem" onClick={() => {setContexMenuShow(true)}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
+        <button className="cardDetails-addBackupItem" onClick={(p) => { handleContexClick(p)}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
       </div>
 

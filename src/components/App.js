@@ -113,22 +113,21 @@ function App() {
     }
 
     //Contex Menu
-    let contexMObject = [
-      {contexMKey:'_contex_empty', contexMName: 'Nothing special here'}
-    ];
-
+    const [contexMObject, setContexMObject] = useState('');
     const [contexMenuShow, setContexMenuShow] = useState(false);
-    const [enableCursorPos, setEnableCursorPos] = useState(true);
+    const [contexMPos, setContexMPos] = useState('')
 
-    if (contexMenuShow) {
-      () => {setEnableCursorPos(false)}
-    }
+    // if (contexMenuShow) {
+    //   setEnableCursorPos(false)
+    // }
 
 
     return (
-        <ReactCursorPosition isEnabled={enableCursorPos}>
+        <ReactCursorPosition>
             <QuickInfo quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} quickinfoTitle={quickinfoTitle} quickinfoText={quickinfoText}/>
-            <ContexMenu contexMObject={contexMObject} contexMenuDisabled={true} contexMenuShow={contexMenuShow} setContexMenuShow={setContexMenuShow}/>
+            <ContexMenu contexMObject={contexMObject} contexMenuDisabled={false}
+                        contexMenuShow={contexMenuShow} setContexMenuShow={setContexMenuShow}
+                        setContexMObject={setContexMObject} contexMPos={contexMPos}/>
 
     <div className="app-container" >
 
@@ -139,7 +138,7 @@ function App() {
                     <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow}
                                   navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
                                   setShowCardDetails={setShowCardDetails} contexMenuShows={contexMenuShow}
-                                  setContexMenuShow={setContexMenuShow} />
+                                  setContexMenuShow={setContexMenuShow} setContexMObject={setContexMObject} setContexMPos={setContexMPos}/>
                     <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
                     <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
                     <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

@@ -33,8 +33,7 @@ function Card({cardIcon, cardLabel, cardSubText}){
             <p className="subtext">{cardSubText}</p>
           </div>
         </div>
-
-        </div>
+      </div>
     </>
   )
 

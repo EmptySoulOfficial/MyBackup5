@@ -7,7 +7,9 @@ import Icon from '../../ui/Icon/Icon.jsx'
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import CardDetails from '../CardDetails/CardDetails.jsx'
 
-function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow, contexMenuShow, setContexMenuShow}) {
+function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
+                        showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
+                        contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos}) {
 
     const eLang = getLang();
 
@@ -33,7 +35,8 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText , s
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
-                <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contexMenuShow={contexMenuShow} setContexMenuShow={setContexMenuShow}/>
+                <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contexMenuShow={contexMenuShow}
+                              setContexMenuShow={setContexMenuShow} setContexMObject={setContexMObject} setContexMPos={setContexMPos}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   <Card cardIcon="folder" cardLabel="My Data" cardSubText="23.11.2023 10:53"/>
                   <Card cardIcon="folder" cardLabel="2" cardSubText="Ein Langer Subtext Zwei"/>

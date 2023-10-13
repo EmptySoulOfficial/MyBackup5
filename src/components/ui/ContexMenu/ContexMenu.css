@@ -29,11 +29,12 @@
 }
 
 .ContexMenu-Disabled {
-  user-select: none;
-  pointer-events: none;
+  display: none;
 }
 
-.ContexMenu-Disabled .ContexMenu-Item{
+.ContexMenu-Item-Disabled {
+  user-select: none;
+  pointer-events: none;
   color: var(--color-font-subtext);
 }
 

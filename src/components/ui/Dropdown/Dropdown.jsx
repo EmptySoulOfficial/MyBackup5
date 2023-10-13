@@ -12,6 +12,7 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
 
   // find dropdown object .name by key value
   const fDdObject = dropdownItems.find(({ dIKey }) => dIKey === value);
+
   // Change Select value and trigger custom function
   const handleSelectItem = (e) => {
     setValue(e.target.getAttribute("data-value"));
@@ -19,12 +20,14 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
     //Call costum Function
     callChangeFunction(e.target.getAttribute("data-value"));
   }
+
   const handleDropdownActive = () => {
 
     setDropDownItemActive(!dropdownItemActive);
     //export curent dropdown open/close state as boolean
-      sendCurrentState(!dropdownItemActive);
+    sendCurrentState(!dropdownItemActive);
   };
+
   // Use effect if click outside prop changed an set List to inactive
   useEffect(() => {
     if (clickOutsideFunction === false){
@@ -36,10 +39,12 @@ const Dropdown = forwardRef(({dropdownItems, dropdownId, dropdownClass, initialV
   const callChangeFunction = (refValue) => {
     changeFunction(refValue);
   };
+
   // Expose parent function (custom function) to parent component
   useImperativeHandle(refFunction, () => ({
     changeFunction: callChangeFunction,
   }));
+
   // ------ LOGS --------
   // console.log('----- DropDown V1.3 ------')
   // console.log('▶️ DropDown LENGTH: '+ selectlength)

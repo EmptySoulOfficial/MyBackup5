@@ -3,36 +3,38 @@ import React, {useRef} from 'react'
 import classNames from 'classnames';
 
 
-function ContexMenu({position,contexMObject,contexMenuDisabled, contexMenuShow}) {
+function ContexMenu({position,contexMObject,contexMenuDisabled, contexMenuShow, setContexMenuShow, setContexMObject, contexMPos}) {
 
   const ref = useRef(null);
-  let currentPosition = 0
 
-  if(contexMenuShow) {
-    currentPosition = position
-      // Dynamic position switch of contex menu
-    if (currentPosition.x >= "800") {
-      currentPosition.x-=ref.current.offsetWidth;
-    }
-  }else{
-    currentPosition = 0;
+
+  const handleClickContexMenuItem = (e) => {
+    setContexMenuShow(false)
   }
 
-  console.log('--> ContexMenu: '+contexMenuShow);
+  if (contexMPos.pageX >= "800") {
+      //contexMPos.pageX-=ref.current.offsetWidth;
+
+    //console.log("width", );
+  }
+
   return (
     <div ref={ref} className={classNames('ContexMenu', {'ContexMenu-Disabled': contexMenuDisabled, '': !contexMenuDisabled}, {'': contexMenuShow, 'dNone': !contexMenuShow})}
-                  style={{left: `${currentPosition.x}px`, top: `${currentPosition.y}px`}}>
-      {contexMObject.map(function(cmObj, i)
-            {
-              return  <div className='ContexMenu-Item '
-                          id={'ContexMenu-Item_-'+cmObj.contexMKey}
-                          key={'ContexMenu-Item_'+cmObj.contexMKey}
-                          data-value={cmObj.contexMKey}
-                         >
+                  style={{left: `${contexMPos.pageX}px`, top: `${contexMPos.pageY}px`}}>
+      {/* Check if object has items / length */}
+      {contexMObject.length ?
+        contexMObject.map(function(cmObj, i)
+          {
+            return  <div className='ContexMenu-Item '
+                      id={'ContexMenu-Item_-'+cmObj.contexMKey}
+                      key={'ContexMenu-Item_'+cmObj.contexMKey}
+                      data-value={cmObj.contexMKey}
+                      onClick={(e) => {handleClickContexMenuItem(e)}}>
                         {cmObj.contexMName}
-                      </div>
-            }
-          )}
+                    </div>
+          }
+        ):<div className='ContexMenu-Item ContexMenu-Item-Disabled'>No Items</div>
+      }
     </div>
   )
 }
