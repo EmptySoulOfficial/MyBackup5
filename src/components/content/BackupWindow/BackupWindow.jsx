@@ -6,6 +6,7 @@ import Card from '../../ui/Card/Card.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import CardDetails from '../CardDetails/CardDetails.jsx'
+import Draggable from 'react-draggable'
 
 function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
                         showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
