@@ -17,6 +17,7 @@ import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
 import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 import ContexMenu from './ui/ContexMenu/ContexMenu.jsx';
+import ClickOutside from '../core/ClickOutside.jsx';
 
 
 function App() {
@@ -125,9 +126,12 @@ function App() {
     return (
         <ReactCursorPosition>
             <QuickInfo quickinfovis={quickinfovis} setquickinfovis={setquickinfovis} quickinfoTitle={quickinfoTitle} quickinfoText={quickinfoText}/>
-            <ContexMenu contexMObject={contexMObject} contexMenuDisabled={false}
-                        contexMenuShow={contexMenuShow} setContexMenuShow={setContexMenuShow}
-                        setContexMObject={setContexMObject} contexMPos={contexMPos}/>
+            <ClickOutside activateCO={contexMenuShow} setCOState={setContexMenuShow}>
+              <ContexMenu contexMObject={contexMObject} contexMenuDisabled={false}
+                          contexMenuShow={contexMenuShow} setContexMenuShow={setContexMenuShow}
+                          setContexMObject={setContexMObject} contexMPos={contexMPos}/>
+            </ClickOutside>
+
 
     <div className="app-container" >
 

@@ -39,8 +39,18 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
                 <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contexMenuShow={contexMenuShow}
                               setContexMenuShow={setContexMenuShow} setContexMObject={setContexMObject} setContexMPos={setContexMPos}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
-                  <Card cardIcon="folder" cardLabel="My Data" cardSubText="23.11.2023 10:53"/>
-                  <Card cardIcon="folder" cardLabel="2" cardSubText="Ein Langer Subtext Zwei"/>
+                  <Draggable>
+                    <div>
+                    <Card cardIcon="folder" cardLabel="My Data" cardSubText="23.11.2023 10:53"/>
+                    </div>
+                  </Draggable>
+                  <Draggable>
+                    <div>
+                    <Card cardIcon="folder" cardLabel="2" cardSubText="Ein Langer Subtext Zwei"/>
+                    </div>
+                  </Draggable>
+
+
                   <Card cardIcon="folder" cardLabel="3" cardSubText="Ein Langer Subtext Drei"/>
                   <Card cardIcon="diskette" cardLabel="4" cardSubText="Ein Langer Subtext Vier"/>
                   <Card cardIcon="folder" cardLabel="5" cardSubText="Ein Langer Subtext Fünf"/>

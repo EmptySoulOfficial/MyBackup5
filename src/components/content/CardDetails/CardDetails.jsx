@@ -10,6 +10,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
   let currentCardIcon = "folder"
   let currentCardPlaceHolder = "Type name"
 
+
   // set contex menu Items for add backup item
   let contexMObject_CardDetailsAddItem = [
     {contexMKey:'addfileselect', contexMName: 'Add File'},
@@ -21,6 +22,12 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
     setContexMenuShow(true);
     setContexMObject(contexMObject_CardDetailsAddItem);
   }
+
+  // const [fileItemVal, setFileItemVal] = useState([]);
+  // const handleAdd = () => {
+    // const abc=[...fileItemVal,[]]
+    // setFileItemVal(abc)
+  // }
 
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
@@ -47,7 +54,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
           <FileItem />
         </div>
 
-        <button className="cardDetails-addBackupItem" onClick={(p) => { handleContexClick(p)}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
+        <button className="cardDetails-addBackupItem" onClick={(p) => { handleContexClick(p);}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
       </div>
 
