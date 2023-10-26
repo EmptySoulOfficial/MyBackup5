@@ -4,13 +4,13 @@ import classNames from 'classnames'
 import Icon from '../Icon/Icon.jsx'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
-function Card({cardIcon, cardLabel, cardSubText}){
+function Card({cardIcon, cardLabel, cardSubText, cardId}){
 
   const [cardItemCheck, setcardItemCheck] = useState(false);
 
   return(
     <>
-      <div className="Item-Card">
+      <div className="Item-Card" id={cardId}>
         <div className="Item-Card-MainContainer">
         <div className="Item-Card-TopBar dFlex">
           <div className="Item-Card-dragable-container flex">

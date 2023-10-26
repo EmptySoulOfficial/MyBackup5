@@ -2,8 +2,13 @@ import './FileItem.css'
 import React from 'react'
 import Icon from '../../../../ui/Icon/Icon.jsx'
 
-function FileItem() {
-  let fileItemIcon = "folder"
+function FileItem({pathType, to, filesMock, setFilesMock, id}) {
+  let fileItemIcon = pathType
+
+  function removePath(id) {
+    const newFilesList = filesMock.filter((f) => f.id !== id);
+    setFilesMock(newFilesList);
+  }
 
   return (
       <div className="fileItem-container dFlex">
@@ -12,8 +17,11 @@ function FileItem() {
         </div>
         <input type="file" id="select-folder" webkitdirectory="" multiple=""/>
         {/* <input type="file" id="select-file"/> */}
-        <select><option>E:/</option><option>A:/</option></select>
-        <button className="functionButton button-deleteBackup">
+        <select defaultValue={to}>
+          <option value="E:/">E:/</option>
+          <option value="A:/">A:/</option>
+        </select>
+        <button className="functionButton button-deleteBackup" onClick={() => removePath(id)}>
           <Icon name="trash" color="var(--color-low)" size={20} />
         </button>
 

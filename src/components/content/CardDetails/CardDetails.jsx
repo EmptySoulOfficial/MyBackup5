@@ -1,13 +1,14 @@
 import './CardDetails.css'
-import React from 'react'
+import React, {useState} from 'react'
 import classNames from 'classnames'
 import BlockDefault from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
+import { name } from 'file-loader'
 
-function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos}) {
+function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos, currentBackupItem }) {
 
-  let currentCardIcon = "folder"
+
   let currentCardPlaceHolder = "Type name"
 
 
@@ -22,6 +23,36 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
     setContexMenuShow(true);
     setContexMObject(contexMObject_CardDetailsAddItem);
   }
+
+  const [newBackupItem, setNewBackupItem] = useState([
+    {
+      id: "",
+      name: "",
+      date: "New",
+      icon: "folder",
+      files: [    {type: "folder", from: "C:/MyData", to: "E:/"},
+      {type: "file", from: "C:/MyData/test.jpg", to: "E:/"}
+            ],
+      size: "--"
+    }
+  ])
+
+  //currentBackupItem muss noch übergeben werden
+  let loadedItem = currentBackupItem ?? newBackupItem
+
+  const [filesMock, setFilesMock] = useState([
+        {id: 1, type: "folder", from: "C:/MyData", to: "E:/"},
+        {id: 2, type: "file", from: "C:/MyData/test.jpg", to: "A:/"}
+  ])
+
+  const backupItemMapped = new Map(Object.entries(loadedItem[0]));
+
+  let cardItemId = backupItemMapped.get('id')
+  let cardItemName = backupItemMapped.get('name')
+  let cardItemDate = backupItemMapped.get('date')
+  let cardItemIcon = backupItemMapped.get('icon')
+  let cardItemSize = backupItemMapped.get('size')
+  let cardFiles = backupItemMapped.get('files')
 
   // const [fileItemVal, setFileItemVal] = useState([]);
   // const handleAdd = () => {
@@ -38,9 +69,9 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
         <div className="cardDetails-info-column flex">
           <div className="cardDetails-infos">
             <div className="cardDetails-icon-container icon-light flex">
-              <Icon name={currentCardIcon} color="var(--color-low)" size={80} />
+              <Icon name={cardItemIcon} color="var(--color-low)" size={80} />
             </div>
-            <textarea placeholder={currentCardPlaceHolder} className="cardDetails-name">
+            <textarea placeholder={currentCardPlaceHolder} className="cardDetails-name">{cardItemName}
             </textarea>
           </div>
           <div className="cardDetails-info-column-devider"></div>
@@ -48,12 +79,17 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
       <div className="cardDetails-files-column">
         <p className="box-default-title padding-10">Files</p>
         <div className="cardDetails-files-container">
-          <FileItem />
-          <FileItem />
-          <FileItem />
-          <FileItem />
-        </div>
+        {
+          cardFiles.map((backupFileItems) => {
 
+            console.log("[CardDetails] Backupitem Mapped: "+backupFileItems.type)
+            return <FileItem pathType={backupFileItems.type}
+                            from={backupFileItems.from} to={backupFileItems.to} key={backupFileItems.id}
+                            id={backupFileItems.id} filesMock={filesMock} setFilesMock={setFilesMock}/>
+
+          })
+        }
+        </div>
         <button className="cardDetails-addBackupItem" onClick={(p) => { handleContexClick(p);}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
       </div>
@@ -62,7 +98,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
         <BlockDefault blockClass={"cardDetails-bottomBox"}>
           <div className="flex-space-between">
             <div className="cardDetails-BackupInfoText">
-            <p className="subtext user-selectable">Letztes Backup: 24.12.2024 | 300 MB | Skyllein PC</p>
+            <p className="subtext user-selectable">Letztes Backup: {cardItemDate} | {cardItemSize}</p>
             </div>
             <div className="flex-space-between cardDetails-bottom-row-button-container">
               <button className="button-reset" onClick={() => {setShowCardDetails(false)}}>Aboard</button>
