@@ -2,16 +2,20 @@ import './FileItem.css'
 import React from 'react'
 import Icon from '../../../../ui/Icon/Icon.jsx'
 
-function FileItem({pathType, to, filesMock, setFilesMock, id}) {
+function FileItem({pathType, to, loadedItem, newBackupItem, setNewBackupItem, id}) {
   let fileItemIcon = pathType
 
   function removePath(id) {
-    const newFilesList = filesMock.filter((f) => f.id !== id);
-    setFilesMock(newFilesList);
+    console.log('ITEM ID: '+id)
+    // Remove hier mal checken: https://codesandbox.io/s/bold-worker-b12x1?file=/src/App.js:844-853
+    // https://stackoverflow.com/questions/69089340/how-can-i-delete-an-item-inside-a-nested-array-with-hooks
+    // const newFilesList = newBackupItem.files.filter((f) => f.id !== id)
+    console.log(newFilesList)
+    setNewBackupItem(newFilesList);
   }
 
   return (
-      <div className="fileItem-container dFlex">
+      <div className="fileItem-container dFlex testItem">
         <div className="fileItem-icon-container flex">
           <Icon name={fileItemIcon} size={20} />
         </div>

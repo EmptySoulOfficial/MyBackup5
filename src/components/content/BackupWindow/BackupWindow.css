@@ -17,6 +17,10 @@
     justify-content: center;
 }
 
+.functionButton-container {
+  padding-right: 5px;
+}
+
 .button-addBackup:hover .icon {
     fill: var(--color-highlight);
 }

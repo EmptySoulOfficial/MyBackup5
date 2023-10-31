@@ -45,17 +45,19 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
 
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
-                <h1>{eLang.windowtitle_backup}</h1>
-                <div className={classNames('appmainwindow-toolbar ', {'appmainwindow-toolbar-active': showAppWindow & !showCardDetails , '' : !showAppWindow })}>
+              <h1>{eLang.windowtitle_backup}</h1>
+              <div className={classNames('appmainwindow-toolbar ', {'appmainwindow-toolbar-active': showAppWindow & !showCardDetails , '' : !showAppWindow })}>
                 <div className="launchbutton-container">
-                        <button className="button-submit launch_button">{eLang.button_launch}</button>
-                    </div>
+                  <button className="button-submit launch_button">{eLang.button_launch}</button>
+                </div>
+                  <div className="functionButton-container dFlex">
                     <button className="functionButton button-addBackup" onClick={() => {setShowCardDetails(true)}}><Icon name="addDashed" color="var(--color-low)" size={20} /></button>
                     <button className="functionButton button-selectAllBackups" onClick={() => {setCheckAllCards(!checkAllCards)}} ><Icon name="selectAllDashed" color="var(--color-low)" size={20} /></button>
-                    <button className="functionButton button-addToLayer" ><Icon name="addLayer" color="var(--color-low)" size={20} /></button>
-                    <button className="functionButton button-deleteBackup"><Icon name="trash" color="var(--color-low)" size={20} /></button>
+                    <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="var(--color-low)" size={20} /></button>
+                    <button className="functionButton button-deleteBackup" disabled><Icon name="trash" color="var(--color-low)" size={20} /></button>
+                  </div>
                 </div>
-            </div>
+              </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
                 <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contexMenuShow={contexMenuShow}

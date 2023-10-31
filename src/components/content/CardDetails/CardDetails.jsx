@@ -30,20 +30,16 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
       name: "",
       date: "New",
       icon: "folder",
-      files: [    {type: "folder", from: "C:/MyData", to: "E:/"},
-      {type: "file", from: "C:/MyData/test.jpg", to: "E:/"}
+      files: [
+              {id: 1, type: "folder", from: "C:/MyData", to: "E:/"},
+              {id: 2, type: "file", from: "C:/MyData/test.jpg", to: "E:/"}
             ],
       size: "--"
     }
   ])
 
   //currentBackupItem muss noch übergeben werden
-  let loadedItem = currentBackupItem ?? newBackupItem
-
-  const [filesMock, setFilesMock] = useState([
-        {id: 1, type: "folder", from: "C:/MyData", to: "E:/"},
-        {id: 2, type: "file", from: "C:/MyData/test.jpg", to: "A:/"}
-  ])
+  const loadedItem = currentBackupItem ?? newBackupItem
 
   const backupItemMapped = new Map(Object.entries(loadedItem[0]));
 
@@ -85,7 +81,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
             console.log("[CardDetails] Backupitem Mapped: "+backupFileItems.type)
             return <FileItem pathType={backupFileItems.type}
                             from={backupFileItems.from} to={backupFileItems.to} key={backupFileItems.id}
-                            id={backupFileItems.id} filesMock={filesMock} setFilesMock={setFilesMock}/>
+                            id={backupFileItems.id} loadedItem={loadedItem} newBackupItem={newBackupItem} setNewBackupItem={setNewBackupItem}/>
 
           })
         }

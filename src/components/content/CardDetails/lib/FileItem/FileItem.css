@@ -16,3 +16,7 @@
 .fileItem-icon-container .icon{
   fill: var(--color-icon-light);
 }
+
+.testItem {
+  width: 120px;
+}
