@@ -5,6 +5,7 @@ import BlockDefault from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 import { name } from 'file-loader'
+import { newBackupItem } from './lib/NewBackupItem/NewBackupItem'
 
 function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos, currentBackupItem }) {
 
@@ -24,31 +25,29 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
     setContexMObject(contexMObject_CardDetailsAddItem);
   }
 
-  const [newBackupItem, setNewBackupItem] = useState([
-    {
-      id: "",
-      name: "",
-      date: "New",
-      icon: "folder",
-      files: [
-              {id: 1, type: "folder", from: "C:/MyData", to: "E:/"},
-              {id: 2, type: "file", from: "C:/MyData/test.jpg", to: "E:/"}
-            ],
-      size: "--"
-    }
-  ])
+
+
+  //Pass reacl index from all cards here
+  let cardIndexMock = 0
+
 
   //currentBackupItem muss noch übergeben werden
-  const loadedItem = currentBackupItem ?? newBackupItem
+  const [loadedItem, setLoadedItem] = useState(currentBackupItem ?? newBackupItem)
 
-  const backupItemMapped = new Map(Object.entries(loadedItem[0]));
+  // const backupItemMapped = new Map(Object.entries(loadedItem[0]));
+  // let cardItemId = backupItemMapped.get('id')
+  // let cardItemName = backupItemMapped.get('name')
+  // let cardItemDate = backupItemMapped.get('date')
+  // let cardItemIcon = backupItemMapped.get('icon')
+  // let cardItemSize = backupItemMapped.get('size')
+  // let cardFiles = backupItemMapped.get('files')
 
-  let cardItemId = backupItemMapped.get('id')
-  let cardItemName = backupItemMapped.get('name')
-  let cardItemDate = backupItemMapped.get('date')
-  let cardItemIcon = backupItemMapped.get('icon')
-  let cardItemSize = backupItemMapped.get('size')
-  let cardFiles = backupItemMapped.get('files')
+  let cardItemId = loadedItem['id']
+  let cardItemName = loadedItem['name']
+  let cardItemDate = loadedItem['date']
+  let cardItemIcon = loadedItem['icon']
+  let cardItemSize = loadedItem['size']
+  let cardFiles = loadedItem['files']
 
   // const [fileItemVal, setFileItemVal] = useState([]);
   // const handleAdd = () => {
@@ -67,7 +66,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
             <div className="cardDetails-icon-container icon-light flex">
               <Icon name={cardItemIcon} color="var(--color-low)" size={80} />
             </div>
-            <textarea placeholder={currentCardPlaceHolder} className="cardDetails-name">{cardItemName}
+            <textarea placeholder={currentCardPlaceHolder} className="cardDetails-name" defaultValue={cardItemName}>
             </textarea>
           </div>
           <div className="cardDetails-info-column-devider"></div>
@@ -76,12 +75,9 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
         <p className="box-default-title padding-10">Files</p>
         <div className="cardDetails-files-container">
         {
-          cardFiles.map((backupFileItems) => {
+          cardFiles.map((fileItem) => {
 
-            console.log("[CardDetails] Backupitem Mapped: "+backupFileItems.type)
-            return <FileItem pathType={backupFileItems.type}
-                            from={backupFileItems.from} to={backupFileItems.to} key={backupFileItems.id}
-                            id={backupFileItems.id} loadedItem={loadedItem} newBackupItem={newBackupItem} setNewBackupItem={setNewBackupItem}/>
+            return <FileItem fileItem={fileItem} key={fileItem.id} cardIndex={cardIndexMock} loadedItem={loadedItem} setLoadedItem={setLoadedItem}/>
 
           })
         }
