@@ -6,7 +6,6 @@ const defaultData =
   icon: "folder",
   files: [
           {id: 1, type: "folder", from: "C:/MyData", to: "E:/"},
-          {id: 2, type: "file", from: "C:/MyData/test.jpg", to: "E:/"}
         ],
   size: "--"
 }

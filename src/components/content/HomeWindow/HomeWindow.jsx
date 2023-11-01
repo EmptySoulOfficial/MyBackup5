@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames';
 import './HomeWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
-import BlockDefault from '../../ui/Block/Block.jsx';
+import {BlockDefault} from '../../ui/Block/Block.jsx';
 
 
 function BackupWindow({navItemSelectedId, showAppWindow}) {

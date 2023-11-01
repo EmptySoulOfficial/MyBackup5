@@ -15,4 +15,15 @@ function BlockDefault({blocktitle, children, blockClass, blockId}) {
   )
 }
 
-export default BlockDefault
+function BlockInfoSmall({children, blockClass, blockId}) {
+
+  return (
+    <div className={classNames('block-default', blockClass)} id={blockId}>
+      <div className="box-default box-info--small">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+export { BlockDefault, BlockInfoSmall}

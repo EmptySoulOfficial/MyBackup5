@@ -1,7 +1,7 @@
 import './CardDetails.css'
 import React, {useState} from 'react'
 import classNames from 'classnames'
-import BlockDefault from '../../ui/Block/Block.jsx'
+import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 import { name } from 'file-loader'
@@ -11,7 +11,6 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
 
 
   let currentCardPlaceHolder = "Type name"
-
 
   // set contex menu Items for add backup item
   let contexMObject_CardDetailsAddItem = [
@@ -25,11 +24,8 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
     setContexMObject(contexMObject_CardDetailsAddItem);
   }
 
-
-
   //Pass reacl index from all cards here
   let cardIndexMock = 0
-
 
   //currentBackupItem muss noch übergeben werden
   const [loadedItem, setLoadedItem] = useState(currentBackupItem ?? newBackupItem)
@@ -75,12 +71,12 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
         <p className="box-default-title padding-10">Files</p>
         <div className="cardDetails-files-container">
         {
-          cardFiles.map((fileItem) => {
-
-            return <FileItem fileItem={fileItem} key={fileItem.id} cardIndex={cardIndexMock} loadedItem={loadedItem} setLoadedItem={setLoadedItem}/>
-
-          })
+          cardFiles.length > 0 ? cardFiles.map((fileItem) => {
+            return <FileItem fileItem={fileItem} key={fileItem.id} cardIndex={cardIndexMock}
+                              loadedItem={loadedItem} setLoadedItem={setLoadedItem}/>
+          }) : <BlockInfoSmall>Click + to add new files / folders</BlockInfoSmall>
         }
+
         </div>
         <button className="cardDetails-addBackupItem" onClick={(p) => { handleContexClick(p);}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
