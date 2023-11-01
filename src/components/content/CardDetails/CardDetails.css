@@ -110,6 +110,15 @@
   overflow-y: scroll;
 }
 
+.cardDetails-files-container .block-default {
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+.cardDetails-files-container .box-default {
+  margin: 0;
+}
+
 .cardDetails-addBackupItem {
   width: 100%;
   padding: 10px;

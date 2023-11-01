@@ -4,8 +4,7 @@ import classNames from 'classnames'
 import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
-import { name } from 'file-loader'
-import { newBackupItem } from './lib/NewBackupItem/NewBackupItem'
+import { newBackupItem } from '../../../core/DefaultData/NewBackupItem/NewBackupItem'
 
 function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos, currentBackupItem }) {
 
@@ -74,7 +73,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
           cardFiles.length > 0 ? cardFiles.map((fileItem) => {
             return <FileItem fileItem={fileItem} key={fileItem.id} cardIndex={cardIndexMock}
                               loadedItem={loadedItem} setLoadedItem={setLoadedItem}/>
-          }) : <BlockInfoSmall>Click + to add new files / folders</BlockInfoSmall>
+          }) : <BlockInfoSmall>Click [+] to add new files / folders</BlockInfoSmall>
         }
 
         </div>
