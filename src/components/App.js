@@ -13,7 +13,7 @@ import HomeWindow from './content/HomeWindow/HomeWindow.jsx'
 import BackupWindow from './content/BackupWindow/BackupWindow.jsx'
 import RestoreWindow from './content/RestoreWindow/RestoreWindow.jsx'
 import OptionsWindow from './content/OptionsWindow/OptionsWindow.jsx'
-import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
+import ConfigWindow from './content/ConfigWindow/ConfigWindow';
 import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 import ContexMenu from './ui/ContexMenu/ContexMenu.jsx';
