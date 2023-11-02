@@ -1,22 +1,26 @@
 import './ContexMenu.css'
-import React, {useRef} from 'react'
+import React, {useRef, useImperativeHandle} from 'react'
 import classNames from 'classnames';
 
 
-function ContexMenu({position,contexMObject,contexMenuDisabled, contexMenuShow, setContexMenuShow, setContexMObject, contexMPos}) {
+function ContexMenu({position,contexMObject,contexMenuDisabled, contexMenuShow, setContexMenuShow, setContexMObject, contexMPos, contexMRef, contexMCustomFunction}) {
 
   const ref = useRef(null);
 
 
   const handleClickContexMenuItem = (e) => {
     setContexMenuShow(false)
+    callChangeFunction(e.target.getAttribute("data-value"));
   }
+  // ---- Custom functions ---- //
+  const callChangeFunction = (refValue) => {
+    contexMCustomFunction(refValue);
+  };
 
-  if (contexMPos.pageX >= "800") {
-      //contexMPos.pageX-=ref.current.offsetWidth;
-
-    //console.log("width", );
-  }
+  // Expose parent function (custom function) to parent component
+  useImperativeHandle(contexMRef, () => ({
+    contexMCustomFunction: callChangeFunction,
+  }));
 
   return (
     <div ref={ref} className={classNames('ContexMenu', {'ContexMenu-Disabled': contexMenuDisabled, '': !contexMenuDisabled}, {'': contexMenuShow, 'dNone': !contexMenuShow})}

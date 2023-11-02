@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import ReactCursorPosition from 'react-cursor-position';
 import './App.css'
 import HtmlTitle from '../core/HtmlTitle.jsx';
@@ -118,6 +118,12 @@ function App() {
     const [contexMenuShow, setContexMenuShow] = useState(false);
     const [contexMPos, setContexMPos] = useState('')
 
+    const contexMRef = useRef(null);
+    const contexMCustomFunction = (prop) => {
+      console.log("------ CONTEX MENU VAL: "+prop)
+    };
+
+
     // if (contexMenuShow) {
     //   setEnableCursorPos(false)
     // }
@@ -129,7 +135,7 @@ function App() {
             <ClickOutside activateCO={contexMenuShow} setCOState={setContexMenuShow}>
               <ContexMenu contexMObject={contexMObject} contexMenuDisabled={false}
                           contexMenuShow={contexMenuShow} setContexMenuShow={setContexMenuShow}
-                          setContexMObject={setContexMObject} contexMPos={contexMPos}/>
+                          setContexMObject={setContexMObject} contexMPos={contexMPos} contexMRef={contexMRef} contexMCustomFunction={contexMCustomFunction}/>
             </ClickOutside>
 
 
