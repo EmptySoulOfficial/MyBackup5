@@ -2,7 +2,6 @@ import './ContexMenu.css'
 import React, {useRef, useImperativeHandle} from 'react'
 import classNames from 'classnames';
 
-
 function ContexMenu({position,contexMObject,contexMenuDisabled, contexMenuShow, setContexMenuShow, setContexMObject, contexMPos, contexMRef, contexMCustomFunction}) {
 
   const ref = useRef(null);

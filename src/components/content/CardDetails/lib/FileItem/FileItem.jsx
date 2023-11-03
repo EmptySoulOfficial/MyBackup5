@@ -2,8 +2,8 @@ import './FileItem.css'
 import React from 'react'
 import Icon from '../../../../ui/Icon/Icon.jsx'
 
-    // Remove hier mal checken: https://codesandbox.io/s/bold-worker-b12x1?file=/src/App.js:844-853
-    // https://stackoverflow.com/questions/69089340/how-can-i-delete-an-item-inside-a-nested-array-with-hooks
+// Remove hier mal checken: https://codesandbox.io/s/bold-worker-b12x1?file=/src/App.js:844-853
+// https://stackoverflow.com/questions/69089340/how-can-i-delete-an-item-inside-a-nested-array-with-hooks
 
 function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
   let fileItemIcon = fileItem.type
@@ -33,7 +33,6 @@ function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
         <button className="functionButton button-deleteBackup" onClick={() => removeFileItem(fileItem.id, cardIndex)}>
           <Icon name="trash" color="var(--color-low)" size={20} />
         </button>
-
       </div>
   )
 }
