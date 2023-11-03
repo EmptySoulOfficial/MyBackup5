@@ -28,9 +28,13 @@ function App() {
   const [showCardDetails, setShowCardDetails] = useState(false);
   let [showAppWindow, setShowAppWindow] = useState()
 
+  let array
+
   useEffect(() => {
+    console.log("----> APP START <----")
     HtmlTitle()
     AppStyle()
+
   }, []);
 
   // local storages

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, conte } from 'react'
+import React, { useEffect, useState, useMemo, useRef } from 'react'
 import * as themeData from '../themes/themes.json'
 import { useParams } from "react-router-dom";
 
@@ -8,32 +8,55 @@ const selectedStyleMock = "oceansground"
 
 const getThemes = "themes"
 
+
+
+
 //Funktion, die Ordner Inhalt mappt, daraus eine dIKey und dIName erstellt, das in ein array packt und an die theme select box schickt
 //Zusätzlich werden die Folder Namen zusammen in ein extra objekt gepackt und als pfad-teil zum import/json read und css apply verwendet
 
-const AppStyle = () => {
+function AppStyle () {
+
+  //Generate id and key from themes.json obj
+  const jsonObjThemes = JSON.parse(JSON.stringify(themeData)).default
+
+  // Object.keys(jsonObjThemes).map(
+    // (themeKey) => {
+    // const themeValue = jsonObjThemes[themeKey];
+//
+//
+    // setThemeSelectObject((prevstate) => ([...prevstate,{"dIKey":themeKey,"dIName":themeValue}]))
+//
+//
+//
+// });
+    let themeArray = [];
+    let themeFolder
+
+    Object.keys(jsonObjThemes).map((themeKey, i) => {
+      themeFolder = jsonObjThemes[themeKey]
+      themeArray.push({"dIKey":themeKey,"dIName":themeFolder})
+    });
+
+  const currentThemePath =  "src/themes/"+jsonObjThemes[selectedStyleMock]
+  const currentIdJsonPath = currentThemePath+"/theme.json"
+  const currentStyleCssPath = currentThemePath+"/style.css"
 
 
-      const jsonObjThemes = JSON.parse(JSON.stringify(themeData)).default
-
-      const currentThemePath =  "src/themes/"+jsonObjThemes[selectedStyleMock]
-      const currentIdJsonPath = currentThemePath+"/id.json"
+      // import('../themes/GamerGirl/theme.json').then(module => module.default);
+      // let admins = require('../themes/Gamer Girl/theme.json');
 
 
-
-        fetch(currentIdJsonPath, {
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => console.log(data));
+    //  const currentThemeJson = JSON.parse(JSON.stringify(admins)).default
+    //  const currentTheme = currentThemeJson["gamergirl"]
+    //  console.log("Style NAME: "+admins["gamergirl"].style_name);
 
       // const currentThemeIdJson = JSON.parse(JSON.stringify(parseThemeJson)).default
 
    console.log("Current Path: "+currentThemePath)
    console.log("Current ID PATH: "+currentIdJsonPath)
+
+   console.log(themeArray)
+
 
 }
 
