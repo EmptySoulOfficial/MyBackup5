@@ -147,6 +147,7 @@ h2 {
     right: 0px;
     position: absolute;
     overflow: hidden;
+    background-color: var(--color-main);
 }
 
 .appmainwindow {

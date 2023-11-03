@@ -43,7 +43,7 @@
     --color-button-deleteBackup: var(--smooth-red);
 
     --color-infobox-background: var(--lightgray-31);
-    --color-titlebar-background: var(--color-main);
+    --color-titlebar-background: var(--color-none);
 
     /* Backup nodes */
     --color-icon-light: var(--color-font-second);

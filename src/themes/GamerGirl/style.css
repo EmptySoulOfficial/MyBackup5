@@ -1,0 +1,37 @@
+:root{
+   /* Theme */
+  --color-main: #eee;
+  --color-main-as-rgb-value: 19, 28, 33;
+  --color-second: #b0b0b0;
+  --color-third: var(--blue-gray-1d);
+  --color-darker: var(--dark-gray);
+  --color-highlight: var(--green);
+  --color-close: var(--smooth-red);
+  --color-edit: var(--lightyellow);
+  --color-disabled: var(--gray-disabled);
+
+
+  --color-font: var(--white);
+  --color-font-headline: var(--blue-gray);
+  --color-font-second: var(--lightgray-a);
+  --color-font-headlabel:var(--blue-gray-54);
+  --color-font-subtext: var(--lightgray-5f);
+
+  --color-icon-default: var(--color-second);
+
+  --color-button-selectAllBackups: var(--white);
+  --color-button-addToLayer: var(--lightblue);
+  --color-button-deleteBackup: var(--smooth-red);
+
+  --color-infobox-background: var(--lightgray-31);
+  --color-titlebar-background: var(--color-main);
+
+  /* Backup nodes */
+  --color-icon-light: var(--color-font-second);
+
+  --node-dragable_background: var(--color-none);
+  --node-mainsection_background: var(--color-none);
+  --node-switchsection_background: var(--color-none);
+  --node-nodesection_background: var(--color-none);
+
+}

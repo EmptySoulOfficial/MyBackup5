@@ -3,7 +3,7 @@ import ReactCursorPosition from 'react-cursor-position';
 import './App.css'
 import HtmlTitle from '../core/HtmlTitle.jsx';
 import AppTitleBar from './ui/AppTitleBar/AppTitleBar.jsx'
-import parseStyle from '../core/AppStyle.jsx'
+// import parseStyle from '../core/AppStyle-old.jsx'
 
 // import wallpaperimage from '/data/user/walllpaper/wallpaper.jpg' //doesnt work -> fix or create a new electron project
 
@@ -17,6 +17,7 @@ import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 import ContexMenu from './ui/ContexMenu/ContexMenu.jsx'
 import ClickOutside from '../core/ClickOutside.jsx'
+import AppStyle from '../core/AppStyle.jsx';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 
   useEffect(() => {
     HtmlTitle()
+    AppStyle()
   }, []);
 
   // local storages
@@ -47,46 +49,46 @@ function App() {
   console.log('💽 storage default: '+ s_selectedNavItem)
 
   // set Theme state/select
-  //select default theme
+  // select default theme
   const initialThemeValue = "oceansground"
-
+//
   const InitialThemeValue = () => {
     const themeValue = initialThemeValue;
     return themeValue;
   };
   const [themeValue, setthemeValue] = useState(InitialThemeValue)
-
-  //get Parsed Style
-  const jStylesParsed = parseStyle();
-
-  let SelectedStyle = () => {
-
-    if (themeValue == initialThemeValue) {
-      let selectedStyle = jStylesParsed.jStyleOceansGround
-      return selectedStyle
-    }
-
-    if (themeValue == "gamergirl") {
-      let selectedStyle = jStylesParsed.jStyleGamerGirl
-      return selectedStyle
-    }
-
-    if (themeValue == null) {
-      let selectedStyle = jStylesParsed.jStyleOceansGround
-      return selectedStyle
-    }
-  }
-
-  let jStyle = SelectedStyle();
-
-  if (jStyle.wallpaper == "true") {
-      var appbgcolor = ""
-      var appbgwallpaper = wallpaperimage
-  } else {
-      var appbgcolor = jStyle.backgroundcolor
-      var appbgwallpaper = ""
-  }
-
+//
+  // get Parsed Style
+  // const jStylesParsed = parseStyle();
+//
+  // let SelectedStyle = () => {
+//
+    // if (themeValue == initialThemeValue) {
+      // let selectedStyle = jStylesParsed.jStyleOceansGround
+      // return selectedStyle
+    // }
+//
+    // if (themeValue == "gamergirl") {
+      // let selectedStyle = jStylesParsed.jStyleGamerGirl
+      // return selectedStyle
+    // }
+//
+    // if (themeValue == null) {
+      // let selectedStyle = jStylesParsed.jStyleOceansGround
+      // return selectedStyle
+    // }
+  // }
+//
+  // let jStyle = SelectedStyle();
+//
+  // if (jStyle.wallpaper == "true") {
+      // var appbgcolor = ""
+      // var appbgwallpaper = wallpaperimage
+  // } else {
+      // var appbgcolor = jStyle.backgroundcolor
+      // var appbgwallpaper = ""
+  // }
+//
     //set language
     const autoLang = AutoLang()
     //select default language
@@ -128,9 +130,12 @@ function App() {
       </ClickOutside>
       <div className="app-container" >
 
-        <AppTitleBar titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} navItemSelectedId={navItemSelectedId} />
-        <div className="app-background" style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}}>
-          <Navigation blur={jStyle.blur} s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
+        <AppTitleBar navItemSelectedId={navItemSelectedId} />
+        {/* titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} */}
+        <div className="app-background" >
+        {/* style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}} */}
+          <Navigation s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
+          {/* blur={jStyle.blur} */}
           <div className="app-content">
             <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow}
                           navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
