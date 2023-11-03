@@ -19,3 +19,23 @@
   margin-block-start: 0;
   margin-block-end: 10px;
 }
+
+.box-info--small {
+  background-color: var(--color-third);
+  align-items: center;
+  color: var(--color-font-headlabel);
+}
+
+.box-info--small-content {
+  margin-left: 20px;
+}
+
+.box-info--small-info-container {
+  align-self: self-start;
+  height: fit-content;
+}
+
+.box-info--small-info-container .icon{
+  fill: var(--color-font-headlabel);
+}
+

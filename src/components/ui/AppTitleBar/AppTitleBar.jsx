@@ -1,6 +1,6 @@
 import React from 'react'
 import './AppTitleBar.css'
-import { appversiondata } from '../../../core/appversion';
+import { appversiondata } from '../../../core/AppVersion';
 
 function AppTitleBar({titel_bar_backgroundcolor, navItemSelectedId}) {
 

@@ -1,0 +1,41 @@
+.ContexMenu {
+  top: 20px;
+  position: absolute;
+  border-radius: var(--border-radius-default);
+  font-size: var(--fontsize-default);
+  color: var(--color-font);
+  background-color: var(--color-third);
+  width: fit-content;
+  min-width: 120px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  overflow: hidden;
+  transition: var(--transition-default);
+  box-shadow: 0px 0px 16px #00000099;
+  /* max-height: 0; */
+}
+
+.ContexMenu-Item {
+  color: var(--color-font);
+  padding: 10px;
+  cursor: pointer;
+  transition: var(--transition-default);
+  transition: var(--transition-default);
+}
+
+.ContexMenu-Item:hover {
+  color: var(--color-font);
+  background-color: var(--color-highlight);
+}
+
+.ContexMenu-Disabled {
+  display: none;
+}
+
+.ContexMenu-Item-Disabled {
+  user-select: none;
+  pointer-events: none;
+  color: var(--color-font-subtext);
+}
+

@@ -93,8 +93,9 @@ h2 {
     font-size: var(--fontsize-h2) ;
     user-select: none;
 }
+
 .main-label {
-    font-size: 12px;
+    font-size: var(--fontsize-default);
     margin-block-start: 0;
     margin-block-end: 0;
     color: var(--color-font-headlabel);
@@ -102,7 +103,7 @@ h2 {
 }
 
 .subtext {
-    font-size: 12px;
+    font-size: var(--fontsize-default);
     margin-block-start: 0;
     margin-block-end: 0;
     color: var(--color-font-subtext);
@@ -179,10 +180,12 @@ display: block;
     justify-content: flex-end;
     transition-delay: 1s;
     opacity: 0;
+    visibility: hidden;
     z-index: 100;
 }
 
 .appmainwindow-toolbar-active {
+  visibility: visible;
   animation-name: appmainwindowtoolbaranim;
   animation-duration: 0.3s;
   animation-delay: 0.4s;
@@ -192,11 +195,12 @@ display: block;
 @keyframes appmainwindowtoolbaranim {
 
   0% {
+      visibility: visible;
       transform: translateY(20px);
       opacity: 0;
     }
-
   100% {
+    visibility: visible;
     opacity: 1;
   }
 }
@@ -244,19 +248,7 @@ display: block;
     padding-bottom: 80px;
 }
 
-.appmainwindow-bottomcontent {
-    width: calc(100% - 40px);
-    height: 40px;
-    padding-top: 40px;
-    position: absolute;
-    top: 370px;
-    border-radius: var(--border-radius-default);
-    align-items: center;
-    /* background: linear-gradient(0deg, var(--color-main) 0%,  rgba(var(--color-main-as-rgb-value), 0.8) 50%, transparent 100%); */
-    background-color: var(--color-main);
-}
-
-.button-submit {
+.button-submit, .button-reset {
     width: 120px;
     height: 40px;
     background-color: var(--color-second);
@@ -276,6 +268,21 @@ display: block;
 
 .button-submit--small:hover {
     background-color: var(--color-highlight);
+}
+
+.button-reset:hover {
+  background-color: var(--color-close);
+}
+
+.functionButton {
+  margin: 0px 5px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.functionButton:disabled {
+  display: none;
 }
 
 .dropdown-small {
@@ -338,6 +345,10 @@ display: block;
   transition: var(--transition-default);
 }
 
+.icon-light, .icon-light .icon {
+  fill: var(--color-icon-light);
+}
+
 .editmode {
     outline: 1px dashed var(--color-highlight);
     filter: contrast(0.8);
@@ -347,12 +358,6 @@ display: block;
     -webkit-user-modify: read-write;
     outline: none;
     color: var(--color-edit) !Important;
-}
-
-.functionButton {
-  margin: 0px 5px;
-  width: 25px;
-  height: 25px;
 }
 
 .infobox {

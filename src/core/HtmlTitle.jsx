@@ -1,4 +1,4 @@
-import { appversiondata } from "./appversion";
+import { appversiondata } from "./AppVersion";
 //Force App Title
 function HtmlTitle() {
   const appVData = appversiondata()

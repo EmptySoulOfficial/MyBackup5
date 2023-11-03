@@ -4,13 +4,13 @@ import classNames from 'classnames'
 import Icon from '../Icon/Icon.jsx'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
-function Card({cardIcon, cardLabel, cardSubText}){
+function Card({cardIcon, cardLabel, cardSubText, cardId}){
 
   const [cardItemCheck, setcardItemCheck] = useState(false);
 
   return(
     <>
-      <div className="Item-Card">
+      <div className="Item-Card" id={cardId}>
         <div className="Item-Card-MainContainer">
         <div className="Item-Card-TopBar dFlex">
           <div className="Item-Card-dragable-container flex">
@@ -23,7 +23,7 @@ function Card({cardIcon, cardLabel, cardSubText}){
             </label>
           </div>
         </div>
-          <div className="Item-Card-Icon-container flex">
+          <div className="Item-Card-Icon-container icon-light flex">
             <Icon name={cardIcon} color="var(--color-low)" size={80} />
           </div>
           <div className="Item-Card-Title-container flex">
@@ -33,8 +33,7 @@ function Card({cardIcon, cardLabel, cardSubText}){
             <p className="subtext">{cardSubText}</p>
           </div>
         </div>
-
-        </div>
+      </div>
     </>
   )
 

@@ -17,6 +17,10 @@
     justify-content: center;
 }
 
+.functionButton-container {
+  padding-right: 5px;
+}
+
 .button-addBackup:hover .icon {
     fill: var(--color-highlight);
 }
@@ -33,9 +37,7 @@
   fill: var(--color-button-deleteBackup);
 }
 
-
-
-.backupWindow-content {
+.cards-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }

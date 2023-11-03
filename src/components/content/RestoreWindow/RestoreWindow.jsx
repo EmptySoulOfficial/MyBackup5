@@ -32,7 +32,7 @@ function RestoreWindow({navItemSelectedId, showAppWindow}) {
       </div>
       <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
           <div className="appmainwindow-content backupWindow-content">
-                <Card cardIcon="folder" cardLabel="1" cardSubText="Ein Langer Subtext"/>
+                <Card cardIcon="folder" cardLabel="My Data" cardSubText="05.10.2023 10:10"/>
           </div>
       </div>
   </div>
