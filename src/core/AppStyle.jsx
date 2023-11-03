@@ -31,14 +31,19 @@ function AppStyle () {
 // });
     let themeArray = [];
     let themeFolder
+    let currentThemePath
+    let currentIdJsonPath
+    let themeJson
 
     Object.keys(jsonObjThemes).map((themeKey, i) => {
       themeFolder = jsonObjThemes[themeKey]
-      themeArray.push({"dIKey":themeKey,"dIName":themeFolder})
+      //dIName ersetz7en durch style_name jener theme.json
+      themeJson = require('../themes/'+themeFolder+'/theme.json');
+      themeArray.push({"dIKey":themeKey,"dIName":themeJson[themeKey].style_name})
     });
 
-  const currentThemePath =  "src/themes/"+jsonObjThemes[selectedStyleMock]
-  const currentIdJsonPath = currentThemePath+"/theme.json"
+    //get folder name of themekey z.B. "Gamer Girl"
+
   const currentStyleCssPath = currentThemePath+"/style.css"
 
 
@@ -52,9 +57,7 @@ function AppStyle () {
 
       // const currentThemeIdJson = JSON.parse(JSON.stringify(parseThemeJson)).default
 
-   console.log("Current Path: "+currentThemePath)
-   console.log("Current ID PATH: "+currentIdJsonPath)
-
+  console.log("---> SELECT THEME ARRAY:")
    console.log(themeArray)
 
 
