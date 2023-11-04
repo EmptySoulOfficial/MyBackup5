@@ -15,8 +15,6 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
 
     console.log('APPVData: '+appVData.product_name)
 
-    const themeSelectArray = useMemo(() => AppStyle(),[])
-
 
     const changeTheme = (e) => {
         setthemeValue(e.target.value);
@@ -27,6 +25,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     }
 
     //App Theme Dropdown
+    const themeSelectArray = useMemo(() => AppStyle(),[])
     let dThemeItems = themeSelectArray.themeArray
     const dThemeRef = useRef(null);
     const dThemeFunction = (prop) => {
