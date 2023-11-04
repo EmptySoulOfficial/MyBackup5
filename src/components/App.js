@@ -17,7 +17,6 @@ import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 import ContexMenu from './ui/ContexMenu/ContexMenu.jsx'
 import ClickOutside from '../core/ClickOutside.jsx'
-import AppStyle from '../core/AppStyle.jsx';
 
 
 function App() {
@@ -28,14 +27,11 @@ function App() {
   const [showCardDetails, setShowCardDetails] = useState(false);
   let [showAppWindow, setShowAppWindow] = useState()
 
-  let array
-
   useEffect(() => {
     console.log("----> APP START <----")
     HtmlTitle()
-    AppStyle()
-
   }, []);
+
 
   // local storages
   let s_selectedNavItem = localStorage.getItem("selectedNavItem")

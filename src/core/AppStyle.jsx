@@ -59,6 +59,7 @@ function AppStyle () {
 
   console.log("---> SELECT THEME ARRAY:")
    console.log(themeArray)
+   return {themeArray}
 
 
 }

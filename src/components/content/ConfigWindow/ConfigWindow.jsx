@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import classNames from "classnames";
 import './ConfigWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage.js'
@@ -6,6 +6,7 @@ import { BlockDefault} from "../../ui/Block/Block.jsx";
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import ClickOutside from "../../../core/ClickOutside.jsx";
 import { appversiondata } from "../../../core/AppVersion";
+import AppStyle from "../../../core/AppStyle.jsx";
 
 function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
 
@@ -13,6 +14,9 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     const appVData = appversiondata();
 
     console.log('APPVData: '+appVData.product_name)
+
+    const themeSelectArray = useMemo(() => AppStyle(),[])
+
 
     const changeTheme = (e) => {
         setthemeValue(e.target.value);
@@ -23,10 +27,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     }
 
     //App Theme Dropdown
-    let dThemeItems = [
-      {dIKey:'gamergirl', dIName: 'Gamer Girl'},
-      {dIKey:'oceansground', dIName: 'Oceans Ground'},
-    ];
+    let dThemeItems = themeSelectArray.themeArray
     const dThemeRef = useRef(null);
     const dThemeFunction = (prop) => {
       setthemeValue(prop);
