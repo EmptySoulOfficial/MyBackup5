@@ -39,7 +39,10 @@ function AppStyle () {
       themeFolder = jsonObjThemes[themeKey]
       //dIName ersetz7en durch style_name jener theme.json
       themeJson = require('../themes/'+themeFolder+'/theme.json');
-      themeArray.push({"dIKey":themeKey,"dIName":themeJson[themeKey].style_name})
+      themeArray.push({"dIKey":themeKey,"dIName":themeJson[themeKey].style_name,
+                      "themeAuthor":themeJson[themeKey].style_author, "themeRelease":themeJson[themeKey].style_release,
+                      "themeVersion":themeJson[themeKey].style_version, "themeNotes":themeJson[themeKey].style_notes,
+                      "themeFolder":themeFolder})
     });
 
     //get folder name of themekey z.B. "Gamer Girl"
@@ -58,7 +61,7 @@ function AppStyle () {
       // const currentThemeIdJson = JSON.parse(JSON.stringify(parseThemeJson)).default
 
   console.log("---> SELECT THEME ARRAY:")
-   console.log(themeArray)
+   console.log(themeArray+"--"+themeFolder)
    return {themeArray}
 
 

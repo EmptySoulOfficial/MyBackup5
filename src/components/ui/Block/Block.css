@@ -8,6 +8,9 @@
   padding: 20px;
   width: calc(100% - 40px);
   margin: 10px 0px;
+  white-space: break-spaces;
+  overflow: hidden;
+  min-height: calc(100% - 72px);
 }
 
 .box-default-title {
@@ -37,5 +40,9 @@
 
 .box-info--small-info-container .icon{
   fill: var(--color-font-headlabel);
+}
+
+.box-second {
+  margin-top: 32px;
 }
 

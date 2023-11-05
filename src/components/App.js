@@ -17,6 +17,7 @@ import QuickInfo from './ui/QuickInfo--notUsed/QuickInfo.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 import ContexMenu from './ui/ContexMenu/ContexMenu.jsx'
 import ClickOutside from '../core/ClickOutside.jsx'
+import AppStyle from '../core/AppStyle.jsx';
 
 
 function App() {
@@ -48,15 +49,32 @@ function App() {
   }
   console.log('💽 storage default: '+ s_selectedNavItem)
 
+
   // set Theme state/select
   // select default theme
   const initialThemeValue = "oceansground"
-//
+  //Init default Theme via arry and pass it into themeValue
   const InitialThemeValue = () => {
-    const themeValue = initialThemeValue;
+    const themeSelectArray = AppStyle()
+    const selecteThemeObject = themeSelectArray.themeArray.find(({ dIKey }) => dIKey === initialThemeValue)
+    const themeValue = selecteThemeObject
+    console.log(themeValue)
     return themeValue;
   };
   const [themeValue, setthemeValue] = useState(InitialThemeValue)
+
+  console.log("APP Theme Val: "+themeValue)
+  useEffect(() => {
+    const currentThemeFolder = themeValue.themeFolder
+    import (`../themes/`+currentThemeFolder+`/style.css`);
+    // var head = document.body;
+    // var link = document.createElement("link");
+    // link.rel = "stylesheet";
+    // link.href = "./themes/"+currentThemeFolder+"/style.css";
+    // head.appendChild(link);
+    // return () => { head.removeChild(link); }
+
+  }, [themeValue]);
 //
   // get Parsed Style
   // const jStylesParsed = parseStyle();
