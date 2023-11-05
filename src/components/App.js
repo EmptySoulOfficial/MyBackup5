@@ -55,7 +55,8 @@ function App() {
    if(!initialThemeValue){
     initialThemeValue = "oceansground";
   }
-  //--------------- Theme muss noch gespeichert werden, close save-setLocalStorage in core auslagern, variablen wie ni_home ebenfalls vereinfachen
+  //--------------- Theme muss noch gespeichert werden, close save-setLocalStorage in core auslagern,
+  // variablen wie ni_home ebenfalls vereinfachen, themes.json in default data verlagern
 
   console.log("kein THEME VAL->" + initialThemeValue)
   console.log('💽 storage default: '+ s_selectedNavItem + " "+s_selectedTheme)
