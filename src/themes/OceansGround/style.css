@@ -1,5 +1,6 @@
 :root{
-   /* Theme */
+   /* ---- Oceans Ground Theme ---- */
+    /* Set colors */
   --color-main: var(--gray);
   --color-main-as-rgb-value: 19, 28, 33;
   --color-second: var(--lightgray);
@@ -9,26 +10,23 @@
   --color-close: var(--smooth-red);
   --color-edit: var(--lightyellow);
   --color-disabled: var(--gray-disabled);
-
-
+  /* Main elements */
+  --color-infobox-background: var(--lightgray-31);
+  --color-titlebar-background: var(--color-none);
+ /* Font colors */
   --color-font: var(--white);
   --color-font-headline: var(--blue-gray);
   --color-font-second: var(--lightgray-a);
   --color-font-headlabel:var(--blue-gray-54);
   --color-font-subtext: var(--lightgray-5f);
-
+ /* Icon colors */
   --color-icon-default: var(--color-second);
-
+  --color-icon-light: var(--color-font-second);
+ /* Button colors */
   --color-button-selectAllBackups: var(--white);
   --color-button-addToLayer: var(--lightblue);
   --color-button-deleteBackup: var(--smooth-red);
-
-  --color-infobox-background: var(--lightgray-31);
-  --color-titlebar-background: var(--color-main);
-
-  /* Backup nodes */
-  --color-icon-light: var(--color-font-second);
-
+  /* Backup cards */
   --node-dragable_background: var(--color-none);
   --node-mainsection_background: var(--color-none);
   --node-switchsection_background: var(--color-none);

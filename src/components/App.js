@@ -36,77 +36,54 @@ function App() {
 
   // local storages
   let s_selectedNavItem = localStorage.getItem("selectedNavItem")
+  let s_selectedTheme = localStorage.getItem("selectedTheme")
 
   // set / load selected NavItem (default Load)
   let [ navItemSelectedId, setnavItemSelectedId ] = useState(s_selectedNavItem);
+  let [ initialThemeValue, setInitialThemeValue ] = useState(s_selectedTheme);
   if (!s_selectedNavItem) {
    localStorage.setItem("selectedNavItem", "ni_home");
-
   }
   // if no Items are setted, set Home as default
   if(!navItemSelectedId){
     navItemSelectedId = "ni_home";
   }
-  console.log('💽 storage default: '+ s_selectedNavItem)
 
+  if (!s_selectedTheme) {
+    localStorage.setItem("selectedTheme", "oceansground");
+   }
+   if(!initialThemeValue){
+    initialThemeValue = "oceansground";
+  }
+  //--------------- Theme muss noch gespeichert werden, close save-setLocalStorage in core auslagern, variablen wie ni_home ebenfalls vereinfachen
 
-  // set Theme state/select
-  // select default theme
-  const initialThemeValue = "oceansground"
+  console.log("kein THEME VAL->" + initialThemeValue)
+  console.log('💽 storage default: '+ s_selectedNavItem + " "+s_selectedTheme)
   //Init default Theme via arry and pass it into themeValue
-  const InitialThemeValue = () => {
+  const InitTheme = () => {
     const themeSelectArray = AppStyle()
     const selecteThemeObject = themeSelectArray.themeArray.find(({ dIKey }) => dIKey === initialThemeValue)
     const themeValue = selecteThemeObject
     console.log(themeValue)
     return themeValue;
   };
-  const [themeValue, setthemeValue] = useState(InitialThemeValue)
+  const [themeValue, setthemeValue] = useState(InitTheme)
 
-  console.log("APP Theme Val: "+themeValue)
   useEffect(() => {
     const currentThemeFolder = themeValue.themeFolder
-    import (`../themes/`+currentThemeFolder+`/style.css`);
-    // var head = document.body;
-    // var link = document.createElement("link");
-    // link.rel = "stylesheet";
-    // link.href = "./themes/"+currentThemeFolder+"/style.css";
-    // head.appendChild(link);
-    // return () => { head.removeChild(link); }
+
+    //If factory theme style tag exists -> remove
+    if (document.getElementById('factory_themes')){
+      document.getElementById('factory_themes').remove()
+    }
+    //Add <style> tag with current theme css (inner as text)
+    const fs = require('fs')
+    const path = require('path')
+    const factoryThemeCss = fs.readFileSync(path.resolve(__dirname, '../../../../../../src/themes/'+currentThemeFolder+'/style.css'), 'utf8')
+    document.head.insertAdjacentHTML("beforeend", `<style id='factory_themes'>`+factoryThemeCss+`</style>`)
 
   }, [themeValue]);
-//
-  // get Parsed Style
-  // const jStylesParsed = parseStyle();
-//
-  // let SelectedStyle = () => {
-//
-    // if (themeValue == initialThemeValue) {
-      // let selectedStyle = jStylesParsed.jStyleOceansGround
-      // return selectedStyle
-    // }
-//
-    // if (themeValue == "gamergirl") {
-      // let selectedStyle = jStylesParsed.jStyleGamerGirl
-      // return selectedStyle
-    // }
-//
-    // if (themeValue == null) {
-      // let selectedStyle = jStylesParsed.jStyleOceansGround
-      // return selectedStyle
-    // }
-  // }
-//
-  // let jStyle = SelectedStyle();
-//
-  // if (jStyle.wallpaper == "true") {
-      // var appbgcolor = ""
-      // var appbgwallpaper = wallpaperimage
-  // } else {
-      // var appbgcolor = jStyle.backgroundcolor
-      // var appbgwallpaper = ""
-  // }
-//
+
     //set language
     const autoLang = AutoLang()
     //select default language
@@ -148,7 +125,7 @@ function App() {
       </ClickOutside>
       <div className="app-container" >
 
-        <AppTitleBar navItemSelectedId={navItemSelectedId} />
+        <AppTitleBar navItemSelectedId={navItemSelectedId}/>
         {/* titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} */}
         <div className="app-background" >
         {/* style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}} */}

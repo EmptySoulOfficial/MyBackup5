@@ -1,24 +1,10 @@
+
 :root{
+  /* ---- Ocean Wave Theme ---- */
+  /* Basic props */
   --color-none: transparent;
-  --gray: #131c21;
-  --blue-gray: #8a99a2;
-  --lightgray: #2d3840;
-  --lightgray-31: #313142;
-  --lightgray-a: #aaaaaa;
-  --lightgray-5f: #5f5f6c;
-  --gray-disabled: #263138;
-  --dark-gray: #0f1117;
-  --blue-gray-1d:#1d2930;
-  --blue-gray-54: #548793;
-  --white: #fefefe;
-  --smooth-red: #ad3156;
-  --green: #28b28d;
-  --light-green: #00ffa7;
-  --lightyellow: #e6d1ab;
-  --lightblue: #0088ee;
 
-
-  /* Theme */
+  /* set colors */
   --color-main: #031a21;
   --color-main-as-rgb-value: 19, 28, 33;
   --color-second: #04242e;
@@ -28,26 +14,23 @@
   --color-close: #cc646b;
   --color-edit: var(--lightyellow);
   --color-disabled: var(--color-third);
-
-
+  /* Main Elements */
+  --color-infobox-background: var(--lightgray-31);
+  --color-titlebar-background: var(--color-none);
+ /* Font colors */
   --color-font: #EEEEEE;
   --color-font-headline: #739f9c;
   --color-font-second: var(--lightgray-a);
   --color-font-headlabel:#2a5f69;
   --color-font-subtext: #79908e;
-
+  /* Icon colors */
   --color-icon-default: var(--color-second);
-
+  --color-icon-light: #5d7b83;
+ /* button colors */
   --color-button-selectAllBackups: var(--white);
   --color-button-addToLayer: var(--lightblue);
   --color-button-deleteBackup: var(--smooth-red);
-
-  --color-infobox-background: var(--lightgray-31);
-  --color-titlebar-background: var(--color-main);
-
-  /* Backup nodes */
-  --color-icon-light: #5d7b83;
-
+  /* Backup cards */
   --node-dragable_background: var(--color-none);
   --node-mainsection_background: var(--color-none);
   --node-switchsection_background: var(--color-none);
