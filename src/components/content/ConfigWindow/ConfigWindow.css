@@ -1,1 +1,12 @@
 @import '../../../assets/css/index.css';
+
+.config-window-theme-container {
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.config-window-theme-container .block-default {
+  width: 50%;
+}
+

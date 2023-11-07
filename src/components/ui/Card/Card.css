@@ -4,7 +4,7 @@
   overflow: hidden;
   height: 200px;
   width: 164px;
-  background-color: var(--color-second);
+  background-color: var(--color-card);
   transition: var(--transition-default);
   outline: 1px solid #00000000;
 }
