@@ -29,14 +29,6 @@ function CardDetails ({showCardDetails, setShowCardDetails, contextMenuShow, set
   //currentBackupItem muss noch übergeben werden
   const [loadedItem, setLoadedItem] = useState(currentBackupItem ?? newBackupItem)
 
-  // const backupItemMapped = new Map(Object.entries(loadedItem[0]));
-  // let cardItemId = backupItemMapped.get('id')
-  // let cardItemName = backupItemMapped.get('name')
-  // let cardItemDate = backupItemMapped.get('date')
-  // let cardItemIcon = backupItemMapped.get('icon')
-  // let cardItemSize = backupItemMapped.get('size')
-  // let cardFiles = backupItemMapped.get('files')
-
   let cardItemId = loadedItem['id']
   let cardItemName = loadedItem['name']
   let cardItemDate = loadedItem['date']
@@ -44,11 +36,14 @@ function CardDetails ({showCardDetails, setShowCardDetails, contextMenuShow, set
   let cardItemSize = loadedItem['size']
   let cardFiles = loadedItem['files']
 
-  // const [fileItemVal, setFileItemVal] = useState([]);
-  // const handleAdd = () => {
-    // const abc=[...fileItemVal,[]]
-    // setFileItemVal(abc)
-  // }
+  let currentCardName = document.getElementById('currentCardName')
+  let currentCardPathChilds = document.getElementById('filesContainer')
+
+  function cardUserInputValidation() {
+    currentCardName.value ? '': console.log('Kein Text input')
+    currentCardPathChilds.querySelectorAll(".fileItem").length > 0 ? console.log('Es gibt paths'):console.log('Keine paths')
+
+  }
 
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
@@ -61,14 +56,14 @@ function CardDetails ({showCardDetails, setShowCardDetails, contextMenuShow, set
             <div className="cardDetails-icon-container icon-light flex">
               <Icon name={cardItemIcon} color="var(--color-low)" size={80} />
             </div>
-            <textarea placeholder={currentCardPlaceHolder} className="cardDetails-name" defaultValue={cardItemName}>
+            <textarea id="currentCardName" placeholder={currentCardPlaceHolder} className="cardDetails-name" defaultValue={cardItemName}>
             </textarea>
           </div>
           <div className="cardDetails-info-column-devider"></div>
         </div>
       <div className="cardDetails-files-column">
         <p className="box-default-title padding-10">Files</p>
-        <div className="cardDetails-files-container">
+        <div className="cardDetails-files-container" id="filesContainer">
         {
           cardFiles.length > 0 ? cardFiles.map((fileItem) => {
             return <FileItem fileItem={fileItem} key={fileItem.id} cardIndex={cardIndexMock}
@@ -89,7 +84,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contextMenuShow, set
             </div>
             <div className="flex-space-between cardDetails-bottom-row-button-container">
               <button className="button-reset" onClick={() => {setShowCardDetails(false)}}>Aboard</button>
-              <button disabled className="button-submit">Save</button>
+              <button className="button-submit" onClick={()=>{cardUserInputValidation()}}>Save</button>
             </div>
           </div>
         </BlockDefault>

@@ -20,7 +20,7 @@ function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
   }
 
   return (
-      <div className="fileItem-container dFlex" key={fileItem.id}>
+      <div className="fileItem fileItem-container dFlex" key={fileItem.id}>
         <div className="fileItem-icon-container flex">
           <Icon name={fileItemIcon} size={20} />
         </div>
