@@ -22,19 +22,19 @@
 }
 
 .button-addBackup:hover .icon {
-    fill: var(--color-highlight);
+    fill: var(--color-buttonToolbar-addBackup-hover);
 }
 
 .button-selectAllBackups:hover .icon {
-  fill: var(--color-button-selectAllBackups);
+  fill: var(--color-button-selectAllBackups-hover);
 }
 
 .button-addToLayer:hover .icon {
-  fill: var(--color-button-addToLayer);
+  fill: var(--color-button-addToLayer-hover);
 }
 
 .button-deleteBackup:hover .icon {
-  fill: var(--color-button-deleteBackup);
+  fill: var(--color-button-deleteBackup-hover);
 }
 
 .cards-container {

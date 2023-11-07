@@ -147,6 +147,7 @@ h2 {
     right: 0px;
     position: absolute;
     overflow: hidden;
+    background-color: var(--color-main);
 }
 
 .appmainwindow {
@@ -173,7 +174,7 @@ display: block;
     height: 40px;
     padding: 5px;
     border-radius: 12px;
-    background-color: var(--color-darker);
+    background-color: var(--color-toolbar);
     text-align: center;
     display: flex;
     align-items: center;
@@ -235,9 +236,9 @@ display: block;
 
 .appmainwindow-content {
     width: auto;
-    height: 400px;
+    height: 380px;
     background-color: var(--color-none);
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border-radius: var(--border-radius-default);
     margin-left: 0px;
     margin-right: 50px;
@@ -246,6 +247,7 @@ display: block;
     color: var(--color-font);
     padding: 0px 10px;
     padding-bottom: 80px;
+    padding-top: 20px;
 }
 
 .button-submit, .button-reset {

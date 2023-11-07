@@ -1,10 +1,10 @@
-.ContexMenu {
+.ContextMenu {
   top: 20px;
   position: absolute;
   border-radius: var(--border-radius-default);
   font-size: var(--fontsize-default);
   color: var(--color-font);
-  background-color: var(--color-third);
+  background-color: var(--color-contextMenu);
   width: fit-content;
   min-width: 120px;
   left: 0;
@@ -16,7 +16,7 @@
   /* max-height: 0; */
 }
 
-.ContexMenu-Item {
+.ContextMenu-Item {
   color: var(--color-font);
   padding: 10px;
   cursor: pointer;
@@ -24,16 +24,16 @@
   transition: var(--transition-default);
 }
 
-.ContexMenu-Item:hover {
+.ContextMenu-Item:hover {
   color: var(--color-font);
   background-color: var(--color-highlight);
 }
 
-.ContexMenu-Disabled {
+.ContextMenu-Disabled {
   display: none;
 }
 
-.ContexMenu-Item-Disabled {
+.ContextMenu-Item-Disabled {
   user-select: none;
   pointer-events: none;
   color: var(--color-font-subtext);

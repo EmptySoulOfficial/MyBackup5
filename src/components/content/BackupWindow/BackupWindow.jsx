@@ -10,7 +10,7 @@ import Draggable from 'react-draggable'
 
 function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
                         showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
-                        contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos}) {
+                        contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos}) {
 
     const eLang = getLang();
 
@@ -60,8 +60,8 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
               </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
-                <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contexMenuShow={contexMenuShow}
-                              setContexMenuShow={setContexMenuShow} setContexMObject={setContexMObject} setContexMPos={setContexMPos}/>
+                <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contextMenuShow={contextMenuShow}
+                              setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems) => {

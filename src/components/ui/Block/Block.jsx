@@ -15,6 +15,17 @@ function BlockDefault({blocktitle, children, blockClass, blockId}) {
   )
 }
 
+function BlockSecond({children, blockClass, blockId}) {
+
+  return (
+    <div className={classNames('block-default', blockClass)} id={blockId}>
+      <div className="box-default box-second dFlex">
+        {children}
+      </div>
+    </div>
+  )
+}
+
 function BlockInfoSmall({children, blockClass, blockId}) {
 
   return (
@@ -31,4 +42,4 @@ function BlockInfoSmall({children, blockClass, blockId}) {
   )
 }
 
-export { BlockDefault, BlockInfoSmall}
+export { BlockDefault, BlockSecond, BlockInfoSmall}
