@@ -67,7 +67,7 @@ function App() {
     const fs = require('fs')
     const path = require('path')
     //Path kann auf windows 2 steps weniger sein -> checken!
-    const factoryThemeCss = fs.readFileSync(path.resolve(__dirname, '../../../../../../../../src/themes/'+currentThemeFolder+'/style.css'), 'utf8')
+    const factoryThemeCss = fs.readFileSync(path.resolve('src/themes/'+currentThemeFolder+'/style.css'), 'utf8')
     document.head.insertAdjacentHTML("beforeend", `<style id='factory_themes'>`+factoryThemeCss+`</style>`)
   }, [themeValue]);
 
