@@ -1,6 +1,6 @@
 :root{
    /* ---- Oceans Ground Theme ---- */
-    /* Set colors */
+    /* Theme colors */
   --color-main: var(--gray);
   --color-main-as-rgb-value: 19, 28, 33;
   --color-second: var(--lightgray);
