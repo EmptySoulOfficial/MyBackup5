@@ -11,8 +11,11 @@
   --color-edit: var(--lightyellow);
   --color-disabled: var(--gray-disabled);
   /* Main elements */
+  --color-navigation: var(--color-darker);
   --color-infobox-background: var(--lightgray-31);
   --color-titlebar-background: var(--color-none);
+  --color-toolbar: var(--color-darker);
+  --color-contextMenu: var(--color-third);
  /* Font colors */
   --color-font: var(--white);
   --color-font-headline: var(--blue-gray);
@@ -27,7 +30,9 @@
   --color-button-addToLayer: var(--lightblue);
   --color-button-deleteBackup: var(--smooth-red);
   /* Backup cards */
+  --color-card: var(--color-second);
   --node-dragable_background: var(--color-none);
+  /* old styles */
   --node-mainsection_background: var(--color-none);
   --node-switchsection_background: var(--color-none);
   --node-nodesection_background: var(--color-none);

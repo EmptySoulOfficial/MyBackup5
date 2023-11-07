@@ -6,7 +6,7 @@
   /* set colors */
   --color-main: #e2e2e2;
   --color-main-as-rgb-value: 19, 28, 33;
-  --color-second: #383838;
+  --color-second: #6e6e6e;
   --color-third: #cccccc;
   --color-darker: #202020;
   --color-highlight: #f33ba3;
@@ -14,8 +14,11 @@
   --color-edit: var(--lightyellow);
   --color-disabled: var(--color-third);
   /* Main Elements */
+  --color-navigation: var(--color-darker);
   --color-infobox-background: var(--lightgray-31);
   --color-titlebar-background: var(--color-none);
+  --color-toolbar: var(--color-third);
+  --color-contextMenu: var(--color-second);
  /* Font colors */
   --color-font: #cfcfcf;
   --color-font-headline: #739f9c;
@@ -30,9 +33,6 @@
   --color-button-addToLayer: var(--lightblue);
   --color-button-deleteBackup: var(--smooth-red);
   /* Backup cards */
-  --node-dragable_background: var(--color-none);
-  --node-mainsection_background: var(--color-none);
-  --node-switchsection_background: var(--color-none);
-  --node-nodesection_background: var(--color-none);
+  --color-card: var(--color-third);
 
 }

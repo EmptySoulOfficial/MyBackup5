@@ -9,7 +9,6 @@
   width: calc(100% - 40px);
   margin: 10px 0px;
   white-space: break-spaces;
-  overflow: hidden;
   min-height: calc(100% - 72px);
 }
 

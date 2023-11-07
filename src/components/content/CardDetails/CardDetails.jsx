@@ -6,21 +6,21 @@ import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 import { newBackupItem } from '../../../core/DefaultData/NewBackupItem/NewBackupItem'
 
-function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setContexMenuShow, setContexMObject, setContexMPos, currentBackupItem }) {
+function CardDetails ({showCardDetails, setShowCardDetails, contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, currentBackupItem }) {
 
 
   let currentCardPlaceHolder = "Type name"
 
-  // set contex menu Items for add backup item
-  let contexMObject_CardDetailsAddItem = [
-    {contexMKey:'addfileselect', contexMName: 'Add File'},
-    {contexMKey:'addfolderselect', contexMName: 'Add Folder'}
+  // set context menu Items for add backup item
+  let contextMObject_CardDetailsAddItem = [
+    {contextMKey:'addfileselect', contextMName: 'Add File'},
+    {contextMKey:'addfolderselect', contextMName: 'Add Folder'}
   ];
 
-  const handleContexClick = (p) => {
-    setContexMPos(p);
-    setContexMenuShow(true);
-    setContexMObject(contexMObject_CardDetailsAddItem);
+  const handleContextClick = (p) => {
+    setContextMPos(p);
+    setContextMenuShow(true);
+    setContextMObject(contextMObject_CardDetailsAddItem);
   }
 
   //Pass reacl index from all cards here
@@ -77,7 +77,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, contexMenuShow, setC
         }
 
         </div>
-        <button className="cardDetails-addBackupItem" onClick={(p) => { handleContexClick(p);}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
+        <button className="cardDetails-addBackupItem" onClick={(p) => { handleContextClick(p);}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
       </div>
 

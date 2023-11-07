@@ -8,14 +8,10 @@ import ClickOutside from "../../../core/ClickOutside.jsx";
 import { appversiondata } from "../../../core/AppVersion";
 import AppStyle from "../../../core/AppStyle.jsx";
 
-function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
+function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
 
     const eLang = getLang();
     const appVData = appversiondata();
-
-    console.log('APPVData: '+appVData.product_name)
-
-
     const changeTheme = (e) => {
         setthemeValue(e.target.value);
     };
@@ -35,6 +31,7 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
       //Find needed Object by selected prop (dIKey)
       const selecteThemeObject = dThemeItems.find(({ dIKey }) => dIKey === prop)
       setthemeValue(selecteThemeObject);
+      setInitialThemeValue(selecteThemeObject.dIKey)
     };
 
     let [dThemeState, setdThemeState] = useState(false)
@@ -55,8 +52,6 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
     let getDropdownLangState = (state) => {
         setdLangState(state)
     }
-
-    console.log('DLangState: '+dLangState)
 
     return (
 
@@ -88,37 +83,32 @@ function ConfigWindow({themeValue, setthemeValue,langValue,setlangValue, navItem
               <p className="subtext">Turn on "Custom-Theme" to use your own Themes.<br/>
               (It will replace the current theme)
               </p>
-
-
-
           </BlockSecond>
-
-          </div>
-
-          <BlockDefault blocktitle={'🌐'+eLang.block_label_applanguage}>
-            <ClickOutside activateCO={dLangState} setCOState={setdLangState}>
-              <Dropdown dropdownItems={dLangItems}
-                        initialValue={langValue}
-                        refFunction={dLangRef}
-                        changeFunction={dLangFunction}
-                        sendCurrentState={getDropdownLangState}
-                        clickOutsideFunction={dLangState}
-                        dropdownId={'dropdown-language'}
-                        dropdownClass={'dropdown-small dropdown-negative'}/>
-              </ClickOutside>
-            <p  className="subtext">{`Language (short): ${langValue}`}</p>
-          </BlockDefault>
-          <BlockDefault blocktitle={eLang.block_label_appdata}>
-            <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
-          </BlockDefault>
-          <BlockDefault blocktitle={"App Version"}>
+        </div>
+        <BlockDefault blocktitle={'🌐'+eLang.block_label_applanguage}>
+          <ClickOutside activateCO={dLangState} setCOState={setdLangState}>
+            <Dropdown dropdownItems={dLangItems}
+                      initialValue={langValue}
+                      refFunction={dLangRef}
+                      changeFunction={dLangFunction}
+                      sendCurrentState={getDropdownLangState}
+                      clickOutsideFunction={dLangState}
+                      dropdownId={'dropdown-language'}
+                      dropdownClass={'dropdown-small dropdown-negative'}/>
+            </ClickOutside>
+          <p  className="subtext">{`Language (short): ${langValue}`}</p>
+        </BlockDefault>
+        <BlockDefault blocktitle={eLang.block_label_appdata}>
+          <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
+        </BlockDefault>
+        <BlockDefault blocktitle={"App Version"}>
           <p>{appVData.product_name}</p>
-            <p className="subtext user-selectable">App Version: {appVData.product_version}</p>
-            <p className="subtext user-selectable">Build number: {appVData.build_version}</p>
-            <br/>
-            <p className="subtext user-selectable">Created by:</p>
-            <p className="subtext user-selectable">{appVData.app_author}</p>
-          </BlockDefault>
+          <p className="subtext user-selectable">App Version: {appVData.product_version}</p>
+          <p className="subtext user-selectable">Build number: {appVData.build_version}</p>
+          <br/>
+          <p className="subtext user-selectable">Created by:</p>
+          <p className="subtext user-selectable">{appVData.app_author}</p>
+        </BlockDefault>
         </div>
       </div>
     </div>

@@ -174,7 +174,7 @@ display: block;
     height: 40px;
     padding: 5px;
     border-radius: 12px;
-    background-color: var(--color-darker);
+    background-color: var(--color-toolbar);
     text-align: center;
     display: flex;
     align-items: center;
