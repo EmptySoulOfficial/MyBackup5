@@ -53,7 +53,7 @@
     user-select:none;
     font-size: var(--fontsize-default);
     cursor: pointer;
-    color: var(--color-font-second);
+    color: var(--color-font-navigation);
     transition: var(--transition-default);
 }
 

@@ -6,7 +6,7 @@
   /* set colors */
   --color-main: #e2e2e2;
   --color-main-as-rgb-value: 19, 28, 33;
-  --color-second: #6e6e6e;
+  --color-second: #9f9f9f;
   --color-third: #cccccc;
   --color-darker: #202020;
   --color-highlight: #f33ba3;
@@ -20,14 +20,15 @@
   --color-toolbar: var(--color-third);
   --color-contextMenu: var(--color-second);
  /* Font colors */
-  --color-font: #cfcfcf;
-  --color-font-headline: #739f9c;
+  --color-font: #454545;
+  --color-font-navigation: var(--color-main);
+  --color-font-headline: var(--color-darker);
   --color-font-second: var(--lightgray-a);
-  --color-font-headlabel:#2a5f69;
+  --color-font-headlabel:#877780;
   --color-font-subtext: #877780;
   /* Icon colors */
   --color-icon-default: #9d5b81;
-  --color-icon-light: #020202;
+  --color-icon-light: #9d5b81;
  /* button colors */
   --color-button-selectAllBackups: var(--white);
   --color-button-addToLayer: var(--lightblue);

@@ -22,6 +22,7 @@
   --color-contextMenu: var(--color-third);
  /* Font colors */
   --color-font: #EEEEEE;
+  --color-font-navigation: var(--color-font-second);
   --color-font-headline: #739f9c;
   --color-font-second: var(--lightgray-a);
   --color-font-headlabel:#2a5f69;

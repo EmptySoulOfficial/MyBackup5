@@ -18,6 +18,7 @@
   --color-contextMenu: var(--color-third);
  /* Font colors */
   --color-font: var(--white);
+  --color-font-navigation: var(--color-font-second);
   --color-font-headline: var(--blue-gray);
   --color-font-second: var(--lightgray-a);
   --color-font-headlabel:var(--blue-gray-54);

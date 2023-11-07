@@ -236,9 +236,9 @@ display: block;
 
 .appmainwindow-content {
     width: auto;
-    height: 400px;
+    height: 380px;
     background-color: var(--color-none);
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border-radius: var(--border-radius-default);
     margin-left: 0px;
     margin-right: 50px;
@@ -247,6 +247,7 @@ display: block;
     color: var(--color-font);
     padding: 0px 10px;
     padding-bottom: 80px;
+    padding-top: 40px;
 }
 
 .button-submit, .button-reset {
