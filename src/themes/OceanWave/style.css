@@ -30,6 +30,10 @@
   /* Icon colors */
   --color-icon-default: var(--color-second);
   --color-icon-light: #5d7b83;
+  --color-buttonToolbar-addBackup-hover: var(--color-highlight);
+  --color-button-selectAllBackups-hover: var(--white);
+  --color-button-addToLayer-hover: var(--lightblue);
+  --color-button-deleteBackup-hover: var(--smooth-red);
  /* button colors */
   --color-button-selectAllBackups: var(--white);
   --color-button-addToLayer: var(--lightblue);

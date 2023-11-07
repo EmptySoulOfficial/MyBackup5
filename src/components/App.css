@@ -247,7 +247,7 @@ display: block;
     color: var(--color-font);
     padding: 0px 10px;
     padding-bottom: 80px;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .button-submit, .button-reset {

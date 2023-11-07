@@ -10,9 +10,10 @@
   --color-third: #cccccc;
   --color-darker: #202020;
   --color-highlight: #f33ba3;
-  --color-close: #cc646b;
+  --color-close: #c6303a;
   --color-edit: var(--lightyellow);
   --color-disabled: var(--color-third);
+  --green: #38b66a;
   /* Main Elements */
   --color-navigation: var(--color-darker);
   --color-infobox-background: var(--lightgray-31);
@@ -29,6 +30,10 @@
   /* Icon colors */
   --color-icon-default: #9d5b81;
   --color-icon-light: #9d5b81;
+  --color-buttonToolbar-addBackup-hover: var(--green);
+  --color-button-selectAllBackups-hover: var(--green);
+  --color-button-addToLayer-hover: var(--green);
+  --color-button-deleteBackup-hover: var(--color-close);
  /* button colors */
   --color-button-selectAllBackups: var(--white);
   --color-button-addToLayer: var(--lightblue);
