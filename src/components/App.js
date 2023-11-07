@@ -66,8 +66,10 @@ function App() {
     //Add <style> tag with current theme css (inner as text)
     const fs = require('fs')
     const path = require('path')
-    //Path kann auf windows 2 steps weniger sein -> checken!
-    const factoryThemeCss = fs.readFileSync(path.resolve(__dirname, '../../../../../../../../src/themes/'+currentThemeFolder+'/style.css'), 'utf8')
+
+    //-----------⛔ Für RELEASE "path.resolve" zu folgendem code ändern -> path.join(__dirname,'../src/themes/',currentThemeFolder,'/style.css') ⛔
+    const factoryThemeCss = fs.readFileSync(path.resolve('./src/themes/'+currentThemeFolder+'/style.css'), 'utf8')
+    //-----------⛔ ⛔ ---------------//
     document.head.insertAdjacentHTML("beforeend", `<style id='factory_themes'>`+factoryThemeCss+`</style>`)
   }, [themeValue]);
 

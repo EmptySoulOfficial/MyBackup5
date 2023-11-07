@@ -15,7 +15,9 @@ Enter Window name in the builded index.html project. (resources\app\dist\index.h
 _________
 ### RELEASE
 - Change App-Titile in dist/index.html. (Eaven if Title is automatically changed by HTMLTitle.jsx)
-- run build via commands
+- ⚠️ Check if dev-tools are disabled/commented out (see main.js)
+- ⚠️ Change "path.resolve" to "path.join in app.js (else app does not start up -> informations in App.js)
+- Run build via commands
 
 ### Build Commands
  npm run package (wihtout security)
