@@ -45,7 +45,7 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
 
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
-              <h1>{eLang.windowtitle_backup}</h1>
+              <h1 className="h1-window">{eLang.windowtitle_backup}</h1>
               <div className={classNames('appmainwindow-toolbar ', {'appmainwindow-toolbar-active': showAppWindow & !showCardDetails , '' : !showAppWindow })}>
                 <div className="launchbutton-container">
                   <button className="button-submit launch_button">{eLang.button_launch}</button>

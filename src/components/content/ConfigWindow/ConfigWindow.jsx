@@ -56,7 +56,7 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
     return (
 
     <div className={classNames('appmainwindow config-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })}>
-      <h1>{eLang.windowtitle_config}</h1>
+      <h1 className="h1-window">{eLang.windowtitle_config}</h1>
       <div className={classNames('appmainwindow-container config-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content config-window_content">
           <div className="config-window-theme-container dFlex">

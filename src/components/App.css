@@ -74,6 +74,12 @@ h1 {
     animation-timing-function: var(--animation-default);
 }
 
+.h1-window {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
 h3 {
   font-family: 'headline-light';
   font-weight: 100;
