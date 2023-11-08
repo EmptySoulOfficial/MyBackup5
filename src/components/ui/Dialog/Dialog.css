@@ -70,6 +70,22 @@
   background-color: var(--smooth-red);
 }
 
+.dialog-warning .dialogbox-color-strip {
+  background-color: var(--lightyellow);
+}
+
+.dialog-information .dialogbox-color-strip {
+  background-color: var(--lightblue);
+}
+
+.dialog-information .button-submit:hover {
+  background-color: var(--lightblue);
+}
+
+.dialog-warning .button-submit:hover {
+  background-color: var(--lightyellow);
+}
+
 .dialog-error .icon {
   fill: var(--smooth-red);
 }
@@ -78,8 +94,8 @@
   fill: var(--lightyellow);
 }
 
-.dialog-warning .dialogbox-color-strip {
-  background-color: var(--lightyellow);
+.dialog-information .icon {
+  fill: var(--lightblue);
 }
 
 .dialogbox-icon-container {

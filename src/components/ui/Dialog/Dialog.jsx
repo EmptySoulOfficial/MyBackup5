@@ -8,6 +8,7 @@ function Dialog({dialogType, dialogText, setShowDialog}) {
 
   let checkTypeError = "error"
   let checkTypeWarn = "warning"
+  let checkTypeInfo = "information"
   let dialogButtonTextOkey = "Ok"
   let dialogButtonTextClose = "Close"
 
@@ -29,8 +30,9 @@ function Dialog({dialogType, dialogText, setShowDialog}) {
       </div>
       <div className="dialogbox-button-container flex">
         {dialogType = dialogType == checkTypeError?  <button className="button-reset" onClick={(e) => {CloseWindow(e)}}>{dialogButtonTextClose}</button> :
-        dialogType == checkTypeWarn?  <button className="button-submit" onClick={() => {closeDialog()}}>{dialogButtonTextOkey}</button> :
-          ''}
+          dialogType == checkTypeWarn?  <button className="button-submit" onClick={() => {closeDialog()}}>{dialogButtonTextOkey}</button> :
+            dialogType == checkTypeInfo?  <button className="button-submit" onClick={() => {closeDialog()}}>{dialogButtonTextOkey}</button> :
+              ''}
       </div>
     </div>
   </div>

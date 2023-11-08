@@ -152,7 +152,7 @@ h2 {
 
 .appmainwindow {
     padding-left: 50px;
-    padding-top: 20px;
+    padding-top: 10px;
     display: none;
     overflow: hidden;
 }
@@ -209,6 +209,7 @@ display: block;
 .appmainwindow-container {
     transform: translateX(350px);
     opacity: 0;
+    margin-top: 20px;
 }
 
 .appmainwindow-container--active {
@@ -247,7 +248,7 @@ display: block;
     color: var(--color-font);
     padding: 0px 10px;
     padding-bottom: 80px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .button-submit, .button-reset {

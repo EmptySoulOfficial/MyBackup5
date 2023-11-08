@@ -21,7 +21,7 @@ import Dialog from './ui/Dialog/Dialog.jsx';
 function App() {
 
   const [showCardDetails, setShowCardDetails] = useState(false);
-  let [showAppWindow, setShowAppWindow] = useState()
+  const [showAppWindow, setShowAppWindow] = useState()
 
   const [showDialog, setShowDialog] = useState(false)
   const [dialogType, setDialogType] = useState('')
@@ -34,11 +34,9 @@ function App() {
   // local storages
   let s_selectedNavItem = LoadLocalStorage().s_selectedNavItem
   let s_selectedTheme = LoadLocalStorage().s_selectedTheme
-
   //Initial Vars
   let initNavItem = "ni_home"
   let initThemeValue = "oceansground"
-
   let [ navItemSelectedId, setnavItemSelectedId ] = useState(s_selectedNavItem);
   let [ initialThemeValue, setInitialThemeValue ] = useState(s_selectedTheme);
   // Check Navigation Values
@@ -63,7 +61,6 @@ function App() {
 
   const [themeValue, setthemeValue] = useState(InitTheme)
 
-
   useEffect(() => {
     const currentThemeFolder = themeValue.themeFolder
     //If factory theme style tag exists -> remove
@@ -75,7 +72,7 @@ function App() {
     const path = require('path')
     // const fs = require('electron').remote.require('fs')
 
-    const factoryThemeCssPath = '../..//src/themes/'+currentThemeFolder+'/style.css'
+    const factoryThemeCssPath = './src/themes/'+currentThemeFolder+'/style.css'
     //-----------⛔ Für RELEASE "path.resolve" zu folgendem code ändern -> path.join(__dirname,'../src/themes/',currentThemeFolder,'/style.css') ⛔
     const resolvedThemeCssPath = path.resolve(factoryThemeCssPath)
     //-----------⛔ ⛔ ---------------//
