@@ -1,0 +1,38 @@
+.dialog-background-layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(96 105 106 / 62%);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  overflow: hidden;
+}
+
+.dialogbox {
+  width: calc(100% / 3);
+  height: calc(100% / 3);
+  background-color: var(--color-main);
+  border-radius: var(--border-radius-default);
+  overflow: hidden;
+}
+
+.dialogbox-color-strip {
+  width: 100%;
+  height: 10px;
+}
+
+.dialog-error .dialogbox-color-strip {
+  background-color: var(--smooth-red);
+}
+
+.dialog-error .icon {
+  fill: var(--smooth-red);
+}
+
+.dialogbox-icon-container {
+  padding: 20px;
+}
+
+.dialogbox-button-container{
+  padding: 10px 0px;
+}

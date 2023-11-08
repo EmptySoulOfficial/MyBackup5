@@ -14,6 +14,7 @@ import ContextMenu from './ui/ContextMenu/ContextMenu.jsx'
 import ClickOutside from '../core/ClickOutside.jsx'
 import AppStyle from '../core/AppStyle.jsx';
 import LoadLocalStorage from '../core/LocalStorage/LoadLocalStorage.jsx';
+import { DialogError } from './ui/Dialog/Dialog.jsx';
 
 
 function App() {
@@ -66,11 +67,18 @@ function App() {
     //Add <style> tag with current theme css (inner as text)
     const fs = require('fs')
     const path = require('path')
+    // const fs = require('electron').remote.require('fs')
 
+    const factoryThemeCssPath = './src/themes/'+currentThemeFolder+'/style.css'
     //-----------⛔ Für RELEASE "path.resolve" zu folgendem code ändern -> path.join(__dirname,'../src/themes/',currentThemeFolder,'/style.css') ⛔
-    const factoryThemeCss = fs.readFileSync(path.resolve('./src/themes/'+currentThemeFolder+'/style.css'), 'utf8')
+    const resolvedThemeCssPath = path.resolve(factoryThemeCssPath)
     //-----------⛔ ⛔ ---------------//
-    document.head.insertAdjacentHTML("beforeend", `<style id='factory_themes'>`+factoryThemeCss+`</style>`)
+    if(fs.existsSync(resolvedThemeCssPath)){
+      const factoryThemeCss = fs.readFileSync(resolvedThemeCssPath, 'utf8')
+      document.head.insertAdjacentHTML("beforeend", `<style id='factory_themes'>`+factoryThemeCss+`</style>`)
+    }else{
+      alert('Error: Unable to resolve factory themes!')
+    }
   }, [themeValue]);
 
   //Language
@@ -94,6 +102,8 @@ function App() {
   console.log('💽 Default Storage: '+ s_selectedNavItem + " "+s_selectedTheme)
 
   return (
+    <>
+    <DialogError/>
     <ReactCursorPosition>
       <ClickOutside activateCO={contextMenuShow} setCOState={setContextMenuShow}>
         <ContextMenu contextMObject={contextMObject} contextMenuDisabled={false}
@@ -122,6 +132,7 @@ function App() {
         </div>
       </div>
     </ReactCursorPosition>
+    </>
   )
 }
 
