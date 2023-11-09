@@ -15,7 +15,7 @@ function BackupWindow({navItemSelectedId, showAppWindow}) {
     return (
 
     <div className={classNames('appmainwindow home-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
-        <h1>{eLang.windowtitle_home}</h1>
+        <h1 className="h1-window">{eLang.windowtitle_home}</h1>
         <div className={classNames('appmainwindow-container home-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content home-window_content">
           <BlockDefault blocktitle="">

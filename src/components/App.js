@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
+import { render } from 'react-dom'
 import ReactCursorPosition from 'react-cursor-position';
 import './App.css'
 import HtmlTitle from '../core/HtmlTitle.jsx';
@@ -14,12 +15,17 @@ import ContextMenu from './ui/ContextMenu/ContextMenu.jsx'
 import ClickOutside from '../core/ClickOutside.jsx'
 import AppStyle from '../core/AppStyle.jsx';
 import LoadLocalStorage from '../core/LocalStorage/LoadLocalStorage.jsx';
+import Dialog from './ui/Dialog/Dialog.jsx';
 
 
 function App() {
 
   const [showCardDetails, setShowCardDetails] = useState(false);
-  let [showAppWindow, setShowAppWindow] = useState()
+  const [showAppWindow, setShowAppWindow] = useState()
+
+  const [showDialog, setShowDialog] = useState(false)
+  const [dialogType, setDialogType] = useState('')
+  const [dialogText, setDialogText] = useState('')
 
   useEffect(() => {
     HtmlTitle()
@@ -28,11 +34,9 @@ function App() {
   // local storages
   let s_selectedNavItem = LoadLocalStorage().s_selectedNavItem
   let s_selectedTheme = LoadLocalStorage().s_selectedTheme
-
   //Initial Vars
   let initNavItem = "ni_home"
   let initThemeValue = "oceansground"
-
   let [ navItemSelectedId, setnavItemSelectedId ] = useState(s_selectedNavItem);
   let [ initialThemeValue, setInitialThemeValue ] = useState(s_selectedTheme);
   // Check Navigation Values
@@ -66,13 +70,22 @@ function App() {
     //Add <style> tag with current theme css (inner as text)
     const fs = require('fs')
     const path = require('path')
+    // const fs = require('electron').remote.require('fs')
 
+    const factoryThemeCssPath = './src/themes/'+currentThemeFolder+'/style.css'
     //-----------⛔ Für RELEASE "path.resolve" zu folgendem code ändern -> path.join(__dirname,'../src/themes/',currentThemeFolder,'/style.css') ⛔
-    const factoryThemeCss = fs.readFileSync(path.resolve('./src/themes/'+currentThemeFolder+'/style.css'), 'utf8')
+    const resolvedThemeCssPath = path.resolve(factoryThemeCssPath)
     //-----------⛔ ⛔ ---------------//
-    document.head.insertAdjacentHTML("beforeend", `<style id='factory_themes'>`+factoryThemeCss+`</style>`)
+    if(fs.existsSync(resolvedThemeCssPath)){
+      const factoryThemeCss = fs.readFileSync(resolvedThemeCssPath, 'utf8')
+      document.head.insertAdjacentHTML("beforeend", `<style id='factory_themes'>`+factoryThemeCss+`</style>`)
+    }else{
+      setShowDialog(true)
+      setDialogType("error")
+      setDialogText("Factory theme resolve error! [e001]")
+      return
+    }
   }, [themeValue]);
-
   //Language
   const autoLang = AutoLang()
   //select default language
@@ -94,6 +107,8 @@ function App() {
   console.log('💽 Default Storage: '+ s_selectedNavItem + " "+s_selectedTheme)
 
   return (
+      <main id="app">
+      {showDialog? <Dialog dialogType={dialogType} dialogText={dialogText} setShowDialog={setShowDialog}/>:''}
     <ReactCursorPosition>
       <ClickOutside activateCO={contextMenuShow} setCOState={setContextMenuShow}>
         <ContextMenu contextMObject={contextMObject} contextMenuDisabled={false}
@@ -122,6 +137,7 @@ function App() {
         </div>
       </div>
     </ReactCursorPosition>
+</main>
   )
 }
 
