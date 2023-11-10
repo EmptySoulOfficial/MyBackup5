@@ -269,10 +269,11 @@ display: block;
 }
 
 .button-submit--small {
-    width: 80px;
-    height: 30px;
+    padding: 5px 10px;
     background-color: var(--color-second);
     font-size: var(--fontsize-default);
+    border-radius: var(--border-radius-default);
+    cursor: pointer;
 }
 
 .button-submit--small:hover {
@@ -292,6 +293,10 @@ display: block;
 
 .functionButton:disabled {
   display: none;
+}
+
+.functionButton .icon {
+  fill: var(--color-icon-light);
 }
 
 .dropdown-small {

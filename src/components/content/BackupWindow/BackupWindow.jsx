@@ -51,10 +51,10 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
                   <button className="button-submit launch_button">{eLang.button_launch}</button>
                 </div>
                   <div className="functionButton-container dFlex">
-                    <button className="functionButton button-addBackup" onClick={() => {setShowCardDetails(true)}}><Icon name="addDashed" color="var(--color-low)" size={20} /></button>
-                    <button className="functionButton button-selectAllBackups" onClick={() => {setCheckAllCards(!checkAllCards)}} ><Icon name="selectAllDashed" color="var(--color-low)" size={20} /></button>
-                    <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="var(--color-low)" size={20} /></button>
-                    <button className="functionButton button-deleteBackup" disabled><Icon name="trash" color="var(--color-low)" size={20} /></button>
+                    <button className="functionButton button-addBackup" onClick={() => {setShowCardDetails(true)}}><Icon name="addDashed" color="" size={20} /></button>
+                    <button className="functionButton button-selectAllBackups" onClick={() => {setCheckAllCards(!checkAllCards)}} ><Icon name="selectAllDashed" color="" size={20} /></button>
+                    <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="" size={20} /></button>
+                    <button className="functionButton button-deleteBackup" disabled><Icon name="trash" color="" size={20} /></button>
                   </div>
                 </div>
               </div>

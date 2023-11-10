@@ -22,14 +22,20 @@ function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
   return (
       <div className="fileItem fileItem-container dFlex" key={fileItem.id}>
         <div className="fileItem-icon-container flex">
-          <Icon name={fileItemIcon} size={20} />
+          <Icon name={fileItemIcon} size={20} color="var(--color-icon-default)" />
         </div>
-        <input type="file" id="select-folder" webkitdirectory="" multiple=""/>
+        <label className="button-submit--small flex">
+          <input type="file" id="select-folder"  multiple="true"/>
+          Select Files
+        </label>
         {/* <input type="file" id="select-file"/> */}
-        <select defaultValue={fileItem.to}>
-          <option value="E:/">E:/</option>
-          <option value="A:/">A:/</option>
-        </select>
+        <div className="fileItem-icon-container flex">
+          <Icon name={"drive"} size={20} color="var(--color-icon-default)" />
+        </div>
+        <label className="button-submit--small flex">
+          <input type="file" id="select-folder"  multiple="true"/>
+          Backup Drive
+          </label>
         <button className="functionButton button-deleteBackup" onClick={() => removeFileItem(fileItem.id, cardIndex)}>
           <Icon name="trash" color="var(--color-low)" size={20} />
         </button>
