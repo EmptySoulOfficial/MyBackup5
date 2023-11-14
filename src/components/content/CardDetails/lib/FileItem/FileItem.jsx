@@ -18,6 +18,7 @@ function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
       return { ...newState}
     })
   }
+  // File Inputs verursachen aktuell ERRORS
 
   return (
       <div className="fileItem fileItem-container dFlex" key={fileItem.id}>
@@ -25,7 +26,7 @@ function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
           <Icon name={fileItemIcon} size={20} color="var(--color-icon-default)" />
         </div>
         <label className="button-submit--small flex">
-          <input type="file" id="select-folder"  multiple="true"/>
+          <input type="file" id="select-folder"  multiple={true}/>
           Select Files
         </label>
         {/* <input type="file" id="select-file"/> */}
@@ -33,7 +34,7 @@ function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
           <Icon name={"drive"} size={20} color="var(--color-icon-default)" />
         </div>
         <label className="button-submit--small flex">
-          <input type="file" id="select-folder"  multiple="true"/>
+          <input type="file" id="select-folder"  multiple={true}/>
           Backup Drive
           </label>
         <button className="functionButton button-deleteBackup" onClick={() => removeFileItem(fileItem.id, cardIndex)}>

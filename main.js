@@ -5,8 +5,9 @@ const { app, BrowserWindow, remote, globalShortcut } = require('electron')
 const path = require('path')
 const url = require('url')
 let mainWindow
+//ggf neue maße: 960 x 640
 let myappwidth = 1000;
-let myappheight = 600;
+let myappheight = 600
 let appTitle = "My Backup 5";
 
 // Keep a reference for dev mode

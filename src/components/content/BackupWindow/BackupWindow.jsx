@@ -8,8 +8,7 @@ import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import CardDetails from '../CardDetails/CardDetails.jsx'
 import Draggable from 'react-draggable'
 
-function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
-                        showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
+function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos}) {
 
     const eLang = getLang();
@@ -60,8 +59,10 @@ function BackupWindow({ setquickinfovis, setquickinfoTitle, setquickinfoText ,
               </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
-                <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contextMenuShow={contextMenuShow}
+              {/* ---> Componente nur dan rendern, wenn aktiv. Dafür auch showCardDetails so anpassen, bzw weglassen, damit keine Fehler entsehen */}
+                {showCardDetails ? <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contextMenuShow={contextMenuShow}
                               setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}/>
+                              :null}
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems) => {
