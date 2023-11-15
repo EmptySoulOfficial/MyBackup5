@@ -59,10 +59,9 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
               </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
-              {/* ---> Componente nur dan rendern, wenn aktiv. Dafür auch showCardDetails so anpassen, bzw weglassen, damit keine Fehler entsehen */}
-                {showCardDetails ? <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contextMenuShow={contextMenuShow}
+                <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contextMenuShow={contextMenuShow}
                               setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}/>
-                              :null}
+
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems) => {

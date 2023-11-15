@@ -243,7 +243,7 @@ display: block;
 
 .appmainwindow-content {
     width: auto;
-    height: 380px;
+    height: 420px;
     background-color: var(--color-none);
     /* margin-top: 20px; */
     border-radius: var(--border-radius-default);

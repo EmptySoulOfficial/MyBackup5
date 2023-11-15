@@ -6,8 +6,8 @@ const path = require('path')
 const url = require('url')
 let mainWindow
 //ggf neue maße: 960 x 640
-let myappwidth = 1000;
-let myappheight = 600
+let myappwidth = 960;
+let myappheight = 640
 let appTitle = "My Backup 5";
 
 // Keep a reference for dev mode
@@ -21,6 +21,8 @@ if (process.platform === 'win32') {
   app.commandLine.appendSwitch('high-dpi-support', 'true')
   app.commandLine.appendSwitch('force-device-scale-factor', '1')
 }
+//fix performance lags via disable hardware accleration
+  app.disableHardwareAcceleration();
 
 //window operations (min/close)
 const {ipcMain} = require('electron')
