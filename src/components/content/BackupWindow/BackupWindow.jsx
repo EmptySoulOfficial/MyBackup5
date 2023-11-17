@@ -5,17 +5,27 @@ import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 import Card from '../../ui/Card/Card.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
-import CardDetails from '../CardDetails/CardDetails.jsx'
+import CardDetails from './CardDetails/CardDetails.jsx'
 import Draggable from 'react-draggable'
+import { getNewBackupData } from '../../../core/DefaultData/ParseDefaultData.js'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
-                        contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos}) {
+                        contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue}) {
 
     const eLang = getLang();
+
 
     if(navItemSelectedId === "ni_backup"){
       showAppWindow = true;
     }
+
+  const defaultCardData = getNewBackupData()
+  const [cardDetailsData, setCardDetailsData] = useState()
+
+  const addNewBackup = () => {
+    setShowCardDetails(true)
+    setCardDetailsData(Object.assign({}, defaultCardData))
+  }
 
     const [backups, setbackups] = useState([
       {
@@ -50,7 +60,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                   <button className="button-submit launch_button">{eLang.button_launch}</button>
                 </div>
                   <div className="functionButton-container dFlex">
-                    <button className="functionButton button-addBackup" onClick={() => {setShowCardDetails(true)}}><Icon name="addDashed" color="" size={20} /></button>
+                    <button className="functionButton button-addBackup" onClick={() => {addNewBackup()}}><Icon name="addDashed" color="" size={20} /></button>
                     <button className="functionButton button-selectAllBackups" onClick={() => {setCheckAllCards(!checkAllCards)}} ><Icon name="selectAllDashed" color="" size={20} /></button>
                     <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="" size={20} /></button>
                     <button className="functionButton button-deleteBackup" disabled><Icon name="trash" color="" size={20} /></button>
@@ -59,9 +69,10 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
               </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
-                <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails} contextMenuShow={contextMenuShow}
-                              setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}/>
-
+                 <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails}
+                              setCardDetailsData={setCardDetailsData} contextMenuShow={contextMenuShow}
+                              setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
+                              previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems) => {

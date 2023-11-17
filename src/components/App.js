@@ -13,13 +13,14 @@ import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 import ContextMenu from './ui/ContextMenu/ContextMenu.jsx'
 import ClickOutside from '../core/ClickOutside.jsx'
-import AppStyle from '../core/AppStyle.jsx';
+import AppThemeMap from '../core/AppThemeMap.jsx';
 import LoadLocalStorage from '../core/LocalStorage/LoadLocalStorage.jsx';
 import Dialog from './ui/Dialog/Dialog.jsx';
 
 
 function App() {
 
+  const [previousValue, setPreviousValue] = useState(null)
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showAppWindow, setShowAppWindow] = useState()
 
@@ -52,7 +53,7 @@ function App() {
 
   //Init default Theme via arry and pass it into themeValue
   const InitTheme = () => {
-    const themeSelectArray = AppStyle()
+    const themeSelectArray = AppThemeMap()
     const selectedThemeObject = themeSelectArray.themeArray.find(({ dIKey }) => dIKey === initialThemeValue)
     console.log(themeSelectArray.themeArray)
     const themeValue = selectedThemeObject
@@ -127,7 +128,9 @@ function App() {
             <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow}
                           navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
                           setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
-                          setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}/>
+                          setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
+                          previousValue={previousValue} setPreviousValue={setPreviousValue} />
+
             <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
             <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
             <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

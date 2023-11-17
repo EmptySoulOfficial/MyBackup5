@@ -1,15 +1,15 @@
 import './FileItem.css'
 import React from 'react'
-import Icon from '../../../../ui/Icon/Icon.jsx'
+import Icon from '../../../../../ui/Icon/Icon.jsx'
 
 // Remove hier mal checken: https://codesandbox.io/s/bold-worker-b12x1?file=/src/App.js:844-853
 // https://stackoverflow.com/questions/69089340/how-can-i-delete-an-item-inside-a-nested-array-with-hooks
 
-function FileItem({fileItem, loadedItem, setLoadedItem, cardIndex}) {
+function FileItem({fileItem, loadedItem, setCardDetailsData, cardIndex}) {
   let fileItemIcon = fileItem.type
 
   const removeFileItem = (thisItemId) => {
-    setLoadedItem((prev) => {
+    setCardDetailsData((prev) => {
       const items = loadedItem.files.filter(
         (fileItem) => fileItem.id !== thisItemId
       )
