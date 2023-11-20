@@ -129,7 +129,7 @@ function App() {
                           navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
                           setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
                           setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
-                          previousValue={previousValue} setPreviousValue={setPreviousValue} />
+                          previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}/>
 
             <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
             <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

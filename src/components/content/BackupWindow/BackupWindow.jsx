@@ -5,12 +5,13 @@ import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 import Card from '../../ui/Card/Card.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
-import CardDetails from './CardDetails/CardDetails.jsx'
+import CardDetails from '../CardDetails/CardDetails.jsx'
 import Draggable from 'react-draggable'
 import { getNewBackupData } from '../../../core/DefaultData/ParseDefaultData.js'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
-                        contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue}) {
+                        contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue,
+                        setDialogType, setDialogText, setShowDialog}) {
 
     const eLang = getLang();
 
@@ -72,7 +73,9 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                  <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails}
                               setCardDetailsData={setCardDetailsData} contextMenuShow={contextMenuShow}
                               setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
-                              previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}/>
+                              previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}
+                              setShowDialog={setShowDialog} setDialogText={setDialogText} setDialogType={setDialogType}
+                              />
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems) => {

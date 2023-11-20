@@ -1,36 +1,27 @@
 import './CardDetails.css'
 import React, {useState} from 'react'
 import classNames from 'classnames'
-import { BlockDefault, BlockInfoSmall } from '../../../ui/Block/Block.jsx'
-import Icon from '../../../ui/Icon/Icon.jsx'
+import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
+import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
-                        currentBackupItem, setCardDetailsDataTemp}) {
-
-  console.log(cardDetailsData)
-
+                        currentBackupItem, setShowDialog, setDialogText, setDialogType}) {
 
   let currentCardPlaceHolder = "Type name"
-
-  // {
-    // id: "new-item",
-    // name: "",
-    // date: "New",
-    // icon: "folder",
-    // files: [
-            // {id: 1, type: "file", from: "C:/MyData", to: "E:/"},
-          // ],
-    // size: "--"
-  // }
-
 
   // set context menu Items for add backup item
   let contextMObject_CardDetailsAddItem = [
     {contextMKey:'addfileselect', contextMName: 'Add File'},
     {contextMKey:'addfolderselect', contextMName: 'Add Folder'}
   ];
+
+    // set context menu Items for change backup icon
+    let contextMObject_CardDetailsChangeIcon = [
+      {contextMKey:'folder', contextMName: ''},
+      {contextMKey:'drive', contextMName: ''}
+    ];
 
   const handleContextClick = (p) => {
     setContextMPos(p);
@@ -44,15 +35,8 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     document.getElementById('currentCardName').value =  cardItemName
   }
 
-  //Pass reacl index from all cards here
-  let cardIndexMock = 0
 
-  //currentBackupItem muss noch übergeben werden
   const loadedItem = cardDetailsData
-  // const [loadedItem, setLoadedItem] = useState(currentBackupItem ?? newBackupItemData)
-
-  // let [loadedItem, setLoadedItem] = useState(cardDetailsData ?? null)
-
 
   let cardItemId
   let cardItemName
@@ -81,10 +65,19 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   let currentCardPathChilds = document.getElementById('filesContainer')
 
   function cardUserInputValidation() {
-    currentCardName.value ? '': console.log('Kein Text input')
-    currentCardPathChilds.querySelectorAll(".fileItem").length > 0 ? console.log('Es gibt paths'):console.log('Keine paths')
+    if (currentCardPathChilds.querySelectorAll(".fileItem").length === 0 ) {
+      setShowDialog(true)
+      setDialogType("warning")
+      setDialogText("Add at least one file/folder!")
+    } else {
+      console.log('Es gibt paths')
+    }
+    if (currentCardName.value === '' ) {
+      setShowDialog(true)
+      setDialogType("warning")
+      setDialogText("Enter a valid name!")
+    }
   }
-  //
 
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
@@ -107,13 +100,13 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
         <div className="cardDetails-files-container" id="filesContainer">
         {
           cardFiles.length > 0 ? cardFiles.map((fileItem) => {
-            return <FileItem fileItem={fileItem} key={fileItem.id} cardIndex={cardIndexMock}
+            return <FileItem fileItem={fileItem} key={fileItem.id}
                               loadedItem={loadedItem} setCardDetailsData={setCardDetailsData}/>
           }) : <BlockInfoSmall>Click [+] to add new files / folders</BlockInfoSmall>
         }
 
         </div>
-        <button className="cardDetails-addBackupItem" onClick={(p) => { handleContextClick(p);}}><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
+        <button className="cardDetails-addBackupItem" onClick={(p) => { handleContextClick(p);}} ><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
       </div>
 
