@@ -11,7 +11,7 @@ import { getNewBackupData } from '../../../core/DefaultData/ParseDefaultData.js'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue,
-                        setDialogType, setDialogText, setShowDialog}) {
+                        setDialogType, setDialogText, setShowDialog, cardDetailsData, setCardDetailsData}) {
 
     const eLang = getLang();
 
@@ -20,8 +20,8 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
       showAppWindow = true;
     }
 
+
   const defaultCardData = getNewBackupData()
-  const [cardDetailsData, setCardDetailsData] = useState()
 
   const addNewBackup = () => {
     setShowCardDetails(true)

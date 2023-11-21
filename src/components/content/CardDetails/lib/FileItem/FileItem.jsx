@@ -22,21 +22,32 @@ function FileItem({fileItem, loadedItem, setCardDetailsData}) {
 
   return (
       <div className="fileItem fileItem-container dFlex" key={fileItem.id}>
-        <div className="fileItem-icon-container flex">
-          <Icon name={fileItemIcon} size={20} color="var(--color-icon-default)" />
+        <div className="fileItem-selects-container dFlex">
+          <div className="fileItem-from-container dFlex">
+            <div className="fileItem-icon-container flex">
+              <Icon name={fileItemIcon} size={20} color="var(--color-icon-default)" />
+            </div>
+            {fileItem.type === "file" ?
+            <label className="button-submit--small flex">
+             <input type="file" id="select-folder"  multiple={true}/>
+              Select Files
+            </label>: ''}
+            {fileItem.type === "folder" ?
+            <label className="button-submit--small flex">
+             <input type="file" id="select-folder"  multiple={true}/>
+              Select Folder
+            </label>: ''}
+          </div>
+          <div className="fileItem-to-container dFlex">
+            <div className="fileItem-icon-container flex">
+              <Icon name={"drive"} size={20} color="var(--color-icon-default)" />
+            </div>
+            <label className="button-submit--small flex">
+              <input type="file" id="select-folder"  multiple={true}/>
+              Backup Drive
+            </label>
+          </div>
         </div>
-        <label className="button-submit--small flex">
-          <input type="file" id="select-folder"  multiple={true}/>
-          Select Files
-        </label>
-        {/* <input type="file" id="select-file"/> */}
-        <div className="fileItem-icon-container flex">
-          <Icon name={"drive"} size={20} color="var(--color-icon-default)" />
-        </div>
-        <label className="button-submit--small flex">
-          <input type="file" id="select-folder"  multiple={true}/>
-          Backup Drive
-          </label>
         <button className="functionButton button-deleteBackup" onClick={() => removeFileItem(fileItem.id)}>
           <Icon name="trash" color="var(--color-low)" size={20} />
         </button>

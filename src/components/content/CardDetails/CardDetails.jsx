@@ -9,7 +9,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
                         currentBackupItem, setShowDialog, setDialogText, setDialogType}) {
 
-  let currentCardPlaceHolder = "Type name"
+  let currentCardPlaceHolder = "Name"
 
   // set context menu Items for add backup item
   let contextMObject_CardDetailsAddItem = [
@@ -69,8 +69,6 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       setShowDialog(true)
       setDialogType("warning")
       setDialogText("Add at least one file/folder!")
-    } else {
-      console.log('Es gibt paths')
     }
     if (currentCardName.value === '' ) {
       setShowDialog(true)
@@ -97,15 +95,14 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
         </div>
       <div className="cardDetails-files-column">
         <p className="box-default-title padding-10">Files</p>
-        <div className="cardDetails-files-container" id="filesContainer">
-        {
-          cardFiles.length > 0 ? cardFiles.map((fileItem) => {
-            return <FileItem fileItem={fileItem} key={fileItem.id}
-                              loadedItem={loadedItem} setCardDetailsData={setCardDetailsData}/>
-          }) : <BlockInfoSmall>Click [+] to add new files / folders</BlockInfoSmall>
-        }
-
-        </div>
+          <div className="cardDetails-files-container" id="filesContainer">
+          {
+            cardFiles.length > 0 ? cardFiles.map((fileItem) => {
+              return <FileItem fileItem={fileItem} key={fileItem.id}
+                                loadedItem={loadedItem} setCardDetailsData={setCardDetailsData}/>
+            }) : <BlockInfoSmall>Click [+] to add new files / folders</BlockInfoSmall>
+          }
+          </div>
         <button className="cardDetails-addBackupItem" onClick={(p) => { handleContextClick(p);}} ><Icon name="add" color="var(--color-icon-light)" size={20} /></button>
       </div>
       </div>

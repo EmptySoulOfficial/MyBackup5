@@ -1,45 +1,4 @@
 :root{
    /* ---- Oceans Ground Theme ---- */
-    /* Theme colors */
-  --color-main: var(--gray);
-  --color-main-as-rgb-value: 19, 28, 33;
-  --color-second: var(--lightgray);
-  --color-third: var(--blue-gray-1d);
-  --color-darker: var(--dark-gray);
-  --color-highlight: var(--green);
-  --color-close: var(--smooth-red);
-  --color-edit: var(--lightyellow);
-  --color-disabled: var(--gray-disabled);
-  /* Main elements */
-  --color-navigation: var(--color-darker);
-  --color-infobox-background: var(--lightgray-31);
-  --color-titlebar-background: var(--color-none);
-  --color-toolbar: var(--color-darker);
-  --color-contextMenu: var(--color-third);
- /* Font colors */
-  --color-font: var(--white);
-  --color-font-navigation: var(--color-font-second);
-  --color-font-headline: var(--blue-gray);
-  --color-font-second: var(--lightgray-a);
-  --color-font-headlabel:var(--blue-gray-54);
-  --color-font-subtext: var(--lightgray-5f);
- /* Icon colors */
-  --color-icon-default: var(--color-second);
-  --color-icon-light: var(--color-font-second);
-  --color-buttonToolbar-addBackup-hover: var(--color-highlight);
-  --color-button-selectAllBackups-hover: var(--white);
-  --color-button-addToLayer-hover: var(--lightblue);
-  --color-button-deleteBackup-hover: var(--smooth-red);
- /* Button colors */
-  --color-button-selectAllBackups: var(--white);
-  --color-button-addToLayer: var(--lightblue);
-  --color-button-deleteBackup: var(--smooth-red);
-  /* Backup cards */
-  --color-card: var(--color-second);
-  --node-dragable_background: var(--color-none);
-  /* old styles */
-  --node-mainsection_background: var(--color-none);
-  --node-switchsection_background: var(--color-none);
-  --node-nodesection_background: var(--color-none);
-
+  /* Style loaded from assets default theme */
 }

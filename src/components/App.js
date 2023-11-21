@@ -95,14 +95,51 @@ function App() {
     return langValue;
   };
 
+    //Backup Window
+    const [cardDetailsData, setCardDetailsData] = useState()
+
   const [langValue, setlangValue] = useState(InitialLangValue)
   //Context Menu
   const [contextMObject, setContextMObject] = useState('');
   const [contextMenuShow, setContextMenuShow] = useState(false);
   const [contextMPos, setContextMPos] = useState('')
   const contextMRef = useRef(null);
+
   const contextMCustomFunction = (prop) => {
     console.log("[🧩APP]Context Menu Custom Function "+prop)
+
+    if(prop === 'addfileselect'){
+
+      setCardDetailsData((prev) => {
+        let currentFileItemsCount = prev.files.length
+        let countFileItemId = currentFileItemsCount++
+        const newState = prev
+        const newFileItem = {
+          "id": countFileItemId, "type": "file",
+            "from":[],
+            "to":[]
+            }
+        newState.files = [...newState.files,newFileItem]
+        return { ...newState}
+      })
+      document.getElementById('filesContainer').lastElementChild.scrollIntoView({behavior: 'smooth'})
+    }
+    if(prop === 'addfolderselect'){
+
+      setCardDetailsData((prev) => {
+        let currentFileItemsCount = prev.files.length
+        let countFileItemId = currentFileItemsCount++
+        const newState = prev
+        const newFileItem = {
+          "id": countFileItemId, "type": "folder",
+            "from":[],
+            "to":[]
+            }
+        newState.files = [...newState.files,newFileItem]
+        return { ...newState}
+      })
+      document.getElementById('filesContainer').lastElementChild.scrollIntoView({behavior: 'smooth'})
+    }
   };
 
   console.log('💽 Default Storage: '+ s_selectedNavItem + " "+s_selectedTheme)
@@ -129,7 +166,8 @@ function App() {
                           navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
                           setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
                           setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
-                          previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}/>
+                          previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}
+                          cardDetailsData={cardDetailsData} setCardDetailsData={setCardDetailsData}/>
 
             <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
             <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

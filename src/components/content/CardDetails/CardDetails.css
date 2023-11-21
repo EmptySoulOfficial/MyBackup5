@@ -106,7 +106,7 @@
 
 .cardDetails-files-container {
   padding-top: 10px;
-  max-height: 140px;
+  max-height: 160px;
   overflow-y: scroll;
 }
 
@@ -124,7 +124,7 @@
   padding: 10px;
   border: 2px dashed var(--color-font);
   transition: var(--transition-default);
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .cardDetails-addBackupItem .icon {
