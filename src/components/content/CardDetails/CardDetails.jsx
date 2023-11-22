@@ -35,6 +35,8 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     document.getElementById('currentCardName').value =  cardItemName
   }
 
+  const [showIconSelection, setShowIconSelection] = useState(false)
+
 
   const loadedItem = cardDetailsData
 
@@ -85,8 +87,34 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       <div className="cardDetails-main-row">
         <div className="cardDetails-info-column flex">
           <div className="cardDetails-infos">
-            <div className="cardDetails-icon-container icon-light flex">
-              <Icon name={cardItemIcon} color="var(--color-low)" size={80} />
+            {showIconSelection? <div className="close-changeIcon flex" onClick={() =>{setShowIconSelection(false)}}>
+                                  <Icon name={'error'} color="var(--color-low)" size={12} />
+                                </div>:
+            ''}
+            <div className={classNames({'cardDetails-icon-container--active':showIconSelection, '':!showIconSelection},'cardDetails-icon-container icon-light flex')} onClick={() =>{setShowIconSelection(true)}}>
+              {showIconSelection? '': <Icon name={cardItemIcon} color="var(--color-low)" size={80} /> }
+              <div className={classNames({'':showIconSelection, 'dNone': !showIconSelection}, 'icon-select-container')}>
+                <div className="icon-select-box">
+                  <div className="icon-select-icon flex">
+                    <Icon name={'folder'} color="var(--color-low)" size={24} />
+                    </div>
+                  <div className="icon-select-icon flex">
+                    <Icon name={'drive'} color="var(--color-low)" size={24} />
+                  </div>
+                  <div className="icon-select-icon flex">
+                    <Icon name={'diskette'} color="var(--color-low)" size={24} />
+                  </div>
+                  <div className="icon-select-icon flex">
+                    <Icon name={'restore'} color="var(--color-low)" size={24} />
+                  </div>
+                </div>
+                <div className="icon-select-custom-container">
+                <label className="button-submit--small select_custom_icon flex">
+                  <input type="file" id="select_custom_icon"  multiple={false}/>
+                    Custom Icon
+                  </label>
+                </div>
+              </div>
             </div>
             <textarea id="currentCardName" placeholder={currentCardPlaceHolder} className="cardDetails-name" defaultValue={cardItemName}>
             </textarea>
