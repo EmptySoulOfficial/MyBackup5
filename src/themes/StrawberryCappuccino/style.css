@@ -1,0 +1,45 @@
+
+:root{
+  /* ---- Ocean Wave Theme ---- */
+  /* Basic props */
+  --color-none: transparent;
+
+  /* theme colors */
+  --color-main: #eae5e1;
+  --color-main-as-rgb-value: 19, 28, 33;
+  --color-second: #d6cfc8;
+  --color-third: #e2dcd6;
+  --color-darker: #eeede9;
+  --color-highlight: #bb587c;
+  --color-close: #e37d4a;
+  --color-edit: var(--lightyellow);
+  --color-disabled: var(--color-third);
+  /* Main Elements */
+  --color-navigation: var(--color-darker);
+  --color-infobox-background: var(--lightgray-31);
+  --color-titlebar-background: var(--color-none);
+  --color-toolbar: var(--color-darker);
+  --color-contextMenu: var(--color-third);
+ /* Font colors */
+  --color-font: #080808;
+  --color-font-navigation: var(--color-font-second);
+  --color-font-headline: #92887f;
+  --color-font-second: #080808;
+  --color-font-headlabel:#ab8679;
+  --color-font-subtext: #b2b2a6;
+  /* Icon colors */
+  --color-icon-default: #d5cfc7;
+  --color-icon-light: #606060;
+  --color-buttonToolbar-addBackup-hover: var(--color-highlight);
+  --color-button-selectAllBackups-hover: var(--white);
+  --color-button-addToLayer-hover: var(--lightblue);
+  --color-button-deleteBackup-hover: var(--smooth-red);
+ /* button colors */
+  --color-button-selectAllBackups: var(--white);
+  --color-button-addToLayer: var(--lightblue);
+  --color-button-deleteBackup: var(--smooth-red);
+  /* Backup cards */
+  --color-card: var(--color-second);
+
+}
+

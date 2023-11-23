@@ -99,13 +99,13 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
                     <Icon name={'folder'} color="var(--color-low)" size={24} />
                     </div>
                   <div className="icon-select-icon flex">
+                    <Icon name={'file'} color="var(--color-low)" size={24} />
+                  </div>
+                  <div className="icon-select-icon flex">
                     <Icon name={'drive'} color="var(--color-low)" size={24} />
                   </div>
                   <div className="icon-select-icon flex">
                     <Icon name={'diskette'} color="var(--color-low)" size={24} />
-                  </div>
-                  <div className="icon-select-icon flex">
-                    <Icon name={'restore'} color="var(--color-low)" size={24} />
                   </div>
                 </div>
                 <div className="icon-select-custom-container">
