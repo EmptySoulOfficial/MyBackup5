@@ -72,11 +72,11 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
                         dropdownId={'dropdown-theme'}
                         dropdownClass={'dropdown-medium'}/>
                         <br/>
+              </ClickOutside>
               <p className="subtext"><b>Author: </b>{`${themeValue.themeAuthor}`}</p>
               <p className="subtext"><b>Release:  </b>{`${themeValue.themeRelease}`}</p>
               <p className="subtext"><b>Version:  </b>{`${themeValue.themeVersion}`}</p>
               <p className="subtext"><b>Informations:  </b>{`${themeValue.themeNotes}`}</p>
-            </ClickOutside>
           </BlockDefault>
           <BlockSecond>
               <p className="subtext">Turn on "Custom-Theme" to use your own Themes.<br/>
