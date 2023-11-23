@@ -21,7 +21,7 @@ function FileItem({fileItem, loadedItem, setCardDetailsData}) {
   // File Inputs verursachen aktuell ERRORS
 
   return (
-      <div className="fileItem fileItem-container dFlex" key={fileItem.id}>
+      <div className="fileItem fileItem-container dFlex" key={fileItem.id} id={'fileitem_'+fileItem.id}>
         <div className="fileItem-selects-container dFlex">
           <div className="fileItem-from-container dFlex">
             <div className="fileItem-icon-container flex">

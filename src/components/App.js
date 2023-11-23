@@ -122,7 +122,9 @@ function App() {
         newState.files = [...newState.files,newFileItem]
         return { ...newState}
       })
-      document.getElementById('filesContainer').lastElementChild.scrollIntoView({behavior: 'smooth'})
+
+      document.getElementById('filesContainer').lastElementChild.scrollIntoView({behavior: "smooth", block: "center"})
+      document.getElementById('filesContainer').scrollBy(0,100);
     }
     if(prop === 'addfolderselect'){
 
