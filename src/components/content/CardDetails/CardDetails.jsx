@@ -35,6 +35,8 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     //set timeout for data reset, so we can't see the content changing
     setTimeout(function(){setCardDetailsData(null), setBackupIcon(null)},300)
     document.getElementById('currentCardName').value =  cardItemName
+    setShowIconSelection(false)
+
   }
 
   const [showIconSelection, setShowIconSelection] = useState(false)
