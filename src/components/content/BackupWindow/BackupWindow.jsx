@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import classNames from 'classnames'
 import './BackupWindow.css'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
@@ -8,12 +8,16 @@ import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import CardDetails from '../CardDetails/CardDetails.jsx'
 import Draggable from 'react-draggable'
 import { getNewBackupData } from '../../../core/DefaultData/ParseDefaultData.js'
+import { getUserData_BackupsArray } from '../../../core/ParseUserData.js'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue,
                         setDialogType, setDialogText, setShowDialog, cardDetailsData, setCardDetailsData}) {
 
     const eLang = getLang();
+    const backupsUserData = getUserData_BackupsArray()
+
+    console.log(backupsUserData)
 
 
     if(navItemSelectedId === "ni_backup"){
@@ -28,27 +32,19 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
     setCardDetailsData(Object.assign({}, defaultCardData))
   }
 
-    const [backups, setbackups] = useState([
-      {
-        id: "mydata", name: "My Data",
-        date: "no backups yet",
-        icon: "folder",
-        files: [
-                {type: "folder", from: "C:/MyData", to: "E:/"},
-                {type: "file", from: "C:/MyData/test.jpg", to: "E:/"}
-              ],
-        size: "320"
-      },
-      {
-        id: "backupfromc", name: "Backup from C",
-        date: "no backups yet",
-        icon: "drive",
-        files: [
-                {type: "folder", from: "C:/", to: "F:/"}
-              ],
-        size: "320"
-      }
-    ])
+  const [backupIcon, setBackupIcon] = useState()
+  const [backups, setBackups] = useState(backupsUserData)
+
+  useEffect(() => {
+
+    backupIcon?
+      setCardDetailsData((prev) => {
+        const newState = prev
+        newState.icon = backupIcon
+        return { ...newState}
+      }):''
+
+  }, [backupIcon]);
 
     return (
         <div className={classNames('appmainwindow backup-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
@@ -75,7 +71,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                               setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
                               previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}
                               setShowDialog={setShowDialog} setDialogText={setDialogText} setDialogType={setDialogType}
-                              />
+                              backupIcon={backupIcon} setBackupIcon={setBackupIcon} backups={backups} setBackups={setBackups}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems) => {

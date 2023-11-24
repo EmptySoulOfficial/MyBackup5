@@ -95,11 +95,11 @@ function App() {
     return langValue;
   };
 
-    //Backup Window
-    const [cardDetailsData, setCardDetailsData] = useState()
+  //Backup Window
+  const [cardDetailsData, setCardDetailsData] = useState()
 
   const [langValue, setlangValue] = useState(InitialLangValue)
-  //Context Menu
+  //Context Menu Card Details
   const [contextMObject, setContextMObject] = useState('');
   const [contextMenuShow, setContextMenuShow] = useState(false);
   const [contextMPos, setContextMPos] = useState('')
@@ -144,7 +144,11 @@ function App() {
     }
   };
 
-  console.log('💽 Default Storage: '+ s_selectedNavItem + " "+s_selectedTheme)
+
+
+  const changeBackupIcon = (backupIcon) => {
+    console.log('-----> backupIcon: '+backupIcon)
+  }
 
   return (
       <main id="app">

@@ -8,3 +8,6 @@ Version 0.4:
   - Restore Window lädt Backup Nodes
   - Sprache kann manuell gesetzt werden
 
+  Version 0.5:
+   - Backup Layer?
+

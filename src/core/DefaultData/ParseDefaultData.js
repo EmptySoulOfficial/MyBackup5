@@ -1,4 +1,4 @@
-//ELanguage V 2.1
+//Parse default data
 import * as newBackupItem from './data/NewBackupItem.json'
 import * as themeData from './data/themes.json'
 

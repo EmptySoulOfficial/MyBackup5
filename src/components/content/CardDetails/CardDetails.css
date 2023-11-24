@@ -213,3 +213,7 @@ grid-row-gap: 0px;
   fill: var(--color-third);
 }
 
+.cardDetails-selected-icon {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}

@@ -4,12 +4,14 @@ import classNames from 'classnames'
 import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
+import { getUserData_Backups } from '../../../core/ParseUserData.js'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
-                        currentBackupItem, setShowDialog, setDialogText, setDialogType}) {
+                        currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon, backups, setBackups}) {
 
   let currentCardPlaceHolder = "Name"
+  let userDataBackups = getUserData_Backups()
 
   // set context menu Items for add backup item
   let contextMObject_CardDetailsAddItem = [
@@ -31,7 +33,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
 
   const resetLoadedData = () => {
     //set timeout for data reset, so we can't see the content changing
-    setTimeout(function(){setCardDetailsData(null)},300)
+    setTimeout(function(){setCardDetailsData(null), setBackupIcon(null)},300)
     document.getElementById('currentCardName').value =  cardItemName
   }
 
@@ -66,17 +68,67 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   let currentCardName = document.getElementById('currentCardName')
   let currentCardPathChilds = document.getElementById('filesContainer')
 
+  function saveNewbackup() {
+
+    setCardDetailsData((prev) => {
+
+      let newBackupName = document.getElementById('currentCardName').value
+      let newBackUpId = newBackupName.replace(/\s/g, '').toLowerCase()
+
+      let newState = prev
+      newState.id = newBackUpId
+      newState.name = newBackupName
+      newState.size = "NOT USEABLEN NOW"
+      return { ...newState}
+    })
+    console.log(cardDetailsData)
+    let newBackupsArr = backups
+    newBackupsArr = [...newBackupsArr,cardDetailsData]
+    console.log('----NEW PACKUP ARR----')
+    console.log(newBackupsArr)
+    let newBackupData = userDataBackups
+    newBackupData['$MyBackup1'].push(newBackupsArr[1])
+    const fs = require('fs')
+
+    //DATA RESET um weitere backups zu adden und eine validation, falls id equal ist
+    // WICHTIG!!! newBackupsArr[1] ersetzen, da sonst immmer array 1 als neu gesetzt wird
+
+
+      fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
+        if (err) console.log("Error writing file:", err);
+      });
+
+  }
+
   function cardUserInputValidation() {
+    let validationCount = 0
     if (currentCardPathChilds.querySelectorAll(".fileItem").length === 0 ) {
       setShowDialog(true)
       setDialogType("warning")
       setDialogText("Add at least one file/folder!")
+    } else {
+      validationCount ++
     }
     if (currentCardName.value === '' ) {
       setShowDialog(true)
       setDialogType("warning")
       setDialogText("Enter a valid name!")
+    }else
+    {
+      validationCount ++
     }
+    if (validationCount === 2) {
+      saveNewbackup()
+      // Hide CardDetails and reset data for it
+      setShowCardDetails(false)
+      resetLoadedData()
+    }
+  }
+
+  function selectIcon(prop) {
+
+    setShowIconSelection(false)
+    setBackupIcon(prop)
   }
 
   return (
@@ -91,20 +143,20 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
                                   <Icon name={'error'} color="var(--color-low)" size={12} />
                                 </div>:
             ''}
-            <div className={classNames({'cardDetails-icon-container--active':showIconSelection, '':!showIconSelection},'cardDetails-icon-container icon-light flex')} onClick={() =>{setShowIconSelection(true)}}>
-              {showIconSelection? '': <Icon name={cardItemIcon} color="var(--color-low)" size={80} /> }
+            <div className={classNames({'cardDetails-icon-container--active':showIconSelection, '':!showIconSelection},'cardDetails-icon-container icon-light flex')}>
+              {showIconSelection? '': <div className="cardDetails-selected-icon flex" onClick={() =>{setShowIconSelection(true)}}><Icon name={cardItemIcon} color="var(--color-low)" size={80} /></div> }
               <div className={classNames({'':showIconSelection, 'dNone': !showIconSelection}, 'icon-select-container')}>
                 <div className="icon-select-box">
-                  <div className="icon-select-icon flex">
+                  <div className="icon-select-icon flex" onClick={() =>{selectIcon('folder')}}>
                     <Icon name={'folder'} color="var(--color-low)" size={24} />
                     </div>
-                  <div className="icon-select-icon flex">
-                    <Icon name={'file'} color="var(--color-low)" size={24} />
+                  <div className="icon-select-icon flex" onClick={() =>{selectIcon('file')}} >
+                    <Icon name={'file'} color="var(--color-low)" size={24}/>
                   </div>
-                  <div className="icon-select-icon flex">
-                    <Icon name={'drive'} color="var(--color-low)" size={24} />
+                  <div className="icon-select-icon flex" onClick={() =>{selectIcon('drive')}}>
+                    <Icon name={'drive'} color="var(--color-low)" size={24}/>
                   </div>
-                  <div className="icon-select-icon flex">
+                  <div className="icon-select-icon flex" onClick={() =>{selectIcon('diskette')}}>
                     <Icon name={'diskette'} color="var(--color-low)" size={24} />
                   </div>
                 </div>
