@@ -87,13 +87,12 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     console.log('----NEW PACKUP ARR----')
     console.log(newBackupsArr)
     let newBackupData = userDataBackups
-    newBackupData['$MyBackup1'].push(newBackupsArr[1])
+    newBackupData['$MyBackup1'] = [...newBackupsArr]
     const fs = require('fs')
 
-    //DATA RESET um weitere backups zu adden und eine validation, falls id equal ist
-    // WICHTIG!!! newBackupsArr[1] ersetzen, da sonst immmer array 1 als neu gesetzt wird
+    setBackups(newBackupData['$MyBackup1'])
 
-
+    // DATA ID Validation um dublicate names zu vermeiden!
       fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
         if (err) console.log("Error writing file:", err);
       });
