@@ -1,1 +1,76 @@
-{"data_type":"UBA","version":"1.0","$MyBackup1":[{"id":"mybackupexample","name":"My backup Example","date":"New","icon":"drive","files":[{"id":0,"type":"file","from":[{"file_id":1,"file_path":"C:/MyData/test.txt"},{"file_id":2,"file_path":"C:/MyData/test2.txt"}],"to":[{"file_id":1,"dest_path":"E:/"},{"file_id":2,"dest_path":"G:/"}]},{"id":1,"type":"folder","from":[{"file_id":1,"folder_path":"C:/MyData/"}],"to":[{"file_id":1,"dest_path":"G:/"}]}],"size":"--"},{"id":"neuerbackup","name":"Neuer Backup","date":"New","icon":"folder","files":[{"id":0,"type":"file","from":[],"to":[]},{"id":1,"type":"folder","from":[],"to":[]}],"size":"NOT USEABLEN NOW"}]}
+{
+  "data_type": "UBA",
+  "version": "1.0",
+  "$MyBackup1": [
+    {
+      "id": "mybackupexample",
+      "name": "My backup Example",
+      "date": "New",
+      "icon": "drive",
+      "files": [
+        {
+          "id": 0,
+          "type": "file",
+          "from": [
+            {
+              "file_id": 1,
+              "file_path": "C:/MyData/test.txt"
+            },
+            {
+              "file_id": 2,
+              "file_path": "C:/MyData/test2.txt"
+            }
+          ],
+          "to": [
+            {
+              "file_id": 1,
+              "dest_path": "E:/"
+            },
+            {
+              "file_id": 2,
+              "dest_path": "G:/"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "type": "folder",
+          "from": [
+            {
+              "file_id": 1,
+              "folder_path": "C:/MyData/"
+            }
+          ],
+          "to": [
+            {
+              "file_id": 1,
+              "dest_path": "G:/"
+            }
+          ]
+        }
+      ],
+      "size": "--"
+    },
+    {
+      "id": "neuerbackup",
+      "name": "Neuer Backup",
+      "date": "New",
+      "icon": "folder",
+      "files": [
+        {
+          "id": 0,
+          "type": "file",
+          "from": [],
+          "to": []
+        },
+        {
+          "id": 1,
+          "type": "folder",
+          "from": [],
+          "to": []
+        }
+      ],
+      "size": "NOT USEABLEN NOW"
+    }
+  ]
+}
