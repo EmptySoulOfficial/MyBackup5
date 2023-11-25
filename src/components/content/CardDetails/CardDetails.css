@@ -45,9 +45,14 @@
   outline: 1px solid var(--color-none);
   transition: var(--transition-default);
   cursor: pointer;
+  overflow: hidden;
 }
 
 .cardDetails-icon-container:hover {
+  outline-color: var(--color-highlight);
+}
+
+.cardDetails-icon-container--active {
   outline-color: var(--color-highlight);
 }
 
@@ -106,7 +111,7 @@
 
 .cardDetails-files-container {
   padding-top: 10px;
-  max-height: 140px;
+  max-height: 160px;
   overflow-y: scroll;
 }
 
@@ -124,7 +129,7 @@
   padding: 10px;
   border: 2px dashed var(--color-font);
   transition: var(--transition-default);
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .cardDetails-addBackupItem .icon {
@@ -146,4 +151,69 @@
   width: calc(100% - 40px);
   margin: 10px 0px;
   background-color: var(--color-font-headlabel);
+}
+
+.icon-select-container {
+  width: 100%;
+  height: 100%;
+}
+.icon-select-box {
+  display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.icon-select-icon {
+  height: 40px;
+  outline: 2px solid var(--color-transparent);
+  transition: var(--transition-default);
+}
+
+.icon-select-icon:hover{
+  height: 40px;
+  background-color: var(--color-highlight);
+}
+
+.icon-select-icon:hover .icon{
+  fill: var(--color-font);
+}
+
+.icon-select-custom-container {
+  height: 30px;
+}
+
+.select_custom_icon {
+  height: 100%;
+  border-radius: 0;
+}
+
+.close-changeIcon {
+  position: absolute;
+    margin-left: 102px;
+    margin-top: -20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: var(--color-third);
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.close-changeIcon .icon{
+  fill: var(--color-close);
+}
+
+.close-changeIcon:hover {
+    background-color: var(--color-close);
+}
+
+.close-changeIcon:hover .icon{
+  fill: var(--color-third);
+}
+
+.cardDetails-selected-icon {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }

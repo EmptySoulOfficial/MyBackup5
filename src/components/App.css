@@ -202,6 +202,7 @@ display: block;
 @keyframes appmainwindowtoolbaranim {
 
   0% {
+      background-color: var(--color-toolbar);
       visibility: visible;
       transform: translateY(20px);
       opacity: 0;
@@ -243,7 +244,7 @@ display: block;
 
 .appmainwindow-content {
     width: auto;
-    height: 380px;
+    height: 420px;
     background-color: var(--color-none);
     /* margin-top: 20px; */
     border-radius: var(--border-radius-default);
@@ -269,10 +270,11 @@ display: block;
 }
 
 .button-submit--small {
-    width: 80px;
-    height: 30px;
+    padding: 5px 10px;
     background-color: var(--color-second);
     font-size: var(--fontsize-default);
+    border-radius: var(--border-radius-default);
+    cursor: pointer;
 }
 
 .button-submit--small:hover {
@@ -292,6 +294,10 @@ display: block;
 
 .functionButton:disabled {
   display: none;
+}
+
+.functionButton .icon {
+  fill: var(--color-icon-light);
 }
 
 .dropdown-small {

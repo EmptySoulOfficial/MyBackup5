@@ -1,22 +1,17 @@
-Jedes Backup Item kann benannt werden und beinhaltet alle Ordner, die gespeichert werden sollen.
-Die Ordner werden beim Hinzufügen eines BackupItems als Tree-Ansicht dargestellt und können per Kontroll Kästchen angewehlt werden.
-So spaart man rum geklicke, und das einzelne Hinzufügen von Ordner
-warn symbol bei nodes, wenn speicher voll ist oder das ztiel nicht gefunden werden kann
-möglichkeit ganzen pc als backup zu wählen
+Version 0.3:
+  - Editable Backup Nodes (erstellen löschen, icons setzen)
+  - Backup Nodes (mit icons) werden in json gespeichert
+  - Fehlermeldungen bei datei problemen
+  - Datei wird neu erstellt falls nicht vorhanden
 
--Version immer in der package ändern
+Version 0.4:
+  - Backup Nodes sind via select All auswählbar
+  - Backup Nodes löschbar
+  - Detailansicht bei Backup Item on click
+  - Icons setup für Box Title
+  - Restore Window lädt Backup Nodes
+  - Sprache kann manuell gesetzt werden
 
+  Version 0.5:
+   - Backup Layer?
 
-ToDo:
-
--dragable
--scss
--css variablen einheitlich bennenen (name-zustand z.B: color-default)
--on hover -> pointer bei schaltflächen
--select from / to schöner designen, dass user es mehr erkennen und pfad text nur klein drunter
-- mehrere ziele in einer node wählbar / ziele mit plus in backup node unter ziel wählen hinzufügen
-- cloud systeme bei ziel möglich
-- bei details vllt speicher belegung anzeigen
-- nodes als items hinzufügbar machen
-- node item edit modus mit enter oder ähnlichem beenden/speichern
-- navigations items neu mappen und funktionalität und local storage funktion machen

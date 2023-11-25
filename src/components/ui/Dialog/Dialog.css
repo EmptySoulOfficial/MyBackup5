@@ -28,7 +28,7 @@
   animation-delay: 0.1s;
   animation-fill-mode: forwards;
   animation-timing-function: var(--animation-default);
-  animation-delay: .5s;
+  /* animation-delay: .5s; */
   opacity: 0;
 }
 
@@ -62,7 +62,7 @@
   animation-delay: 0.1s;
   animation-fill-mode: forwards;
   animation-timing-function: var(--animation-default);
-  animation-delay: .5s;
+  /* animation-delay: .5s; */
   opacity: 0;
 }
 

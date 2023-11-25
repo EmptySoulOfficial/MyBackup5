@@ -6,55 +6,55 @@ import { BlockDefault, BlockSecond} from "../../ui/Block/Block.jsx";
 import Dropdown from '../../ui/Dropdown/Dropdown.jsx'
 import ClickOutside from "../../../core/ClickOutside.jsx";
 import { appversiondata } from "../../../core/AppVersion";
-import AppStyle from "../../../core/AppStyle.jsx";
+import AppThemeMap from "../../../core/AppThemeMap.jsx";
 
 function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,setlangValue, navItemSelectedId, showAppWindow}) {
 
-    const eLang = getLang();
-    const appVData = appversiondata();
-    const changeTheme = (e) => {
-        setthemeValue(e.target.value);
-    };
+  const eLang = getLang();
+  const appVData = appversiondata();
+  const changeTheme = (e) => {
+      setthemeValue(e.target.value);
+  };
 
-    if(navItemSelectedId === "ni_config"){
-      showAppWindow = true;
-    }
+  if(navItemSelectedId === "ni_config"){
+    showAppWindow = true;
+  }
 
-    const themeSelectArray = useMemo(() => AppStyle(),[])
-    let dThemeItems = themeSelectArray.themeArray
+  const themeSelectArray = useMemo(() => AppThemeMap(),[])
+  let dThemeItems = themeSelectArray.themeArray
+  const dThemeRef = useRef(null);
+  const dThemeFunction = (prop) => {
+    //get complete array from AppStyle (improve later with just one pass from top!)
+    const themeSelectArray = AppThemeMap()
+    const dThemeItems = themeSelectArray.themeArray
+    //Find needed Object by selected prop (dIKey)
+    const selecteThemeObject = dThemeItems.find(({ dIKey }) => dIKey === prop)
+    setthemeValue(selecteThemeObject);
+    setInitialThemeValue(selecteThemeObject.dIKey)
+  };
 
-    const dThemeRef = useRef(null);
-    const dThemeFunction = (prop) => {
-      //get complete array from AppStyle (improve later with just one pass from top!)
-      const themeSelectArray = AppStyle()
-      const dThemeItems = themeSelectArray.themeArray
-      //Find needed Object by selected prop (dIKey)
-      const selecteThemeObject = dThemeItems.find(({ dIKey }) => dIKey === prop)
-      setthemeValue(selecteThemeObject);
-      setInitialThemeValue(selecteThemeObject.dIKey)
-    };
+  let [dThemeState, setdThemeState] = useState(false)
+  let getDropdownThemeState = (state) => {
+      setdThemeState(state)
+  }
 
-    let [dThemeState, setdThemeState] = useState(false)
-    let getDropdownThemeState = (state) => {
-        setdThemeState(state)
-    }
+  //Language Dropdown
+  let dLangItems = [
+    {dIKey:'de', dIName: 'Deutsch'},
+    {dIKey:'en', dIName: 'English'},
+  ];
 
-    //Language Dropdown
-    let dLangItems = [
-      {dIKey:'de', dIName: 'Deutsch'},
-      {dIKey:'en', dIName: 'English'},
-    ];
-    const dLangRef = useRef(null);
-    const dLangFunction = (prop) => {
-      setlangValue(prop);
-    };
-    let [dLangState, setdLangState] = useState(false)
-    let getDropdownLangState = (state) => {
-        setdLangState(state)
-    }
+  const dLangRef = useRef(null);
+  const dLangFunction = (prop) => {
+    setlangValue(prop);
+  };
 
-    return (
+  let [dLangState, setdLangState] = useState(false)
+  let getDropdownLangState = (state) => {
+      setdLangState(state)
+  }
 
+  return (
     <div className={classNames('appmainwindow config-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })}>
       <h1 className="h1-window">{eLang.windowtitle_config}</h1>
       <div className={classNames('appmainwindow-container config-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
@@ -72,14 +72,13 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
                         dropdownId={'dropdown-theme'}
                         dropdownClass={'dropdown-medium'}/>
                         <br/>
+              </ClickOutside>
               <p className="subtext"><b>Author: </b>{`${themeValue.themeAuthor}`}</p>
               <p className="subtext"><b>Release:  </b>{`${themeValue.themeRelease}`}</p>
               <p className="subtext"><b>Version:  </b>{`${themeValue.themeVersion}`}</p>
               <p className="subtext"><b>Informations:  </b>{`${themeValue.themeNotes}`}</p>
-            </ClickOutside>
           </BlockDefault>
           <BlockSecond>
-
               <p className="subtext">Turn on "Custom-Theme" to use your own Themes.<br/>
               (It will replace the current theme)
               </p>
@@ -112,7 +111,7 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
         </div>
       </div>
     </div>
-    )
+  )
 }
 
 function clearLocalStorage(){

@@ -13,13 +13,14 @@ import ConfigWindow from './content/ConfigWindow/ConfigWindow.jsx'
 import AutoLang from '../core/ELanguage/AutoLanguage.jsx'
 import ContextMenu from './ui/ContextMenu/ContextMenu.jsx'
 import ClickOutside from '../core/ClickOutside.jsx'
-import AppStyle from '../core/AppStyle.jsx';
+import AppThemeMap from '../core/AppThemeMap.jsx';
 import LoadLocalStorage from '../core/LocalStorage/LoadLocalStorage.jsx';
 import Dialog from './ui/Dialog/Dialog.jsx';
 
 
 function App() {
 
+  const [previousValue, setPreviousValue] = useState(null)
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showAppWindow, setShowAppWindow] = useState()
 
@@ -52,7 +53,7 @@ function App() {
 
   //Init default Theme via arry and pass it into themeValue
   const InitTheme = () => {
-    const themeSelectArray = AppStyle()
+    const themeSelectArray = AppThemeMap()
     const selectedThemeObject = themeSelectArray.themeArray.find(({ dIKey }) => dIKey === initialThemeValue)
     console.log(themeSelectArray.themeArray)
     const themeValue = selectedThemeObject
@@ -94,17 +95,60 @@ function App() {
     return langValue;
   };
 
+  //Backup Window
+  const [cardDetailsData, setCardDetailsData] = useState()
+
   const [langValue, setlangValue] = useState(InitialLangValue)
-  //Context Menu
+  //Context Menu Card Details
   const [contextMObject, setContextMObject] = useState('');
   const [contextMenuShow, setContextMenuShow] = useState(false);
   const [contextMPos, setContextMPos] = useState('')
   const contextMRef = useRef(null);
+
   const contextMCustomFunction = (prop) => {
     console.log("[🧩APP]Context Menu Custom Function "+prop)
+
+    if(prop === 'addfileselect'){
+
+      setCardDetailsData((prev) => {
+        let currentFileItemsCount = prev.files.length
+        let countFileItemId = currentFileItemsCount++
+        const newState = prev
+        const newFileItem = {
+          "id": countFileItemId, "type": "file",
+            "from":[],
+            "to":[]
+            }
+        newState.files = [...newState.files,newFileItem]
+        return { ...newState}
+      })
+
+      document.getElementById('filesContainer').lastElementChild.scrollIntoView({behavior: "smooth", block: "center"})
+      document.getElementById('filesContainer').scrollBy(0,100);
+    }
+    if(prop === 'addfolderselect'){
+
+      setCardDetailsData((prev) => {
+        let currentFileItemsCount = prev.files.length
+        let countFileItemId = currentFileItemsCount++
+        const newState = prev
+        const newFileItem = {
+          "id": countFileItemId, "type": "folder",
+            "from":[],
+            "to":[]
+            }
+        newState.files = [...newState.files,newFileItem]
+        return { ...newState}
+      })
+      document.getElementById('filesContainer').lastElementChild.scrollIntoView({behavior: 'smooth'})
+    }
   };
 
-  console.log('💽 Default Storage: '+ s_selectedNavItem + " "+s_selectedTheme)
+
+
+  const changeBackupIcon = (backupIcon) => {
+    console.log('-----> backupIcon: '+backupIcon)
+  }
 
   return (
       <main id="app">
@@ -127,7 +171,10 @@ function App() {
             <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow}
                           navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
                           setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
-                          setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}/>
+                          setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
+                          previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}
+                          cardDetailsData={cardDetailsData} setCardDetailsData={setCardDetailsData}/>
+
             <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
             <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
             <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

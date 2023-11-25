@@ -1,4 +1,5 @@
 @import './colors.css';
 @import './props.css';
 @import './env.css';
-@import './test.css'
+@import './test.css';
+@import './defaultTheme.css';

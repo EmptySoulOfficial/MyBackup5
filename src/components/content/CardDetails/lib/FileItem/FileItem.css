@@ -1,11 +1,19 @@
+.fileItem .functionButton {
+  margin-right: 0px;
+}
+
 .fileItem-container {
   width: calc(100% - 40px);
   padding: 20px 20px;
   background-color: var(--color-third);
   border-radius: var(--border-radius-default);
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.fileItem-selects-container {
+  justify-content: space-between;
+  padding-right: 20px;
+  width: calc(100% - 20px);
 }
 
 .fileItem-icon-container {
@@ -13,10 +21,16 @@
   height: 24px;
 }
 
-.fileItem-icon-container .icon{
-  fill: var(--color-icon-light);
-}
-
 .testItem {
   width: 120px;
+}
+
+.fileItem-from-container {
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.fileItem-to-container {
+  justify-content: space-between;
+  gap: 10px;
 }
