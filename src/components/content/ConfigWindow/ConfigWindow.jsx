@@ -54,13 +54,33 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
       setdLangState(state)
   }
 
+  //Navigation Dropdown
+  let navValue = "nav_normal"
+  let dNavItems = [
+    {dIKey:'nav_normal', dIName: 'Normal'},
+    {dIKey:'nav_small', dIName: 'Klein'},
+    {dIKey:'nav_extended', dIName: 'Extended'}
+  ];
+
+  const dNavRef = useRef(null);
+  const dNavFunction = (prop) => {
+
+  };
+
+  let [dNavState, setdNavState] = useState(false)
+  let getDropdownNavState = (state) => {
+      setdNavState(state)
+  }
+
   return (
     <div className={classNames('appmainwindow config-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })}>
       <h1 className="h1-window">{eLang.windowtitle_config}</h1>
       <div className={classNames('appmainwindow-container config-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content config-window_content">
-          <div className="config-window-theme-container dFlex">
-          <BlockDefault blocktitle={eLang.block_label_apptheme}>
+          <div className="multi-block-container config-window-theme-container dFlex">
+          <BlockDefault blocktitle={eLang.block_label_display}>
+          <h3>{eLang.block_label_apptheme}</h3>
+          <br/>
             <ClickOutside activateCO={dThemeState} setCOState={setdThemeState}>
             {/* IMPORTANT: To read initial state for this dropdown, we have to use themeValue with .dIKey extension */}
               <Dropdown dropdownItems={dThemeItems}
@@ -84,6 +104,28 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
               </p>
           </BlockSecond>
         </div>
+        <div className="multi-block-container--small-left config-window-navigationtheme-container dFlex">
+          <BlockDefault blocktitle="">
+          <h3>Navigation</h3>
+            <br/>
+            <ClickOutside activateCO={dNavState} setCOState={setdNavState}>
+              <Dropdown dropdownItems={dNavItems}
+                        initialValue={navValue}
+                        refFunction={dNavRef}
+                        changeFunction={dNavFunction}
+                        sendCurrentState={getDropdownNavState}
+                        clickOutsideFunction={dNavState}
+                        dropdownId={'dropdown-navigation-size'}
+                        dropdownClass={'dropdown-small'}/>
+              </ClickOutside>
+          </BlockDefault>
+          <BlockSecond blockClass='block-second--noTitle block-bigger'>
+              <p className="subtext">Enable/Disable extended Navigation on hover.
+              </p>
+          </BlockSecond>
+
+        </div>
+
         <BlockDefault blocktitle={'🌐'+eLang.block_label_applanguage}>
           <ClickOutside activateCO={dLangState} setCOState={setdLangState}>
             <Dropdown dropdownItems={dLangItems}
