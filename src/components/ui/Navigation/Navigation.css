@@ -1,5 +1,5 @@
 .navigation {
-    width: 160px;
+    width: var(--navigation-default-width);
     height: var(--app-titlebarcalc-height);
     padding-top: 30px;
     top: 0;
@@ -8,6 +8,42 @@
     position: absolute;
     /* padding: 0px 10px; */
     background-color: var(--color-navigation);
+    transition: var(--transition-default);
+    z-index: 90;
+}
+
+.navigation:hover {
+  width: var(--navigation-extended-with);
+  transition-delay: 1.3s;
+}
+
+.navigation:hover .nav-item_label {
+  animation: var(--animation-default);
+  animation-name: shownavItemLabels;
+  animation-duration: var(--transition-default);
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+  height: 0;
+  opacity: 0;
+}
+
+@keyframes shownavItemLabels {
+
+  0%{
+    height: 0;
+    opacity: 0;
+    padding-top: 0px;
+  }
+  80%{
+    height: 16px;
+    padding-top: 10px;
+    opacity: 0;
+  }
+  100%{
+    height: 16px;
+    opacity: 1;
+    padding-top: 10px;
+  }
 }
 
 .navigation-logosection {

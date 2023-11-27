@@ -22,7 +22,8 @@
 
     "block_label_appdata": "App Daten",
     "block_label_applanguage": "Sprache",
-    "block_label_apptheme": "Farbthema"
+    "block_label_apptheme": "Farbthema",
+    "block_label_display": "Darstellung"
 
  },
  "en":{
@@ -49,7 +50,8 @@
 
     "block_label_appdata": "App Data",
     "block_label_applanguage": "Language",
-    "block_label_apptheme": "Theme"
+    "block_label_apptheme": "Theme",
+    "block_label_display": "Display"
   }
 
 }

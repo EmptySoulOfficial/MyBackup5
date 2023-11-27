@@ -6,6 +6,8 @@
     --filter-disabled: brightness(0.6);
     --blur-default: blur(10px);
     --transition-slow: 0.8s;
+    --navigation-default-width: 105px;
+    --navigation-extended-with: 155px;
 
     --outline-default: 2px solid var( --white);
 
