@@ -3,8 +3,9 @@
   "version": "1.0",
   "$MyBackup1": [
     {
+      "firststart": "true"
       "autosave": "true",
-      "use_autolanguage": "true"
+      "autolanguage": "true"
     }
   ]
 }
