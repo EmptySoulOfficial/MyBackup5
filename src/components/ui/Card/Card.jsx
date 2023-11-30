@@ -4,9 +4,15 @@ import classNames from 'classnames'
 import Icon from '../Icon/Icon.jsx'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
-function Card({cardIcon, cardLabel, cardSubText, cardId}){
+function Card({cardIcon, cardLabel, cardSubText, cardId, toolbar_setShowDeleteIcon}){
 
   const [cardItemCheck, setcardItemCheck] = useState(false);
+
+  function handleCardCheck(e) {
+
+    e? toolbar_setShowDeleteIcon(true):''
+
+  }
 
   return(
     <>
@@ -18,7 +24,7 @@ function Card({cardIcon, cardLabel, cardSubText, cardId}){
           </div>
           <div className="Item-Card-checkbox-container">
             <label className="bCheckbox">
-              <input type="checkbox" defaultChecked={false} disabled = {(cardItemCheck)? "disabled" : ""} className="bCheckbox-input " ></input>
+              <input type="checkbox" defaultChecked={false} disabled = {(cardItemCheck)? "disabled" : ""} className="bCheckbox-input " onChange={(e) => {handleCardCheck(e)}} ></input>
               <span className="bCheckbox-inner"></span>
             </label>
           </div>

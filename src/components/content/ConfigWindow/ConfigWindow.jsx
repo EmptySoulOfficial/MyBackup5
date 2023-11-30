@@ -140,6 +140,12 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
           <p  className="subtext">{`Language (short): ${langValue}`}</p>
         </BlockDefault>
         <BlockDefault blocktitle={eLang.block_label_appdata}>
+          <h3>Automatisches Speichern</h3>
+          <br/>
+          <p className="subtext">Some Switches</p>
+          <br/>
+          <h3>Speicher Löschen</h3>
+          <br/>
           <button className="button-submit" onClick={clearLocalStorage}>Clear Cache</button>
         </BlockDefault>
         <BlockDefault blocktitle={"App Version"}>

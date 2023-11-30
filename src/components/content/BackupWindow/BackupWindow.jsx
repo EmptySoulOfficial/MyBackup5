@@ -34,6 +34,18 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
 
   const [backupIcon, setBackupIcon] = useState()
   const [backups, setBackups] = useState(backupsUserData)
+  const [toolbar_showDeleteIcon, toolbar_setShowDeleteIcon] = useState(false);
+
+  // https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/#:~:text=Whenever%20we%20click%20on%20the,the%20isChecked%20value%20to%20false%20.
+  //handle check übergeben
+  // Wenn alle werte im array auf false stehen, dann Lösch Item verstecken / ab 1 auf true -> anzeigen
+  const [backupCardsCheck, setBackupCardsCheck] = useState(new Array(backups.length).fill(false));
+  const handleChangeCardCheck = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+  }
+
 
   useEffect(() => {
 
@@ -60,7 +72,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                     <button className="functionButton button-addBackup" onClick={() => {addNewBackup()}}><Icon name="addDashed" color="" size={20} /></button>
                     <button className="functionButton button-selectAllBackups" onClick={() => {setCheckAllCards(!checkAllCards)}} ><Icon name="selectAllDashed" color="" size={20} /></button>
                     <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="" size={20} /></button>
-                    <button className="functionButton button-deleteBackup" disabled><Icon name="trash" color="" size={20} /></button>
+                    <button className="functionButton button-deleteBackup" disabled={toolbar_showDeleteIcon? null : 'disabled'}><Icon name="trash" color="" size={20} /></button>
                   </div>
                 </div>
               </div>
@@ -75,7 +87,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems) => {
-                      return <Card cardIcon={backupItems.icon} cardLabel={backupItems.name} cardSubText={backupItems.date} key={backupItems.id}/>
+                      return <Card cardIcon={backupItems.icon} cardLabel={backupItems.name} cardSubText={backupItems.date} key={backupItems.id} toolbar_setShowDeleteIcon={toolbar_setShowDeleteIcon}/>
                     })
                   }
 
