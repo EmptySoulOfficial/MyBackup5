@@ -1,14 +1,20 @@
 'use strict'
 
+
 // Import parts of electron to use
 const { app, BrowserWindow, remote, globalShortcut } = require('electron')
 const path = require('path')
 const url = require('url')
+
+
 let mainWindow
 //ggf neue maße: 960 x 640
 let myappwidth = 960;
 let myappheight = 640
-let appTitle = "My Backup 5";
+let appTitle = "My Backup";
+
+let loadingwindowwidth = 660;
+let loadingwindowheight = 340
 
 // Keep a reference for dev mode
 let dev = false
