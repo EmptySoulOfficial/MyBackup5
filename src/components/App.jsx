@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react'
-import { render } from 'react-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReactCursorPosition from 'react-cursor-position';
 import './App.css'
+import AppPreload from './AppLoad/AppLoad.js';
 import HtmlTitle from '../core/HtmlTitle.jsx';
 import AppTitleBar from './ui/AppTitleBar/AppTitleBar.jsx'
 import Navigation from './ui/Navigation/Navigation.jsx'
@@ -16,6 +17,8 @@ import ClickOutside from '../core/ClickOutside.jsx'
 import AppThemeMap from '../core/AppThemeMap.jsx';
 import LoadLocalStorage from '../core/LocalStorage/LoadLocalStorage.jsx';
 import Dialog from './ui/Dialog/Dialog.jsx';
+
+
 
 
 function App() {
@@ -186,6 +189,7 @@ function App() {
     </ReactCursorPosition>
 </main>
   )
+
 }
 
 export default App
