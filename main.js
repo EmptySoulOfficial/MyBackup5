@@ -5,10 +5,14 @@ const { app, BrowserWindow, remote, globalShortcut } = require('electron')
 const path = require('path')
 const url = require('url')
 let mainWindow
+let loadWindow
 //ggf neue maße: 960 x 640
 let myappwidth = 960;
 let myappheight = 640
-let appTitle = "My Backup 5";
+let appTitle = "My Backup";
+//Props for Loading-Window
+let loadingwindowwidth = 360;
+let loadingwindowheight = 160
 
 // Keep a reference for dev mode
 let dev = false
@@ -22,7 +26,7 @@ if (process.platform === 'win32') {
   app.commandLine.appendSwitch('force-device-scale-factor', '1')
 }
 //fix performance lags via disable hardware accleration
-  app.disableHardwareAcceleration();
+app.disableHardwareAcceleration();
 
 //window operations (min/close)
 const {ipcMain} = require('electron')
@@ -35,6 +39,30 @@ ipcMain.on('minimize', () => {
 })
 
 function createWindow() {
+
+  loadWindow = new BrowserWindow({
+    show: false,
+    width: loadingwindowwidth,
+    height: loadingwindowheight,
+    type: 'toolbar',
+    frame: false,
+    resizable: false,
+    minimizable: false,
+    maximizable: false,
+    skipTaskbar: false,
+    transparent: false,
+    alwaysOnTop: true,
+    useContentSize: true,
+    nodeIntegrationInSubFrames: true,
+    title: "Loading",
+    icon: path.join(__dirname, 'public/appIcons/win/Icon_MyBackup5-Win.ico'),
+    webPreferences: {
+      zoomFactor: 1.0,
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -49,6 +77,9 @@ function createWindow() {
       zoomFactor: 1.0,
       nodeIntegration: true,
       contextIsolation: false,
+      // webPreferences: {
+        // preload: path.join(__dirname, 'src/preload.js')
+      // }
       // enableRemoteModule: true
     }
   })
@@ -72,19 +103,41 @@ function createWindow() {
     })
   }
 
-  mainWindow.loadURL(indexPath)
 
-  // Don't show until we are ready and loaded
-  mainWindow.once('ready-to-show', () => {
-    mainWindow.show()
 
-    // Open the DevTools automatically if developing
-    if (dev) {
-      const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
-      installExtension(REACT_DEVELOPER_TOOLS)
-        .catch(err => console.log('Error loading React DevTools: ', err))
-      mainWindow.webContents.openDevTools()
-    }
+  loadWindow.loadURL(indexPath+'#/load')
+
+  loadWindow.once('ready-to-show', () => {
+    loadWindow.show()
+
+    // if (dev) {
+      // const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+      // installExtension(REACT_DEVELOPER_TOOLS)
+        // .catch(err => console.log('Error loading React DevTools: ', err))
+        // loadWindow.webContents.openDevTools()
+    // }
+  })
+
+  ipcMain.on('close-loading', (evt, arg) => {
+    app.quit()
+  })
+
+  //If AppLoad sends "apppreload-ok", then load app. Hide Loadingsscreen,when main App is loaded
+  ipcMain.on('apppreload-ok', (evt, arg) => {
+    mainWindow.loadURL(indexPath)
+    // Don't show until we are ready and loaded
+    mainWindow.once('ready-to-show', () => {
+
+      mainWindow.show()
+      loadWindow.close()
+      // Open the DevTools automatically if developing
+      if (dev) {
+        const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+        installExtension(REACT_DEVELOPER_TOOLS)
+          .catch(err => console.log('Error loading React DevTools: ', err))
+        mainWindow.webContents.openDevTools()
+      }
+    })
   })
 
   // Emitted when the window is closed.

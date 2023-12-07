@@ -2,5 +2,6 @@
   "product_name": "My Backup",
   "product_version": "0.2.93",
   "build_version": "27112023:11:34",
-  "app_author": "Empty Soul"
+  "app_author": "Empty Soul",
+  "app_file_id": "$MyBackup1"
 }

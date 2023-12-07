@@ -26,17 +26,14 @@
 
 /* fonts: text */
 
-  @font-face {
-    font-family: 'font-default';
-    src: url('../../public/fonts/Nunito-Light.woff2') format('woff2');
-
-
+@font-face {
+  font-family: 'font-default';
+  src: url('../../public/fonts/Nunito-Light.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'font-medium';
-    src: url('../../public/fonts/Nunito-Medium.woff2') format('woff2'); /* IE9 Compat Modes */
-
+  font-family: 'font-medium';
+  src: url('../../public/fonts/Nunito-Medium.woff2') format('woff2'); /* IE9 Compat Modes */
 }
 
 @font-face {

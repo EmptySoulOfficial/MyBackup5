@@ -17,6 +17,7 @@ _________
 - Change App-Titile in dist/index.html. (Eaven if Title is automatically changed by HTMLTitle.jsx)
 - ⚠️ Check if dev-tools are disabled/commented out (see main.js)
 - ⚠️ Change "path.resolve" to "path.join in app.js (else app does not start up -> informations in App.js)
+- Check window title in main.js
 - Run build via commands
 
 ### Build Commands
