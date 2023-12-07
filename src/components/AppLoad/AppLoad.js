@@ -50,8 +50,8 @@ function AppLoad() {
         setCurrentLoadText("loading...")
 
         if(fs.existsSync(userConfigPathResolve)){
-          // const userConfig = fs.readFileSync(userConfigPathResolve, 'utf8')
-          //  setPreLoadState(true)
+          const userConfig = fs.readFileSync(userConfigPathResolve, 'utf8')
+           setPreLoadState(true)
         }else {
           setCurrentLoadText("set up user data...")
           //Generate full File content
