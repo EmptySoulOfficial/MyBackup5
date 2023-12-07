@@ -118,6 +118,10 @@ function createWindow() {
     // }
   })
 
+  ipcMain.on('close-loading', (evt, arg) => {
+    app.quit()
+  })
+
   //If AppLoad sends "apppreload-ok", then load app. Hide Loadingsscreen,when main App is loaded
   ipcMain.on('apppreload-ok', (evt, arg) => {
     mainWindow.loadURL(indexPath)

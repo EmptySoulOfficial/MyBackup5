@@ -41,7 +41,6 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
 
   const [showIconSelection, setShowIconSelection] = useState(false)
 
-
   const loadedItem = cardDetailsData
 
   let cardItemId
