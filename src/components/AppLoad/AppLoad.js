@@ -16,9 +16,14 @@ function AppLoad() {
   const [preloadState, setPreLoadState] = useState(false)
   let [currentLoadtext, setCurrentLoadText] = useState("Welcome")
   let tryCount = 0
-
+  // Data Folder Structure
+  let userDataFolderPath = './data'
+  let userDataBackupsFolderPath = './data/backups'
+  let userDataBackupsIconsFolderPath = './data/backups/_icons'
+  //Data Files
   let userConfigPath = './data/config.mb1'
   let userBackupsPath = './data/backups/backups.mb1'
+
   const [userConfigPathState, setUserConfigPathState] = useState(userConfigPath)
   const [userBackupsPathState, setUserBackupsPathState] = useState(userBackupsPath)
   const [disableLoadingSpinner, setDisableLoadingSpinner] = useState(false)
@@ -48,6 +53,23 @@ function AppLoad() {
           }, 5000)
       }else{
         setCurrentLoadText("loading...")
+
+        if(!fs.existsSync(userDataFolderPath)){
+          setCurrentLoadText("creating data paths...")
+          fs.mkdirSync(userDataFolderPath, err => {
+            if (err) setCurrentLoadText("Error: unable to write "+userDataFolderPath, err);
+          });
+          fs.mkdirSync(userDataBackupsFolderPath, err => {
+            if (err) setCurrentLoadText("Error: unable to write "+userDataBackupsFolderPath, err);
+          });
+          fs.mkdirSync(userDataBackupsIconsFolderPath,  err => {
+            if (err) setCurrentLoadText("Error: unable to write "+userDataBackupsIconsFolderPath, err);
+          });
+          setTimeout(function(){
+            tryCount = 0
+            checkUserConfig()
+          },500)
+        }
 
         if(fs.existsSync(userConfigPathResolve)){
           const userConfig = fs.readFileSync(userConfigPathResolve, 'utf8')
