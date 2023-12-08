@@ -109,7 +109,7 @@ function createWindow() {
 
   loadWindow.once('ready-to-show', () => {
     loadWindow.show()
-
+    //Loading Window Dev Tools
     // if (dev) {
       // const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
       // installExtension(REACT_DEVELOPER_TOOLS)

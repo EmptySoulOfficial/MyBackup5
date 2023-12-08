@@ -1,22 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, lazy, Suspense  } from 'react'
 import { render } from 'react-dom'
-// import App from './components/App.jsx'
 import { HashRouter, BrowserRouter,Route, Routes } from "react-router-dom";
 import AppLoad from './components/AppLoad/AppLoad.js';
-
-
+import LazyLoadClip from './components/ui/LazyLoadClip/LazyLoadClip.jsx';
+// Import App only when needen / routes
+const App = lazy(() => import('./components/App.jsx'))
 
 let root = document.createElement('div')
 root.id = 'root'
 document.body.appendChild(root)
 
-function importApp(){
-  const componentsApp = require('./components/App.jsx', true);
-}
-
-render(<HashRouter>
+render(
+<HashRouter>
+<Suspense fallback={<LazyLoadClip/>}>
   <Routes>
-    {/* {appData_preload? <Route path="/" element={<App/>} exact /> : null} */}
+    <Route path="/" element={<App/>} exact />
     <Route path="/load" element={<AppLoad/>} exact />
   </Routes>
+  </Suspense>
 </HashRouter>, document.getElementById('root'))
