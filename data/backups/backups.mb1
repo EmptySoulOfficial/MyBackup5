@@ -1,1 +1,1 @@
-{"data_type":"UBA","version":"1.0","$MyBackup1":[]}
+{"data_type":"UBA","version":"1.0","$MyBackup1":[{"id":"testnode","name":"Test Node","date":"New","icon":"file","files":[{"id":0,"type":"folder","from":[],"to":[]}],"size":"NOT USEABLEN NOW"},{"id":"drivebackup","name":"drive backup","date":"New","icon":"drive","files":[{"id":0,"type":"folder","from":[],"to":[]}],"size":"NOT USEABLEN NOW"},{"id":"diskettetest","name":"Diskette test","date":"New","icon":"diskette","files":[{"id":0,"type":"folder","from":[],"to":[]}],"size":"NOT USEABLEN NOW"}]}

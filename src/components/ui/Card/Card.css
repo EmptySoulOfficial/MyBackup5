@@ -15,9 +15,16 @@
   outline: 1px solid var(--color-highlight);
 }
 
-.Item-Card-active:hover {
-  outline: 1px solid var(--color-none);
+.Item-Card--active {
+  box-shadow: 0px 0px 16px #00000099;
+  transform: scale(1.01);
+  outline: 1px solid var(--color-highlight);
 }
+
+.Item-Card--active .Item-Card-Icon-container .icon{
+  fill: var(--color-font);
+}
+
 
 .Item-Card-MainContainer {
   height: inherit;
@@ -65,53 +72,5 @@ h3 {
   padding-top: 4px;
 }
 
-.Item-Card-active{
-  transform: scale(1.01);
-  outline: 1px solid var(--color-none);
-  box-shadow: 0px 0px 16px #00000099;
-  width: calc(100% - 80px);
-  /* grid-column: 1 / 5; */
-  height: inherit;
-  position: fixed;
-  z-index: 100;
-  top: -10px;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr 4fr);
-}
 
-.Item-Card-active .bCheckbox {
-  display: none;
-}
-
-.Item-Card-active .Item-Card-TopBar {
-  display: none;
-}
-
-.Item-Card-active .Item-Card-Icon-container {
-  padding: 20px;
-  margin: 20px;
-  width: fit-content;
-  background-color: var(--color-third);
-  border-radius: var(--border-radius-default);
-}
-
-.Item-Card-active .Item-Card-Title-container {
-  width: calc(100% - 40px);
-  padding: 0px;
-  text-align: left;
-  line-height: 20px;
-  max-height: 40px;
-  overflow: hidden;
-  margin: 0px 20px;
-  max-width: 120px;
-}
-
-.Item-Card-active .subtext {
-  width: 100%;
-  max-width: 120px;
-  margin: 0px 20px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
 

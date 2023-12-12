@@ -10,13 +10,23 @@ function Card({cardIcon, cardLabel, cardSubText, cardId, toolbar_setShowDeleteIc
 
   function handleCardCheck(e) {
 
-    e? toolbar_setShowDeleteIcon(true):''
+    e? toolbar_setShowDeleteIcon(prevCheck => !prevCheck):''
+    setcardItemCheck(prevCheck => !prevCheck)
+  }
 
+  function handleCardClick(e) {
+    // If click with shiftkey, select this item
+    if (e.shiftKey) {
+      e? toolbar_setShowDeleteIcon(prevCheck => !prevCheck):''
+      setcardItemCheck(prevCheck => !prevCheck)
+    }else {
+      console.log('card normal clicked')
+    }
   }
 
   return(
     <>
-      <div className="Item-Card" id={cardId}>
+      <div className={classNames('Item-Card ', {'Item-Card--active': cardItemCheck , "" : !cardItemCheck })} id={cardId} onClick={(e) => {handleCardClick(e)}}>
         <div className="Item-Card-MainContainer">
         <div className="Item-Card-TopBar dFlex">
           <div className="Item-Card-dragable-container flex">
@@ -24,7 +34,7 @@ function Card({cardIcon, cardLabel, cardSubText, cardId, toolbar_setShowDeleteIc
           </div>
           <div className="Item-Card-checkbox-container">
             <label className="bCheckbox">
-              <input type="checkbox" defaultChecked={false} disabled = {(cardItemCheck)? "disabled" : ""} className="bCheckbox-input " onChange={(e) => {handleCardCheck(e)}} ></input>
+              <input type="checkbox" defaultChecked={false} checked={cardItemCheck} className="bCheckbox-input " onChange={(e) => {handleCardCheck(e)}}></input>
               <span className="bCheckbox-inner"></span>
             </label>
           </div>

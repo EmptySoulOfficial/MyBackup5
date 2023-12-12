@@ -46,6 +46,11 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
     );
   }
 
+  function deleteSelectedBackup() {
+    setShowDialog(true)
+    setDialogType('warning')
+    setDialogText('Test Löschbestätigung')
+  }
 
   useEffect(() => {
 
@@ -58,6 +63,8 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
 
   }, [backupIcon]);
 
+  let buttonLaunch_Label = 'Start'
+
     return (
         <div className={classNames('appmainwindow backup-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
 
@@ -68,14 +75,14 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                 <div className="launchbutton-container">
                   <button className="button-submit launch_button">{eLang.button_launch}</button>
                 </div>
-                  <div className="functionButton-container dFlex">
-                    <button className="functionButton button-addBackup" onClick={() => {addNewBackup()}}><Icon name="addDashed" color="" size={20} /></button>
-                    <button className="functionButton button-selectAllBackups" onClick={() => {setCheckAllCards(!checkAllCards)}} ><Icon name="selectAllDashed" color="" size={20} /></button>
-                    <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="" size={20} /></button>
-                    <button className="functionButton button-deleteBackup" disabled={toolbar_showDeleteIcon? null : 'disabled'}><Icon name="trash" color="" size={20} /></button>
-                  </div>
+                <div className="functionButton-container dFlex">
+                  <button className="functionButton button-addBackup" onClick={() => {addNewBackup()}}><Icon name="addDashed" color="" size={20} /></button>
+                  <button className="functionButton button-selectAllBackups" onClick={() => {setCheckAllCards(!checkAllCards)}} ><Icon name="selectAllDashed" color="" size={20} /></button>
+                  <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="" size={20} /></button>
+                  <button className="functionButton button-deleteBackup" disabled={toolbar_showDeleteIcon? null : 'disabled'} onClick={() => {deleteSelectedBackup();}}><Icon name="trash" color="" size={20} /></button>
                 </div>
               </div>
+            </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
                  <CardDetails setShowCardDetails={setShowCardDetails} showCardDetails={showCardDetails}
