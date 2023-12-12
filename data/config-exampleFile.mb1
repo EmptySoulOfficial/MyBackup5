@@ -1,0 +1,11 @@
+{
+  "data_type": "UCONF",
+  "version": "1.0",
+  "$MyBackup1": [
+    {
+      "firststart": "true",
+      "autosave": "true",
+      "autolanguage": "true"
+    }
+  ]
+}

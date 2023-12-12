@@ -18,9 +18,6 @@ import AppThemeMap from '../core/AppThemeMap.jsx';
 import LoadLocalStorage from '../core/LocalStorage/LoadLocalStorage.jsx';
 import Dialog from './ui/Dialog/Dialog.jsx';
 
-
-
-
 function App() {
 
   const [previousValue, setPreviousValue] = useState(null)
@@ -147,47 +144,45 @@ function App() {
     }
   };
 
-
-
   const changeBackupIcon = (backupIcon) => {
     console.log('-----> backupIcon: '+backupIcon)
   }
 
   return (
-      <main id="app">
+    <main id="app">
       {showDialog? <Dialog dialogType={dialogType} dialogText={dialogText} setShowDialog={setShowDialog}/>:''}
-    <ReactCursorPosition>
-      <ClickOutside activateCO={contextMenuShow} setCOState={setContextMenuShow}>
-        <ContextMenu contextMObject={contextMObject} contextMenuDisabled={false}
-                          contextMenuShow={contextMenuShow} setContextMenuShow={setContextMenuShow}
-                          setContextMObject={setContextMObject} contextMPos={contextMPos} contextMRef={contextMRef} contextMCustomFunction={contextMCustomFunction}/>
-      </ClickOutside>
-      <div className="app-container" >
-      {/* Pass local storages via AppTitleBar to WindowFunctions */}
-      <AppTitleBar navItemSelectedId={navItemSelectedId} initialThemeValue={initialThemeValue}/>
-        {/* titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} */}
-        <div className="app-background" >
-        {/* style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}} */}
-          <Navigation s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
-          {/* blur={jStyle.blur} */}
-          <div className="app-content">
-            <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow}
-                          navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
-                          setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
-                          setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
-                          previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}
-                          cardDetailsData={cardDetailsData} setCardDetailsData={setCardDetailsData}/>
+      <ReactCursorPosition>
+        <ClickOutside activateCO={contextMenuShow} setCOState={setContextMenuShow}>
+          <ContextMenu contextMObject={contextMObject} contextMenuDisabled={false}
+                            contextMenuShow={contextMenuShow} setContextMenuShow={setContextMenuShow}
+                            setContextMObject={setContextMObject} contextMPos={contextMPos} contextMRef={contextMRef} contextMCustomFunction={contextMCustomFunction}/>
+        </ClickOutside>
+        <div className="app-container" >
+        {/* Pass local storages via AppTitleBar to WindowFunctions */}
+        <AppTitleBar navItemSelectedId={navItemSelectedId} initialThemeValue={initialThemeValue}/>
+          {/* titel_bar_backgroundcolor={jStyle.titel_bar_backgroundcolor} */}
+          <div className="app-background" >
+          {/* style={{backgroundColor: appbgcolor,backgroundImage: 'url('+appbgwallpaper+')',}} */}
+            <Navigation s_selectedNavItem={s_selectedNavItem} navItemSelectedId={navItemSelectedId} setnavItemSelectedId={setnavItemSelectedId} />
+            {/* blur={jStyle.blur} */}
+            <div className="app-content">
+              <BackupWindow showAppWindow={showAppWindow} setShowAppWindow={setShowAppWindow}
+                            navItemSelectedId={navItemSelectedId} showCardDetails={showCardDetails}
+                            setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
+                            setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
+                            previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}
+                            cardDetailsData={cardDetailsData} setCardDetailsData={setCardDetailsData}/>
 
-            <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
-            <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
-            <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
-            <ConfigWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} themeValue={themeValue}
-                          setthemeValue={setthemeValue} setInitialThemeValue={setInitialThemeValue} langValue={langValue} setlangValue={setlangValue}/>
+              <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
+              <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
+              <OptionsWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
+              <ConfigWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} themeValue={themeValue}
+                            setthemeValue={setthemeValue} setInitialThemeValue={setInitialThemeValue} langValue={langValue} setlangValue={setlangValue}/>
+            </div>
           </div>
         </div>
-      </div>
-    </ReactCursorPosition>
-</main>
+      </ReactCursorPosition>
+    </main>
   )
 
 }
