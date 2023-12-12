@@ -7,7 +7,6 @@ Version 0.3:
 
 Version 0.4:
   - Backup Nodes sind via select All auswählbar
-  - Backup Nodes löschbar
   - Detailansicht bei Backup Item on click
   - Icons setup für Box Title
   - Backup/ Speicherpfad erstellbar
