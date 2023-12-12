@@ -1,7 +1,7 @@
 {
   "name": "my-backup",
   "version": "0.2.99",
-  "build": "08122023:1411",
+  "build": "12122023:1218",
   "description": "Small powerfull tool to backup your computer data.",
   "license": "",
   "private": false,
