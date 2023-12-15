@@ -12,8 +12,8 @@ function Card({cardIcon, cardLabel, cardSubText, cardId, toolbar_setShowDeleteIc
       toggleCheck()
     }else {
      console.log('card normal clicked')
+     cardClick()
     }
-    cardClick()
   }
 
   return(
