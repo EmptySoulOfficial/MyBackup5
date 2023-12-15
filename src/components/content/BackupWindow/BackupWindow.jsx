@@ -9,6 +9,7 @@ import CardDetails from '../CardDetails/CardDetails.jsx'
 import Draggable from 'react-draggable'
 import { getNewBackupData } from '../../../core/DefaultData/ParseDefaultData.js'
 import { getUserData_BackupsArray } from '../../../core/ParseUserData.js'
+import CheckArray from '../../../core/CheckArray.jsx'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue,
@@ -24,7 +25,6 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   }
 
   const defaultCardData = getNewBackupData()
-
   const addNewBackup = () => {
     setShowCardDetails(true)
     setCardDetailsData(Object.assign({}, defaultCardData))
@@ -32,34 +32,42 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
 
   const [backupIcon, setBackupIcon] = useState()
   const [backups, setBackups] = useState(backupsUserData)
+
+  //----------------- Toggle BackupCards -------------------//
   const [toolbar_showDeleteIcon, toolbar_setShowDeleteIcon] = useState(false);
-
-  //handle check übergeben
-  // Wenn alle werte im array auf false stehen, dann Lösch Item verstecken / ab 1 auf true -> anzeigen
   const [toogleCheckAllbCards, setToogleCheckAllbCards] = useState(false)
-  const [checkedBackupCards, setCheckedBackupCards] = useState(backups.map(() => true));
-
+  const [checkedBackupCards, setCheckedBackupCards] = useState(backups.map(() => false));
+  const [launchButtonStartSelected, setlaunchButtonStartSelected] = useState(false)
+  // Check all function for check-all button
   const toggleCheckAll = () => {
     setToogleCheckAllbCards(!toogleCheckAllbCards);
-    console.log(toogleCheckAllbCards)
-    setCheckedBackupCards(checkedBackupCards.map(() => toogleCheckAllbCards));
-    console.log(checkedBackupCards)
-    checkedBackupCards.includes(true) ? toolbar_setShowDeleteIcon(true) : toolbar_setShowDeleteIcon(false)
+    // console.log(toogleCheckAllbCards)
+    let toggleBooleans = checkedBackupCards.map(() => !toogleCheckAllbCards);
+    setCheckedBackupCards(toggleBooleans)
+    // console.log(checkedBackupCards)
+    checkbackupCardsToggleBoleans(toggleBooleans)
   };
-
+  // toogle check function -> used when single card was selected via shift+click or check box
   const toggleCheck = (index) => {
-    setCheckedBackupCards((checkedBackupCards) =>
-    checkedBackupCards.map((check, i) => (i === index ? !check : check))
-    );
+    let toggleBooleans = checkedBackupCards.map((check, i) => (i === index ? !check : check));
+    setCheckedBackupCards(toggleBooleans)
+    checkbackupCardsToggleBoleans(toggleBooleans)
+    //Use CheckArray Asset to check, if all booleans are true/ false -> turn select all knob on/off
+    let checkArr = CheckArray()
+    checkArr(toggleBooleans) ? setToogleCheckAllbCards(true) : setToogleCheckAllbCards(false)
   };
-
-  const handleCardItemCheckChange = (position) => {
-    const updatedCheckedState = checkedBackupCards.map((item, i) =>
-    i === position ? !item: item
-    );
-    setCheckedBackupCards(updatedCheckedState)
-    checkedBackupCards.includes(true) ? toolbar_setShowDeleteIcon(true) : toolbar_setShowDeleteIcon(false)
+  //Check if card-items boolean array contains any true and make some effects
+  function checkbackupCardsToggleBoleans(toggleBooleans){
+    if(toggleBooleans.includes(true)){
+      toolbar_setShowDeleteIcon(true)
+      setlaunchButtonStartSelected(true)
+    }else {
+      toolbar_setShowDeleteIcon(false)
+      setlaunchButtonStartSelected(false)
+    }
   }
+  // --------------------------------------------------- //
+  // Delete selected backups
   function deleteSelectedBackup() {
     setShowDialog(true)
     setDialogType('warning')
@@ -74,10 +82,10 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
         newState.icon = backupIcon
         return { ...newState}
       }):''
-
   }, [backupIcon]);
 
-  let buttonLaunch_Label = 'Start'
+  let buttonLaunch_Label = eLang.button_launch
+  let buttonLaunch_selecedLabel = "Auswahl Starten"
 
     return (
         <div className={classNames('appmainwindow backup-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
@@ -87,7 +95,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
               <h1 className="h1-window">{eLang.windowtitle_backup}</h1>
               <div className={classNames('appmainwindow-toolbar ', {'appmainwindow-toolbar-active': showAppWindow & !showCardDetails , '' : !showAppWindow })}>
                 <div className="launchbutton-container">
-                  <button className="button-submit launch_button">{eLang.button_launch}</button>
+                  <button className="button-submit launch_button">{launchButtonStartSelected ? buttonLaunch_selecedLabel : buttonLaunch_Label}</button>
                 </div>
                 <div className="functionButton-container dFlex">
                   <button className="functionButton button-addBackup" onClick={() => {addNewBackup()}}><Icon name="addDashed" color="" size={20} /></button>
