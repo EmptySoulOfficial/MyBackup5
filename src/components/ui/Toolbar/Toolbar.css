@@ -1,0 +1,39 @@
+.Toolbar {
+  min-width:120px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 12px;
+  background-color: var(--color-toolbar);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition-delay: 1s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+  transition: var(--transition-default);
+  overflow: hidden;
+}
+
+.Toolbar--active {
+visibility: visible;
+animation-name: toolbaranim;
+animation-duration: 0.3s;
+animation-delay: 0.4s;
+animation-fill-mode: forwards;
+}
+
+@keyframes toolbaranim {
+
+0% {
+    background-color: var(--color-toolbar);
+    visibility: visible;
+    transform: translateY(20px);
+    opacity: 0;
+  }
+100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}

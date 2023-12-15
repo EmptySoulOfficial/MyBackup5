@@ -168,46 +168,6 @@ display: block;
     margin-right: 50px;
 }
 
-.appmainwindow-toolbar {
-  min-width:120px;
-  height: 40px;
-  padding: 5px;
-  border-radius: 12px;
-  background-color: var(--color-toolbar);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  transition-delay: 1s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 100;
-  transition: var(--transition-default);
-  overflow: hidden;
-}
-
-.appmainwindow-toolbar-active {
-visibility: visible;
-animation-name: appmainwindowtoolbaranim;
-animation-duration: 0.3s;
-animation-delay: 0.4s;
-animation-fill-mode: forwards;
-}
-
-@keyframes appmainwindowtoolbaranim {
-
-0% {
-    background-color: var(--color-toolbar);
-    visibility: visible;
-    transform: translateY(20px);
-    opacity: 0;
-  }
-100% {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
 .appmainwindow-container {
     transform: translateX(350px);
     opacity: 0;

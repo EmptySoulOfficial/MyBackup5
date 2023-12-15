@@ -52,6 +52,7 @@
 .Item-Card-Icon-container {
   width: 100%;
   padding: 10px 0px;
+  cursor: pointer;
 }
 
 .Item-Card-Title-container {

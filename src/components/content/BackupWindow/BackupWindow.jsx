@@ -10,6 +10,7 @@ import Draggable from 'react-draggable'
 import { getNewBackupData } from '../../../core/DefaultData/ParseDefaultData.js'
 import { getUserData_BackupsArray } from '../../../core/ParseUserData.js'
 import CheckArray from '../../../core/CheckArray.jsx'
+import Toolbar from '../../ui/Toolbar/Toolbar.jsx'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue,
@@ -82,6 +83,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
         newState.icon = backupIcon
         return { ...newState}
       }):''
+
   }, [backupIcon]);
 
   let buttonLaunch_Label = eLang.button_launch
@@ -93,17 +95,11 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
               <h1 className="h1-window">{eLang.windowtitle_backup}</h1>
-              <div className={classNames('appmainwindow-toolbar ', {'appmainwindow-toolbar-active': showAppWindow & !showCardDetails , '' : !showAppWindow })}>
-                <div className="launchbutton-container">
-                  <button className="button-submit launch_button">{launchButtonStartSelected ? buttonLaunch_selecedLabel : buttonLaunch_Label}</button>
-                </div>
-                <div className="functionButton-container dFlex">
-                  <button className="functionButton button-addBackup" onClick={() => {addNewBackup()}}><Icon name="addDashed" color="" size={20} /></button>
-                  <button className={classNames('functionButton button-selectAllBackups', {'button-selectAllBackups--active': toogleCheckAllbCards})} onClick={toggleCheckAll} ><Icon name="selectAllDashed" color="" size={20} /></button>
-                  <button className="functionButton button-addToLayer" disabled><Icon name="addLayer" color="" size={20} /></button>
-                  <button className="functionButton button-deleteBackup" disabled={toolbar_showDeleteIcon? null : 'disabled'} onClick={() => {deleteSelectedBackup();}}><Icon name="trash" color="" size={20} /></button>
-                </div>
-              </div>
+              <Toolbar showAppWindow={showAppWindow} showCardDetails={showCardDetails} launchButtonStartSelected={launchButtonStartSelected}
+                      buttonLaunch_selecedLabel={buttonLaunch_selecedLabel} buttonLaunch_Label={buttonLaunch_Label} addNewBackup={addNewBackup}
+                      toogleCheckAllbCards={toogleCheckAllbCards} toggleCheckAll={toggleCheckAll} toolbar_showDeleteIcon={toolbar_showDeleteIcon}
+                      deleteSelectedBackup={deleteSelectedBackup}
+              />
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
               <div className="appmainwindow-content">
