@@ -14,7 +14,8 @@ import Toolbar from '../../ui/Toolbar/Toolbar.jsx'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue,
-                        setDialogType, setDialogText, setShowDialog, cardDetailsData, setCardDetailsData}) {
+                        setDialogType, setDialogText, setShowDialog, cardDetailsData, setCardDetailsData,
+                        setCardDetailsWinTitle, cardDetailsWinTitle}) {
 
   const eLang = getLang();
   const backupsUserData = getUserData_BackupsArray()
@@ -29,6 +30,16 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   const addNewBackup = () => {
     setShowCardDetails(true)
     setCardDetailsData(Object.assign({}, defaultCardData))
+    setCardDetailsWinTitle('Create Backup')
+  }
+
+  // click card item functions
+  const cardClick = (cardData) => {
+    console.log('cardId '+cardData.id)
+    console.log('cardName '+cardData.name)
+    setShowCardDetails(true)
+    setCardDetailsData(cardData)
+    setCardDetailsWinTitle('Edit Backup')
   }
 
   const [backupIcon, setBackupIcon] = useState()
@@ -50,6 +61,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   };
   // toogle check function -> used when single card was selected via shift+click or check box
   const toggleCheck = (index) => {
+    console.log('Item-Index: '+index)
     let toggleBooleans = checkedBackupCards.map((check, i) => (i === index ? !check : check));
     setCheckedBackupCards(toggleBooleans)
     checkbackupCardsToggleBoleans(toggleBooleans)
@@ -108,13 +120,15 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                               setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
                               previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}
                               setShowDialog={setShowDialog} setDialogText={setDialogText} setDialogType={setDialogType}
-                              backupIcon={backupIcon} setBackupIcon={setBackupIcon} backups={backups} setBackups={setBackups}/>
+                              backupIcon={backupIcon} setBackupIcon={setBackupIcon} backups={backups} setBackups={setBackups}
+                              cardDetailsWinTitle={cardDetailsWinTitle}
+                              />
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems, i) => {
                       return <Card cardIcon={backupItems.icon} cardLabel={backupItems.name}
                                     cardSubText={backupItems.date} key={backupItems.id} toolbar_setShowDeleteIcon={toolbar_setShowDeleteIcon}
-                                    check={checkedBackupCards[i]} toggleCheck={() => toggleCheck(i)}/>
+                                    check={checkedBackupCards[i]} toggleCheck={() => toggleCheck(i)} cardClick={() => cardClick(backupItems)}/>
                     })
                   }
 

@@ -97,6 +97,7 @@ function App() {
 
   //Backup Window
   const [cardDetailsData, setCardDetailsData] = useState()
+  const [cardDetailsWinTitle, setCardDetailsWinTitle] = useState('')
 
   const [langValue, setlangValue] = useState(InitialLangValue)
   //Context Menu Card Details
@@ -171,7 +172,9 @@ function App() {
                             setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
                             setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
                             previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}
-                            cardDetailsData={cardDetailsData} setCardDetailsData={setCardDetailsData}/>
+                            cardDetailsData={cardDetailsData} setCardDetailsData={setCardDetailsData}
+                            cardDetailsWinTitle={cardDetailsWinTitle} setCardDetailsWinTitle={setCardDetailsWinTitle}
+                            />
 
               <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />
               <RestoreWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

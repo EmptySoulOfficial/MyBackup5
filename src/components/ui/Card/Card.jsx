@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import Icon from '../Icon/Icon.jsx'
 import { getLang, getLangVarable } from '../../../core/ELanguage/ELanguage'
 
-function Card({cardIcon, cardLabel, cardSubText, cardId, toolbar_setShowDeleteIcon, cardDetailsData, check, toggleCheck} ){
+function Card({cardIcon, cardLabel, cardSubText, cardId, toolbar_setShowDeleteIcon, cardDetailsData, check, toggleCheck, cardClick} ){
 
   function handleCardClick(e) {
     // If click with shiftkey, select this item
@@ -13,6 +13,7 @@ function Card({cardIcon, cardLabel, cardSubText, cardId, toolbar_setShowDeleteIc
     }else {
      console.log('card normal clicked')
     }
+    cardClick()
   }
 
   return(
