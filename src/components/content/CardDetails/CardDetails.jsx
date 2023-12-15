@@ -7,8 +7,9 @@ import FileItem from './lib/FileItem/FileItem.jsx'
 import { getUserData_Backups } from '../../../core/ParseUserData.js'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
-                        contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
-                        currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon, backups, setBackups}) {
+                      contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
+                      currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon,
+                      backups, setBackups, cardDetailsWinTitle}) {
 
   let currentCardPlaceHolder = "Name"
   let userDataBackups = getUserData_Backups()
@@ -134,7 +135,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
       <div className="cardDetails-headline-row">
-        <h3>Create Backup</h3>
+        <h3>{cardDetailsWinTitle}</h3>
       </div>
       <div className="cardDetails-main-row">
         <div className="cardDetails-info-column flex">

@@ -29,6 +29,11 @@
   fill: var(--color-button-selectAllBackups-hover);
 }
 
+.button-selectAllBackups--active .icon{
+  fill: var(--color-highlight) !IMPORTANT;
+}
+
+
 .button-addToLayer:hover .icon {
   fill: var(--color-button-addToLayer-hover);
 }
