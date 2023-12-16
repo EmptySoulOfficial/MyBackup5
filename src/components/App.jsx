@@ -75,7 +75,7 @@ function App() {
 
     const factoryThemeCssPath = './src/themes/'+currentThemeFolder+'/style.css'
     //-----------⛔ Für RELEASE "path.resolve" zu folgendem code ändern -> path.join(__dirname,'../src/themes/',currentThemeFolder,'/style.css') ⛔
-    const resolvedThemeCssPath = path.resolve(factoryThemeCssPath)
+    const resolvedThemeCssPath = path.join(__dirname,'../src/themes/',currentThemeFolder,'/style.css')
     //-----------⛔ ⛔ ---------------//
     if(fs.existsSync(resolvedThemeCssPath)){
       const factoryThemeCss = fs.readFileSync(resolvedThemeCssPath, 'utf8')
