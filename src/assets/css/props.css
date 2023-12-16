@@ -6,13 +6,17 @@
     --filter-disabled: brightness(0.6);
     --blur-default: blur(10px);
     --transition-slow: 0.8s;
+    --navigation-default-width: 105px;
+    --navigation-extended-with: 155px;
 
-    --titlebar-height: 30px;
-    --app-titlebarcalc-height: calc(100% - 30px);
     --outline-default: 2px solid var( --white);
 
     --fontsize-default: 12px;
-    --fontsize-title: 25px;
+    --fontsize-title: 24px;
     --fontsize-h3: 18px;
     --fontsize-h2: 20px;
+
+  /* App window stylings */
+  --titlebar-height: 30px;
+  --app-titlebarcalc-height: calc(100% - var(--titlebar-height));
 }

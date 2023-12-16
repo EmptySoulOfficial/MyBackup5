@@ -1,0 +1,44 @@
+:root{
+  /* ---- Gamer Girl Theme ---- */
+  /* Basic props */
+  --color-none: transparent;
+
+  /* Theme colors */
+  --color-main: #e2e2e2;
+  --color-main-as-rgb-value: 19, 28, 33;
+  --color-second: #9f9f9f;
+  --color-third: #cccccc;
+  --color-darker: #202020;
+  --color-highlight: #f33ba3;
+  --color-close: #c6303a;
+  --color-edit: var(--lightyellow);
+  --color-disabled: var(--color-third);
+  --green: #38b66a;
+  /* Main Elements */
+  --color-navigation: var(--color-darker);
+  --color-infobox-background: var(--lightgray-31);
+  --color-titlebar-background: var(--color-none);
+  --color-toolbar: var(--color-third);
+  --color-contextMenu: var(--color-second);
+ /* Font colors */
+  --color-font: #454545;
+  --color-font-navigation: var(--color-main);
+  --color-font-headline: var(--color-darker);
+  --color-font-second: var(--lightgray-a);
+  --color-font-headlabel:#877780;
+  --color-font-subtext: #877780;
+  /* Icon colors */
+  --color-icon-default: #9d5b81;
+  --color-icon-light: #9d5b81;
+  --color-buttonToolbar-addBackup-hover: var(--green);
+  --color-button-selectAllBackups-hover: var(--green);
+  --color-button-addToLayer-hover: var(--green);
+  --color-button-deleteBackup-hover: var(--color-close);
+ /* button colors */
+  --color-button-selectAllBackups: var(--white);
+  --color-button-addToLayer: var(--lightblue);
+  --color-button-deleteBackup: var(--smooth-red);
+  /* Backup cards */
+  --color-card: var(--color-third);
+
+}

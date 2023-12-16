@@ -1,35 +1,32 @@
 'use strict'
 
 // Import parts of electron to use
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, remote, globalShortcut } = require('electron')
 const path = require('path')
 const url = require('url')
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
-let myappwidth = 1000;
-let myappheight = 600;
-let appTitle = "My Backup 5";
+let loadWindow
+//ggf neue maße: 960 x 640
+let myappwidth = 960;
+let myappheight = 640
+let appTitle = "My Backup";
+//Props for Loading-Window
+let loadingwindowwidth = 360;
+let loadingwindowheight = 160
 
 // Keep a reference for dev mode
 let dev = false
-
-// Broken:
-// if (process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath)) {
-//   dev = true
-// }
 
 if (process.env.NODE_ENV !== undefined && process.env.NODE_ENV === 'development') {
   dev = true
 }
 
-// Temporary fix broken high-dpi scale factor on Windows (125% scaling)
-// info: https://github.com/electron/electron/issues/9691
 if (process.platform === 'win32') {
   app.commandLine.appendSwitch('high-dpi-support', 'true')
   app.commandLine.appendSwitch('force-device-scale-factor', '1')
 }
+//fix performance lags via disable hardware accleration
+app.disableHardwareAcceleration();
 
 //window operations (min/close)
 const {ipcMain} = require('electron')
@@ -37,12 +34,35 @@ ipcMain.on('close-me', (evt, arg) => {
   app.quit()
 })
 
-const { remote } = require("electron")
 ipcMain.on('minimize', () => {
   mainWindow.minimize();
 })
 
 function createWindow() {
+
+  loadWindow = new BrowserWindow({
+    show: false,
+    width: loadingwindowwidth,
+    height: loadingwindowheight,
+    type: 'toolbar',
+    frame: false,
+    resizable: false,
+    minimizable: false,
+    maximizable: false,
+    skipTaskbar: false,
+    transparent: false,
+    alwaysOnTop: true,
+    useContentSize: true,
+    nodeIntegrationInSubFrames: true,
+    title: "Loading",
+    icon: path.join(__dirname, 'public/appIcons/win/Icon_MyBackup5-Win.ico'),
+    webPreferences: {
+      zoomFactor: 1.0,
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -50,32 +70,19 @@ function createWindow() {
     height: myappheight ,
     show: false,
     autoHideMenuBar: true,
-    icon: path.join(__dirname, 'public/appIcons/win/icon_mybackup5.ico'),
+    icon: path.join(__dirname, 'public/appIcons/win/Icon_MyBackup5-Win.ico'),
     frame: false,
     title: appTitle,
     webPreferences: {
       zoomFactor: 1.0,
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      // webPreferences: {
+        // preload: path.join(__dirname, 'src/preload.js')
+      // }
+      // enableRemoteModule: true
     }
   })
-
-//script to scale app window on different screens
-  // mainWindow.on("move", () => {
-  //
-  // const electron = require('electron');
-  // var screenElectron = electron.screen;
-  // var mainScreen = screenElectron.getPrimaryDisplay();
-  // var allScreens = screenElectron.getAllDisplays();
-  // var dimensions = mainScreen.size;
-  //
-  // let scalefactorx = dimensions.width / 1920;
-  // let scalefactory = dimensions.height / 1080;
-  //
-  //
-  // mainWindow.setSize(1000*scalefactorx, 600*scalefactory);
-  //
-  // })
 
   mainWindow.setResizable(false);
   // and load the index.html of the app.
@@ -96,35 +103,62 @@ function createWindow() {
     })
   }
 
-  mainWindow.loadURL(indexPath)
 
-  // Don't show until we are ready and loaded
-  mainWindow.once('ready-to-show', () => {
-    mainWindow.show()
 
-    // Open the DevTools automatically if developing
-    if (dev) {
-      const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+  loadWindow.loadURL(indexPath+'#/load')
 
-      installExtension(REACT_DEVELOPER_TOOLS)
-        .catch(err => console.log('Error loading React DevTools: ', err))
-      mainWindow.webContents.openDevTools()
-    }
+  loadWindow.once('ready-to-show', () => {
+    loadWindow.show()
+    //Loading Window Dev Tools
+    // if (dev) {
+      // const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+      // installExtension(REACT_DEVELOPER_TOOLS)
+        // .catch(err => console.log('Error loading React DevTools: ', err))
+        // loadWindow.webContents.openDevTools()
+    // }
+  })
+
+  ipcMain.on('close-loading', (evt, arg) => {
+    app.quit()
+  })
+
+  //If AppLoad sends "apppreload-ok", then load app. Hide Loadingsscreen,when main App is loaded
+  ipcMain.on('apppreload-ok', (evt, arg) => {
+    mainWindow.loadURL(indexPath)
+    // Don't show until we are ready and loaded
+    mainWindow.once('ready-to-show', () => {
+
+      mainWindow.show()
+      loadWindow.close()
+      // Open the DevTools automatically if developing
+      if (dev) {
+        const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+        installExtension(REACT_DEVELOPER_TOOLS)
+          .catch(err => console.log('Error loading React DevTools: ', err))
+        mainWindow.webContents.openDevTools()
+      }
+    })
   })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+// ⛔⛔ TO DISABLE: Comment this part out and remove enableRemoteModule from BROWSERWINDOW! ⛔⛔
+// app.whenReady().then(() => {
+  // const { BrowserWindow } = require('electron')
+  // globalShortcut.register('CommandOrControl+Shift+K', () => {
+    // BrowserWindow.getFocusedWindow().webContents.openDevTools()
+  // })
+//
+  // window.addEventListener('beforeunload', () => {
+    // globalShortcut.unregisterAll()
+  // })
+// })
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

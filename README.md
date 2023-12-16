@@ -1,63 +1,24 @@
-# My Backup 5
+# My Backup
 #### backup Software By Empty Soul
 #### Windows / Mac
 
-<<<<<<< HEAD
 ## HERE SOME INFORMATIONS ABOUT THE SOFTWARE
-=======
-## SOME INFOS
-some informations
->>>>>>> dev
-
-
-_____ 
-### Installed packages
-#### SVG url loader (only needed for new projects)
-install: npm i svg-url-loader --save-dev
-config webpack js:
-
-Copy / paste *code below this rules:
- module.exports = {
-  module: {
-    rules: [
-
-*code:
-```js
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              encoding: 'base64'
-            },
-          },
-        ],
-      },
-```
------------------------
-make shure do delete all other svg importer in the webpack builds!
 
 ## Development Informations
 install = npm i
 run = npm run start (electron-run alias)
 Used Node Version: 16.13.0
-<<<<<<< HEAD
-=======
 Installed Java: 11.0.16
->>>>>>> dev
 ### Change window title
 ----------------------
 Enter Window name in the builded index.html project. (resources\app\dist\index.html)
 _________
 ### RELEASE
-- Change App-Titile in dist/index.html.
-- run build via commands
+- Change App-Titile in dist/index.html. (Eaven if Title is automatically changed by HTMLTitle.jsx)
+- ⚠️ Check if dev-tools are disabled/commented out (see main.js)
+- ⚠️ Change "path.resolve" to "path.join in app.js (else app does not start up -> informations in App.js)
+- Check window title in main.js
+- Run build via commands
 
 ### Build Commands
  npm run package (wihtout security)

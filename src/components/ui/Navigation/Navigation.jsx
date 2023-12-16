@@ -11,10 +11,33 @@ function Navigation({blur, s_selectedNavItem, setnavItemSelectedId, navItemSelec
   const [ navItemDefaultSelected, setnavItemDefaultSelected ] = useState();
   const eLang = getLang();
 
+  const animWaitTimer = setTimeout(function(){setNavigationAnimationTimer(true)}, 1500)
+
+  const [navigationAnimationTimer, setNavigationAnimationTimer] = useState(false)
+  // const mouseLeaveCheck = e => {
+    // setTimeout(animWaitTimer)
+  // }
+//
+  // const mouseLeaveAnim = e => {
+    // if(navigationAnimationTimer === true){
+      // e.target.classList.add('nav-item_bar-backwardsAnimation')
+      // setTimeout(function(){
+        // e.target.classList.remove('nav-item_bar-backwardsAnimation');
+        // setNavigationAnimationTimer(false)
+      // }, 310)
+    //  }else{
+      // clearTimeout(animWaitTimer)
+      // animWaitTimer.clearTimeout()
+      // setNavigationAnimationTimer(false)
+      // e.target.classList.remove('nav-item_bar-backwardsAnimation')
+    //  }
+  // }
+  // onMouseLeave={mouseLeaveAnim} onMouseOver={mouseLeaveCheck}
+
   console.log("🧭 Current Storage s:Item: "+s_selectedNavItem)
 
   return (
-    <nav className="navigation" style={{backdropFilter: blur}}>
+    <nav className="navigation" style={{backdropFilter: blur}} >
 
         {/* <div className="nav-item_bar"></div> */}
           {/* <div className="Logo-container"> */}

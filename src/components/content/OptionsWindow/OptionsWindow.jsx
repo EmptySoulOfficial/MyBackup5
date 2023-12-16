@@ -13,7 +13,7 @@ function OptionsWindow({navItemSelectedId, showAppWindow}) {
     return (
 
     <div className={classNames('appmainwindow options-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })}>
-        <h1>{eLang.windowtitle_options}</h1>
+        <h1 className="h1-window">{eLang.windowtitle_options}</h1>
         <div className={classNames('appmainwindow-container options-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
         <div className="appmainwindow-content options-window_content">
 

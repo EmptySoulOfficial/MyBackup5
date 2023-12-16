@@ -1,3 +1,34 @@
+/* Container css, where u can wrap block inside */
+.multi-block-container {
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.multi-block-container .block-default {
+  width: 50%;
+}
+
+.multi-block-container--small-left {
+  justify-content: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+
+.multi-block-container--small-left .block-default {
+  width: 30%;
+}
+
+.multi-block-container--small-left .block-second {
+  width: 70%;
+}
+
+.multi-block-container--small-left .block-second--noTitle {
+  width: 70%;
+}
+
+
+/* Component css */
 .block-default {
   padding: 10px 0px;
 }
@@ -8,6 +39,8 @@
   padding: 20px;
   width: calc(100% - 40px);
   margin: 10px 0px;
+  white-space: break-spaces;
+  min-height: calc(100% - 72px);
 }
 
 .box-default-title {
@@ -19,3 +52,40 @@
   margin-block-start: 0;
   margin-block-end: 10px;
 }
+
+.box-info--small {
+  background-color: var(--color-third);
+  align-items: center;
+  color: var(--color-font-headlabel);
+}
+
+.box-info--small-content {
+  margin-left: 20px;
+}
+
+.box-info--small-info-container {
+  align-self: self-start;
+  height: fit-content;
+}
+
+.box-info--small-info-container .icon{
+  fill: var(--color-font-headlabel);
+}
+
+.box-second {
+  margin-top: 32px;
+}
+
+.block-second--noTitle .box-second{
+  margin-top: 10px;
+  height: -webkit-fill-available;
+}
+
+.block--smaller {
+  width: 30%;
+}
+
+.block--bigger {
+  width: 70%;
+}
+

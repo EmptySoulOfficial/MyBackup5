@@ -1,7 +1,13 @@
 @import '../../../assets/css/index.css';
 
+.backup-window_bottom_content {
+  display: flex;
+  justify-content: space-between;
+}
+
 .launch_button {
     justify-self: flex-end;
+    margin-right: 25px;
 }
 
 .launchbutton-container {
@@ -11,11 +17,41 @@
     justify-content: center;
 }
 
-.addNodeItem:hover .icon {
-    fill: var(--color-highlight);
+.functionButton-container {
+  padding-right: 5px;
 }
 
-.backupWindow-content {
+.button-addBackup:hover .icon {
+    fill: var(--color-buttonToolbar-addBackup-hover);
+}
+
+.button-selectAllBackups:hover .icon {
+  fill: var(--color-button-selectAllBackups-hover);
+}
+
+.button-selectAllBackups--active .icon{
+  fill: var(--color-highlight) !IMPORTANT;
+}
+
+
+.button-addToLayer:hover .icon {
+  fill: var(--color-button-addToLayer-hover);
+}
+
+.button-deleteBackup:hover .icon {
+  fill: var(--color-button-deleteBackup-hover);
+}
+
+.cards-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+
+.layerselect-container {
+  justify-self: flex-start;
+}
+
+.dropdown-layer {
+  z-index: 1000;
+}
+

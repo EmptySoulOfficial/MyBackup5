@@ -15,13 +15,14 @@
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
+  color: var(--color-font);
 }
 
 .dropdown-selected-Item:after {
   background-color: transparent;
   position: absolute;
   content: "";
-  top: 14px;
+  top: 16px;
   right: 10px;
   width: 0;
   height: 0;
@@ -37,7 +38,7 @@
 
 .dropdown-selected-Item.dropdown-selected-item-active:after {
   border-color: transparent transparent var(--color-highlight) transparent;
-  top: 7px;
+  top: 8px;
   /* transform: rotate(180deg) matrix(1, 0, 0, 1, 0, 6); */
 }
 
@@ -47,8 +48,10 @@
   border-bottom-right-radius: var(--border-radius-default);
   font-size: var(--fontsize-default);
   color: var(--color-font);
-  background-color: var(--color-third);
+  background-color: var(--color-second);
   top: 100%;
+  padding-top: 0;
+  margin-top: -10px;
   left: 0;
   right: 0;
   z-index: 99;
@@ -58,6 +61,7 @@
 }
 
 .dropdown-item-list-active {
+  padding-top: 10px;
   max-height: 280px;
   overflow-y: scroll;
 }
@@ -83,3 +87,51 @@
   color: var(--color-highlight);
 }
 
+
+.dropdown-negative .dropdown-item-list {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  bottom: 36px;
+  position: absolute;
+  top: unset;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  padding-top: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-bottom: -10px;
+  border-top-left-radius: var(--border-radius-default);
+  border-top-right-radius: var(--border-radius-default);
+}
+
+.dropdown-negative .dropdown-item-list-active  {
+  max-height: 280px;
+  overflow-y: scroll;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  bottom: 36px;
+  position: absolute;
+  padding-top: 0;
+  margin-top: 0;
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+}
+
+.dropdown-negative .dropdown-selected-item-active {
+  border-bottom-left-radius: var(--border-radius-default);
+  border-bottom-right-radius: var(--border-radius-default);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Dropdown Negative Arrow */
+
+/* .dropdown-negative .dropdown-selected-Item:after { */
+  /* transform:rotate(180deg); */
+  /* top: 8px; */
+/* } */
+/*  */
+/* .dropdown-negative .dropdown-selected-Item.dropdown-selected-item-active:after { */
+  /* border-color: transparent transparent var(--color-highlight) transparent; */
+  /* top: 16px; */
+/* } */

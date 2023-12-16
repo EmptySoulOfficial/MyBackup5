@@ -1,0 +1,36 @@
+.fileItem .functionButton {
+  margin-right: 0px;
+}
+
+.fileItem-container {
+  width: calc(100% - 40px);
+  padding: 20px 20px;
+  background-color: var(--color-third);
+  border-radius: var(--border-radius-default);
+  margin-bottom: 10px;
+}
+
+.fileItem-selects-container {
+  justify-content: space-between;
+  padding-right: 20px;
+  width: calc(100% - 20px);
+}
+
+.fileItem-icon-container {
+  width: 24px;
+  height: 24px;
+}
+
+.testItem {
+  width: 120px;
+}
+
+.fileItem-from-container {
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.fileItem-to-container {
+  justify-content: space-between;
+  gap: 10px;
+}

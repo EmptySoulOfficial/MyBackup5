@@ -10,7 +10,6 @@ const staticInclude = path.resolve(__dirname, 'public')
 module.exports = {
   module: {
     rules: [
-
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
