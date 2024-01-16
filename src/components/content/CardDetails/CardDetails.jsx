@@ -5,6 +5,7 @@ import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 import { getUserData_Backups } from '../../../core/ParseUserData.js'
+import IconSwitch from '../../ui/IconSwitch/IconSwitch.js'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                       contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
@@ -41,6 +42,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   }
 
   const [showIconSelection, setShowIconSelection] = useState(false)
+  const [cardItemIconCustom, setCardItemIconCustom] = useState(false)
 
   const loadedItem = cardDetailsData
 
@@ -52,20 +54,23 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   let cardFiles
 
   if(loadedItem){
-      cardItemId = loadedItem['id']
-      cardItemName = loadedItem['name']
-      cardItemDate = loadedItem['date']
-      cardItemIcon = loadedItem['icon']
-      cardItemSize = loadedItem['size']
-      cardFiles = loadedItem['files']
-    }else {
-      cardItemId = '000'
-      cardItemName = ''
-      cardItemDate = '/'
-      cardItemIcon = 'test'
-      cardItemSize = '(no data found)'
-      cardFiles = ''
-    }
+    cardItemId = loadedItem['id']
+    cardItemName = loadedItem['name']
+    cardItemDate = loadedItem['date']
+    cardItemIcon = loadedItem['icon']
+    cardItemSize = loadedItem['size']
+    cardFiles = loadedItem['files']
+
+    // cardItemIcon.includes('_icons') ? setCardItemIconCustom(true): setCardItemIconCustom(false)
+
+  }else {
+    cardItemId = '000'
+    cardItemName = ''
+    cardItemDate = '/'
+    cardItemIcon = 'test'
+    cardItemSize = '(no data found)'
+    cardFiles = ''
+  }
 
   let currentCardName = document.getElementById('currentCardName')
   let currentCardPathChilds = document.getElementById('filesContainer')
@@ -132,6 +137,31 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     setBackupIcon(prop)
   }
 
+  function checkCustomIcon({target: {files}}) {
+    const maxSize = 200000;
+    const [file] = files;
+    const backupCustomIconUploadPath = "./data/backups/_icons/"
+    const backupCustomIconTempName = "_tempIcon"
+    let backupCustomIconFileExtension = '.'+file.path.split('.')[1]
+
+    if (file.size >= maxSize){
+      console.log('Uploaded custom icon size is too big')
+    }else {
+      console.log('Uploaded custom icon size is ok')
+      setShowIconSelection(false)
+      console.log('copy file to: '+backupCustomIconUploadPath+backupCustomIconTempName+backupCustomIconFileExtension)
+
+      const fs = require('fs');
+      let backupCurrentCustomTempIcon = backupCustomIconUploadPath+backupCustomIconTempName+backupCustomIconFileExtension;
+      fs.copyFile(file.path, backupCurrentCustomTempIcon, (err) => {
+        if (err) throw err;
+        console.log('custom icon was copied to destination');
+        setBackupIcon(backupCurrentCustomTempIcon)
+      });
+        console.log('unable to copy image')
+      }
+  }
+
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
       <div className="cardDetails-headline-row">
@@ -143,9 +173,13 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
             {showIconSelection? <div className="close-changeIcon flex" onClick={() =>{setShowIconSelection(false)}}>
                                   <Icon name={'error'} color="var(--color-low)" size={12} />
                                 </div>:
-            ''}
+            null}
             <div className={classNames({'cardDetails-icon-container--active':showIconSelection, '':!showIconSelection},'cardDetails-icon-container icon-light flex')}>
-              {showIconSelection? '': <div className="cardDetails-selected-icon flex" onClick={() =>{setShowIconSelection(true)}}><Icon name={cardItemIcon} color="var(--color-low)" size={80} /></div> }
+              {
+                showIconSelection? '':<div className="cardDetails-selected-icon flex" onClick={() =>{setShowIconSelection(true)}}>
+                                        {/* <IconSwitch iconPathOrName={cardItemIcon}/> */}
+                                      </div>
+              }
               <div className={classNames({'':showIconSelection, 'dNone': !showIconSelection}, 'icon-select-container')}>
                 <div className="icon-select-box">
                   <div className="icon-select-icon flex" onClick={() =>{selectIcon('folder')}}>
@@ -163,7 +197,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
                 </div>
                 <div className="icon-select-custom-container">
                 <label className="button-submit--small select_custom_icon flex">
-                  <input type="file" id="select_custom_icon"  multiple={false}/>
+                  <input type="file" id="select_custom_icon"  multiple={false} accept="image/png, image/jpeg,.svg" onChange={checkCustomIcon}/>
                     Custom Icon
                   </label>
                 </div>
