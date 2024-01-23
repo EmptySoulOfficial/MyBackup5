@@ -31,3 +31,8 @@ Version 0.5:
    - datei encription mit user "login/key" funktioniert oder ist zumindest vorbereitet
    - alle fenster laufen zuverlässig und die app ist public-ready
 
+
+   _______
+   kill ports:
+   npx kill-port <PORTNUMBER>
+

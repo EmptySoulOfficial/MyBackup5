@@ -109,7 +109,9 @@
 }
 
 .dialogbox-text-container {
-  align-items: center;
+  align-items: flex-start;
+  overflow-y: scroll;
+  word-wrap: break-word;
 }
 
 .dialogbox-button-container{
