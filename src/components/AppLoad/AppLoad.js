@@ -59,6 +59,14 @@ function AppLoad() {
           }, 5000)
       }else{
         setCurrentLoadText("loading...")
+        // check app root premissions (mac mostly)
+        fs.access('./', fs.constants.R_OK | fs.constants.W_OK, (err) => {
+          if (err) {
+            setCurrentLoadText("Error: no R/W permission.", err);
+            alert("Error: no R/W permission. "+ err)
+            checkUserConfig()
+          }
+        })
 
         if(!fs.existsSync(userDataFolderPath)){
           setCurrentLoadText("creating data paths...")
