@@ -5,6 +5,20 @@
   "description": "Small powerfull tool to backup your computer data.",
   "license": "",
   "private": false,
+  "mac": {
+    "icon": "./public/appIcons/mac/electron.icns",
+    "category": "public.app-category.utilities"
+  },
+  "files": [
+    "./build/**/*",
+    "./dist/**/*",
+    "./node_modules/**/*",
+    "./public/**/*",
+    "*.js"
+  ],
+  "directories": {
+    "buildResources": "public"
+  },
   "repository": {
     "type": "git",
     "url": ""
