@@ -1,0 +1,219 @@
+.CardDetails {
+  position: absolute;
+  width: calc(100% - 60px);
+  height: calc(100% - 42px);
+  z-index: 90;
+  background-color: var(--color-second);
+  border-radius: var(--border-radius-default);
+  opacity: 1;
+  transition: var(--transition-default);
+  animation: var(--animation-default);
+  overflow: hidden;
+}
+
+.CardDetails--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.cardDetails-headline-row {
+  width: 100%;
+  padding: 10px 0px;
+  height: 20px;
+  text-align: center;
+  background-color: var(--color-third);
+}
+
+.cardDetails-main-row {
+  display: flex;
+  height: calc(100% - 160px);
+}
+
+.cardDetails-info-column {
+  max-width: 166px;
+}
+
+.cardDetails-infos {
+  padding: 20px 20px;
+}
+
+.cardDetails-icon-container {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius-default);
+  background-color: var(--color-none);
+  outline: 1px solid var(--color-none);
+  transition: var(--transition-default);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cardDetails-icon-container:hover {
+  outline-color: var(--color-highlight);
+}
+
+.cardDetails-icon-container--active {
+  outline-color: var(--color-highlight);
+}
+
+.cardDetails-name {
+  margin-top: 2px;
+  width: 116px;
+  height: fit-content;
+  max-height: 60px;
+  background-color: var(--color-none);
+  text-align:center;
+  font-size: var(--fontsize-h3);
+  overflow-y:scroll;
+  outline: 1px dashed var(--color-none);
+  transition: var(--transition-default);
+}
+
+.cardDetails-name:hover {
+  outline: 1px dashed var(--color-highlight);
+}
+
+.cardDetails-name:focus {
+  outline: 1px dashed var(--color-font);
+}
+
+.cardDetails-info-column-devider {
+  width: 2px;
+  height: calc(100% - 40px);
+  margin-top: 20px;
+  background-color: var(--color-font-subtext);
+}
+
+.cardDetails-files-column {
+  padding: 20px 20px;
+  width: calc(100% - 40px);
+}
+
+.cardDetails-bottom-row {
+  padding: 20px;
+}
+
+.cardDetails-bottomBox {
+  padding: 0;
+}
+
+.cardDetails-bottomBox .box-default {
+  margin: 0;
+}
+
+.cardDetails-bottom-row-button-container {
+  min-width: 250px;
+}
+
+.cardDetails-BackupInfoText {
+  overflow: hidden;
+}
+
+.cardDetails-files-container {
+  padding-top: 10px;
+  max-height: 160px;
+  overflow-y: scroll;
+}
+
+.cardDetails-files-container .block-default {
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+.cardDetails-files-container .box-default {
+  margin: 0;
+}
+
+.cardDetails-addBackupItem {
+  width: 100%;
+  padding: 10px;
+  border: 2px dashed var(--color-font);
+  transition: var(--transition-default);
+  margin-top: 20px;
+}
+
+.cardDetails-addBackupItem .icon {
+  fill: var(--color-font);
+}
+
+.cardDetails-addBackupItem:hover {
+  border: 2px dashed var(--color-highlight);
+}
+
+.cardDetails-addBackupItem:hover .icon {
+  fill: var(--color-highlight);
+}
+
+.infoBlock--small {
+  background-color: var(--color-third);
+  border-radius: var(--border-radius-default);
+  padding: 20px;
+  width: calc(100% - 40px);
+  margin: 10px 0px;
+  background-color: var(--color-font-headlabel);
+}
+
+.icon-select-container {
+  width: 100%;
+  height: 100%;
+}
+.icon-select-box {
+  display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.icon-select-icon {
+  height: 40px;
+  outline: 2px solid var(--color-transparent);
+  transition: var(--transition-default);
+}
+
+.icon-select-icon:hover{
+  height: 40px;
+  background-color: var(--color-highlight);
+}
+
+.icon-select-icon:hover .icon{
+  fill: var(--color-font);
+}
+
+.icon-select-custom-container {
+  height: 30px;
+}
+
+.select_custom_icon {
+  height: 100%;
+  border-radius: 0;
+}
+
+.close-changeIcon {
+  position: absolute;
+    margin-left: 102px;
+    margin-top: -20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: var(--color-third);
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.close-changeIcon .icon{
+  fill: var(--color-close);
+}
+
+.close-changeIcon:hover {
+    background-color: var(--color-close);
+}
+
+.close-changeIcon:hover .icon{
+  fill: var(--color-third);
+}
+
+.cardDetails-selected-icon {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}

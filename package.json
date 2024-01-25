@@ -1,10 +1,24 @@
 {
-  "name": "mybackup5",
-  "version": "5.0.0",
-  "build": "06092023:1342",
-  "description": "My Backup Tool",
+  "name": "MyBackup",
+  "version": "0.3.05",
+  "build": "24012024:1123",
+  "description": "Small powerfull tool to backup your computer data.",
   "license": "",
   "private": false,
+  "mac": {
+    "icon": "./public/appIcons/mac/electron.icns",
+    "category": "public.app-category.utilities"
+  },
+  "files": [
+    "./build/**/*",
+    "./dist/**/*",
+    "./node_modules/**/*",
+    "./public/**/*",
+    "*.js"
+  ],
+  "directories": {
+    "buildResources": "public"
+  },
   "repository": {
     "type": "git",
     "url": ""
@@ -45,6 +59,7 @@
     "react": "^17.0.2",
     "react-cursor-position": "^3.0.3",
     "react-dom": "^17.0.2",
+    "react-draggable": "^4.4.6",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1"
   },

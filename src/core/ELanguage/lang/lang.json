@@ -22,7 +22,8 @@
 
     "block_label_appdata": "App Daten",
     "block_label_applanguage": "Sprache",
-    "block_label_apptheme": "Farbthema"
+    "block_label_apptheme": "Farbthema",
+    "block_label_display": "Darstellung"
 
  },
  "en":{
@@ -39,7 +40,7 @@
     "windowtitle_options": "Options",
     "windowtitle_config": "Configurations",
 
-    "button_launch": "Launch",
+    "button_launch": "Run",
 
     "quickinfo_backupswitch_title": "Backup switch",
     "quickinfo_backupswitch_text": "Turn backup for this item on/off.",
@@ -49,7 +50,8 @@
 
     "block_label_appdata": "App Data",
     "block_label_applanguage": "Language",
-    "block_label_apptheme": "Theme"
+    "block_label_apptheme": "Theme",
+    "block_label_display": "Display"
   }
 
 }

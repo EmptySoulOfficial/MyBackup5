@@ -4,7 +4,7 @@
   overflow: hidden;
   height: 200px;
   width: 164px;
-  background-color: var(--color-second);
+  background-color: var(--color-card);
   transition: var(--transition-default);
   outline: 1px solid #00000000;
 }
@@ -15,8 +15,19 @@
   outline: 1px solid var(--color-highlight);
 }
 
-.Item-Card .Item-Card-Icon-container .icon{
-  fill: var(--color-icon-light);
+.Item-Card--active {
+  box-shadow: 0px 0px 16px #00000099;
+  transform: scale(1.01);
+  outline: 1px solid var(--color-highlight);
+}
+
+.Item-Card--active .Item-Card-Icon-container .icon{
+  fill: var(--color-font);
+}
+
+
+.Item-Card-MainContainer {
+  height: inherit;
 }
 
 .Item-Card:hover .Item-Card-Icon-container .icon{
@@ -29,6 +40,10 @@
   padding: 6px;
 }
 
+.Item-Card-dragable-container {
+  cursor: move;
+}
+
 .Item-Card-dragable-container .icon {
   fill: var(--color-icon-light);
 }
@@ -37,6 +52,7 @@
 .Item-Card-Icon-container {
   width: 100%;
   padding: 10px 0px;
+  cursor: pointer;
 }
 
 .Item-Card-Title-container {
@@ -56,3 +72,6 @@ h3 {
   width: 100%;
   padding-top: 4px;
 }
+
+
+

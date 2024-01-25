@@ -1,0 +1,34 @@
+{
+  "id": "new-item",
+  "name": "",
+  "date": "New",
+  "icon": "folder",
+  "files":
+    [
+      {
+        "id": 0, "type": "file",
+          "from":
+            [
+              {"file_id": 1, "file_path": "C:/MyData/test.txt"},
+              {"file_id": 2, "file_path": "C:/MyData/test2.txt"}
+            ],
+          "to":
+            [
+              {"file_id": 1, "dest_path": "E:/"},
+              {"file_id": 2, "dest_path": "G:/"}
+            ]
+          },
+      {
+        "id": 1, "type": "folder",
+          "from":
+            [
+
+            ],
+          "to":
+            [
+
+            ]
+      }
+    ],
+  "size": "--"
+}

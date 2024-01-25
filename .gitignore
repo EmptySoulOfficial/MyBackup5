@@ -1,6 +1,8 @@
 # Build folder and files #
 ##########################
 builds/
+release-builds/
+data/backups/_icons/
 
 # Development folders and files #
 #################################

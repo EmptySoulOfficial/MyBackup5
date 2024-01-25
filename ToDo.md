@@ -1,24 +1,40 @@
-Jedes Backup Item kann benannt werden und beinhaltet alle Ordner, die gespeichert werden sollen.
-Die Ordner werden beim Hinzufügen eines BackupItems als Tree-Ansicht dargestellt und können per Kontroll Kästchen angewehlt werden.
-So spaart man rum geklicke, und das einzelne Hinzufügen von Ordner
-warn symbol bei nodes, wenn speicher voll ist oder das ztiel nicht gefunden werden kann
-möglichkeit ganzen pc als backup zu wählen
+Version 0.3:
+  - Editable Backup Nodes (erstellen löschen, icons setzen) 
+  - Backup Nodes (mit icons) werden in json gespeichert x
+  - Fehlermeldungen bei datei problemen x
+  - Datei wird neu erstellt falls nicht vorhanden x
+  - Toolbar verlagern x
 
--Version immer in der package ändern
+
+Version 0.4:
+  - Backup Nodes sind via select All auswählbar x
+  - select all icon zeigt sich nur, wenn minimum 2 items im fenster befinden
+  - Detailansicht bei Backup Item on click
+  - Icons setup für Box Title
+  - Backup/ Speicherpfad erstellbar
+  - Backup custom icon speicherbar
+  - Startup lade Display x
 
 
-ToDo:
+Version 0.5:
+  - Backup Layer?
+  - Restore Window lädt Backup Nodes
+  - Sprache kann manuell gesetzt werden
+  - User config wird geladen
+  - optionen fenster hat einstellungen
+  - First start vorbereitung/ user guide template
 
--text in backup items
--text so anpassen, dass noch icons dahinter passen
--dragable
--scss
--css variablen einheitlich bennenen (name-zustand z.B: color-default)
--on hover -> pointer bei schaltflächen
--select from / to schöner designen, dass user es mehr erkennen und pfad text nur klein drunter
-- mehrere ziele in einer node wählbar / ziele mit plus in backup node unter ziel wählen hinzufügen
-- cloud systeme bei ziel möglich
-- bei details vllt speicher belegung anzeigen
-- nodes als items hinzufügbar machen
-- node item edit modus mit enter oder ähnlichem beenden/speichern
-- navigations items neu mappen und funktionalität und local storage funktion machen
+--- create working mac app build script
+--- app "data" folder has to work on mac or has to be created in another directory
+
+
+  Version 0.9:
+   - kann datien backupen (kopieren oder ggf schon verpacken)
+   - datei encription mit user "login/key" funktioniert oder ist zumindest vorbereitet
+   - alle fenster laufen zuverlässig und die app ist public-ready
+
+
+   _______
+   kill ports:
+   npx kill-port <PORTNUMBER>
+
