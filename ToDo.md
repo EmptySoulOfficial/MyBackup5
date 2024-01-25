@@ -21,3 +21,5 @@ Version 0.5:
   - User config wird geladen
   - First start vorbereitung/ user guide template
 
+--- create working mac app build script
+--- app "data" folder has to work on mac or has to be created in another directory
