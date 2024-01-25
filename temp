@@ -1,4 +1,19 @@
-import React, { useEffect, useState } from "react"
+      if(showCustomIcon === true){
+        // Temp image umbenennen und als wert für neuen State setzen
+        // fs.rename('./data/backups/_icons/_tempIcon.svg' ,'./data/backups/_icons/new.svg')
+
+        fs.rename("./data/backups/_icons/_tempIcon.svg", './data/backups/_icons/' + newBackUpId + '.svg', err => {
+          if (err) console.log("❌ Backup-Custom-Icon: unable to rename!", err);
+          });
+        // check if temp icon exist -> delete and set selected icon
+        newState.icon = getSelectedIcon
+      }else {
+        // wenn nicht, nimm einfach den icon name
+        newState.icon = getSelectedIcon
+      }
+
+
+      import React, { useEffect, useState } from "react"
 import classNames from "classnames"
 import './AppLoad.css'
 import Logo from "../ui/Logo/Logo.jsx"
@@ -20,7 +35,7 @@ function AppLoad() {
   let tryCount = 0
   // Data Folder Structure
   let userDataFolderPath = appEnvData.path_dataRoot
-  let userDataBackupsFolderPath = appEnvData.path_dataBackups
+  let userDataBackupsFolderPath = appEnvData.path_databackups
   let userDataBackupsIconsFolderPath = appEnvData.path_dataIcons
   //Data Files
   let userConfigPath = appEnvData.path_dataRoot+"/"+appEnvData.file_dataUserConfig
@@ -54,19 +69,10 @@ function AppLoad() {
           setDisableLoadingSpinner(true)
           setTimeout(function(){
             const {ipcRenderer} = require('electron');
-            ipcRenderer.send('close-me')
             ipcRenderer.send('close-loading')
           }, 5000)
       }else{
         setCurrentLoadText("loading...")
-        // check app root premissions (mac mostly)
-        fs.access('./', fs.constants.R_OK | fs.constants.W_OK, (err) => {
-          if (err) {
-            setCurrentLoadText("Error: no R/W permission.", err);
-            alert("Error: no R/W permission. "+ err)
-            checkUserConfig()
-          }
-        })
 
         if(!fs.existsSync(userDataFolderPath)){
           setCurrentLoadText("creating data paths...")
@@ -87,6 +93,7 @@ function AppLoad() {
 
         if(fs.existsSync(userConfigPathResolve)){
           const userConfig = fs.readFileSync(userConfigPathResolve, 'utf8')
+           setPreLoadState(true)
         }else {
           setCurrentLoadText("set up user data...")
           //Generate full File content
@@ -94,10 +101,7 @@ function AppLoad() {
           uConfFileContent[appFileId].push(uConfData)
           //Write File content
           fs.writeFile(userConfigPath, JSON.stringify(uConfFileContent), err => {
-            if (err) {
-              setCurrentLoadText("Error writing file:", err);
-              checkUserConfig()
-            }
+            if (err) setCurrentLoadText("Error writing file:", err);
           });
           setUserConfigPathState(null)
           setTimeout(function(){
@@ -114,10 +118,7 @@ function AppLoad() {
           setCurrentLoadText("set up user data...")
 
           fs.writeFile(userBackupsPath, JSON.stringify(uBackupsFile_Header), err => {
-            if (err) {
-              setCurrentLoadText("Error writing file:", err)
-              checkUserConfig()
-            };
+            if (err) setCurrentLoadText("Error writing file:", err);
           });
           setUserBackupsPathState(null)
           setTimeout(function(){
@@ -125,10 +126,6 @@ function AppLoad() {
           }, 100)
           setTimeout(function(){
             userBackupsPathState? checkUserBackups(): null
-          },500)
-          setTimeout(function(){
-            tryCount = 0
-            checkUserConfig()
           },500)
         }
         // clean up temps
@@ -149,11 +146,10 @@ function AppLoad() {
             });
           }, 100)
         }
-      }
-      if(tryCount < 3){
-        setPreLoadState(true)
+
       }
     }
+
   },[])
 
   if (preloadState) {

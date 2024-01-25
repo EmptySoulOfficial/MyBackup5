@@ -101,9 +101,10 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   let buttonLaunch_Label = eLang.button_launch
   let buttonLaunch_selecedLabel = "Auswahl Starten"
 
+
+
     return (
         <div className={classNames('appmainwindow backup-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
-
             {/* BackupWindow Main Body */}
             <div className="appmainwindow-titlesection">
               <h1 className="h1-window">{eLang.windowtitle_backup}</h1>

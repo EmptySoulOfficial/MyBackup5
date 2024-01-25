@@ -5,26 +5,26 @@ import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 import { getUserData_Backups } from '../../../core/ParseUserData.js'
+// import IconSwitch from '../../ui/IconSwitch/IconSwitch.js'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                       contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
                       currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon,
                       backups, setBackups, cardDetailsWinTitle}) {
 
+  const fs = require('fs');
+  // New Item Defaults
   let currentCardPlaceHolder = "Name"
   let userDataBackups = getUserData_Backups()
-
+  // custom image
+  const [TestSrc, setTestSrc] = useState('')
+  const [backupCustomImageFileExt, setBackupCustomImageFileExt] = useState('')
+  const [backupCustomImageFileName, setBackupCustomImageFileName] = useState('')
   // set context menu Items for add backup item
   let contextMObject_CardDetailsAddItem = [
     {contextMKey:'addfileselect', contextMName: 'Add File'},
     {contextMKey:'addfolderselect', contextMName: 'Add Folder'}
   ];
-
-    // set context menu Items for change backup icon
-    let contextMObject_CardDetailsChangeIcon = [
-      {contextMKey:'folder', contextMName: ''},
-      {contextMKey:'drive', contextMName: ''}
-    ];
 
   const handleContextClick = (p) => {
     setContextMPos(p);
@@ -41,6 +41,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   }
 
   const [showIconSelection, setShowIconSelection] = useState(false)
+  const [showCustomIcon, setShowCustomIcon] = useState(false)
 
   const loadedItem = cardDetailsData
 
@@ -52,53 +53,72 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   let cardFiles
 
   if(loadedItem){
-      cardItemId = loadedItem['id']
-      cardItemName = loadedItem['name']
-      cardItemDate = loadedItem['date']
-      cardItemIcon = loadedItem['icon']
-      cardItemSize = loadedItem['size']
-      cardFiles = loadedItem['files']
-    }else {
-      cardItemId = '000'
-      cardItemName = ''
-      cardItemDate = '/'
-      cardItemIcon = 'test'
-      cardItemSize = '(no data found)'
-      cardFiles = ''
-    }
+    cardItemId = loadedItem['id']
+    cardItemName = loadedItem['name']
+    cardItemDate = loadedItem['date']
+    cardItemIcon = loadedItem['icon']
+    cardItemSize = loadedItem['size']
+    cardFiles = loadedItem['files']
+
+  }else {
+    cardItemId = '000'
+    cardItemName = ''
+    cardItemDate = '/'
+    cardItemIcon = 'test'
+    cardItemSize = '(no data found)'
+    cardFiles = ''
+  }
+
+  // if(cardItemIcon.includes('_icons')){
+    // console.log('contains icons')
+    // customIcon = true
+  // }else{
+    // customIcon = false
+  // }
 
   let currentCardName = document.getElementById('currentCardName')
   let currentCardPathChilds = document.getElementById('filesContainer')
 
   function saveNewbackup() {
 
+    let newBackupName = document.getElementById('currentCardName').value
+    let newBackUpId = newBackupName.replace(/\s/g, '').toLowerCase()
+    let getSelectedIcon = cardItemIcon
+    const fs = require('fs')
+
+    if(showCustomIcon){
+      fs.rename("./data/backups/_icons/_tempIcon.svg", './data/backups/_icons/' + newBackUpId + '.svg', err => {
+        if (err) {
+          setShowDialog(true)
+          setDialogType("warning")
+          setDialogText("Unable to rename custom icon! [cd:001]  | '" + newBackupName +"'" )};
+      });
+      getSelectedIcon = newBackUpId+".svg"
+    }
+
     setCardDetailsData((prev) => {
-
-      let newBackupName = document.getElementById('currentCardName').value
-      let newBackUpId = newBackupName.replace(/\s/g, '').toLowerCase()
-
       let newState = prev
       newState.id = newBackUpId
       newState.name = newBackupName
+      newState.icon = getSelectedIcon
       newState.size = "NOT USEABLEN NOW"
       return { ...newState}
     })
-    console.log(cardDetailsData)
+
+    console.log('🟢 Triggered: '+newBackUpId)
     let newBackupsArr = backups
     newBackupsArr = [...newBackupsArr,cardDetailsData]
     console.log('----NEW PACKUP ARR----')
     console.log(newBackupsArr)
     let newBackupData = userDataBackups
     newBackupData['$MyBackup1'] = [...newBackupsArr]
-    const fs = require('fs')
-
     setBackups(newBackupData['$MyBackup1'])
 
-    // DATA ID Validation um dublicate names zu vermeiden!
-      fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
-        if (err) console.log("Error writing file:", err);
-      });
 
+    // DATA ID Validation um dublicate names zu vermeiden!
+    fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
+      if (err) console.log("Error writing file:", err);
+    });
   }
 
   function cardUserInputValidation() {
@@ -114,8 +134,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       setShowDialog(true)
       setDialogType("warning")
       setDialogText("Enter a valid name!")
-    }else
-    {
+    } else {
       validationCount ++
     }
     if (validationCount === 2) {
@@ -127,9 +146,57 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   }
 
   function selectIcon(prop) {
-
     setShowIconSelection(false)
     setBackupIcon(prop)
+    setShowCustomIcon(false)
+  }
+
+  function checkCustomIcon({target: {files}}) {
+    const maxSize = 200000;
+    const [file] = files;
+    const backupCustomIconUploadPath = "./data/backups/_icons/"
+    const backupCustomIconTempName = "_tempIcon"
+    let backupCustomIconFileExtension = '.'+file.path.split('.')[1]
+    // set backup custom image states for saving
+    // setBackupCustomImageFileExt(backupCustomIconFileExtension)
+    // setBackupCustomImageFileName(backupCustomIconFileExtension)
+
+    if (file.size >= maxSize){
+      console.log('Uploaded custom icon size is too big')
+    } else {
+      console.log('Uploaded custom icon size is ok')
+      setShowIconSelection(false)
+      console.log('copy file to: '+backupCustomIconUploadPath+backupCustomIconTempName+backupCustomIconFileExtension)
+
+      let backupCurrentCustomTempIcon = backupCustomIconUploadPath+backupCustomIconTempName+backupCustomIconFileExtension;
+      let remTempImagePng = backupCustomIconUploadPath+backupCustomIconTempName+".png"
+      let remTempImageSvg = backupCustomIconUploadPath+backupCustomIconTempName+".svg"
+      // clean up existing temp images in icons
+      fs.existsSync(remTempImagePng) ?
+        fs.unlink(remTempImagePng, (err) => {
+          if(err) throw err;
+          console.log("unable to delete "+remTempImagePng)
+        }) :
+          fs.existsSync(remTempImageSvg) ?
+            fs.unlink(remTempImageSvg, (err) => {
+              if(err) throw err;
+              console.log("unable to delete "+remTempImageSvg)
+            }) :
+              console.log('No Temp Image to clean up')
+      // copy selected backup image to icons as temp
+      fs.copyFile(file.path, backupCurrentCustomTempIcon, (err) => {
+        if (err) throw err;
+        console.log('custom icon was copied to destination');
+        setBackupIcon(backupCurrentCustomTempIcon)
+        setShowCustomIcon(true)
+        // const path = require('path')
+        // const resolvedBackuptempImage = path.resolve(backupCurrentCustomTempIcon)
+        // let loadedTempImage = require(resolvedBackuptempImage)
+        // Hier noch mit path resolve ect die richtige Image url setzen
+        setTestSrc(backupCurrentCustomTempIcon)
+      });
+        console.log('unable to copy image')
+      }
   }
 
   return (
@@ -140,12 +207,16 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       <div className="cardDetails-main-row">
         <div className="cardDetails-info-column flex">
           <div className="cardDetails-infos">
-            {showIconSelection? <div className="close-changeIcon flex" onClick={() =>{setShowIconSelection(false)}}>
+            {showIconSelection ? <div className="close-changeIcon flex" onClick={() =>{setShowIconSelection(false)}}>
                                   <Icon name={'error'} color="var(--color-low)" size={12} />
                                 </div>:
-            ''}
+            null}
             <div className={classNames({'cardDetails-icon-container--active':showIconSelection, '':!showIconSelection},'cardDetails-icon-container icon-light flex')}>
-              {showIconSelection? '': <div className="cardDetails-selected-icon flex" onClick={() =>{setShowIconSelection(true)}}><Icon name={cardItemIcon} color="var(--color-low)" size={80} /></div> }
+              {
+                showIconSelection ? null : <div className="cardDetails-selected-icon flex" onClick={() =>{setShowIconSelection(true)}}>
+                                            {showCustomIcon? <img src={TestSrc} /> : <Icon name={cardItemIcon} color="var(--color-low)" size={80} />}
+                                          </div>
+              }
               <div className={classNames({'':showIconSelection, 'dNone': !showIconSelection}, 'icon-select-container')}>
                 <div className="icon-select-box">
                   <div className="icon-select-icon flex" onClick={() =>{selectIcon('folder')}}>
@@ -163,7 +234,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
                 </div>
                 <div className="icon-select-custom-container">
                 <label className="button-submit--small select_custom_icon flex">
-                  <input type="file" id="select_custom_icon"  multiple={false}/>
+                  <input type="file" id="select_custom_icon"  multiple={false} accept="image/png, image/jpeg,.svg" onChange={checkCustomIcon}/>
                     Custom Icon
                   </label>
                 </div>
