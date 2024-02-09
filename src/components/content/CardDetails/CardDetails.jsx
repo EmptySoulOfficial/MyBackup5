@@ -1,5 +1,5 @@
 import './CardDetails.css'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import classNames from 'classnames'
 import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
@@ -9,8 +9,8 @@ import { getUserData_Backups } from '../../../core/ParseUserData.js'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                       contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
-                      currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon,
-                      backups, setBackups, cardDetailsWinTitle, setCheckedBackupCards, setToogleCheckAllbCards,toolbar_setShowDeleteIcon, setlaunchButtonStartSelected}) {
+                      currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon, setBackupName,
+                      backups, setBackups, cardDetailsEditMode, setCheckedBackupCards, setToggleCheckAllbCards,toolbar_setShowDeleteIcon, setlaunchButtonStartSelected}) {
 
   const fs = require('fs');
   // New Item Defaults
@@ -35,9 +35,9 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   const resetLoadedData = () => {
     //set timeout for data reset, so we can't see the content changing
     setTimeout(function(){setCardDetailsData(null), setBackupIcon(null)},300)
-    document.getElementById('currentCardName').value =  cardItemName
+    setBackupName(null)
+    // document.getElementById('currentCardName').value = null
     setShowIconSelection(false)
-
   }
 
   const [showIconSelection, setShowIconSelection] = useState(false)
@@ -120,7 +120,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     // update boolean array
     setCheckedBackupCards(newBackupData['$MyBackup1'].map(() => false))
     // reset toolbar buttons
-    setToogleCheckAllbCards(false)
+    setToggleCheckAllbCards(false)
     toolbar_setShowDeleteIcon(false)
     setlaunchButtonStartSelected(false)
   }
@@ -206,7 +206,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
       <div className="cardDetails-headline-row">
-        <h3>{cardDetailsWinTitle}</h3>
+        <h3>{cardDetailsEditMode? "Edit Backup" : "Create Backup"}</h3>
       </div>
       <div className="cardDetails-main-row">
         <div className="cardDetails-info-column flex">

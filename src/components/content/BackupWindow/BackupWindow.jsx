@@ -14,8 +14,8 @@ import Toolbar from '../../ui/Toolbar/Toolbar.jsx'
 
 function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, showAppWindow,
                         contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, previousValue, setPreviousValue,
-                        setDialogType, setDialogText, setShowDialog, cardDetailsData, setCardDetailsData,
-                        setCardDetailsWinTitle, cardDetailsWinTitle}) {
+                        setDialogType, setDialogText, setShowDialog, setDialogButtonTextWarnConfirm, setDialogButtonTextWarnConfirmAboard, cardDetailsData, setCardDetailsData,
+                        setCardDetailsEditMode, cardDetailsEditMode}) {
 
   const eLang = getLang();
   const backupsUserData = getUserData_BackupsArray()
@@ -30,7 +30,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   const addNewBackup = () => {
     setShowCardDetails(true)
     setCardDetailsData(Object.assign({}, defaultCardData))
-    setCardDetailsWinTitle('Create Backup')
+    setCardDetailsEditMode(false)
   }
 
   // click card item functions
@@ -39,26 +39,27 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
     console.log('cardName '+cardData.name)
     setShowCardDetails(true)
     setCardDetailsData(cardData)
-    setCardDetailsWinTitle('Edit Backup')
+    setCardDetailsEditMode(true)
   }
 
   const [backupIcon, setBackupIcon] = useState()
+  const [backupName, setBackupName] = useState()
   const [backups, setBackups] = useState(backupsUserData)
   //----------------- Toggle BackupCards -------------------//
   const [toolbar_showDeleteIcon, toolbar_setShowDeleteIcon] = useState(false);
-  const [toogleCheckAllbCards, setToogleCheckAllbCards] = useState(false)
+  const [toggleCheckAllbCards, setToggleCheckAllbCards] = useState(false)
   const [checkedBackupCards, setCheckedBackupCards] = useState(backups.map(() => false));
   const [launchButtonStartSelected, setlaunchButtonStartSelected] = useState(false)
   // Check all function for check-all button
   const toggleCheckAll = () => {
-    setToogleCheckAllbCards(!toogleCheckAllbCards);
-    // console.log(toogleCheckAllbCards)
-    let toggleBooleans = checkedBackupCards.map(() => !toogleCheckAllbCards);
+    setToggleCheckAllbCards(!toggleCheckAllbCards);
+    // console.log(toggleCheckAllbCards)
+    let toggleBooleans = checkedBackupCards.map(() => !toggleCheckAllbCards);
     setCheckedBackupCards(toggleBooleans)
     // console.log(checkedBackupCards)
     checkbackupCardsToggleBoleans(toggleBooleans)
   };
-  // toogle check function -> used when single card was selected via shift+click or check box
+  // toggle check function -> used when single card was selected via shift+click or check box
   const toggleCheck = (index) => {
     console.log('Item-Index: '+index)
     let toggleBooleans = checkedBackupCards.map((check, i) => (i === index ? !check : check));
@@ -66,7 +67,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
     checkbackupCardsToggleBoleans(toggleBooleans)
     //Use CheckArray Asset to check, if all booleans are true/ false -> turn select all knob on/off
     let checkArr = CheckArray()
-    checkArr(toggleBooleans) ? setToogleCheckAllbCards(true) : setToogleCheckAllbCards(false)
+    checkArr(toggleBooleans) ? setToggleCheckAllbCards(true) : setToggleCheckAllbCards(false)
   };
   //Check if card-items boolean array contains any true and make some effects
   function checkbackupCardsToggleBoleans(toggleBooleans){
@@ -82,8 +83,10 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   // Delete selected backups
   function deleteSelectedBackup() {
     setShowDialog(true)
-    setDialogType('warning')
-    setDialogText('Test Löschbestätigung')
+    setDialogType('warnconfirm')
+    setDialogText('Delete selected Items?')
+    setDialogButtonTextWarnConfirm('Delete')
+    setDialogButtonTextWarnConfirmAboard('Aboard')
   }
 
   useEffect(() => {
@@ -107,7 +110,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
               <h1 className="h1-window">{eLang.windowtitle_backup}</h1>
               <Toolbar showAppWindow={showAppWindow} showCardDetails={showCardDetails} launchButtonStartSelected={launchButtonStartSelected}
                       buttonLaunch_selecedLabel={buttonLaunch_selecedLabel} buttonLaunch_Label={buttonLaunch_Label} addNewBackup={addNewBackup}
-                      toogleCheckAllbCards={toogleCheckAllbCards} toggleCheckAll={toggleCheckAll} toolbar_showDeleteIcon={toolbar_showDeleteIcon}
+                      toggleCheckAllbCards={toggleCheckAllbCards} toggleCheckAll={toggleCheckAll} toolbar_showDeleteIcon={toolbar_showDeleteIcon}
                       deleteSelectedBackup={deleteSelectedBackup}
               />
             </div>
@@ -118,8 +121,8 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                               setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
                               previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}
                               setShowDialog={setShowDialog} setDialogText={setDialogText} setDialogType={setDialogType}
-                              backupIcon={backupIcon} setBackupIcon={setBackupIcon} backups={backups} setBackups={setBackups}
-                              cardDetailsWinTitle={cardDetailsWinTitle} setCheckedBackupCards={setCheckedBackupCards} setToogleCheckAllbCards={setToogleCheckAllbCards}
+                              backupIcon={backupIcon} setBackupIcon={setBackupIcon} setBackupName={setBackupName} backups={backups} setBackups={setBackups}
+                              cardDetailsEditMode={cardDetailsEditMode} setCheckedBackupCards={setCheckedBackupCards} setToggleCheckAllbCards={setToggleCheckAllbCards}
                               toolbar_setShowDeleteIcon={toolbar_setShowDeleteIcon} setlaunchButtonStartSelected={setlaunchButtonStartSelected}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {

@@ -58,10 +58,31 @@
 
 }
 
+@keyframes dialog-popup-anim {
+  0%{
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+
 .dialog-warning {
   animation-name: dialog-error-anim;
   animation-duration:var(--transition-slow);
   animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: var(--animation-default);
+  /* animation-delay: .5s; */
+  opacity: 0;
+}
+
+.dialog-warnconfirm {
+  animation-name: dialog-popup-anim;
+  animation-duration:var(--transition-default);
+
   animation-fill-mode: forwards;
   animation-timing-function: var(--animation-default);
   /* animation-delay: .5s; */
@@ -73,6 +94,10 @@
 }
 
 .dialog-warning .dialogbox-color-strip {
+  background-color: var(--lightyellow);
+}
+
+.dialog-warnconfirm .dialogbox-color-strip {
   background-color: var(--lightyellow);
 }
 
@@ -88,11 +113,29 @@
   background-color: var(--lightyellow);
 }
 
+.dialog-warnconfirm .button-submit:hover {
+  background-color: var(--lightyellow);
+}
+
+.dialog-warnconfirm .button-reset {
+  background-color: var(--color-none);
+  text-decoration: underline;
+}
+
+.dialog-warnconfirm .button-reset:hover {
+  background-color: var(--color-none);
+  color: var(--color-close);
+}
+
 .dialog-error .icon {
   fill: var(--smooth-red);
 }
 
 .dialog-warning .icon {
+  fill: var(--lightyellow);
+}
+
+.dialog-warnconfirm .icon {
   fill: var(--lightyellow);
 }
 
@@ -111,11 +154,16 @@
 }
 
 .dialogbox-text-container {
-  align-items: flex-start;
+  align-items: center;
   overflow-y: scroll;
   word-wrap: break-word;
 }
 
 .dialogbox-button-container{
   padding: 10px 0px;
+}
+
+.dialog-warnconfirm .dialogbox-button-container{
+  /* justify-content: space-between; */
+  /* padding: 10px 20px; */
 }
