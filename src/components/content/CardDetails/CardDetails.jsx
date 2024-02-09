@@ -10,7 +10,7 @@ import { getUserData_Backups } from '../../../core/ParseUserData.js'
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                       contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
                       currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon,
-                      backups, setBackups, cardDetailsWinTitle, setCheckedBackupCards}) {
+                      backups, setBackups, cardDetailsWinTitle, setCheckedBackupCards, setToogleCheckAllbCards,toolbar_setShowDeleteIcon, setlaunchButtonStartSelected}) {
 
   const fs = require('fs');
   // New Item Defaults
@@ -119,6 +119,10 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     });
     // update boolean array
     setCheckedBackupCards(newBackupData['$MyBackup1'].map(() => false))
+    // reset toolbar buttons
+    setToogleCheckAllbCards(false)
+    toolbar_setShowDeleteIcon(false)
+    setlaunchButtonStartSelected(false)
   }
 
   function cardUserInputValidation() {

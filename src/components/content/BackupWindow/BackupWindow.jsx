@@ -55,7 +55,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
     // console.log(toogleCheckAllbCards)
     let toggleBooleans = checkedBackupCards.map(() => !toogleCheckAllbCards);
     setCheckedBackupCards(toggleBooleans)
-    console.log(checkedBackupCards)
+    // console.log(checkedBackupCards)
     checkbackupCardsToggleBoleans(toggleBooleans)
   };
   // toogle check function -> used when single card was selected via shift+click or check box
@@ -100,8 +100,6 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   let buttonLaunch_Label = eLang.button_launch
   let buttonLaunch_selecedLabel = "Auswahl Starten"
 
-
-
     return (
         <div className={classNames('appmainwindow backup-window ', {'appmainwindow--active': showAppWindow , "" : !showAppWindow })} id="window-backup">
             {/* BackupWindow Main Body */}
@@ -121,8 +119,8 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                               previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}
                               setShowDialog={setShowDialog} setDialogText={setDialogText} setDialogType={setDialogType}
                               backupIcon={backupIcon} setBackupIcon={setBackupIcon} backups={backups} setBackups={setBackups}
-                              cardDetailsWinTitle={cardDetailsWinTitle} setCheckedBackupCards={setCheckedBackupCards}
-                              />
+                              cardDetailsWinTitle={cardDetailsWinTitle} setCheckedBackupCards={setCheckedBackupCards} setToogleCheckAllbCards={setToogleCheckAllbCards}
+                              toolbar_setShowDeleteIcon={toolbar_setShowDeleteIcon} setlaunchButtonStartSelected={setlaunchButtonStartSelected}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
                     backups.map((backupItems, i) => {
@@ -131,8 +129,6 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                                     check={checkedBackupCards[i]} toggleCheck={() => toggleCheck(i)} cardClick={() => cardClick(backupItems)}/>
                     })
                   }
-
-
                   </div>
               </div>
                 {/* <div className="appmainwindow-bottomcontent backup-window_bottom_content"> */}
