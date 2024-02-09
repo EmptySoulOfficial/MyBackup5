@@ -10,7 +10,7 @@ import { getUserData_Backups } from '../../../core/ParseUserData.js'
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                       contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
                       currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon,
-                      backups, setBackups, cardDetailsWinTitle}) {
+                      backups, setBackups, cardDetailsWinTitle, setCheckedBackupCards}) {
 
   const fs = require('fs');
   // New Item Defaults
@@ -113,12 +113,12 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     let newBackupData = userDataBackups
     newBackupData['$MyBackup1'] = [...newBackupsArr]
     setBackups(newBackupData['$MyBackup1'])
-
-
     // DATA ID Validation um dublicate names zu vermeiden!
     fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
       if (err) console.log("Error writing file:", err);
     });
+    // update boolean array
+    setCheckedBackupCards(newBackupData['$MyBackup1'].map(() => false))
   }
 
   function cardUserInputValidation() {

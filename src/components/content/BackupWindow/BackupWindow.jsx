@@ -44,7 +44,6 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
 
   const [backupIcon, setBackupIcon] = useState()
   const [backups, setBackups] = useState(backupsUserData)
-
   //----------------- Toggle BackupCards -------------------//
   const [toolbar_showDeleteIcon, toolbar_setShowDeleteIcon] = useState(false);
   const [toogleCheckAllbCards, setToogleCheckAllbCards] = useState(false)
@@ -56,7 +55,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
     // console.log(toogleCheckAllbCards)
     let toggleBooleans = checkedBackupCards.map(() => !toogleCheckAllbCards);
     setCheckedBackupCards(toggleBooleans)
-    // console.log(checkedBackupCards)
+    console.log(checkedBackupCards)
     checkbackupCardsToggleBoleans(toggleBooleans)
   };
   // toogle check function -> used when single card was selected via shift+click or check box
@@ -122,7 +121,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                               previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}
                               setShowDialog={setShowDialog} setDialogText={setDialogText} setDialogType={setDialogType}
                               backupIcon={backupIcon} setBackupIcon={setBackupIcon} backups={backups} setBackups={setBackups}
-                              cardDetailsWinTitle={cardDetailsWinTitle}
+                              cardDetailsWinTitle={cardDetailsWinTitle} setCheckedBackupCards={setCheckedBackupCards}
                               />
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
