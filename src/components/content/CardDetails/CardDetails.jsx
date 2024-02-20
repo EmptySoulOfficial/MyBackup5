@@ -20,6 +20,8 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   const [TestSrc, setTestSrc] = useState('')
   const [backupCustomImageFileExt, setBackupCustomImageFileExt] = useState('')
   const [backupCustomImageFileName, setBackupCustomImageFileName] = useState('')
+  // Edit backup Save Button
+  const [disableEditBackupSaveButton, setDisableEditBackupSaveButton] = useState(true)
   // set context menu Items for add backup item
   let contextMObject_CardDetailsAddItem = [
     {contextMKey:'addfileselect', contextMName: 'Add File'},
@@ -32,12 +34,32 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     setContextMObject(contextMObject_CardDetailsAddItem);
   }
 
+  // Set Save Button Disabled or Enabled when editmode
+  useEffect(() => {
+    if (cardDetailsEditMode) {
+      setDisableEditBackupSaveButton(true)
+    } else {
+      setDisableEditBackupSaveButton(false)
+    }
+  },[cardDetailsEditMode]
+  )
+
+  function handleEditBackupOnChange() {
+    if(cardDetailsEditMode){
+      alert('enable saving')
+      setDisableEditBackupSaveButton(false)
+    }
+  }
+
   const resetLoadedData = () => {
     //set timeout for data reset, so we can't see the content changing
     setTimeout(function(){setCardDetailsData(null), setBackupIcon(null)},300)
-    setBackupName(null)
-    // document.getElementById('currentCardName').value = null
+    // setBackupName(null)
+    document.getElementById('currentCardName').innerHTML = null
     setShowIconSelection(false)
+    if(cardDetailsEditMode){
+      setDisableEditBackupSaveButton(true)
+    }
   }
 
   const [showIconSelection, setShowIconSelection] = useState(false)
@@ -81,7 +103,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
 
   function saveNewbackup() {
 
-    let newBackupName = document.getElementById('currentCardName').value
+    let newBackupName = document.getElementById('currentCardName').innerHTML
     let newBackUpId = newBackupName.replace(/\s/g, '').toLowerCase()
     let getSelectedIcon = cardItemIcon
     const fs = require('fs')
@@ -134,7 +156,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     } else {
       validationCount ++
     }
-    if (currentCardName.value === '' ) {
+    if (currentCardName.innerHTML === '' ) {
       setShowDialog(true)
       setDialogType("warning")
       setDialogText("Enter a valid name!")
@@ -153,6 +175,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     setShowIconSelection(false)
     setBackupIcon(prop)
     setShowCustomIcon(false)
+    handleEditBackupOnChange()
   }
 
   function checkCustomIcon({target: {files}}) {
@@ -201,6 +224,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       });
         console.log('unable to copy image')
       }
+      handleEditBackupOnChange()
   }
 
   return (
@@ -244,14 +268,16 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
                 </div>
               </div>
             </div>
-            <textarea id="currentCardName" placeholder={currentCardPlaceHolder} className="cardDetails-name" defaultValue={cardItemName}>
-            </textarea>
+            <div id="currentCardName" placeholder={currentCardPlaceHolder} className="cardDetails-name"
+                contentEditable="true" data-placeholder="Enter Name" onInput={e => handleEditBackupOnChange()}>
+            {cardItemName}
+            </div>
           </div>
           <div className="cardDetails-info-column-devider"></div>
         </div>
       <div className="cardDetails-files-column">
         <p className="box-default-title padding-10">Files</p>
-          <div className="cardDetails-files-container" id="filesContainer">
+          <div className="cardDetails-files-container" id="filesContainer"  onCompositionUpdate={e => handleEditBackupOnChange()}>
           {
             cardFiles.length > 0 ? cardFiles.map((fileItem) => {
               return <FileItem fileItem={fileItem} key={fileItem.id}
@@ -271,7 +297,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
             </div>
             <div className="flex-space-between cardDetails-bottom-row-button-container">
               <button className="button-reset" onClick={() => {setShowCardDetails(false),resetLoadedData()}}>Aboard</button>
-              <button className="button-submit" onClick={()=>{cardUserInputValidation()}}>Save</button>
+              <button className="button-submit" onClick={()=>{cardUserInputValidation()}} disabled={disableEditBackupSaveButton? true: false}>Save</button>
             </div>
           </div>
         </BlockDefault>

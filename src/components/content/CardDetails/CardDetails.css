@@ -1,3 +1,8 @@
+[contentEditable=true]:empty:not(:focus):before{
+  content:attr(data-placeholder);
+  color: var(--color-font-subtext);
+}
+
 .CardDetails {
   position: absolute;
   width: calc(100% - 60px);
@@ -58,7 +63,10 @@
 
 .cardDetails-name {
   margin-top: 2px;
-  width: 116px;
+  border-radius: var(--border-radius-default);
+  width: 100%;
+  max-width: 120px;
+  padding: 10px 0px;
   height: fit-content;
   max-height: 60px;
   background-color: var(--color-none);
@@ -67,10 +75,13 @@
   overflow-y:scroll;
   outline: 1px dashed var(--color-none);
   transition: var(--transition-default);
+  overflow-x: hidden;
+  word-break: break-word;
 }
 
 .cardDetails-name:hover {
   outline: 1px dashed var(--color-highlight);
+  cursor: text;
 }
 
 .cardDetails-name:focus {
