@@ -5,6 +5,7 @@ import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 import { getUserData_Backups } from '../../../core/ParseUserData.js'
+import JsonContains from '../../../core/JsonContains.jsx'
 // import IconSwitch from '../../ui/IconSwitch/IconSwitch.js'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
@@ -127,25 +128,34 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       return { ...newState}
     })
 
+    // Save new Data
     console.log('🟢 Triggered: '+newBackUpId)
     let newBackupsArr = backups
-    newBackupsArr = [...newBackupsArr,cardDetailsData]
-    console.log('----NEW PACKUP ARR----')
-    console.log(newBackupsArr)
-    let newBackupData = userDataBackups
-    newBackupData['$MyBackup1'] = [...newBackupsArr]
-    setBackups(newBackupData['$MyBackup1'])
-    // DATA ID Validation um dublicate names zu vermeiden!
-    fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
-      if (err) console.log("Error writing file:", err);
-    });
-    // update boolean array
-    setCheckedBackupCards(newBackupData['$MyBackup1'].map(() => false))
-    // reset toolbar buttons
-    setToggleCheckAllbCards(false)
-    toolbar_setShowDeleteIcon(false)
-    setlaunchButtonStartSelected(false)
-  }
+    console.log(backups)
+
+    // Use JsonContains custom function to check if id exists
+    if(JsonContains(backups, "id", newBackUpId)){
+      setShowDialog(true)
+      setDialogType("warning")
+      setDialogText("File ID '" + newBackUpId +"' already exists!" )
+    } else {
+      newBackupsArr = [...newBackupsArr,cardDetailsData]
+      console.log('----NEW PACKUP ARR----')
+      console.log(newBackupsArr)
+      let newBackupData = userDataBackups
+      newBackupData['$MyBackup1'] = [...newBackupsArr]
+      setBackups(newBackupData['$MyBackup1'])
+      fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
+        if (err) console.log("Error writing file:", err);
+      });
+      // update boolean array
+      setCheckedBackupCards(newBackupData['$MyBackup1'].map(() => false))
+      // reset toolbar buttons
+      setToggleCheckAllbCards(false)
+      toolbar_setShowDeleteIcon(false)
+      setlaunchButtonStartSelected(false)
+      }
+    }
 
   function cardUserInputValidation() {
     let validationCount = 0
