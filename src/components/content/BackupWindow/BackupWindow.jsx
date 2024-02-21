@@ -122,7 +122,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
                               previousValue={previousValue} setPreviousValue={setPreviousValue} defaultCardData={defaultCardData} cardDetailsData={cardDetailsData}
                               setShowDialog={setShowDialog} setDialogText={setDialogText} setDialogType={setDialogType}
                               backupIcon={backupIcon} setBackupIcon={setBackupIcon} setBackupName={setBackupName} backups={backups} setBackups={setBackups}
-                              cardDetailsEditMode={cardDetailsEditMode} setCheckedBackupCards={setCheckedBackupCards} setToggleCheckAllbCards={setToggleCheckAllbCards}
+                              cardDetailsEditMode={cardDetailsEditMode} setCardDetailsEditMode={setCardDetailsEditMode} setCheckedBackupCards={setCheckedBackupCards} setToggleCheckAllbCards={setToggleCheckAllbCards}
                               toolbar_setShowDeleteIcon={toolbar_setShowDeleteIcon} setlaunchButtonStartSelected={setlaunchButtonStartSelected}/>
                   <div className={classNames('cards-container ', {"dNone": showCardDetails , "" : !showCardDetails })}>
                   {
