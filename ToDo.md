@@ -32,6 +32,7 @@ Version 0.5:
    - kann datien backupen (kopieren oder ggf schon verpacken)
    - datei encription mit user "login/key" funktioniert oder ist zumindest vorbereitet
    - alle fenster laufen zuverlässig und die app ist public-ready
+   - update funktion
 
 
    _______
