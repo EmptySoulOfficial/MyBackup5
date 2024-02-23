@@ -22,11 +22,14 @@ function App() {
 
   const [previousValue, setPreviousValue] = useState(null)
   const [showCardDetails, setShowCardDetails] = useState(false);
+  const [cardDetailsEditMode, setCardDetailsEditMode] = useState(false)
   const [showAppWindow, setShowAppWindow] = useState()
 
   const [showDialog, setShowDialog] = useState(false)
   const [dialogType, setDialogType] = useState('')
   const [dialogText, setDialogText] = useState('')
+  const [dialogButtonTextWarnConfirm, setDialogButtonTextWarnConfirm] = useState('')
+  const [dialogButtonTextWarnConfirmAboard, setDialogButtonTextWarnConfirmAboard] = useState('')
 
   useEffect(() => {
     HtmlTitle()
@@ -95,9 +98,8 @@ function App() {
     return langValue;
   };
 
-  //Backup Window
+  //Backup/Card Window
   const [cardDetailsData, setCardDetailsData] = useState()
-  const [cardDetailsWinTitle, setCardDetailsWinTitle] = useState('')
 
   const [langValue, setlangValue] = useState(InitialLangValue)
   //Context Menu Card Details
@@ -151,7 +153,7 @@ function App() {
 
   return (
     <main id="app">
-      {showDialog? <Dialog dialogType={dialogType} dialogText={dialogText} setShowDialog={setShowDialog}/>:''}
+      {showDialog? <Dialog dialogType={dialogType} dialogText={dialogText} setShowDialog={setShowDialog} dialogButtonTextWarnConfirm={dialogButtonTextWarnConfirm} dialogButtonTextWarnConfirmAboard={dialogButtonTextWarnConfirmAboard}/>:''}
       <ReactCursorPosition>
         <ClickOutside activateCO={contextMenuShow} setCOState={setContextMenuShow}>
           <ContextMenu contextMObject={contextMObject} contextMenuDisabled={false}
@@ -172,8 +174,9 @@ function App() {
                             setShowCardDetails={setShowCardDetails} contextMenuShow={contextMenuShow}
                             setContextMenuShow={setContextMenuShow} setContextMObject={setContextMObject} setContextMPos={setContextMPos}
                             previousValue={previousValue} setPreviousValue={setPreviousValue} setShowDialog={setShowDialog} setDialogType={setDialogType} setDialogText={setDialogText}
+                            setDialogButtonTextWarnConfirm={setDialogButtonTextWarnConfirm} setDialogButtonTextWarnConfirmAboard={setDialogButtonTextWarnConfirmAboard}
                             cardDetailsData={cardDetailsData} setCardDetailsData={setCardDetailsData}
-                            cardDetailsWinTitle={cardDetailsWinTitle} setCardDetailsWinTitle={setCardDetailsWinTitle}
+                            cardDetailsEditMode={cardDetailsEditMode} setCardDetailsEditMode={setCardDetailsEditMode}
                             />
 
               <HomeWindow showAppWindow={showAppWindow} navItemSelectedId={navItemSelectedId} />

@@ -1,16 +1,17 @@
 import './CardDetails.css'
-import React, {useState} from 'react'
+import React, {useState, useEffect, useMemo} from 'react'
 import classNames from 'classnames'
 import { BlockDefault, BlockInfoSmall } from '../../ui/Block/Block.jsx'
 import Icon from '../../ui/Icon/Icon.jsx'
 import FileItem from './lib/FileItem/FileItem.jsx'
 import { getUserData_Backups } from '../../../core/ParseUserData.js'
+import JsonContains from '../../../core/JsonContains.jsx'
 // import IconSwitch from '../../ui/IconSwitch/IconSwitch.js'
 
 function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, cardDetailsDataTemp, setCardDetailsData,
                       contextMenuShow, setContextMenuShow, setContextMObject, setContextMPos, defaultCardData,
-                      currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon,
-                      backups, setBackups, cardDetailsWinTitle}) {
+                      currentBackupItem, setShowDialog, setDialogText, setDialogType, backupIcon, setBackupIcon, setBackupName,
+                      backups, setBackups, cardDetailsEditMode, setCardDetailsEditMode, setCheckedBackupCards, setToggleCheckAllbCards,toolbar_setShowDeleteIcon, setlaunchButtonStartSelected}) {
 
   const fs = require('fs');
   // New Item Defaults
@@ -20,6 +21,8 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
   const [TestSrc, setTestSrc] = useState('')
   const [backupCustomImageFileExt, setBackupCustomImageFileExt] = useState('')
   const [backupCustomImageFileName, setBackupCustomImageFileName] = useState('')
+  // Edit backup Save Button
+  const [disableEditBackupSaveButton, setDisableEditBackupSaveButton] = useState(true)
   // set context menu Items for add backup item
   let contextMObject_CardDetailsAddItem = [
     {contextMKey:'addfileselect', contextMName: 'Add File'},
@@ -32,17 +35,50 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     setContextMObject(contextMObject_CardDetailsAddItem);
   }
 
+  // if any childs are added / removed in the file item container -> activate changes
+  // useMemo to prevent trigger observer multiple times, when doeing changes
+  const fileItemObserver = useMemo(
+    () => new MutationObserver(entries => {
+            handleEditBackupOnChange()
+            // console.log('👀 --> observes')
+          }), [showCardDetails]
+  )
+
+  // Set Save Button Disabled or Enabled when editmode
+  useEffect(() => {
+
+    if (cardDetailsEditMode) {
+      setDisableEditBackupSaveButton(true)
+      // start observer in edit mode and only when card windows is visible
+      if(showCardDetails){
+        fileItemObserver.observe(currentCardPathChilds, {childList: true})
+        // console.log('👀 Observer Called')
+      }
+    } else {
+      setDisableEditBackupSaveButton(false)
+    }
+  },[cardDetailsEditMode,showCardDetails])
+
+  function handleEditBackupOnChange() {
+    if(cardDetailsEditMode){
+      setDisableEditBackupSaveButton(false)
+    }
+  }
+
   const resetLoadedData = () => {
     //set timeout for data reset, so we can't see the content changing
     setTimeout(function(){setCardDetailsData(null), setBackupIcon(null)},300)
-    document.getElementById('currentCardName').value =  cardItemName
+    // setBackupName(null)
+    document.getElementById('currentCardName').innerHTML = null
     setShowIconSelection(false)
-
+    // reset edit mode and disconnect observer
+    setCardDetailsEditMode(false)
+    fileItemObserver.disconnect()
+    // console.log('❌👀 Observer Disconnected')
   }
 
   const [showIconSelection, setShowIconSelection] = useState(false)
   const [showCustomIcon, setShowCustomIcon] = useState(false)
-
   const loadedItem = cardDetailsData
 
   let cardItemId
@@ -69,20 +105,44 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
     cardFiles = ''
   }
 
-  // if(cardItemIcon.includes('_icons')){
-    // console.log('contains icons')
-    // customIcon = true
-  // }else{
-    // customIcon = false
-  // }
-
   let currentCardName = document.getElementById('currentCardName')
   let currentCardPathChilds = document.getElementById('filesContainer')
 
-  function saveNewbackup() {
-
-    let newBackupName = document.getElementById('currentCardName').value
+  // (Save) New Backup Item Validation
+  function cardUserInputValidation() {
+    let newBackupName = document.getElementById('currentCardName').innerHTML
     let newBackUpId = newBackupName.replace(/\s/g, '').toLowerCase()
+    let validationCount = 0
+
+    if (currentCardPathChilds.querySelectorAll(".fileItem").length === 0 ) {
+      setShowDialog(true)
+      setDialogType("warning")
+      setDialogText("Add at least one file/folder!")
+    } else {
+      validationCount ++
+    }
+    if (currentCardName.innerHTML === '' ) {
+      setShowDialog(true)
+      setDialogType("warning")
+      setDialogText("Enter a valid name!")
+    } else {
+      validationCount ++
+    }
+    if (validationCount === 2) {
+      // Use JsonContains custom function to check if given name/id already exists
+      if(JsonContains(backups, "id", newBackUpId)){
+        setShowDialog(true)
+        setDialogType("warning")
+        setDialogText("File ID '" + newBackUpId +"' already exists!" )
+      } else {
+        saveNewbackup({newBackupName,newBackUpId})
+      }
+    }
+  }
+
+  // Save New Backup Item
+  function saveNewbackup({newBackupName, newBackUpId}) {
+
     let getSelectedIcon = cardItemIcon
     const fs = require('fs')
 
@@ -105,50 +165,36 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       return { ...newState}
     })
 
+    // Save new Data
     console.log('🟢 Triggered: '+newBackUpId)
     let newBackupsArr = backups
+    console.log(backups)
+
     newBackupsArr = [...newBackupsArr,cardDetailsData]
     console.log('----NEW PACKUP ARR----')
     console.log(newBackupsArr)
     let newBackupData = userDataBackups
     newBackupData['$MyBackup1'] = [...newBackupsArr]
     setBackups(newBackupData['$MyBackup1'])
-
-
-    // DATA ID Validation um dublicate names zu vermeiden!
     fs.writeFile("./data/backups/backups.mb1", JSON.stringify(newBackupData), err => {
       if (err) console.log("Error writing file:", err);
     });
-  }
-
-  function cardUserInputValidation() {
-    let validationCount = 0
-    if (currentCardPathChilds.querySelectorAll(".fileItem").length === 0 ) {
-      setShowDialog(true)
-      setDialogType("warning")
-      setDialogText("Add at least one file/folder!")
-    } else {
-      validationCount ++
-    }
-    if (currentCardName.value === '' ) {
-      setShowDialog(true)
-      setDialogType("warning")
-      setDialogText("Enter a valid name!")
-    } else {
-      validationCount ++
-    }
-    if (validationCount === 2) {
-      saveNewbackup()
-      // Hide CardDetails and reset data for it
-      setShowCardDetails(false)
-      resetLoadedData()
-    }
+    // update boolean array
+    setCheckedBackupCards(newBackupData['$MyBackup1'].map(() => false))
+    // reset toolbar buttons
+    setToggleCheckAllbCards(false)
+    toolbar_setShowDeleteIcon(false)
+    setlaunchButtonStartSelected(false)
+    // Hide CardDetails and reset data for it
+    setShowCardDetails(false)
+    resetLoadedData()
   }
 
   function selectIcon(prop) {
     setShowIconSelection(false)
     setBackupIcon(prop)
     setShowCustomIcon(false)
+    handleEditBackupOnChange()
   }
 
   function checkCustomIcon({target: {files}}) {
@@ -197,12 +243,13 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
       });
         console.log('unable to copy image')
       }
+      handleEditBackupOnChange()
   }
 
   return (
     <div className={classNames({'': showCardDetails, 'CardDetails--hidden' : !showCardDetails }, 'CardDetails')}>
       <div className="cardDetails-headline-row">
-        <h3>{cardDetailsWinTitle}</h3>
+        <h3>{cardDetailsEditMode? "Edit Backup" : "Create Backup"}</h3>
       </div>
       <div className="cardDetails-main-row">
         <div className="cardDetails-info-column flex">
@@ -240,8 +287,12 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
                 </div>
               </div>
             </div>
-            <textarea id="currentCardName" placeholder={currentCardPlaceHolder} className="cardDetails-name" defaultValue={cardItemName}>
-            </textarea>
+            {/* suppressContentEditableWarning={true} ignores the content editable error from react */}
+            <div id="currentCardName" placeholder={currentCardPlaceHolder} className="cardDetails-name"
+                contentEditable="true" data-placeholder="Enter Name" onInput={e => handleEditBackupOnChange()}
+                suppressContentEditableWarning={true}>
+            {cardItemName}
+            </div>
           </div>
           <div className="cardDetails-info-column-devider"></div>
         </div>
@@ -267,7 +318,7 @@ function CardDetails ({showCardDetails, setShowCardDetails, cardDetailsData, car
             </div>
             <div className="flex-space-between cardDetails-bottom-row-button-container">
               <button className="button-reset" onClick={() => {setShowCardDetails(false),resetLoadedData()}}>Aboard</button>
-              <button className="button-submit" onClick={()=>{cardUserInputValidation()}}>Save</button>
+              <button className={classNames({'button-change-notification': !disableEditBackupSaveButton & cardDetailsEditMode},"button-submit")} onClick={()=>{cardUserInputValidation()}} disabled={disableEditBackupSaveButton? true: false}>Save</button>
             </div>
           </div>
         </BlockDefault>

@@ -16,6 +16,7 @@ Version 0.4:
   - Startup lade Display x
 
 
+- fix card window item text via use state
 Version 0.5:
   - Backup Layer?
   - Restore Window lädt Backup Nodes
