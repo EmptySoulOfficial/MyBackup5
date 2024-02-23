@@ -47,6 +47,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   const [backups, setBackups] = useState(backupsUserData)
   //----------------- Toggle BackupCards -------------------//
   const [toolbar_showDeleteIcon, toolbar_setShowDeleteIcon] = useState(false);
+  const [toolbar_showSelectAllIcon, toolbar_setShowSelectAllIcon] = useState(false);
   const [toggleCheckAllbCards, setToggleCheckAllbCards] = useState(false)
   const [checkedBackupCards, setCheckedBackupCards] = useState(backups.map(() => false));
   const [launchButtonStartSelected, setlaunchButtonStartSelected] = useState(false)
@@ -98,7 +99,11 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
         return { ...newState}
       }):''
 
-  }, [backupIcon]);
+      // Show Select-All Button only if 2 or more items exists
+      if(backups.length >= 2) {
+        toolbar_setShowSelectAllIcon(true)
+      }
+  }, [backupIcon, backups]);
 
   let buttonLaunch_Label = eLang.button_launch
   let buttonLaunch_selecedLabel = "Auswahl Starten"
@@ -111,7 +116,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
               <Toolbar showAppWindow={showAppWindow} showCardDetails={showCardDetails} launchButtonStartSelected={launchButtonStartSelected}
                       buttonLaunch_selecedLabel={buttonLaunch_selecedLabel} buttonLaunch_Label={buttonLaunch_Label} addNewBackup={addNewBackup}
                       toggleCheckAllbCards={toggleCheckAllbCards} toggleCheckAll={toggleCheckAll} toolbar_showDeleteIcon={toolbar_showDeleteIcon}
-                      deleteSelectedBackup={deleteSelectedBackup}
+                      deleteSelectedBackup={deleteSelectedBackup} toolbar_showSelectAllIcon={toolbar_showSelectAllIcon}
               />
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>
