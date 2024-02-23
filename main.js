@@ -1,11 +1,14 @@
 'use strict'
 
 // Import parts of electron to use
-const { app, BrowserWindow, remote, globalShortcut } = require('electron')
+const { app, BrowserWindow, Tray, remote, globalShortcut } = require('electron')
+const nativeImage = require('electron').nativeImage
 const path = require('path')
 const url = require('url')
 let mainWindow
 let loadWindow
+let tray
+let appIcon
 //ggf neue maße: 960 x 640
 let myappwidth = 960;
 let myappheight = 640
@@ -16,6 +19,7 @@ let loadingwindowheight = 160
 
 // Keep a reference for dev mode
 let dev = false
+// public/appIcons/mac/Icon_MyBackup5-Mac.appiconset/Icon_MyBackup5-Mac-64.png
 
 if (process.env.NODE_ENV !== undefined && process.env.NODE_ENV === 'development') {
   dev = true
@@ -24,7 +28,16 @@ if (process.env.NODE_ENV !== undefined && process.env.NODE_ENV === 'development'
 if (process.platform === 'win32') {
   app.commandLine.appendSwitch('high-dpi-support', 'true')
   app.commandLine.appendSwitch('force-device-scale-factor', '1')
+  appIcon = path.join(__dirname, 'public/appIcons/win/Icon_MyBackup5-Win.ico')
 }
+
+if (process.platform === 'darwin') {
+  appIcon = path.join(__dirname, 'public/appIcons/mac/Icon_MyBackup5-Mac.icns')
+}
+if (process.platform === 'linux') {
+  appIcon = path.join(__dirname, 'public/appIcons/linux/Icon_MyBackup5-Linux.png')
+}
+
 //fix performance lags via disable hardware accleration
 app.disableHardwareAcceleration();
 
@@ -55,7 +68,7 @@ function createWindow() {
     useContentSize: true,
     nodeIntegrationInSubFrames: true,
     title: "Loading",
-    icon: path.join(__dirname, 'public/appIcons/win/Icon_MyBackup5-Win.ico'),
+    icon: appIcon,
     webPreferences: {
       zoomFactor: 1.0,
       nodeIntegration: true,
@@ -69,7 +82,7 @@ function createWindow() {
     height: myappheight ,
     show: false,
     autoHideMenuBar: true,
-    icon: path.join(__dirname, 'public/appIcons/win/Icon_MyBackup5-Win.ico'),
+    icon: appIcon,
     frame: false,
     title: appTitle,
     webPreferences: {
@@ -107,6 +120,7 @@ function createWindow() {
   loadWindow.loadURL(indexPath+'#/load')
 
   loadWindow.once('ready-to-show', () => {
+
     loadWindow.show()
     //Loading Window Dev Tools
     // if (dev) {

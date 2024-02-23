@@ -23,3 +23,8 @@ _________
 ### Build Commands
  npm run package (wihtout security)
  ./build-app-asar.sh (via git bash - with asar packaging)
+
+ ### Build on Mac
+ The builded app is currently not working perfectly on mac.
+ - not able to create user-data folder and crashes.
+ - app icon
