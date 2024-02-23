@@ -1,5 +1,5 @@
 Version 0.3:
-  - Editable Backup Nodes (erstellen löschen, icons setzen) 
+  - Editable Backup Nodes (erstellen löschen, icons setzen) 50%
   - Backup Nodes (mit icons) werden in json gespeichert x
   - Fehlermeldungen bei datei problemen x
   - Datei wird neu erstellt falls nicht vorhanden x
@@ -8,15 +8,14 @@ Version 0.3:
 
 Version 0.4:
   - Backup Nodes sind via select All auswählbar x
-  - select all icon zeigt sich nur, wenn minimum 2 items im fenster befinden
-  - Detailansicht bei Backup Item on click
+  - select all icon zeigt sich nur, wenn minimum 2 items im fenster befinden x
+  - Detailansicht bei Backup Item on click x
   - Icons setup für Box Title
   - Backup/ Speicherpfad erstellbar
   - Backup custom icon speicherbar
   - Startup lade Display x
+  - fix card window item text via use state x (div content editable)
 
-
-- fix card window item text via use state
 Version 0.5:
   - Backup Layer?
   - Restore Window lädt Backup Nodes
