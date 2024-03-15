@@ -1,5 +1,5 @@
 Version 0.3:
-  - Editable Backup Nodes (erstellen löschen, icons setzen) 50%
+  - Editable Backup Nodes (erstellen löschen, icons setzen) 70%
   - Backup Nodes (mit icons) werden in json gespeichert x
   - Fehlermeldungen bei datei problemen x
   - Datei wird neu erstellt falls nicht vorhanden x
@@ -33,9 +33,5 @@ Version 0.5:
    - datei encription mit user "login/key" funktioniert oder ist zumindest vorbereitet
    - alle fenster laufen zuverlässig und die app ist public-ready
    - update funktion
-
-
-   _______
-   kill ports:
-   npx kill-port <PORTNUMBER>
+   - funktionsfähigkeit für mac (builded app erstellt daten im user directory)
 

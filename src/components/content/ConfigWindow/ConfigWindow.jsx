@@ -139,6 +139,12 @@ function ConfigWindow({themeValue, setthemeValue,setInitialThemeValue,langValue,
             </ClickOutside>
           <p  className="subtext">{`Language (short): ${langValue}`}</p>
         </BlockDefault>
+        <BlockDefault blocktitle={"Benachrichtigungen"}>
+          <h3>Warnmeldungen</h3>
+          <br/>
+          <p className="subtext">Warnmeldungen anzeigen</p>
+          <br/>
+        </BlockDefault>
         <BlockDefault blocktitle={eLang.block_label_appdata}>
           <h3>Automatisches Speichern</h3>
           <br/>

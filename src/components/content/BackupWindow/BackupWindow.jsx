@@ -45,6 +45,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   const [backupIcon, setBackupIcon] = useState()
   const [backupName, setBackupName] = useState()
   const [backups, setBackups] = useState(backupsUserData)
+  const [showWarnDialogs, setShowWarnDialogs] = useState(true)
   //----------------- Toggle BackupCards -------------------//
   const [toolbar_showDeleteIcon, toolbar_setShowDeleteIcon] = useState(false);
   const [toolbar_showSelectAllIcon, toolbar_setShowSelectAllIcon] = useState(false);
@@ -82,13 +83,24 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
   }
   // --------------------------------------------------- //
   // Delete selected backups
-  function deleteSelectedBackup() {
-    setShowDialog(true)
-    setDialogType('warnconfirm')
-    setDialogText('Delete selected Items?')
-    setDialogButtonTextWarnConfirm('Delete')
-    setDialogButtonTextWarnConfirmAboard('Aboard')
+  function deleteSelectedBackupWarn() {
+
+    if(showWarnDialogs) {
+      setShowDialog(true)
+      setDialogType('warnconfirm')
+      setDialogText('Delete selected Items?')
+      setDialogButtonTextWarnConfirm('Delete')
+      setDialogButtonTextWarnConfirmAboard('Aboard')
+    }else {
+      deleteSelectedBackups()
+    }
   }
+
+  function deleteSelectedBackups() {
+    alert('delete')
+  }
+
+
 
   useEffect(() => {
 
@@ -116,7 +128,7 @@ function BackupWindow({ showCardDetails, setShowCardDetails, navItemSelectedId, 
               <Toolbar showAppWindow={showAppWindow} showCardDetails={showCardDetails} launchButtonStartSelected={launchButtonStartSelected}
                       buttonLaunch_selecedLabel={buttonLaunch_selecedLabel} buttonLaunch_Label={buttonLaunch_Label} addNewBackup={addNewBackup}
                       toggleCheckAllbCards={toggleCheckAllbCards} toggleCheckAll={toggleCheckAll} toolbar_showDeleteIcon={toolbar_showDeleteIcon}
-                      deleteSelectedBackup={deleteSelectedBackup} toolbar_showSelectAllIcon={toolbar_showSelectAllIcon}
+                      deleteSelectedBackupWarn={deleteSelectedBackupWarn} toolbar_showSelectAllIcon={toolbar_showSelectAllIcon}
               />
             </div>
             <div className={classNames('appmainwindow-container backup-container ', {'appmainwindow-container--active': showAppWindow , "" : !showAppWindow })}>

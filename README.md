@@ -9,6 +9,10 @@ install = npm i
 run = npm run start (electron-run alias)
 Used Node Version: 16.13.0
 Installed Java: 11.0.16
+_______
+kill ports:
+npx kill-port <PORTNUMBER>
+
 ### Change window title
 ----------------------
 Enter Window name in the builded index.html project. (resources\app\dist\index.html)

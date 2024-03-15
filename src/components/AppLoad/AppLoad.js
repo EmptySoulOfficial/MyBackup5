@@ -7,9 +7,6 @@ import { appversiondata } from "../../core/AppVersion.js"
 
 function AppLoad() {
 
-  //ToDo: Create new Data Folder!
-
-
   const appVData = appversiondata()
   const appFileId = appVData.app_file_id
 
@@ -108,8 +105,20 @@ function AppLoad() {
           },500)
         }
         if(fs.existsSync(userBackupsPathResolve)){
-          // const userConfig = fs.readFileSync(userConfigPathResolve, 'utf8')
-          //  setPreLoadState(true)
+          //catch error if json is empty / unable to parse
+          try {
+             JSON.parse(userBackupsPathResolve);
+          } catch (error) {
+            setCurrentLoadText("unable to parse "+userBackupsPathResolve)
+            setTimeout(function(){
+              setCurrentLoadText("unlink " + userBackupsPathResolve + "...")
+              fs.unlink(userBackupsPathResolve, err => {
+                if (err) setCurrentLoadText("unable to remove file:", err);
+              });
+              checkUserConfig()
+            },500)
+          }
+
         }else {
           setCurrentLoadText("set up user data...")
 
@@ -163,7 +172,6 @@ function AppLoad() {
       ipcRenderer.send('apppreload-ok')
     },100)
   }
-
 
   return(
     <div className="AppLoad">

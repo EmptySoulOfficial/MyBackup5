@@ -123,12 +123,12 @@ function createWindow() {
 
     loadWindow.show()
     //Loading Window Dev Tools
-    // if (dev) {
-      // const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
-      // installExtension(REACT_DEVELOPER_TOOLS)
-        // .catch(err => console.log('Error loading React DevTools: ', err))
-        // loadWindow.webContents.openDevTools()
-    // }
+    if (dev) {
+      const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+      installExtension(REACT_DEVELOPER_TOOLS)
+        .catch(err => console.log('Error loading React DevTools: ', err))
+        loadWindow.webContents.openDevTools()
+    }
   })
 
   ipcMain.on('close-loading', (evt, arg) => {

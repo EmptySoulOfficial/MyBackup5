@@ -14,23 +14,39 @@ console.log(TemplateUBAMB1FileHeader)
 // MyBackup1 Prop in variable zusammenfassen und in die Templates hineinladen
 // Wenn user config nicht existiert, wird diese auch erstellt und mit einem forststart true ausgefüllt. -> Startet ladebildschirm und user guide
 if(fs.existsSync(backupsFilePath)) {
-
-
+ console.log('🟢 [ParseUserData] backups.mb1 exists.')
 }
 else {
+  writeBackupsMbFile()
+}
+
+function writeBackupsMbFile() {
+  console.log('📝 [ParseUserData] writing backups.mb1.')
   fs.writeFile(backupsFilePath, TemplateUBAMB1FileHeader, (err)=>{
     if(err)
     console.log(err)
   })
 }
+
 const fileContents = fs.readFileSync(backupsFilePath, 'utf8')
 const userDataType_UserBackupArray = 'UBA'
 const userDataType_UserConfig = 'UCONF'
 const userDataVID = '$MyBackup1'
 const userData_errorReturn = 'unabletoread'
 let userdata_backups
+let userdata_backups_stringify
 
-const userdata_backups_stringify = JSON.parse(fileContents)
+
+  try {
+    userdata_backups_stringify = JSON.parse(fileContents)
+  } catch (e) {
+    console.error("❌ [ParseUserData] backups.mb1 ERROR: " + e);
+    console.log('🟢 [ParseUserData] retry...')
+    writeBackupsMbFile()
+    // hier app neustarten oder schließen
+  }
+
+
 
 if (userdata_backups_stringify['data_type'] === userDataType_UserBackupArray) {
   userdata_backups = userdata_backups_stringify[userDataVID] ? userdata_backups_stringify : console.log('ERROR MB1 Filetype')
