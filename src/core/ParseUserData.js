@@ -34,26 +34,14 @@ const userDataType_UserConfig = 'UCONF'
 const userDataVID = '$MyBackup1'
 const userData_errorReturn = 'unabletoread'
 let userdata_backups
-let userdata_backups_stringify
 
-
-  try {
-    userdata_backups_stringify = JSON.parse(fileContents)
-  } catch (e) {
-    console.error("❌ [ParseUserData] backups.mb1 ERROR: " + e);
-    console.log('🟢 [ParseUserData] retry...')
-    writeBackupsMbFile()
-    // hier app neustarten oder schließen
-  }
-
-
+const userdata_backups_stringify = JSON.parse(fileContents)
 
 if (userdata_backups_stringify['data_type'] === userDataType_UserBackupArray) {
   userdata_backups = userdata_backups_stringify[userDataVID] ? userdata_backups_stringify : console.log('ERROR MB1 Filetype')
 } else {
   console.log('Incorrect data type')
 }
-
 
 export const getUserData_BackupsArray = () => userdata_backups[userDataVID]
 export const getUserData_Backups = () => userdata_backups
